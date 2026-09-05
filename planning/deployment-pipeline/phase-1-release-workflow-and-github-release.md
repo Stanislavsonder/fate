@@ -110,7 +110,7 @@ Guards:
 - `cd android && ./gradlew bundleRelease assembleRelease`.
 - Rename + upload: `fate-core-v${version}.aab` as `android-bundle`, `.apk` as `android-apk`.
 
-### Job: `build-ios` (macos-15, needs: prepare)
+### Job: `build-ios` (macos-26, needs: prepare)
 
 - `pnpm build:ios:ci`, then `pod install` in `ios/App` (Pods are gitignored).
 - Write `ASC_PRIVATE_KEY` to `$RUNNER_TEMP/AuthKey_${ASC_KEY_ID}.p8` (`chmod 600`).

@@ -203,10 +203,26 @@ jobs:
 
   build-ios:
     needs: prepare
-    runs-on: macos-15
+    runs-on: macos-26
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
+
+      - name: Select Xcode 26
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '26'
+
+      - name: Require iOS 26 SDK
+        run: |
+          xcodebuild -version
+          SDK=$(xcrun --sdk iphoneos --show-sdk-version)
+          echo "iOS SDK: $SDK"
+          MAJOR="${SDK%%.*}"
+          if [ "$MAJOR" -lt 26 ]; then
+            echo "App Store requires iOS 26 SDK or later (ITMS-90725). Got $SDK."
+            exit 1
+          fi
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

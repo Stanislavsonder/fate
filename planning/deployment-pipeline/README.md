@@ -24,7 +24,7 @@ flowchart TD
     A[workflow_dispatch on main] --> P[prepare<br/>version + sanity checks + release notes]
     P --> W[build-web<br/>ubuntu]
     P --> AND[build-android<br/>ubuntu, signed apk + aab]
-    P --> IOS[build-ios<br/>macos-15, signed ipa]
+    P --> IOS[build-ios<br/>macos-26, signed ipa]
     W --> R[github-release<br/>tag + release + artifacts + CHANGELOG]
     AND --> R
     IOS --> R
