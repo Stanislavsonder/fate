@@ -397,7 +397,6 @@ jobs:
           issuer-id: ${{ secrets.ASC_ISSUER_ID }}
           api-key-id: ${{ secrets.ASC_KEY_ID }}
           api-private-key: ${{ secrets.ASC_PRIVATE_KEY }}
-          uses-non-exempt-encryption: 'false'
           wait-for-processing: 'true'
 
   appstore-submit:

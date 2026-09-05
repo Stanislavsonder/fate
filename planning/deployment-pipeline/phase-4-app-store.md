@@ -6,7 +6,7 @@ Outcome: the release workflow uploads the `.ipa` to App Store Connect, waits for
 
 ## 4a — Upload — `appstore-upload`
 
-Shipped in `.github/workflows/release.yml`. Deltas vs the original snippet: `download-artifact@v7`; `apple-actions/upload-testflight-build@v4` (not v3) so the default `appstore-api` backend runs on **ubuntu-latest**; live-only `if` also requires `main`; `uses-non-exempt-encryption: false` and `wait-for-processing: true`.
+Shipped in `.github/workflows/release.yml`. Deltas vs the original snippet: `download-artifact@v7`; `apple-actions/upload-testflight-build@v4` (not v3) so the default `appstore-api` backend runs on **ubuntu-latest**; live-only `if` also requires `main`; `wait-for-processing: true`. Export compliance comes from `ITSAppUsesNonExemptEncryption` in Info.plist.
 
 ```yaml
 appstore-upload:
@@ -23,7 +23,6 @@ appstore-upload:
         issuer-id: ${{ secrets.ASC_ISSUER_ID }}
         api-key-id: ${{ secrets.ASC_KEY_ID }}
         api-private-key: ${{ secrets.ASC_PRIVATE_KEY }}
-        uses-non-exempt-encryption: 'false'
         wait-for-processing: 'true'
 ```
 
@@ -73,7 +72,7 @@ appstore-submit:
 
 - **Current state (2026-08-25): the app's FIRST version is still in review** (app `6782209520`). ASC allows only **one version in review at a time**, so auto-submit cannot complete until that version is approved and released. Build **uploads** (4a) work regardless. The script detects an existing in-review / inflight version and skips (exit 0) rather than failing the Release.
 - The **first fully-automated submit should be watched**: version state must be "Prepared for Submission" before submit; leftover half-created versions in ASC from past manual releases can conflict (script handles "version already exists" by reusing it).
-- `ITSAppUsesNonExemptEncryption` in Info.plist (Phase 0.3) is required — otherwise the build sits in "Missing Compliance" and step 3 never yields a submittable build. The upload action also sets `uses-non-exempt-encryption: false`.
+- `ITSAppUsesNonExemptEncryption` in Info.plist (Phase 0.3) is required — otherwise the build sits in "Missing Compliance" and step 3 never yields a submittable build. Do not also pass `uses-non-exempt-encryption` to the upload action: Apple already applies the plist value, and a second PATCH returns 409 ("You cannot update when the value is already set").
 - Phased release, screenshots/description updates are out of scope here (Phase 5); the script only ships a new build + what's-new.
 - If Apple **rejects** the review, resolution is manual in ASC (respond/fix, then re-run the release with a bumped version).
 
