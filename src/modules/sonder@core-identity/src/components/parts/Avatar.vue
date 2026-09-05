@@ -25,7 +25,7 @@ function handleFileChange(event: Event) {
 	if (file) {
 		if (file.size > context.value.constants.MAX_AVATAR_FILE_SIZE!) {
 			alert(
-				t('errors.avatar.fileSize', {
+				t('sonder@core-identity.errors.fileSize', {
 					value: context.value.constants.MAX_AVATAR_FILE_SIZE! / 1024 / 1024
 				})
 			)
