@@ -5,7 +5,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Stanislavsonder/fate-core.git",
+		"url": "git+https://github.com/Stanislavsonder/fate.git",
 		"directory": "packages/mod-types"
 	},
 	"type": "module",

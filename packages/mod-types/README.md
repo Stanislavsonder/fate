@@ -8,7 +8,7 @@ Exports `defineFateMod`, `getModData`/`setModData`, `validateBundleShape`, and
 the vendored `registry.schema.json` used to validate a mod's `manifest.json`.
 
 Full author-facing documentation lives in the app repo's
-[`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate-core/blob/main/docs/MOD_API.md).
+[`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md).
 Submitting a mod to the public registry: see
 [`fate-core-mods`](https://github.com/Stanislavsonder/fate-core-mods)'s
 `SUBMITTING.md`.

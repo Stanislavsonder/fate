@@ -214,7 +214,7 @@ adding this folder under \`mods/${answers.id}/\`.
 
 ## API reference
 
-See [\`docs/MOD_API.md\`](https://github.com/Stanislavsonder/fate-core/blob/main/docs/MOD_API.md)
+See [\`docs/MOD_API.md\`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md)
 in the app repo for the full contract this mod is built against (manifest
 shape, \`window.FateSDK\`, capabilities, lifecycle hooks).
 `

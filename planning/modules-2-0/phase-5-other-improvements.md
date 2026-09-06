@@ -92,7 +92,7 @@ notes). Worth a manual pass before calling Phase 4 fully closed.
 The 7-day token used for the `1.1.0` release is not sustainable. Once
 logged into npmjs.com: for each of `@fate-core/mod-types`,
 `@fate-core/mod-build`, and `create-fate-mod` → Settings → Trusted
-Publisher → GitHub Actions → repo `Stanislavsonder/fate-core`, workflow
+Publisher → GitHub Actions → repo `Stanislavsonder/fate`, workflow
 `publish-sdk.yml`, environment none. `publish-sdk.yml` already has
 `id-token: write` and `--provenance` — no workflow change needed. After
 all three are configured, delete the `NPM_TOKEN` repo secret; the next tag

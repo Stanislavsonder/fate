@@ -16,7 +16,7 @@ export default defineModConfig()
 built bundle's shape outside a real app (used by the registry's CI).
 
 Full author-facing documentation lives in the app repo's
-[`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate-core/blob/main/docs/MOD_API.md).
+[`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md).
 Scaffold a new mod project with `pnpm create fate-mod` rather than hand-rolling
 this config.
 

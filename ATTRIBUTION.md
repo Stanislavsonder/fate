@@ -38,7 +38,7 @@ endorses or is affiliated with this app or its developer.
 ## App license
 
 The source code of this app is released under the MIT License and is available at
-[github.com/Stanislavsonder/fate-core](https://github.com/Stanislavsonder/fate).
+[github.com/Stanislavsonder/fate](https://github.com/Stanislavsonder/fate).
 The MIT License applies to the app's own source code only — it does not apply to the Fate
 rules text described above, which remains under the Creative Commons Attribution 3.0 Unported
 license, nor to any Evil Hat Productions trademark or logo.
