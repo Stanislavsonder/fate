@@ -129,6 +129,7 @@
 		},
 		"export": "ייצא תצורת מודולים",
 		"exportSuccess": "המודולים יוצאו בהצלחה!",
+		"external": "חיצוני",
 		"import": {
 			"error": {
 				"extension": "לא ניתן לייבא את המודולים. סיומת הקובץ חייבת להיות .fmod",
@@ -196,12 +197,105 @@
 			"title": "אודות האפליקציה",
 			"version": "גרסה"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "הצג מידע לניפוי באגים",
+				"toggleDescription": "מציג כלי ניפוי באגים נוספים באפליקציה — מנפה באגים של פיזיקת הקוביות ודפי מפתח מוסתרים."
+			},
+			"devMod": {
+				"connect": "התחבר",
+				"connected": "מחובר אל \"{id}\"",
+				"disconnect": "נתק",
+				"error": "לא ניתן להתחבר למוד הפיתוח. {error}",
+				"title": "התחברות למוד פיתוח",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "אתה מתקין את \"{id}\" מחוץ לרישום שנבדק. הוא יפעל עם גישה מלאה לאפליקציה ולנתוני הדמויות. הקלד \"{id}\" או \"install\" לאישור.",
+				"confirmPlaceholder": "הקלד לאישור",
+				"confirmTitle": "להתקין קוד חיצוני?",
+				"error": "לא ניתן להתקין את המוד. {error}",
+				"install": "התקן",
+				"success": "\"{id}\" הותקן",
+				"title": "התקנה מכתובת URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "הפנה את חנות המודים לרישום staging במקום האמיתי. השאר ריק לשימוש בברירת המחדל.",
+				"save": "שמור",
+				"title": "דריסת כתובת הבסיס של הרישום"
+			},
+			"title": "מפתח",
+			"toggle": "מצב מפתח",
+			"toggleDescription": "מאפשר התקנת מודים מכתובת URL. רק למחברים ולבודקים — למודים יש גישה מלאה לאפליקציה."
+		},
 		"language": "שפה",
+		"mods": {
+			"actions": {
+				"disable": "השבת",
+				"enable": "הפעל",
+				"remove": "הסר",
+				"retry": "נסה שוב",
+				"update": "עדכן"
+			},
+			"blocked": "\"{id}\" הושבת — הגרסה סומנה כלא בטוחה. בדוק בחנות המודים אם יש עדכון.",
+			"browse": {
+				"compatibleOnly": "רק תואמים לאפליקציה זו",
+				"empty": "לא נמצאו מודים",
+				"incompatible": "לא תואם לגרסת האפליקציה הזו",
+				"loadError": "לא ניתן לטעון את חנות המודים. {error}",
+				"offline": "לא ניתן לרענן — מוצגות תוצאות מהמטמון",
+				"searchPlaceholder": "חיפוש מודים",
+				"stale": "מוצגות תוצאות מהמטמון — משוך לרענון"
+			},
+			"detail": {
+				"author": "מאת {name}",
+				"config": "אפשרויות תצורה",
+				"install": "התקן",
+				"installed": "מותקן",
+				"readme": "אודות",
+				"remove": "הסר",
+				"update": "עדכן",
+				"updateAvailable": "עדכון זמין",
+				"versions": "גרסאות"
+			},
+			"empty": "אין מודים מותקנים",
+			"errors": {
+				"action": "לא ניתן להשלים את הפעולה. {error}",
+				"list": "לא ניתן לטעון מודים מותקנים. {error}"
+			},
+			"installSuccess": "\"{id}\" הותקן",
+			"removeBlocked": "עדיין בשימוש על ידי: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "רישום",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "מושבת",
+				"errored": "שגיאה",
+				"loaded": "נטען"
+			},
+			"tabs": {
+				"browse": "עיון",
+				"installed": "מותקנים"
+			},
+			"title": "מודים",
+			"updateSuccess": "\"{id}\" עודכן"
+		},
 		"theme": {
 			"dark": "כהה",
+			"defaultSkin": "ברירת מחדל",
 			"light": "בהיר",
 			"system": "מערכת",
 			"title": "ערכת נושא"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "התקן את \"{module}\" מחנות המודים",
+			"notInstalled": "\"{module}\" אינו מותקן",
+			"openModStore": "פתח את חנות המודים"
 		}
 	},
 	"tabs": {

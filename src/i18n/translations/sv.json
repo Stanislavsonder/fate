@@ -129,6 +129,7 @@
 		},
 		"export": "Exportera modulkonfiguration",
 		"exportSuccess": "Moduler exporterades framgångsrikt!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Kunde inte importera moduler. Filändelsen måste vara .fmod",
@@ -196,12 +197,105 @@
 			"title": "Om appen",
 			"version": "Version"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Visa felsökningsinformation",
+				"toggleDescription": "Visar extra felsökningsverktyg i appen — tärningsfysik-debuggern och dolda utvecklarssidor."
+			},
+			"devMod": {
+				"connect": "Anslut",
+				"connected": "Ansluten till \"{id}\"",
+				"disconnect": "Koppla från",
+				"error": "Kunde inte ansluta till utvecklingsmod. {error}",
+				"title": "Anslut utvecklingsmod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Du installerar \"{id}\" utanför det granskade registret. Den får full åtkomst till appen och dina karaktärsdata. Skriv \"{id}\" eller \"install\" för att bekräfta.",
+				"confirmPlaceholder": "Skriv för att bekräfta",
+				"confirmTitle": "Installera extern kod?",
+				"error": "Kunde inte installera mod. {error}",
+				"install": "Installera",
+				"success": "\"{id}\" installerad",
+				"title": "Installera från URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Peka Mod Store mot ett staging-register i stället för det riktiga. Lämna tomt för att använda standard.",
+				"save": "Spara",
+				"title": "Åsidosätt registrets bas-URL"
+			},
+			"title": "Utvecklare",
+			"toggle": "Utvecklarläge",
+			"toggleDescription": "Tillåter installation av mods från en URL. Endast för författare och testare — mods har full åtkomst till appen."
+		},
 		"language": "Språk",
+		"mods": {
+			"actions": {
+				"disable": "Inaktivera",
+				"enable": "Aktivera",
+				"remove": "Ta bort",
+				"retry": "Försök igen",
+				"update": "Uppdatera"
+			},
+			"blocked": "\"{id}\" inaktiverades — den här versionen flaggades som osäker. Kolla Mod Store efter en uppdatering.",
+			"browse": {
+				"compatibleOnly": "Endast kompatibla med den här appen",
+				"empty": "Inga mods hittades",
+				"incompatible": "Inte kompatibel med den här appversionen",
+				"loadError": "Kunde inte läsa in Mod Store. {error}",
+				"offline": "Kunde inte uppdatera — visar cachade resultat",
+				"searchPlaceholder": "Sök mods",
+				"stale": "Visar cachade resultat — dra för att uppdatera"
+			},
+			"detail": {
+				"author": "Av {name}",
+				"config": "Konfigurationsalternativ",
+				"install": "Installera",
+				"installed": "Installerad",
+				"readme": "Om",
+				"remove": "Ta bort",
+				"update": "Uppdatera",
+				"updateAvailable": "Uppdatering tillgänglig",
+				"versions": "Versioner"
+			},
+			"empty": "Inga mods installerade",
+			"errors": {
+				"action": "Åtgärden kunde inte slutföras. {error}",
+				"list": "Kunde inte läsa in installerade mods. {error}"
+			},
+			"installSuccess": "\"{id}\" installerad",
+			"removeBlocked": "Används fortfarande av: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Register",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Inaktiverad",
+				"errored": "Fel",
+				"loaded": "Inläst"
+			},
+			"tabs": {
+				"browse": "Bläddra",
+				"installed": "Installerade"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" uppdaterad"
+		},
 		"theme": {
 			"dark": "Mörkt",
+			"defaultSkin": "Standard",
 			"light": "Ljust",
 			"system": "System",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installera \"{module}\" från Mod Store",
+			"notInstalled": "\"{module}\" är inte installerad",
+			"openModStore": "Öppna Mod Store"
 		}
 	},
 	"tabs": {

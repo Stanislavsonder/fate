@@ -129,6 +129,7 @@
 		},
 		"export": "Exportovat konfiguraci modulů",
 		"exportSuccess": "Moduly byly úspěšně exportovány!",
+		"external": "Externí",
 		"import": {
 			"error": {
 				"extension": "Nelze importovat moduly. Přípona souboru musí být .fmod",
@@ -196,12 +197,105 @@
 			"title": "O aplikaci",
 			"version": "Verze"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Zobrazit ladicí informace",
+				"toggleDescription": "Zobrazí další ladicí nástroje v aplikaci — debugger fyziky kostek a skryté vývojářské stránky."
+			},
+			"devMod": {
+				"connect": "Připojit",
+				"connected": "Připojeno k „{id}“",
+				"disconnect": "Odpojit",
+				"error": "Nepodařilo se připojit k vývojářskému modu. {error}",
+				"title": "Připojit vývojářský mod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Instalujete „{id}“ mimo ověřený registr. Bude mít plný přístup k aplikaci a datům postav. Pro potvrzení zadejte „{id}“ nebo „install“.",
+				"confirmPlaceholder": "Zadejte pro potvrzení",
+				"confirmTitle": "Nainstalovat externí kód?",
+				"error": "Mod se nepodařilo nainstalovat. {error}",
+				"install": "Nainstalovat",
+				"success": "„{id}“ nainstalován",
+				"title": "Nainstalovat z URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Nasměrujte Mod Store na staging registr místo ostrého. Nechte prázdné pro výchozí.",
+				"save": "Uložit",
+				"title": "Přepsat základní URL registru"
+			},
+			"title": "Vývojář",
+			"toggle": "Vývojářský režim",
+			"toggleDescription": "Umožňuje instalovat mody z URL. Pouze pro autory a testery — mody mají plný přístup k aplikaci."
+		},
 		"language": "Jazyk",
+		"mods": {
+			"actions": {
+				"disable": "Deaktivovat",
+				"enable": "Aktivovat",
+				"remove": "Odebrat",
+				"retry": "Zkusit znovu",
+				"update": "Aktualizovat"
+			},
+			"blocked": "„{id}“ byl deaktivován — tato verze byla označena jako nebezpečná. Zkontrolujte aktualizaci v Mod Store.",
+			"browse": {
+				"compatibleOnly": "Pouze kompatibilní s touto aplikací",
+				"empty": "Žádné mody nenalezeny",
+				"incompatible": "Nekompatibilní s touto verzí aplikace",
+				"loadError": "Nepodařilo se načíst Mod Store. {error}",
+				"offline": "Obnovení selhalo — zobrazují se výsledky z mezipaměti",
+				"searchPlaceholder": "Hledat mody",
+				"stale": "Výsledky z mezipaměti — potáhněte pro obnovení"
+			},
+			"detail": {
+				"author": "Autor: {name}",
+				"config": "Možnosti konfigurace",
+				"install": "Nainstalovat",
+				"installed": "Nainstalováno",
+				"readme": "O modu",
+				"remove": "Odebrat",
+				"update": "Aktualizovat",
+				"updateAvailable": "Dostupná aktualizace",
+				"versions": "Verze"
+			},
+			"empty": "Žádné nainstalované mody",
+			"errors": {
+				"action": "Akci se nepodařilo dokončit. {error}",
+				"list": "Nepodařilo se načíst nainstalované mody. {error}"
+			},
+			"installSuccess": "„{id}“ nainstalován",
+			"removeBlocked": "Stále používáno: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registr",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktivováno",
+				"errored": "Chyba",
+				"loaded": "Načteno"
+			},
+			"tabs": {
+				"browse": "Procházet",
+				"installed": "Nainstalované"
+			},
+			"title": "Mody",
+			"updateSuccess": "„{id}“ aktualizován"
+		},
 		"theme": {
 			"dark": "Tmavé",
+			"defaultSkin": "Výchozí",
 			"light": "Světlé",
 			"system": "Systém",
 			"title": "Téma"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Nainstalovat „{module}“ z Mod Store",
+			"notInstalled": "„{module}“ není nainstalován",
+			"openModStore": "Otevřít Mod Store"
 		}
 	},
 	"tabs": {

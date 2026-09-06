@@ -129,6 +129,7 @@
 		},
 		"export": "Eksportuj konfigurację modułów",
 		"exportSuccess": "Moduły zostały pomyślnie wyeksportowane!",
+		"external": "Zewnętrzne",
 		"import": {
 			"error": {
 				"extension": "Nie można zaimportować modułów. Rozszerzenie pliku musi być .fmod",
@@ -196,12 +197,105 @@
 			"title": "O aplikacji",
 			"version": "Wersja"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Pokaż informacje debugowania",
+				"toggleDescription": "Pokazuje dodatkowe narzędzia debugowania w aplikacji — debugger fizyki kości i ukryte strony deweloperskie."
+			},
+			"devMod": {
+				"connect": "Połącz",
+				"connected": "Połączono z „{id}”",
+				"disconnect": "Rozłącz",
+				"error": "Nie udało się połączyć z modem deweloperskim. {error}",
+				"title": "Połącz mod deweloperski",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Instalujesz „{id}” spoza sprawdzonego rejestru. Będzie miał pełny dostęp do aplikacji i danych postaci. Wpisz „{id}” lub „install”, aby potwierdzić.",
+				"confirmPlaceholder": "Wpisz, aby potwierdzić",
+				"confirmTitle": "Zainstalować zewnętrzny kod?",
+				"error": "Nie udało się zainstalować moda. {error}",
+				"install": "Zainstaluj",
+				"success": "Zainstalowano „{id}”",
+				"title": "Zainstaluj z URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Skieruj Mod Store na rejestr staging zamiast produkcyjnego. Pozostaw puste, aby użyć domyślnego.",
+				"save": "Zapisz",
+				"title": "Nadpisz bazowy URL rejestru"
+			},
+			"title": "Deweloper",
+			"toggle": "Tryb deweloperski",
+			"toggleDescription": "Umożliwia instalację modów z URL. Tylko dla autorów i testerów — mody mają pełny dostęp do aplikacji."
+		},
 		"language": "Język",
+		"mods": {
+			"actions": {
+				"disable": "Wyłącz",
+				"enable": "Włącz",
+				"remove": "Usuń",
+				"retry": "Ponów",
+				"update": "Aktualizuj"
+			},
+			"blocked": "„{id}” został wyłączony — ta wersja została oznaczona jako niebezpieczna. Sprawdź aktualizację w Mod Store.",
+			"browse": {
+				"compatibleOnly": "Tylko zgodne z tą aplikacją",
+				"empty": "Nie znaleziono modów",
+				"incompatible": "Niezgodne z tą wersją aplikacji",
+				"loadError": "Nie udało się wczytać Mod Store. {error}",
+				"offline": "Nie udało się odświeżyć — wyświetlane są wyniki z pamięci podręcznej",
+				"searchPlaceholder": "Szukaj modów",
+				"stale": "Wyniki z pamięci podręcznej — przeciągnij, aby odświeżyć"
+			},
+			"detail": {
+				"author": "Autor: {name}",
+				"config": "Opcje konfiguracji",
+				"install": "Zainstaluj",
+				"installed": "Zainstalowano",
+				"readme": "O modzie",
+				"remove": "Usuń",
+				"update": "Aktualizuj",
+				"updateAvailable": "Dostępna aktualizacja",
+				"versions": "Wersje"
+			},
+			"empty": "Brak zainstalowanych modów",
+			"errors": {
+				"action": "Nie udało się wykonać akcji. {error}",
+				"list": "Nie udało się wczytać zainstalowanych modów. {error}"
+			},
+			"installSuccess": "Zainstalowano „{id}”",
+			"removeBlocked": "Nadal używany przez: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Rejestr",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Wyłączony",
+				"errored": "Błąd",
+				"loaded": "Załadowany"
+			},
+			"tabs": {
+				"browse": "Przeglądaj",
+				"installed": "Zainstalowane"
+			},
+			"title": "Mody",
+			"updateSuccess": "Zaktualizowano „{id}”"
+		},
 		"theme": {
 			"dark": "Ciemny",
+			"defaultSkin": "Domyślny",
 			"light": "Jasny",
 			"system": "System",
 			"title": "Motyw"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Zainstaluj „{module}” z Mod Store",
+			"notInstalled": "„{module}” nie jest zainstalowany",
+			"openModStore": "Otwórz Mod Store"
 		}
 	},
 	"tabs": {

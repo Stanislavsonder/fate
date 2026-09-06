@@ -129,6 +129,7 @@
 		},
 		"export": "Hamisha usanidi wa moduli",
 		"exportSuccess": "Moduli zimesafirishwa kwa mafanikio!",
+		"external": "Nje",
 		"import": {
 			"error": {
 				"extension": "Haiwezekani kuingiza moduli. Kiendelezi cha faili kinapaswa kuwa .fmod",
@@ -196,12 +197,105 @@
 			"title": "Kuhusu Programu",
 			"version": "Toleo"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Onyesha maelezo ya urekebishaji",
+				"toggleDescription": "Inaonyesha zana za ziada za urekebishaji kwenye programu — kirekebishaji cha fizikia ya kete na kurasa za msanidi zilizofichwa."
+			},
+			"devMod": {
+				"connect": "Unganisha",
+				"connected": "Imeunganishwa kwa \"{id}\"",
+				"disconnect": "Katisha",
+				"error": "Imeshindwa kuunganisha kwa modi ya maendeleo. {error}",
+				"title": "Unganisha modi ya maendeleo",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Unasakinisha \"{id}\" nje ya rejista iliyokaguliwa. Itaendeshwa kwa ufikiaji kamili wa programu na data ya wahusika wako. Andika \"{id}\" au \"install\" kuthibitisha.",
+				"confirmPlaceholder": "Andika kuthibitisha",
+				"confirmTitle": "Sakinisha msimbo wa nje?",
+				"error": "Imeshindwa kusakinisha modi. {error}",
+				"install": "Sakinisha",
+				"success": "\"{id}\" imesakinishwa",
+				"title": "Sakinisha kutoka URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Elekeza Duka la Modi kwenye rejista ya majaribio badala ya halisi. Acha tupu kutumia chaguo-msingi.",
+				"save": "Hifadhi",
+				"title": "Batilisha URL ya msingi ya rejista"
+			},
+			"title": "Msanidi",
+			"toggle": "Hali ya Msanidi",
+			"toggleDescription": "Inaruhusu kusakinisha modi kutoka URL. Kwa waandishi na wajaribu pekee — modi huendeshwa kwa ufikiaji kamili wa programu."
+		},
 		"language": "Lugha",
+		"mods": {
+			"actions": {
+				"disable": "Zima",
+				"enable": "Washa",
+				"remove": "Ondoa",
+				"retry": "Jaribu tena",
+				"update": "Sasisha"
+			},
+			"blocked": "\"{id}\" imezimwa — toleo hili limewekwa alama kuwa si salama. Angalia Duka la Modi kwa sasisho.",
+			"browse": {
+				"compatibleOnly": "Zinazolingana na programu hii pekee",
+				"empty": "Hakuna modi zilizopatikana",
+				"incompatible": "Hailingani na toleo hili la programu",
+				"loadError": "Imeshindwa kupakia Duka la Modi. {error}",
+				"offline": "Imeshindwa kuonyesha upya — matokeo yaliyohifadhiwa yanaonyeshwa",
+				"searchPlaceholder": "Tafuta modi",
+				"stale": "Matokeo yaliyohifadhiwa yanaonyeshwa — vuta kuonyesha upya"
+			},
+			"detail": {
+				"author": "Na {name}",
+				"config": "Chaguo za usanidi",
+				"install": "Sakinisha",
+				"installed": "Imesakinishwa",
+				"readme": "Kuhusu",
+				"remove": "Ondoa",
+				"update": "Sasisha",
+				"updateAvailable": "Sasisho linapatikana",
+				"versions": "Matoleo"
+			},
+			"empty": "Hakuna modi zilizosakinishwa",
+			"errors": {
+				"action": "Imeshindwa kukamilisha kitendo. {error}",
+				"list": "Imeshindwa kupakia modi zilizosakinishwa. {error}"
+			},
+			"installSuccess": "\"{id}\" imesakinishwa",
+			"removeBlocked": "Bado inatumika na: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Rejista",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Imezimwa",
+				"errored": "Hitilafu",
+				"loaded": "Imepakiwa"
+			},
+			"tabs": {
+				"browse": "Vinjari",
+				"installed": "Zilizosakinishwa"
+			},
+			"title": "Modi",
+			"updateSuccess": "\"{id}\" imesasishwa"
+		},
 		"theme": {
 			"dark": "Giza",
+			"defaultSkin": "Chaguo-msingi",
 			"light": "Mwanga",
 			"system": "Mfumo",
 			"title": "Mandhari"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Sakinisha \"{module}\" kutoka Duka la Modi",
+			"notInstalled": "\"{module}\" haijasakinishwa",
+			"openModStore": "Fungua Duka la Modi"
 		}
 	},
 	"tabs": {

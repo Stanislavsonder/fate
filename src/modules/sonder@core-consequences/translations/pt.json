@@ -1,7 +1,33 @@
 {
+	"add": "Adicionar campo de consequência",
 	"description": {
 		"full": "Adiciona a seção de Consequências do Fate Core à ficha de personagem para rastrear consequências.",
 		"short": "Adiciona a seção de Consequências do Fate Core"
 	},
-	"name": "Fate Core Consequências"
+	"edit": "Editar campos de consequência",
+	"empty": "Nenhum campo de consequência adicionado ainda.",
+	"label": "Consequências",
+	"level": "Nível de consequência",
+	"list": "Campos de consequência",
+	"locked": "O campo de consequência está bloqueado. Clique para desbloquear.",
+	"lockedType": "Campo de consequência {value} bloqueado",
+	"name": "Fate Core Consequências",
+	"remove": "Remover campo de consequência",
+	"stressLevel": "Nível de estresse",
+	"type": {
+		"mild": {
+			"description": "Uma consequência leve é um ferimento ou contratempo menor.",
+			"name": "Leve"
+		},
+		"moderate": {
+			"description": "Uma consequência moderada é um ferimento ou contratempo significativo.",
+			"name": "Moderada"
+		},
+		"severe": {
+			"description": "Uma consequência grave é um ferimento ou contratempo sério.",
+			"name": "Grave"
+		}
+	},
+	"unlocked": "O campo de consequência está desbloqueado. Clique para bloquear.",
+	"unlockedType": "Campo de consequência {value} desbloqueado"
 }

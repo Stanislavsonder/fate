@@ -129,6 +129,7 @@
 		},
 		"export": "ส่งออกการตั้งค่าโมดูล",
 		"exportSuccess": "โมดูลถูกส่งออกเรียบร้อยแล้ว!",
+		"external": "ภายนอก",
 		"import": {
 			"error": {
 				"extension": "ไม่สามารถนำเข้าโมดูลได้ ส่วนขยายไฟล์ต้องเป็น .fmod",
@@ -196,12 +197,105 @@
 			"title": "เกี่ยวกับแอป",
 			"version": "เวอร์ชัน"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "แสดงข้อมูลดีบัก",
+				"toggleDescription": "แสดงเครื่องมือดีบักเพิ่มเติมในแอป — ดีบักเกอร์ฟิสิกส์ลูกเต๋าและหน้านักพัฒนาที่ซ่อนอยู่"
+			},
+			"devMod": {
+				"connect": "เชื่อมต่อ",
+				"connected": "เชื่อมต่อกับ \"{id}\" แล้ว",
+				"disconnect": "ตัดการเชื่อมต่อ",
+				"error": "เชื่อมต่อกับม็อดสำหรับนักพัฒนาไม่ได้ {error}",
+				"title": "เชื่อมต่อม็อดสำหรับนักพัฒนา",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "คุณกำลังติดตั้ง \"{id}\" จากนอกทะเบียนที่ผ่านการตรวจสอบ มันจะทำงานด้วยสิทธิ์เข้าถึงแอปและข้อมูลตัวละครเต็มรูปแบบ พิมพ์ \"{id}\" หรือ \"install\" เพื่อยืนยัน",
+				"confirmPlaceholder": "พิมพ์เพื่อยืนยัน",
+				"confirmTitle": "ติดตั้งโค้ดภายนอก?",
+				"error": "ติดตั้งม็อดไม่ได้ {error}",
+				"install": "ติดตั้ง",
+				"success": "ติดตั้ง \"{id}\" แล้ว",
+				"title": "ติดตั้งจาก URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "ชี้ Mod Store ไปยังทะเบียน staging แทนของจริง เว้นว่างเพื่อใช้ค่าเริ่มต้น",
+				"save": "บันทึก",
+				"title": "แทนที่ URL ฐานของทะเบียน"
+			},
+			"title": "นักพัฒนา",
+			"toggle": "โหมดนักพัฒนา",
+			"toggleDescription": "เปิดให้ติดตั้งม็อดจาก URL สำหรับผู้เขียนและผู้ทดสอบเท่านั้น — ม็อดทำงานด้วยสิทธิ์เข้าถึงแอปเต็มรูปแบบ"
+		},
 		"language": "ภาษา",
+		"mods": {
+			"actions": {
+				"disable": "ปิดใช้งาน",
+				"enable": "เปิดใช้งาน",
+				"remove": "ลบ",
+				"retry": "ลองอีกครั้ง",
+				"update": "อัปเดต"
+			},
+			"blocked": "\"{id}\" ถูกปิดใช้งาน — เวอร์ชันนี้ถูกทำเครื่องหมายว่าไม่ปลอดภัย ตรวจสอบการอัปเดตใน Mod Store",
+			"browse": {
+				"compatibleOnly": "เฉพาะที่เข้ากันกับแอปนี้",
+				"empty": "ไม่พบม็อด",
+				"incompatible": "ไม่เข้ากันกับเวอร์ชันแอปนี้",
+				"loadError": "โหลด Mod Store ไม่ได้ {error}",
+				"offline": "รีเฟรชไม่ได้ — กำลังแสดงผลลัพธ์ที่แคชไว้",
+				"searchPlaceholder": "ค้นหาม็อด",
+				"stale": "กำลังแสดงผลลัพธ์ที่แคชไว้ — ดึงลงเพื่อรีเฟรช"
+			},
+			"detail": {
+				"author": "โดย {name}",
+				"config": "ตัวเลือกการตั้งค่า",
+				"install": "ติดตั้ง",
+				"installed": "ติดตั้งแล้ว",
+				"readme": "เกี่ยวกับ",
+				"remove": "ลบ",
+				"update": "อัปเดต",
+				"updateAvailable": "มีอัปเดต",
+				"versions": "เวอร์ชัน"
+			},
+			"empty": "ไม่มีม็อดที่ติดตั้ง",
+			"errors": {
+				"action": "ดำเนินการไม่สำเร็จ {error}",
+				"list": "โหลดม็อดที่ติดตั้งไม่ได้ {error}"
+			},
+			"installSuccess": "ติดตั้ง \"{id}\" แล้ว",
+			"removeBlocked": "ยังถูกใช้โดย: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "ทะเบียน",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "ปิดใช้งาน",
+				"errored": "ข้อผิดพลาด",
+				"loaded": "โหลดแล้ว"
+			},
+			"tabs": {
+				"browse": "เรียกดู",
+				"installed": "ติดตั้งแล้ว"
+			},
+			"title": "ม็อด",
+			"updateSuccess": "อัปเดต \"{id}\" แล้ว"
+		},
 		"theme": {
 			"dark": "มืด",
+			"defaultSkin": "ค่าเริ่มต้น",
 			"light": "สว่าง",
 			"system": "ระบบ",
 			"title": "ธีม"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "ติดตั้ง \"{module}\" จาก Mod Store",
+			"notInstalled": "ยังไม่ได้ติดตั้ง \"{module}\"",
+			"openModStore": "เปิด Mod Store"
 		}
 	},
 	"tabs": {

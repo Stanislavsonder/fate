@@ -129,6 +129,7 @@
 		},
 		"export": "导出模块配置",
 		"exportSuccess": "模块导出成功！",
+		"external": "外部",
 		"import": {
 			"error": {
 				"extension": "无法导入模块。文件扩展名必须为 .fmod",
@@ -196,12 +197,105 @@
 			"title": "关于应用",
 			"version": "版本"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "显示调试信息",
+				"toggleDescription": "在应用中显示额外的调试工具——骰子物理调试器和隐藏的开发者页面。"
+			},
+			"devMod": {
+				"connect": "连接",
+				"connected": "已连接到“{id}”",
+				"disconnect": "断开",
+				"error": "无法连接到开发模组。{error}",
+				"title": "连接开发模组",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "你正在从已审核注册表之外安装“{id}”。它将拥有对应用和角色数据的完全访问权限。输入“{id}”或“install”以确认。",
+				"confirmPlaceholder": "输入以确认",
+				"confirmTitle": "安装外部代码？",
+				"error": "无法安装模组。{error}",
+				"install": "安装",
+				"success": "已安装“{id}”",
+				"title": "从 URL 安装",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "将模组商店指向预发布注册表而非正式注册表。留空以使用默认值。",
+				"save": "保存",
+				"title": "覆盖注册表基础 URL"
+			},
+			"title": "开发者",
+			"toggle": "开发者模式",
+			"toggleDescription": "允许从 URL 安装模组。仅供作者和测试人员使用——模组拥有对应用的完全访问权限。"
+		},
 		"language": "语言",
+		"mods": {
+			"actions": {
+				"disable": "禁用",
+				"enable": "启用",
+				"remove": "移除",
+				"retry": "重试",
+				"update": "更新"
+			},
+			"blocked": "“{id}”已禁用——该版本被标记为不安全。请在模组商店检查更新。",
+			"browse": {
+				"compatibleOnly": "仅显示与此应用兼容的",
+				"empty": "未找到模组",
+				"incompatible": "与此应用版本不兼容",
+				"loadError": "无法加载模组商店。{error}",
+				"offline": "无法刷新——正在显示缓存结果",
+				"searchPlaceholder": "搜索模组",
+				"stale": "正在显示缓存结果——下拉刷新"
+			},
+			"detail": {
+				"author": "作者：{name}",
+				"config": "配置选项",
+				"install": "安装",
+				"installed": "已安装",
+				"readme": "关于",
+				"remove": "移除",
+				"update": "更新",
+				"updateAvailable": "有可用更新",
+				"versions": "版本"
+			},
+			"empty": "未安装模组",
+			"errors": {
+				"action": "无法完成操作。{error}",
+				"list": "无法加载已安装的模组。{error}"
+			},
+			"installSuccess": "已安装“{id}”",
+			"removeBlocked": "仍被以下角色使用：{characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "注册表",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "已禁用",
+				"errored": "错误",
+				"loaded": "已加载"
+			},
+			"tabs": {
+				"browse": "浏览",
+				"installed": "已安装"
+			},
+			"title": "模组",
+			"updateSuccess": "已更新“{id}”"
+		},
 		"theme": {
 			"dark": "深色",
+			"defaultSkin": "默认",
 			"light": "浅色",
 			"system": "系统",
 			"title": "主题"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "从模组商店安装“{module}”",
+			"notInstalled": "“{module}”未安装",
+			"openModStore": "打开模组商店"
 		}
 	},
 	"tabs": {

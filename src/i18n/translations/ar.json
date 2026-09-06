@@ -129,6 +129,7 @@
 		},
 		"export": "تصدير تكوين الوحدات",
 		"exportSuccess": "تم تصدير الوحدات بنجاح!",
+		"external": "خارجي",
 		"import": {
 			"error": {
 				"extension": "تعذر استيراد الوحدات. يجب أن يكون امتداد الملف .fmod",
@@ -196,12 +197,105 @@
 			"title": "حول التطبيق",
 			"version": "الإصدار"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "إظهار معلومات التصحيح",
+				"toggleDescription": "يعرض أدوات تصحيح إضافية في التطبيق — مصحح فيزياء النرد وصفحات المطوّر المخفية."
+			},
+			"devMod": {
+				"connect": "اتصال",
+				"connected": "متصل بـ \"{id}\"",
+				"disconnect": "قطع الاتصال",
+				"error": "تعذّر الاتصال بمود التطوير. {error}",
+				"title": "الاتصال بمود التطوير",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "أنت تثبّت \"{id}\" من خارج السجل المُراجع. سيعمل بصلاحية كاملة على التطبيق وبيانات شخصياتك. اكتب \"{id}\" أو \"install\" للتأكيد.",
+				"confirmPlaceholder": "اكتب للتأكيد",
+				"confirmTitle": "تثبيت شيفرة خارجية؟",
+				"error": "تعذّر تثبيت المود. {error}",
+				"install": "تثبيت",
+				"success": "تم تثبيت \"{id}\"",
+				"title": "تثبيت من رابط",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "وجّه متجر المودات إلى سجل تجريبي بدل الحقيقي. اتركه فارغًا لاستخدام الافتراضي.",
+				"save": "حفظ",
+				"title": "تجاوز عنوان أساس السجل"
+			},
+			"title": "المطوّر",
+			"toggle": "وضع المطوّر",
+			"toggleDescription": "يتيح تثبيت المودات من رابط. للمؤلّفين والمختبرين فقط — تعمل المودات بصلاحية كاملة على التطبيق."
+		},
 		"language": "اللغة",
+		"mods": {
+			"actions": {
+				"disable": "تعطيل",
+				"enable": "تفعيل",
+				"remove": "إزالة",
+				"retry": "إعادة المحاولة",
+				"update": "تحديث"
+			},
+			"blocked": "تم تعطيل \"{id}\" — أُشير إلى هذا الإصدار بأنه غير آمن. تحقّق من متجر المودات بحثًا عن تحديث.",
+			"browse": {
+				"compatibleOnly": "المتوافق مع هذا التطبيق فقط",
+				"empty": "لم يُعثر على مودات",
+				"incompatible": "غير متوافق مع إصدار هذا التطبيق",
+				"loadError": "تعذّر تحميل متجر المودات. {error}",
+				"offline": "تعذّر التحديث — تُعرض النتائج المخزّنة",
+				"searchPlaceholder": "البحث عن مودات",
+				"stale": "تُعرض النتائج المخزّنة — اسحب للتحديث"
+			},
+			"detail": {
+				"author": "بواسطة {name}",
+				"config": "خيارات الإعداد",
+				"install": "تثبيت",
+				"installed": "مثبّت",
+				"readme": "حول",
+				"remove": "إزالة",
+				"update": "تحديث",
+				"updateAvailable": "يتوفر تحديث",
+				"versions": "الإصدارات"
+			},
+			"empty": "لا توجد مودات مثبّتة",
+			"errors": {
+				"action": "تعذّر إكمال الإجراء. {error}",
+				"list": "تعذّر تحميل المودات المثبّتة. {error}"
+			},
+			"installSuccess": "تم تثبيت \"{id}\"",
+			"removeBlocked": "ما زال مستخدمًا بواسطة: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "السجل",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "معطّل",
+				"errored": "خطأ",
+				"loaded": "محمّل"
+			},
+			"tabs": {
+				"browse": "تصفّح",
+				"installed": "مثبّت"
+			},
+			"title": "المودات",
+			"updateSuccess": "تم تحديث \"{id}\""
+		},
 		"theme": {
 			"dark": "داكن",
+			"defaultSkin": "افتراضي",
 			"light": "فاتح",
 			"system": "النظام",
 			"title": "السمة"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "تثبيت \"{module}\" من متجر المودات",
+			"notInstalled": "\"{module}\" غير مثبّت",
+			"openModStore": "فتح متجر المودات"
 		}
 	},
 	"tabs": {

@@ -129,6 +129,7 @@
 		},
 		"export": "Modulkonfiguration exportieren",
 		"exportSuccess": "Module erfolgreich exportiert!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Module konnten nicht importiert werden. Die Dateiendung muss .fmod sein.",
@@ -196,12 +197,105 @@
 			"title": "Über die App",
 			"version": "Version"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Debug-Informationen anzeigen",
+				"toggleDescription": "Zeigt zusätzliche Debug-Werkzeuge in der App — den Würfelphysik-Debugger und versteckte Entwicklerseiten."
+			},
+			"devMod": {
+				"connect": "Verbinden",
+				"connected": "Verbunden mit „{id}“",
+				"disconnect": "Trennen",
+				"error": "Verbindung zum Dev-Mod fehlgeschlagen. {error}",
+				"title": "Dev-Mod verbinden",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Du installierst „{id}“ außerhalb der geprüften Registry. Es läuft mit vollem Zugriff auf die App und deine Charakterdaten. Tippe „{id}“ oder „install“ zur Bestätigung.",
+				"confirmPlaceholder": "Zur Bestätigung eingeben",
+				"confirmTitle": "Externen Code installieren?",
+				"error": "Mod konnte nicht installiert werden. {error}",
+				"install": "Installieren",
+				"success": "„{id}“ installiert",
+				"title": "Von URL installieren",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Leite den Mod Store auf eine Staging-Registry um. Leer lassen für die Standard-Registry.",
+				"save": "Speichern",
+				"title": "Registry-Basis-URL überschreiben"
+			},
+			"title": "Entwickler",
+			"toggle": "Entwicklermodus",
+			"toggleDescription": "Ermöglicht die Installation von Mods per URL. Nur für Mod-Autoren und Tester — Mods haben vollen Zugriff auf die App."
+		},
 		"language": "Sprache",
+		"mods": {
+			"actions": {
+				"disable": "Deaktivieren",
+				"enable": "Aktivieren",
+				"remove": "Entfernen",
+				"retry": "Erneut versuchen",
+				"update": "Aktualisieren"
+			},
+			"blocked": "„{id}“ wurde deaktiviert — diese Version wurde als unsicher markiert. Prüfe den Mod Store auf ein Update.",
+			"browse": {
+				"compatibleOnly": "Nur mit dieser App kompatibel",
+				"empty": "Keine Mods gefunden",
+				"incompatible": "Nicht kompatibel mit dieser App-Version",
+				"loadError": "Mod Store konnte nicht geladen werden. {error}",
+				"offline": "Aktualisierung fehlgeschlagen — zwischengespeicherte Ergebnisse werden angezeigt",
+				"searchPlaceholder": "Mods suchen",
+				"stale": "Zwischengespeicherte Ergebnisse — zum Aktualisieren ziehen"
+			},
+			"detail": {
+				"author": "Von {name}",
+				"config": "Konfigurationsoptionen",
+				"install": "Installieren",
+				"installed": "Installiert",
+				"readme": "Über",
+				"remove": "Entfernen",
+				"update": "Aktualisieren",
+				"updateAvailable": "Update verfügbar",
+				"versions": "Versionen"
+			},
+			"empty": "Keine Mods installiert",
+			"errors": {
+				"action": "Aktion konnte nicht abgeschlossen werden. {error}",
+				"list": "Installierte Mods konnten nicht geladen werden. {error}"
+			},
+			"installSuccess": "„{id}“ installiert",
+			"removeBlocked": "Noch verwendet von: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registry",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktiviert",
+				"errored": "Fehler",
+				"loaded": "Geladen"
+			},
+			"tabs": {
+				"browse": "Durchsuchen",
+				"installed": "Installiert"
+			},
+			"title": "Mods",
+			"updateSuccess": "„{id}“ aktualisiert"
+		},
 		"theme": {
 			"dark": "Dunkel",
+			"defaultSkin": "Standard",
 			"light": "Hell",
 			"system": "System",
 			"title": "Thema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "„{module}“ aus dem Mod Store installieren",
+			"notInstalled": "„{module}“ ist nicht installiert",
+			"openModStore": "Mod Store öffnen"
 		}
 	},
 	"tabs": {

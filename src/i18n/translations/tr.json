@@ -129,6 +129,7 @@
 		},
 		"export": "Modül yapılandırmasını dışa aktar",
 		"exportSuccess": "Modüller başarıyla dışa aktarıldı!",
+		"external": "Harici",
 		"import": {
 			"error": {
 				"extension": "Modüller içe aktarılamadı. Dosya uzantısı .fmod olmalıdır",
@@ -196,12 +197,105 @@
 			"title": "Uygulama Hakkında",
 			"version": "Sürüm"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Hata ayıklama bilgisini göster",
+				"toggleDescription": "Uygulama genelinde ekstra hata ayıklama araçlarını gösterir — zar fiziği hata ayıklayıcısı ve gizli geliştirici sayfaları."
+			},
+			"devMod": {
+				"connect": "Bağlan",
+				"connected": "\"{id}\" öğesine bağlandı",
+				"disconnect": "Bağlantıyı kes",
+				"error": "Geliştirme moduna bağlanılamadı. {error}",
+				"title": "Geliştirme moduna bağlan",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "İncelenmiş kayıt defterinin dışından \"{id}\" kuruyorsunuz. Uygulamaya ve karakter verilerinize tam erişimle çalışacak. Onaylamak için \"{id}\" veya \"install\" yazın.",
+				"confirmPlaceholder": "Onaylamak için yazın",
+				"confirmTitle": "Harici kod kurulsun mu?",
+				"error": "Mod kurulamadı. {error}",
+				"install": "Kur",
+				"success": "\"{id}\" kuruldu",
+				"title": "URL’den kur",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store’u gerçek yerine bir staging kayıt defterine yönlendirin. Varsayılanı kullanmak için boş bırakın.",
+				"save": "Kaydet",
+				"title": "Kayıt defteri temel URL’sini geçersiz kıl"
+			},
+			"title": "Geliştirici",
+			"toggle": "Geliştirici Modu",
+			"toggleDescription": "URL’den mod kurulumunu etkinleştirir. Yalnızca yazarlar ve test edenler için — modlar uygulamaya tam erişimle çalışır."
+		},
 		"language": "Dil",
+		"mods": {
+			"actions": {
+				"disable": "Devre dışı bırak",
+				"enable": "Etkinleştir",
+				"remove": "Kaldır",
+				"retry": "Yeniden dene",
+				"update": "Güncelle"
+			},
+			"blocked": "\"{id}\" devre dışı bırakıldı — bu sürüm güvensiz olarak işaretlendi. Güncelleme için Mod Store’u kontrol edin.",
+			"browse": {
+				"compatibleOnly": "Yalnızca bu uygulamayla uyumlu",
+				"empty": "Mod bulunamadı",
+				"incompatible": "Bu uygulama sürümüyle uyumlu değil",
+				"loadError": "Mod Store yüklenemedi. {error}",
+				"offline": "Yenilenemedi — önbellekteki sonuçlar gösteriliyor",
+				"searchPlaceholder": "Mod ara",
+				"stale": "Önbellekteki sonuçlar gösteriliyor — yenilemek için çekin"
+			},
+			"detail": {
+				"author": "{name} tarafından",
+				"config": "Yapılandırma seçenekleri",
+				"install": "Kur",
+				"installed": "Kurulu",
+				"readme": "Hakkında",
+				"remove": "Kaldır",
+				"update": "Güncelle",
+				"updateAvailable": "Güncelleme mevcut",
+				"versions": "Sürümler"
+			},
+			"empty": "Kurulu mod yok",
+			"errors": {
+				"action": "İşlem tamamlanamadı. {error}",
+				"list": "Kurulu modlar yüklenemedi. {error}"
+			},
+			"installSuccess": "\"{id}\" kuruldu",
+			"removeBlocked": "Hâlâ kullananlar: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Kayıt defteri",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Devre dışı",
+				"errored": "Hata",
+				"loaded": "Yüklendi"
+			},
+			"tabs": {
+				"browse": "Göz at",
+				"installed": "Kurulu"
+			},
+			"title": "Modlar",
+			"updateSuccess": "\"{id}\" güncellendi"
+		},
 		"theme": {
 			"dark": "Koyu",
+			"defaultSkin": "Varsayılan",
 			"light": "Açık",
 			"system": "Sistem",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store’dan \"{module}\" kur",
+			"notInstalled": "\"{module}\" kurulu değil",
+			"openModStore": "Mod Store’u aç"
 		}
 	},
 	"tabs": {

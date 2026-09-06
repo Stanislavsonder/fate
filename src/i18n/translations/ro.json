@@ -129,6 +129,7 @@
 		},
 		"export": "Exportă configurația modulelor",
 		"exportSuccess": "Module exportate cu succes!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Nu s-au putut importa modulele. Extensia fișierului trebuie să fie .fmod",
@@ -196,12 +197,105 @@
 			"title": "Despre aplicație",
 			"version": "Versiune"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Afișează informații de depanare",
+				"toggleDescription": "Afișează instrumente suplimentare de depanare în aplicație — debuggerul de fizică a zarurilor și paginile de dezvoltator ascunse."
+			},
+			"devMod": {
+				"connect": "Conectează",
+				"connected": "Conectat la \"{id}\"",
+				"disconnect": "Deconectează",
+				"error": "Nu s-a putut conecta la mod-ul de dezvoltare. {error}",
+				"title": "Conectează mod de dezvoltare",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Instalezi \"{id}\" în afara registrului verificat. Va avea acces complet la aplicație și la datele personajelor. Tastează \"{id}\" sau \"install\" pentru confirmare.",
+				"confirmPlaceholder": "Tastează pentru a confirma",
+				"confirmTitle": "Instalezi cod extern?",
+				"error": "Nu s-a putut instala mod-ul. {error}",
+				"install": "Instalează",
+				"success": "\"{id}\" instalat",
+				"title": "Instalează din URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Îndreaptă Mod Store către un registru de staging în locul celui real. Lasă gol pentru valoarea implicită.",
+				"save": "Salvează",
+				"title": "Suprascrie URL-ul de bază al registrului"
+			},
+			"title": "Dezvoltator",
+			"toggle": "Mod dezvoltator",
+			"toggleDescription": "Permite instalarea de mod-uri dintr-un URL. Doar pentru autori și testeri — mod-urile au acces complet la aplicație."
+		},
 		"language": "Limbă",
+		"mods": {
+			"actions": {
+				"disable": "Dezactivează",
+				"enable": "Activează",
+				"remove": "Elimină",
+				"retry": "Reîncearcă",
+				"update": "Actualizează"
+			},
+			"blocked": "\"{id}\" a fost dezactivat — această versiune a fost marcată ca nesigură. Verifică Mod Store pentru o actualizare.",
+			"browse": {
+				"compatibleOnly": "Doar compatibile cu această aplicație",
+				"empty": "Niciun mod găsit",
+				"incompatible": "Incompatibil cu această versiune a aplicației",
+				"loadError": "Nu s-a putut încărca Mod Store. {error}",
+				"offline": "Nu s-a putut reîmprospăta — se afișează rezultatele din cache",
+				"searchPlaceholder": "Caută mod-uri",
+				"stale": "Se afișează rezultatele din cache — trage pentru reîmprospătare"
+			},
+			"detail": {
+				"author": "De {name}",
+				"config": "Opțiuni de configurare",
+				"install": "Instalează",
+				"installed": "Instalat",
+				"readme": "Despre",
+				"remove": "Elimină",
+				"update": "Actualizează",
+				"updateAvailable": "Actualizare disponibilă",
+				"versions": "Versiuni"
+			},
+			"empty": "Niciun mod instalat",
+			"errors": {
+				"action": "Acțiunea nu a putut fi finalizată. {error}",
+				"list": "Nu s-au putut încărca mod-urile instalate. {error}"
+			},
+			"installSuccess": "\"{id}\" instalat",
+			"removeBlocked": "Încă folosit de: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registru",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Dezactivat",
+				"errored": "Eroare",
+				"loaded": "Încărcat"
+			},
+			"tabs": {
+				"browse": "Răsfoiește",
+				"installed": "Instalate"
+			},
+			"title": "Mod-uri",
+			"updateSuccess": "\"{id}\" actualizat"
+		},
 		"theme": {
 			"dark": "Întunecat",
+			"defaultSkin": "Implicit",
 			"light": "Luminos",
 			"system": "Sistem",
 			"title": "Temă"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Instalează \"{module}\" din Mod Store",
+			"notInstalled": "\"{module}\" nu este instalat",
+			"openModStore": "Deschide Mod Store"
 		}
 	},
 	"tabs": {

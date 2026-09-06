@@ -129,6 +129,7 @@
 		},
 		"export": "Eksporter modulkonfigurasjon",
 		"exportSuccess": "Moduler eksportert vellykket!",
+		"external": "Ekstern",
 		"import": {
 			"error": {
 				"extension": "Kunne ikke importere moduler. Filtypen må være .fmod",
@@ -196,12 +197,105 @@
 			"title": "Om appen",
 			"version": "Versjon"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Vis feilsøkingsinformasjon",
+				"toggleDescription": "Viser ekstra feilsøkingsverktøy i appen — terningfysikk-debuggeren og skjulte utviklersider."
+			},
+			"devMod": {
+				"connect": "Koble til",
+				"connected": "Tilkoblet \"{id}\"",
+				"disconnect": "Koble fra",
+				"error": "Kunne ikke koble til utviklermod. {error}",
+				"title": "Koble til utviklermod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Du installerer \"{id}\" utenfor det gjennomgåtte registeret. Det får full tilgang til appen og karakterdataene dine. Skriv \"{id}\" eller \"install\" for å bekrefte.",
+				"confirmPlaceholder": "Skriv for å bekrefte",
+				"confirmTitle": "Installere ekstern kode?",
+				"error": "Kunne ikke installere mod. {error}",
+				"install": "Installer",
+				"success": "\"{id}\" installert",
+				"title": "Installer fra URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Pek Mod Store mot et staging-register i stedet for det ekte. La stå tomt for å bruke standard.",
+				"save": "Lagre",
+				"title": "Overstyr registerets base-URL"
+			},
+			"title": "Utvikler",
+			"toggle": "Utviklermodus",
+			"toggleDescription": "Tillater installasjon av mods fra en URL. Kun for forfattere og testere — mods har full tilgang til appen."
+		},
 		"language": "Språk",
+		"mods": {
+			"actions": {
+				"disable": "Deaktiver",
+				"enable": "Aktiver",
+				"remove": "Fjern",
+				"retry": "Prøv igjen",
+				"update": "Oppdater"
+			},
+			"blocked": "\"{id}\" ble deaktivert — denne versjonen er merket som usikker. Sjekk Mod Store for en oppdatering.",
+			"browse": {
+				"compatibleOnly": "Kun kompatible med denne appen",
+				"empty": "Ingen mods funnet",
+				"incompatible": "Ikke kompatibel med denne appversjonen",
+				"loadError": "Kunne ikke laste Mod Store. {error}",
+				"offline": "Kunne ikke oppdatere — viser bufrede resultater",
+				"searchPlaceholder": "Søk etter mods",
+				"stale": "Viser bufrede resultater — trekk for å oppdatere"
+			},
+			"detail": {
+				"author": "Av {name}",
+				"config": "Konfigurasjonsalternativer",
+				"install": "Installer",
+				"installed": "Installert",
+				"readme": "Om",
+				"remove": "Fjern",
+				"update": "Oppdater",
+				"updateAvailable": "Oppdatering tilgjengelig",
+				"versions": "Versjoner"
+			},
+			"empty": "Ingen mods installert",
+			"errors": {
+				"action": "Handlingen kunne ikke fullføres. {error}",
+				"list": "Kunne ikke laste installerte mods. {error}"
+			},
+			"installSuccess": "\"{id}\" installert",
+			"removeBlocked": "Fortsatt brukt av: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Register",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktivert",
+				"errored": "Feil",
+				"loaded": "Lastet"
+			},
+			"tabs": {
+				"browse": "Bla gjennom",
+				"installed": "Installert"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" oppdatert"
+		},
 		"theme": {
 			"dark": "Mørk",
+			"defaultSkin": "Standard",
 			"light": "Lys",
 			"system": "System",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installer \"{module}\" fra Mod Store",
+			"notInstalled": "\"{module}\" er ikke installert",
+			"openModStore": "Åpne Mod Store"
 		}
 	},
 	"tabs": {

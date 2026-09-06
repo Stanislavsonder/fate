@@ -129,6 +129,7 @@
 		},
 		"export": "Vie moduulikonfiguraatio",
 		"exportSuccess": "Moduulit vietiin onnistuneesti!",
+		"external": "Ulkoinen",
 		"import": {
 			"error": {
 				"extension": "Moduulien tuonti epäonnistui. Tiedostopäätteen tulee olla .fmod",
@@ -196,12 +197,105 @@
 			"title": "Tietoa sovelluksesta",
 			"version": "Versio"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Näytä virheenkorjaustiedot",
+				"toggleDescription": "Näyttää lisävirheenkorjaustyökaluja sovelluksessa — noppfysiikan debuggerin ja piilotetut kehittäjäsivut."
+			},
+			"devMod": {
+				"connect": "Yhdistä",
+				"connected": "Yhdistetty: \"{id}\"",
+				"disconnect": "Katkaise yhteys",
+				"error": "Yhteyttä kehitysmodiin ei voitu muodostaa. {error}",
+				"title": "Yhdistä kehitysmodi",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Asennat \"{id}\" tarkistetun rekisterin ulkopuolelta. Se saa täyden pääsyn sovellukseen ja hahmotietoihin. Vahvista kirjoittamalla \"{id}\" tai \"install\".",
+				"confirmPlaceholder": "Kirjoita vahvistaaksesi",
+				"confirmTitle": "Asennetaanko ulkoinen koodi?",
+				"error": "Modia ei voitu asentaa. {error}",
+				"install": "Asenna",
+				"success": "\"{id}\" asennettu",
+				"title": "Asenna URL-osoitteesta",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Osoita Mod Store staging-rekisteriin oikean sijaan. Jätä tyhjäksi käyttääksesi oletusta.",
+				"save": "Tallenna",
+				"title": "Korvaa rekisterin perus-URL"
+			},
+			"title": "Kehittäjä",
+			"toggle": "Kehittäjätila",
+			"toggleDescription": "Mahdollistaa modejen asennuksen URL-osoitteesta. Vain tekijöille ja testaajille — modit saavat täyden pääsyn sovellukseen."
+		},
 		"language": "Kieli",
+		"mods": {
+			"actions": {
+				"disable": "Poista käytöstä",
+				"enable": "Ota käyttöön",
+				"remove": "Poista",
+				"retry": "Yritä uudelleen",
+				"update": "Päivitä"
+			},
+			"blocked": "\"{id}\" poistettiin käytöstä — tämä versio merkittiin turvattomaksi. Tarkista päivitys Mod Storesta.",
+			"browse": {
+				"compatibleOnly": "Vain tämän sovelluksen kanssa yhteensopivat",
+				"empty": "Modeja ei löytynyt",
+				"incompatible": "Ei yhteensopiva tämän sovellusversion kanssa",
+				"loadError": "Mod Storea ei voitu ladata. {error}",
+				"offline": "Päivitys epäonnistui — näytetään välimuistin tulokset",
+				"searchPlaceholder": "Etsi modeja",
+				"stale": "Välimuistin tulokset — vedä päivittääksesi"
+			},
+			"detail": {
+				"author": "Tekijä: {name}",
+				"config": "Asetusvaihtoehdot",
+				"install": "Asenna",
+				"installed": "Asennettu",
+				"readme": "Tietoja",
+				"remove": "Poista",
+				"update": "Päivitä",
+				"updateAvailable": "Päivitys saatavilla",
+				"versions": "Versiot"
+			},
+			"empty": "Ei asennettuja modeja",
+			"errors": {
+				"action": "Toimintoa ei voitu suorittaa. {error}",
+				"list": "Asennettuja modeja ei voitu ladata. {error}"
+			},
+			"installSuccess": "\"{id}\" asennettu",
+			"removeBlocked": "Vielä käytössä: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Rekisteri",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Pois käytöstä",
+				"errored": "Virhe",
+				"loaded": "Ladattu"
+			},
+			"tabs": {
+				"browse": "Selaa",
+				"installed": "Asennetut"
+			},
+			"title": "Modit",
+			"updateSuccess": "\"{id}\" päivitetty"
+		},
 		"theme": {
 			"dark": "Tumma",
+			"defaultSkin": "Oletus",
 			"light": "Vaalea",
 			"system": "Järjestelmä",
 			"title": "Teema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Asenna \"{module}\" Mod Storesta",
+			"notInstalled": "\"{module}\" ei ole asennettu",
+			"openModStore": "Avaa Mod Store"
 		}
 	},
 	"tabs": {

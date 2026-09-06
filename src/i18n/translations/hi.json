@@ -129,6 +129,7 @@
 		},
 		"export": "मॉड्यूल कॉन्फ़िगरेशन निर्यात करें",
 		"exportSuccess": "मॉड्यूल सफलतापूर्वक निर्यात किया गया!",
+		"external": "बाहरी",
 		"import": {
 			"error": {
 				"extension": "मॉड्यूल आयात नहीं किए जा सके। फ़ाइल एक्सटेंशन .fmod होना चाहिए",
@@ -196,12 +197,105 @@
 			"title": "एप्लिकेशन के बारे में",
 			"version": "संस्करण"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "डिबग जानकारी दिखाएँ",
+				"toggleDescription": "ऐप में अतिरिक्त डिबग टूल दिखाता है — पासे की भौतिकी डीबगर और छिपे डेवलपर पेज।"
+			},
+			"devMod": {
+				"connect": "कनेक्ट करें",
+				"connected": "\"{id}\" से कनेक्टेड",
+				"disconnect": "डिस्कनेक्ट करें",
+				"error": "डेव मॉड से कनेक्ट नहीं हो सका। {error}",
+				"title": "डेव मॉड कनेक्ट करें",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "आप समीक्षित रजिस्ट्री के बाहर से \"{id}\" इंस्टॉल कर रहे हैं। इसे ऐप और आपके कैरेक्टर डेटा तक पूरा एक्सेस मिलेगा। पुष्टि के लिए \"{id}\" या \"install\" टाइप करें।",
+				"confirmPlaceholder": "पुष्टि के लिए टाइप करें",
+				"confirmTitle": "बाहरी कोड इंस्टॉल करें?",
+				"error": "मॉड इंस्टॉल नहीं हो सका। {error}",
+				"install": "इंस्टॉल करें",
+				"success": "\"{id}\" इंस्टॉल हो गया",
+				"title": "URL से इंस्टॉल करें",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store को असली की जगह स्टेजिंग रजिस्ट्री पर पॉइंट करें। डिफ़ॉल्ट के लिए खाली छोड़ें।",
+				"save": "सेव करें",
+				"title": "रजिस्ट्री बेस URL ओवरराइड"
+			},
+			"title": "डेवलपर",
+			"toggle": "डेवलपर मोड",
+			"toggleDescription": "URL से मॉड इंस्टॉल करने की अनुमति देता है। केवल लेखकों और टेस्टर्स के लिए — मॉड्स को ऐप तक पूरा एक्सेस मिलता है।"
+		},
 		"language": "भाषा",
+		"mods": {
+			"actions": {
+				"disable": "अक्षम करें",
+				"enable": "सक्षम करें",
+				"remove": "हटाएँ",
+				"retry": "फिर से कोशिश करें",
+				"update": "अपडेट करें"
+			},
+			"blocked": "\"{id}\" अक्षम कर दिया गया — यह संस्करण असुरक्षित चिह्नित है। अपडेट के लिए Mod Store देखें।",
+			"browse": {
+				"compatibleOnly": "केवल इस ऐप के साथ संगत",
+				"empty": "कोई मॉड नहीं मिला",
+				"incompatible": "इस ऐप संस्करण से संगत नहीं",
+				"loadError": "Mod Store लोड नहीं हो सका। {error}",
+				"offline": "रिफ़्रेश नहीं हो सका — कैश परिणाम दिखाए जा रहे हैं",
+				"searchPlaceholder": "मॉड खोजें",
+				"stale": "कैश परिणाम दिखाए जा रहे हैं — रिफ़्रेश के लिए खींचें"
+			},
+			"detail": {
+				"author": "{name} द्वारा",
+				"config": "कॉन्फ़िगरेशन विकल्प",
+				"install": "इंस्टॉल करें",
+				"installed": "इंस्टॉल किया गया",
+				"readme": "परिचय",
+				"remove": "हटाएँ",
+				"update": "अपडेट करें",
+				"updateAvailable": "अपडेट उपलब्ध",
+				"versions": "संस्करण"
+			},
+			"empty": "कोई मॉड इंस्टॉल नहीं",
+			"errors": {
+				"action": "क्रिया पूरी नहीं हो सकी। {error}",
+				"list": "इंस्टॉल किए गए मॉड लोड नहीं हो सके। {error}"
+			},
+			"installSuccess": "\"{id}\" इंस्टॉल हो गया",
+			"removeBlocked": "अभी भी इनके द्वारा उपयोग में: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "रजिस्ट्री",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "अक्षम",
+				"errored": "त्रुटि",
+				"loaded": "लोडेड"
+			},
+			"tabs": {
+				"browse": "ब्राउज़ करें",
+				"installed": "इंस्टॉल किए गए"
+			},
+			"title": "मॉड्स",
+			"updateSuccess": "\"{id}\" अपडेट हो गया"
+		},
 		"theme": {
 			"dark": "डार्क",
+			"defaultSkin": "डिफ़ॉल्ट",
 			"light": "लाइट",
 			"system": "सिस्टम",
 			"title": "थीम"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store से \"{module}\" इंस्टॉल करें",
+			"notInstalled": "\"{module}\" इंस्टॉल नहीं है",
+			"openModStore": "Mod Store खोलें"
 		}
 	},
 	"tabs": {

@@ -6,6 +6,9 @@
 		"validation-error": "Erro de validação"
 	},
 	"character": {
+		"configure": "Configurar",
+		"create": "Criar personagem",
+		"export": "Exportar personagem",
 		"exportSuccess": "Personagem exportado com sucesso!",
 		"import": {
 			"error": {
@@ -22,6 +25,8 @@
 		},
 		"name": "Nome do personagem",
 		"new-character": "Novo personagem",
+		"no-characters": "Nenhum personagem criado ainda. Crie um novo ou importe de um arquivo.",
+		"not-selected": "Personagem ainda não selecionado. Selecione um ou crie um novo!",
 		"remove-message": "Tem certeza de que deseja remover este personagem?",
 		"save": "Salvar personagem",
 		"share": "Compartilhar personagem",
@@ -38,6 +43,7 @@
 			"confirm": "Confirmar",
 			"create": "Criar",
 			"decrease": "Diminuir",
+			"delete": "Excluir",
 			"edit": "Editar",
 			"finish": "Concluir",
 			"go": "Ir",
@@ -46,6 +52,7 @@
 			"remove": "Remover",
 			"reset": "Redefinir",
 			"save": "Salvar",
+			"select": "Selecionar",
 			"update": "Atualizar",
 			"upload": "Carregar",
 			"use": "Usar"
@@ -55,10 +62,14 @@
 			"remove": "Tem certeza de que deseja removê-lo?",
 			"remove-named": "Tem certeza de que deseja remover \"{value}\"?"
 		},
+		"or": "ou",
 		"state": {
 			"disabled": "Desativado",
 			"enabled": "Ativado"
 		}
+	},
+	"debug": {
+		"add-mock-character": "Adicionar personagem de teste"
 	},
 	"errors": {
 		"boundary": {
@@ -73,6 +84,13 @@
 			"load": "Não foi possível carregar o personagem. {error}",
 			"remove": "Não foi possível remover o personagem. {error}",
 			"save": "Não foi possível salvar o personagem. As alterações podem não ser salvas. {error}"
+		},
+		"module": {
+			"appVersionMismatch": "Requer a versão do aplicativo \"{requiredVersion}\", mas a atual é \"{appVersion}\"",
+			"incompatible": "Incompatível com \"{anotherModule}\"",
+			"missingDependencies": "Dependências ausentes: {modules}",
+			"notFound": "Módulo não encontrado: \"{module}\"",
+			"otherDependsOn": "Outro(s) módulo(s) dependem dele: {modules}"
 		},
 		"moduleResolution": {
 			"appVersionMismatch": "O módulo '{module}' requer a versão '{requiredAppVersion}' do aplicativo, mas a versão atual é '{currentAppVersion}'.",
@@ -109,7 +127,9 @@
 			"name": "Nome",
 			"version": "Versão"
 		},
+		"export": "Exportar configuração de módulos",
 		"exportSuccess": "Módulos exportados com sucesso!",
+		"external": "Externo",
 		"import": {
 			"error": {
 				"extension": "Não foi possível importar os módulos. A extensão do arquivo deve ser .fmod",
@@ -119,6 +139,7 @@
 			"success": "Módulos importados com sucesso!",
 			"title": "Importar módulos de arquivo"
 		},
+		"installed": "Módulos instalados ({value}):",
 		"save": "Salvar configuração de módulos",
 		"selected": "Módulos selecionados",
 		"share": "Compartilhar configuração de módulos",
@@ -176,12 +197,105 @@
 			"title": "Sobre o aplicativo",
 			"version": "Versão"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Mostrar informações de depuração",
+				"toggleDescription": "Mostra ferramentas extras de depuração no app — o depurador de física dos dados e páginas de desenvolvedor ocultas."
+			},
+			"devMod": {
+				"connect": "Conectar",
+				"connected": "Conectado a \"{id}\"",
+				"disconnect": "Desconectar",
+				"error": "Não foi possível conectar ao mod de desenvolvimento. {error}",
+				"title": "Conectar mod de desenvolvimento",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Você está instalando \"{id}\" fora do registro revisado. Ele terá acesso total ao app e aos dados dos personagens. Digite \"{id}\" ou \"install\" para confirmar.",
+				"confirmPlaceholder": "Digite para confirmar",
+				"confirmTitle": "Instalar código externo?",
+				"error": "Não foi possível instalar o mod. {error}",
+				"install": "Instalar",
+				"success": "\"{id}\" instalado",
+				"title": "Instalar a partir de URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Aponte a Mod Store para um registro de staging em vez do real. Deixe em branco para usar o padrão.",
+				"save": "Salvar",
+				"title": "Substituir URL base do registro"
+			},
+			"title": "Desenvolvedor",
+			"toggle": "Modo desenvolvedor",
+			"toggleDescription": "Permite instalar mods a partir de uma URL. Apenas para autores e testadores — os mods têm acesso total ao app."
+		},
 		"language": "Idioma",
+		"mods": {
+			"actions": {
+				"disable": "Desativar",
+				"enable": "Ativar",
+				"remove": "Remover",
+				"retry": "Tentar novamente",
+				"update": "Atualizar"
+			},
+			"blocked": "\"{id}\" foi desativado — esta versão foi marcada como insegura. Verifique a Mod Store por uma atualização.",
+			"browse": {
+				"compatibleOnly": "Apenas compatíveis com este app",
+				"empty": "Nenhum mod encontrado",
+				"incompatible": "Não compatível com esta versão do app",
+				"loadError": "Não foi possível carregar a Mod Store. {error}",
+				"offline": "Não foi possível atualizar — mostrando resultados em cache",
+				"searchPlaceholder": "Pesquisar mods",
+				"stale": "Mostrando resultados em cache — puxe para atualizar"
+			},
+			"detail": {
+				"author": "Por {name}",
+				"config": "Opções de configuração",
+				"install": "Instalar",
+				"installed": "Instalado",
+				"readme": "Sobre",
+				"remove": "Remover",
+				"update": "Atualizar",
+				"updateAvailable": "Atualização disponível",
+				"versions": "Versões"
+			},
+			"empty": "Nenhum mod instalado",
+			"errors": {
+				"action": "Não foi possível concluir a ação. {error}",
+				"list": "Não foi possível carregar os mods instalados. {error}"
+			},
+			"installSuccess": "\"{id}\" instalado",
+			"removeBlocked": "Ainda usado por: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registro",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Desativado",
+				"errored": "Erro",
+				"loaded": "Carregado"
+			},
+			"tabs": {
+				"browse": "Explorar",
+				"installed": "Instalados"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" atualizado"
+		},
 		"theme": {
 			"dark": "Escuro",
+			"defaultSkin": "Padrão",
 			"light": "Claro",
 			"system": "Sistema",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Instalar \"{module}\" na Mod Store",
+			"notInstalled": "\"{module}\" não está instalado",
+			"openModStore": "Abrir Mod Store"
 		}
 	},
 	"tabs": {

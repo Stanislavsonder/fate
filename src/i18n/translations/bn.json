@@ -129,6 +129,7 @@
 		},
 		"export": "মডিউল কনফিগারেশন রপ্তানি করুন",
 		"exportSuccess": "মডিউল সফলভাবে রপ্তানি করা হয়েছে!",
+		"external": "বাহ্যিক",
 		"import": {
 			"error": {
 				"extension": "মডিউল আমদানি করা যায়নি। ফাইল এক্সটেনশন .fmod হতে হবে",
@@ -196,12 +197,105 @@
 			"title": "অ্যাপ সম্পর্কে",
 			"version": "সংস্করণ"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "ডিবাগ তথ্য দেখান",
+				"toggleDescription": "অ্যাপে অতিরিক্ত ডিবাগ টুল দেখায় — ডাইস ফিজিক্স ডিবাগার এবং লুকানো ডেভেলপার পেজ।"
+			},
+			"devMod": {
+				"connect": "সংযোগ করুন",
+				"connected": "\"{id}\"-এ সংযুক্ত",
+				"disconnect": "সংযোগ বিচ্ছিন্ন করুন",
+				"error": "ডেভ মডে সংযোগ করা যায়নি। {error}",
+				"title": "ডেভ মড সংযুক্ত করুন",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "আপনি পর্যালোচিত রেজিস্ট্রির বাইরে থেকে \"{id}\" ইনস্টল করছেন। এটি অ্যাপ ও আপনার চরিত্রের ডেটায় পূর্ণ অ্যাক্সেস নিয়ে চলবে। নিশ্চিত করতে \"{id}\" বা \"install\" টাইপ করুন।",
+				"confirmPlaceholder": "নিশ্চিত করতে টাইপ করুন",
+				"confirmTitle": "বাহ্যিক কোড ইনস্টল করবেন?",
+				"error": "মড ইনস্টল করা যায়নি। {error}",
+				"install": "ইনস্টল",
+				"success": "\"{id}\" ইনস্টল হয়েছে",
+				"title": "URL থেকে ইনস্টল",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store-কে আসলটির বদলে স্টেজিং রেজিস্ট্রিতে নির্দেশ করুন। ডিফল্টের জন্য খালি রাখুন।",
+				"save": "সংরক্ষণ",
+				"title": "রেজিস্ট্রি বেস URL ওভাররাইড"
+			},
+			"title": "ডেভেলপার",
+			"toggle": "ডেভেলপার মোড",
+			"toggleDescription": "URL থেকে মড ইনস্টল সক্ষম করে। শুধুমাত্র লেখক ও পরীক্ষকদের জন্য — মডগুলো অ্যাপে পূর্ণ অ্যাক্সেস পায়।"
+		},
 		"language": "ভাষা",
+		"mods": {
+			"actions": {
+				"disable": "নিষ্ক্রিয় করুন",
+				"enable": "সক্রিয় করুন",
+				"remove": "সরান",
+				"retry": "আবার চেষ্টা",
+				"update": "আপডেট"
+			},
+			"blocked": "\"{id}\" নিষ্ক্রিয় করা হয়েছে — এই সংস্করণটি অনিরাপদ হিসেবে চিহ্নিত। আপডেটের জন্য Mod Store দেখুন।",
+			"browse": {
+				"compatibleOnly": "শুধুমাত্র এই অ্যাপের সাথে সামঞ্জস্যপূর্ণ",
+				"empty": "কোনো মড পাওয়া যায়নি",
+				"incompatible": "এই অ্যাপ সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়",
+				"loadError": "Mod Store লোড করা যায়নি। {error}",
+				"offline": "রিফ্রেশ করা যায়নি — ক্যাশ করা ফলাফল দেখানো হচ্ছে",
+				"searchPlaceholder": "মড খুঁজুন",
+				"stale": "ক্যাশ করা ফলাফল দেখানো হচ্ছে — রিফ্রেশ করতে টানুন"
+			},
+			"detail": {
+				"author": "{name} কর্তৃক",
+				"config": "কনফিগারেশন অপশন",
+				"install": "ইনস্টল",
+				"installed": "ইনস্টল করা",
+				"readme": "সম্পর্কে",
+				"remove": "সরান",
+				"update": "আপডেট",
+				"updateAvailable": "আপডেট উপলব্ধ",
+				"versions": "সংস্করণ"
+			},
+			"empty": "কোনো মড ইনস্টল নেই",
+			"errors": {
+				"action": "কাজ সম্পন্ন করা যায়নি। {error}",
+				"list": "ইনস্টল করা মড লোড করা যায়নি। {error}"
+			},
+			"installSuccess": "\"{id}\" ইনস্টল হয়েছে",
+			"removeBlocked": "এখনও ব্যবহার করছে: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "রেজিস্ট্রি",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "নিষ্ক্রিয়",
+				"errored": "ত্রুটি",
+				"loaded": "লোড হয়েছে"
+			},
+			"tabs": {
+				"browse": "ব্রাউজ",
+				"installed": "ইনস্টল করা"
+			},
+			"title": "মডস",
+			"updateSuccess": "\"{id}\" আপডেট হয়েছে"
+		},
 		"theme": {
 			"dark": "ডার্ক",
+			"defaultSkin": "ডিফল্ট",
 			"light": "লাইট",
 			"system": "সিস্টেম",
 			"title": "থিম"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store থেকে \"{module}\" ইনস্টল করুন",
+			"notInstalled": "\"{module}\" ইনস্টল নেই",
+			"openModStore": "Mod Store খুলুন"
 		}
 	},
 	"tabs": {

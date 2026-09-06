@@ -129,6 +129,7 @@
 		},
 		"export": "Esporta configurazione moduli",
 		"exportSuccess": "Moduli esportati con successo!",
+		"external": "Esterno",
 		"import": {
 			"error": {
 				"extension": "Impossibile importare i moduli. L'estensione del file deve essere .fmod",
@@ -196,12 +197,105 @@
 			"title": "Informazioni sull'app",
 			"version": "Versione"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Mostra informazioni di debug",
+				"toggleDescription": "Mostra strumenti di debug aggiuntivi nell’app: il debugger della fisica dei dadi e le pagine sviluppatore nascoste."
+			},
+			"devMod": {
+				"connect": "Connetti",
+				"connected": "Connesso a \"{id}\"",
+				"disconnect": "Disconnetti",
+				"error": "Impossibile connettersi al mod di sviluppo. {error}",
+				"title": "Connetti mod di sviluppo",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Stai installando \"{id}\" fuori dal registro verificato. Avrà accesso completo all’app e ai dati dei personaggi. Digita \"{id}\" o \"install\" per confermare.",
+				"confirmPlaceholder": "Digita per confermare",
+				"confirmTitle": "Installare codice esterno?",
+				"error": "Impossibile installare il mod. {error}",
+				"install": "Installa",
+				"success": "\"{id}\" installato",
+				"title": "Installa da URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Punta la Mod Store a un registro di staging invece di quello reale. Lascia vuoto per usare il predefinito.",
+				"save": "Salva",
+				"title": "Sostituisci URL di base del registro"
+			},
+			"title": "Sviluppatore",
+			"toggle": "Modalità sviluppatore",
+			"toggleDescription": "Consente di installare mod da un URL. Solo per autori e tester: i mod hanno accesso completo all’app."
+		},
 		"language": "Lingua",
+		"mods": {
+			"actions": {
+				"disable": "Disattiva",
+				"enable": "Attiva",
+				"remove": "Rimuovi",
+				"retry": "Riprova",
+				"update": "Aggiorna"
+			},
+			"blocked": "\"{id}\" è stato disattivato: questa versione è stata segnalata come non sicura. Controlla la Mod Store per un aggiornamento.",
+			"browse": {
+				"compatibleOnly": "Solo compatibili con questa app",
+				"empty": "Nessun mod trovato",
+				"incompatible": "Non compatibile con questa versione dell’app",
+				"loadError": "Impossibile caricare la Mod Store. {error}",
+				"offline": "Aggiornamento non riuscito: mostro i risultati in cache",
+				"searchPlaceholder": "Cerca mod",
+				"stale": "Risultati in cache: scorri per aggiornare"
+			},
+			"detail": {
+				"author": "Di {name}",
+				"config": "Opzioni di configurazione",
+				"install": "Installa",
+				"installed": "Installato",
+				"readme": "Informazioni",
+				"remove": "Rimuovi",
+				"update": "Aggiorna",
+				"updateAvailable": "Aggiornamento disponibile",
+				"versions": "Versioni"
+			},
+			"empty": "Nessun mod installato",
+			"errors": {
+				"action": "Impossibile completare l’azione. {error}",
+				"list": "Impossibile caricare i mod installati. {error}"
+			},
+			"installSuccess": "\"{id}\" installato",
+			"removeBlocked": "Ancora usato da: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registro",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Disattivato",
+				"errored": "Errore",
+				"loaded": "Caricato"
+			},
+			"tabs": {
+				"browse": "Sfoglia",
+				"installed": "Installati"
+			},
+			"title": "Mod",
+			"updateSuccess": "\"{id}\" aggiornato"
+		},
 		"theme": {
 			"dark": "Scuro",
+			"defaultSkin": "Predefinito",
 			"light": "Chiaro",
 			"system": "Sistema",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installa \"{module}\" dalla Mod Store",
+			"notInstalled": "\"{module}\" non è installato",
+			"openModStore": "Apri Mod Store"
 		}
 	},
 	"tabs": {

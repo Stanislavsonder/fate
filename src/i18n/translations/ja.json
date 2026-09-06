@@ -129,6 +129,7 @@
 		},
 		"export": "モジュール設定をエクスポート",
 		"exportSuccess": "モジュールのエクスポートに成功しました！",
+		"external": "外部",
 		"import": {
 			"error": {
 				"extension": "モジュールをインポートできませんでした。ファイル拡張子は .fmod である必要があります",
@@ -196,12 +197,105 @@
 			"title": "アプリについて",
 			"version": "バージョン"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "デバッグ情報を表示",
+				"toggleDescription": "アプリ全体に追加のデバッグツールを表示します — ダイス物理デバッガーと非表示の開発者ページ。"
+			},
+			"devMod": {
+				"connect": "接続",
+				"connected": "「{id}」に接続済み",
+				"disconnect": "切断",
+				"error": "開発用モッドに接続できませんでした。{error}",
+				"title": "開発用モッドに接続",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "審査済みレジストリ外から「{id}」をインストールしようとしています。アプリとキャラクターデータへのフルアクセスで動作します。確認するには「{id}」または「install」と入力してください。",
+				"confirmPlaceholder": "確認のため入力",
+				"confirmTitle": "外部コードをインストールしますか？",
+				"error": "モッドをインストールできませんでした。{error}",
+				"install": "インストール",
+				"success": "「{id}」をインストールしました",
+				"title": "URLからインストール",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store を本番ではなくステージングレジストリに向けます。デフォルトを使う場合は空のままにします。",
+				"save": "保存",
+				"title": "レジストリベース URL の上書き"
+			},
+			"title": "開発者",
+			"toggle": "開発者モード",
+			"toggleDescription": "URL からのモッドインストールを有効にします。作者とテスター向けです — モッドはアプリへのフルアクセスで動作します。"
+		},
 		"language": "言語",
+		"mods": {
+			"actions": {
+				"disable": "無効化",
+				"enable": "有効化",
+				"remove": "削除",
+				"retry": "再試行",
+				"update": "更新"
+			},
+			"blocked": "「{id}」は無効化されました — このバージョンは安全でないと判定されています。Mod Store で更新を確認してください。",
+			"browse": {
+				"compatibleOnly": "このアプリと互換性のあるもののみ",
+				"empty": "モッドが見つかりません",
+				"incompatible": "このアプリバージョンと互換性がありません",
+				"loadError": "Mod Store を読み込めませんでした。{error}",
+				"offline": "更新できませんでした — キャッシュ結果を表示中",
+				"searchPlaceholder": "モッドを検索",
+				"stale": "キャッシュ結果を表示中 — 引っ張って更新"
+			},
+			"detail": {
+				"author": "作者: {name}",
+				"config": "設定オプション",
+				"install": "インストール",
+				"installed": "インストール済み",
+				"readme": "概要",
+				"remove": "削除",
+				"update": "更新",
+				"updateAvailable": "更新あり",
+				"versions": "バージョン"
+			},
+			"empty": "インストール済みのモッドはありません",
+			"errors": {
+				"action": "操作を完了できませんでした。{error}",
+				"list": "インストール済みモッドを読み込めませんでした。{error}"
+			},
+			"installSuccess": "「{id}」をインストールしました",
+			"removeBlocked": "次で使用中: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "レジストリ",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "無効",
+				"errored": "エラー",
+				"loaded": "読み込み済み"
+			},
+			"tabs": {
+				"browse": "閲覧",
+				"installed": "インストール済み"
+			},
+			"title": "モッド",
+			"updateSuccess": "「{id}」を更新しました"
+		},
 		"theme": {
 			"dark": "ダーク",
+			"defaultSkin": "デフォルト",
 			"light": "ライト",
 			"system": "システム",
 			"title": "テーマ"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store から「{module}」をインストール",
+			"notInstalled": "「{module}」はインストールされていません",
+			"openModStore": "Mod Store を開く"
 		}
 	},
 	"tabs": {

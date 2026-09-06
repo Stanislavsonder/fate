@@ -129,6 +129,7 @@
 		},
 		"export": "Moduleconfiguratie exporteren",
 		"exportSuccess": "Modules succesvol geëxporteerd!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Kan modules niet importeren. De bestandsextensie moet eindigen op .fmod",
@@ -196,12 +197,105 @@
 			"title": "Over de app",
 			"version": "Versie"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Debuginformatie tonen",
+				"toggleDescription": "Toont extra debugtools in de app — de dobbelsteenfysica-debugger en verborgen ontwikkelaarspagina’s."
+			},
+			"devMod": {
+				"connect": "Verbinden",
+				"connected": "Verbonden met \"{id}\"",
+				"disconnect": "Verbreken",
+				"error": "Kon niet verbinden met de dev-mod. {error}",
+				"title": "Dev-mod verbinden",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Je installeert \"{id}\" buiten het gecontroleerde register. Het krijgt volledige toegang tot de app en je personagegegevens. Typ \"{id}\" of \"install\" om te bevestigen.",
+				"confirmPlaceholder": "Typ om te bevestigen",
+				"confirmTitle": "Externe code installeren?",
+				"error": "Kon de mod niet installeren. {error}",
+				"install": "Installeren",
+				"success": "\"{id}\" geïnstalleerd",
+				"title": "Installeren vanaf URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Wijs de Mod Store naar een staging-register in plaats van het echte. Laat leeg voor de standaard.",
+				"save": "Opslaan",
+				"title": "Registerbasis-URL overschrijven"
+			},
+			"title": "Ontwikkelaar",
+			"toggle": "Ontwikkelaarsmodus",
+			"toggleDescription": "Maakt installatie van mods via een URL mogelijk. Alleen voor auteurs en testers — mods hebben volledige toegang tot de app."
+		},
 		"language": "Taal",
+		"mods": {
+			"actions": {
+				"disable": "Uitschakelen",
+				"enable": "Inschakelen",
+				"remove": "Verwijderen",
+				"retry": "Opnieuw proberen",
+				"update": "Bijwerken"
+			},
+			"blocked": "\"{id}\" is uitgeschakeld — deze versie is als onveilig gemarkeerd. Controleer de Mod Store op een update.",
+			"browse": {
+				"compatibleOnly": "Alleen compatibel met deze app",
+				"empty": "Geen mods gevonden",
+				"incompatible": "Niet compatibel met deze appversie",
+				"loadError": "Kon de Mod Store niet laden. {error}",
+				"offline": "Vernieuwen mislukt — gecachte resultaten worden getoond",
+				"searchPlaceholder": "Mods zoeken",
+				"stale": "Gecachte resultaten — sleep om te vernieuwen"
+			},
+			"detail": {
+				"author": "Door {name}",
+				"config": "Configuratieopties",
+				"install": "Installeren",
+				"installed": "Geïnstalleerd",
+				"readme": "Over",
+				"remove": "Verwijderen",
+				"update": "Bijwerken",
+				"updateAvailable": "Update beschikbaar",
+				"versions": "Versies"
+			},
+			"empty": "Geen mods geïnstalleerd",
+			"errors": {
+				"action": "Actie kon niet worden voltooid. {error}",
+				"list": "Kon geïnstalleerde mods niet laden. {error}"
+			},
+			"installSuccess": "\"{id}\" geïnstalleerd",
+			"removeBlocked": "Nog in gebruik door: {characters}",
+			"source": {
+				"dev": "Dev",
+				"registry": "Register",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Uitgeschakeld",
+				"errored": "Fout",
+				"loaded": "Geladen"
+			},
+			"tabs": {
+				"browse": "Bladeren",
+				"installed": "Geïnstalleerd"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" bijgewerkt"
+		},
 		"theme": {
 			"dark": "Donker",
+			"defaultSkin": "Standaard",
 			"light": "Licht",
 			"system": "Systeem",
 			"title": "Thema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installeer \"{module}\" vanuit de Mod Store",
+			"notInstalled": "\"{module}\" is niet geïnstalleerd",
+			"openModStore": "Mod Store openen"
 		}
 	},
 	"tabs": {
