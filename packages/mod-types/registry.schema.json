@@ -1,8 +1,8 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"$id": "https://stanislavsonder.github.io/fate-core-mods/registry.schema.json",
-	"title": "FATE: Core mod manifest.json",
-	"description": "Static, non-executable metadata for a mod submitted to fate-core-mods. Anything executable belongs in bundle.mjs, never here.",
+	"$id": "https://stanislavsonder.github.io/fate-mods/registry.schema.json",
+	"title": "Assistant for Fate mod manifest.json",
+	"description": "Static, non-executable metadata for a mod submitted to fate-mods. Anything executable belongs in bundle.mjs, never here.",
 	"type": "object",
 	"required": ["id", "version", "name", "author", "description", "languages", "tags", "loadPriority", "sdk", "entry", "capabilities"],
 	"additionalProperties": false,
