@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { inject, type Ref } from 'vue'
 import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonItem, IonInput, IonNote } from '@ionic/vue'
-import { getModData, setModData, type Character, type FateContext } from '@fate-core/mod-types'
+import { getModData, setModData, type Character, type FateContext } from '@fate-app/mod-types'
 
 const NOTE_KEY = 'sonder@example.note'
 const CONSTANT_KEY = 'sonder@example.maxNoteLength'

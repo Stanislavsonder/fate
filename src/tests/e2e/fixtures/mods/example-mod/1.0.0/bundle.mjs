@@ -1,4 +1,4 @@
-(function(){try{if(typeof document<`u`){var e=document.createElement(`style`);e.appendChild(document.createTextNode(`.example-section[data-v-6c4bf802]{--background:var(--ion-color-light)}
+(function(){try{if(typeof document<`u`){var e=document.createElement(`style`);e.appendChild(document.createTextNode(`.example-section[data-v-9791bdbc]{--background:var(--ion-color-light)}
 /*$vite$:1*/`)),document.head.appendChild(e)}}catch(e){console.error(`vite-plugin-css-injected-by-js`,e)}})();//#region ../mod-types/src/bundle.ts
 function e(e) {
 	return e;
@@ -91,7 +91,7 @@ var S = "sonder@example.note", C = "sonder@example.maxNoteLength", w = [{
 				_: 1
 			}));
 		}
-	}), [["__scopeId", "data-v-6c4bf802"]]),
+	}), [["__scopeId", "data-v-9791bdbc"]]),
 	order: 900
 }], T = {
 	appVersion: ">=2.0.0",
@@ -124,7 +124,7 @@ var S = "sonder@example.note", C = "sonder@example.maxNoteLength", w = [{
 	languages: ["en"],
 	loadPriority: 100,
 	name: "t.name",
-	sdk: "^1.0.0",
+	sdk: "^2.0.0",
 	tags: ["example"],
 	version: "1.0.0"
 }, E = "sonder@example.note", D = "max-note-length", O = "sonder@example.maxNoteLength", k = 200;

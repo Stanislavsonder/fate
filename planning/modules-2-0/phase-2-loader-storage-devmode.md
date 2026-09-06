@@ -8,7 +8,7 @@
 > **external mod bundles at runtime**. There is no public registry yet (that's
 > Phase 3) — installation happens via URL (behind Developer Mode) — but the
 > entire loading machinery, the `FateSDK` host API, the storage layer, the
-> quarantine system, and the author-side build preset (`@fate-core/mod-build`)
+> quarantine system, and the author-side build preset (`@fate-app/mod-build`)
 > are done and proven with a real external test mod.
 >
 > **This phase alone unlocks mod-author DX**: an author can build a mod and
@@ -31,7 +31,7 @@ main.ts
 
 New files: `src/mods/sdk.ts`, `src/mods/loader.ts`, `src/mods/installService.ts`,
 `src/mods/devMode.ts`, `src/db/tables/mods.ts`.
-New repo (or folder, see Step 6): the `@fate-core/mod-build` Vite preset + test mod.
+New repo (or folder, see Step 6): the `@fate-app/mod-build` Vite preset + test mod.
 
 ---
 
@@ -55,7 +55,7 @@ import * as vueI18n from 'vue-i18n'
 import * as ionicVue from '@ionic/vue'
 import * as ionicons from 'ionicons/icons'
 import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
-import { getModData } from '@fate-core/mod-types'
+import { getModData } from '@fate-app/mod-types'
 
 /** ABI version. Bump per docs/MOD_API.md rules (Step 8). */
 export const SDK_VERSION = '1.0.0'
@@ -304,7 +304,7 @@ routed from the Settings page):
 
 ---
 
-## Step 6 — `@fate-core/mod-build` (author-side build preset) + test mod
+## Step 6 — `@fate-app/mod-build` (author-side build preset) + test mod
 
 ### Why
 
@@ -438,7 +438,7 @@ Flow:
 Write it now, while surface area is small. Contents:
 
 1. **What a mod may rely on**: everything on `window.FateSDK` (enumerate),
-   all types in `@fate-core/mod-types`, the `FateContext` provide/inject
+   all types in `@fate-app/mod-types`, the `FateContext` provide/inject
    contract, Ionic components (via `FateSDK.ionicVue`) and Ionic CSS
    variables, the lifecycle guarantees (when onInstall/onUninstall/
    onReconfigure/patches run — describe the existing 1.x semantics).
@@ -545,7 +545,7 @@ Integration (the real proof):
   sketched — that resolves Node's `"node"`/CJS-interop condition (a synthetic
   namespace polluted with junk keys like `module.exports`), not the browser ESM
   build the app actually uses. Export lists are pinned as static data
-  (`src/sdkExports.ts`, regenerated via `pnpm --filter @fate-core/mod-build
+  (`src/sdkExports.ts`, regenerated via `pnpm --filter @fate-app/mod-build
   generate-sdk-exports` — statically parses the real browser ESM entries with
   `es-module-lexer`, following `export * from` re-export chains). Also fixed:
   an earlier version of the shim plugin combined with `rollupOptions.external`

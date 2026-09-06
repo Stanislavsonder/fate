@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		// Required because vite.config.ts imports @fate-core/mod-build, whose
+		// Required because vite.config.ts imports @fate-app/mod-build, whose
 		// relative imports use explicit .ts extensions (needed for Node's native
 		// ESM loader when Vite loads a *consuming* config file — see
 		// mod-build/src/index.ts). Any project depending on mod-build needs this.

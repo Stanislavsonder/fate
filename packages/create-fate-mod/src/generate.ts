@@ -3,10 +3,10 @@ import { join } from 'node:path'
 
 /**
  * Tracks the FateSDK ABI (src/mods/sdk.ts's SDK_VERSION in the app repo) —
- * same version-discipline rule as @fate-core/mod-types/@fate-core/mod-build's
+ * same version-discipline rule as @fate-app/mod-types/@fate-app/mod-build's
  * own READMEs. Bump this in the same PR that bumps SDK_VERSION.
  */
-const CURRENT_SDK_VERSION = '1.1.0'
+const CURRENT_SDK_VERSION = '2.0.0'
 
 export type Capability = 'sheetComponents' | 'dice' | 'theme' | 'translations'
 
@@ -30,7 +30,7 @@ export function generateFiles(root: string, answers: ScaffoldAnswers): void {
 	writeFileSync(join(root, 'package.json'), packageJson(answers))
 	writeFileSync(join(root, 'manifest.json'), manifestJson(answers))
 	writeFileSync(join(root, 'bundle.ts'), bundleTs(answers))
-	writeFileSync(join(root, 'vite.config.ts'), `import { defineModConfig } from '@fate-core/mod-build'\n\nexport default defineModConfig()\n`)
+	writeFileSync(join(root, 'vite.config.ts'), `import { defineModConfig } from '@fate-app/mod-build'\n\nexport default defineModConfig()\n`)
 	writeFileSync(join(root, 'tsconfig.json'), tsconfigJson())
 	writeFileSync(join(root, '.gitignore'), 'node_modules\ndist\n')
 	writeFileSync(join(root, 'README.md'), readmeMd(answers))
@@ -58,10 +58,10 @@ function packageJson(answers: ScaffoldAnswers): string {
 			build: 'fate-mod-build build'
 		},
 		dependencies: {
-			'@fate-core/mod-types': `^${CURRENT_SDK_VERSION}`
+			'@fate-app/mod-types': `^${CURRENT_SDK_VERSION}`
 		},
 		devDependencies: {
-			'@fate-core/mod-build': `^${CURRENT_SDK_VERSION}`,
+			'@fate-app/mod-build': `^${CURRENT_SDK_VERSION}`,
 			'@ionic/vue': '8.8.15',
 			'@vitejs/plugin-vue': '6.0.8',
 			ionicons: '8.0.13',
@@ -101,7 +101,7 @@ function manifestJson(answers: ScaffoldAnswers): string {
 }
 
 function bundleTs(answers: ScaffoldAnswers): string {
-	const lines: string[] = ["import { defineFateMod } from '@fate-core/mod-types'"]
+	const lines: string[] = ["import { defineFateMod } from '@fate-app/mod-types'"]
 	if (answers.capabilities.includes('sheetComponents')) {
 		lines.push("import components from './src/components'")
 	}
@@ -162,7 +162,7 @@ function exampleSectionVue(): string {
 	return `<script setup lang="ts">
 import { inject } from 'vue'
 import type { Ref } from 'vue'
-import type { Character, FateContext } from '@fate-core/mod-types'
+import type { Character, FateContext } from '@fate-app/mod-types'
 
 const character = defineModel<Character>({ required: true })
 const context = inject<Ref<FateContext>>('context')!
@@ -178,7 +178,7 @@ const context = inject<Ref<FateContext>>('context')!
 
 function componentsIndexTs(): string {
 	return `import ExampleSection from './ExampleSection.vue'
-import type { FateModuleComponent } from '@fate-core/mod-types'
+import type { FateModuleComponent } from '@fate-app/mod-types'
 
 export default [
 	{

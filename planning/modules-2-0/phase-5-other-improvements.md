@@ -26,7 +26,7 @@ Phase 3's closeout, and all landed this session.
   `SDK_VERSION`) via the `mod-sdk-v1.1.0` tag → `publish-sdk.yml`.
 - ~~`fate-core-mods`' `validate-pr.yml` still rejects `dice`/`theme`~~
   [PR #3](https://github.com/Stanislavsonder/fate-core-mods/pull/3):
-  bumped the repo's own `@fate-core/mod-build`/`mod-types` devDeps to
+  bumped the repo's own `@fate-app/mod-build`/`mod-types` devDeps to
   `^1.1.0` (smoke-load now stubs `FateSDK.dice` and instantiates shapes
   headlessly — this was the entire gap, there was never explicit
   capability-rejection code), fixed the stale schema comment, added
@@ -46,7 +46,7 @@ Phase 3's closeout, and all landed this session.
 - ~~A real dice mod, published end-to-end~~ **`sonder@dice-d6@1.0.0`** is
   live in `registry.json` — scaffolded with the *published*
   `create-fate-mod@1.1.0` (proving the real external-consumer path, not
-  workspace links), built against real npm `@fate-core/*@1.1.0`, verified
+  workspace links), built against real npm `@fate-app/*@1.1.0`, verified
   locally (build + security lint + dice smoke-load) before submission,
   then went through the actual PR pipeline
   ([#5](https://github.com/Stanislavsonder/fate-core-mods/pull/5)) and
@@ -90,8 +90,8 @@ notes). Worth a manual pass before calling Phase 4 fully closed.
 ### Follow-up: replace the npm token with Trusted Publishing
 
 The 7-day token used for the `1.1.0` release is not sustainable. Once
-logged into npmjs.com: for each of `@fate-core/mod-types`,
-`@fate-core/mod-build`, and `create-fate-mod` → Settings → Trusted
+logged into npmjs.com: for each of `@fate-app/mod-types`,
+`@fate-app/mod-build`, and `create-fate-mod` → Settings → Trusted
 Publisher → GitHub Actions → repo `Stanislavsonder/fate`, workflow
 `publish-sdk.yml`, environment none. `publish-sdk.yml` already has
 `id-token: write` and `--provenance` — no workflow change needed. After
@@ -121,7 +121,7 @@ stay as pnpm workspace packages in this repo, published to npm via the
 Rationale:
 
 - **The app is the SDK's primary consumer, deeply.** 42 files in `src/`
-  import `@fate-core/mod-types` — including `src/types.ts` itself (the core
+  import `@fate-app/mod-types` — including `src/types.ts` itself (the core
   `Character` type lives there) and the entire dice subsystem. Spinning the
   packages out would turn every core-type change into an
   edit-elsewhere → publish → bump-here cycle, pure friction for a single
@@ -304,7 +304,7 @@ mechanism nothing in the automated suite exercises for real.
 - **A committed fixture mod bundle** under `src/tests/e2e/fixtures/mods/`
   (a manifest.json + built bundle.mjs + translations/en.json — e.g. a
   trimmed copy of `packages/example-mod`'s build output) so specs don't
-  need to spawn `@fate-core/mod-build` during the Cypress run. Regenerate it
+  need to spawn `@fate-app/mod-build` during the Cypress run. Regenerate it
   manually (`pnpm --filter example-mod build` + copy) whenever
   `packages/mod-build`'s shim/CSS-injection behavior or `SDK_VERSION` changes
   — there's no automation tying the fixture to the real preset output yet,

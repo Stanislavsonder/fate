@@ -19,7 +19,7 @@ import SonderInventoryTranslations from '@/modules/sonder@inventory/translations
 import SonderThemePink from '@/modules/sonder@theme-pink'
 import { ModRegistry } from '@/mods/modRegistry'
 import { registerModTranslations } from '@/mods/registerModTranslations'
-import type { FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModuleManifest } from '@fate-app/mod-types'
 
 interface BuiltinMod {
 	manifest: FateModuleManifest

@@ -111,7 +111,7 @@ phase, and a few gotchas worth knowing before you start:
   — it's a proven, non-trivial fixture: a sheet component, a config option,
   `getModData`/`setModData`, scoped CSS, an i18n key, and correct
   `onInstall` idempotency (see gotcha below). It's already been built
-  through `@fate-core/mod-build`, installed from a URL, rendered on a real
+  through `@fate-app/mod-build`, installed from a URL, rendered on a real
   character, and hot-reloaded live — migrating it is close to copy-paste.
 
 **Gotchas learned the hard way (all fixed, but worth knowing why):**
@@ -178,7 +178,7 @@ green (182 unit tests). Goal I (Cypress e2e) was not started.
 
 ### Deviations from this doc's original design
 
-- **`@fate-core/mod-types`/`@fate-core/mod-build` are already published to
+- **`@fate-app/mod-types`/`@fate-app/mod-build` are already published to
   npm** (`0.1.2` / `0.1.5` at the time of writing) — Phase 2's Decision #6
   deferred this to Phase 4, but Phase 3 can't actually work without it (CI's
   smoke-load step and any real author's local dev both need to `pnpm install`
@@ -210,10 +210,10 @@ green (182 unit tests). Goal I (Cypress e2e) was not started.
 Ten, across two failure classes — package distribution and CI mechanics —
 each is a durable lesson for anyone touching this infrastructure again:
 
-**Getting `@fate-core/mod-types`/`mod-build` correctly published:**
+**Getting `@fate-app/mod-types`/`mod-build` correctly published:**
 1. `npm publish` (not `pnpm publish`) does **not** rewrite `workspace:`
    protocol dependency ranges — the first `mod-build` publish shipped a
-   literal, broken `"@fate-core/mod-types": "workspace:^0.1.0"` in its
+   literal, broken `"@fate-app/mod-types": "workspace:^0.1.0"` in its
    published `package.json`. Always `pnpm publish` for workspace packages.
 2. Node's `--experimental-transform-types` **refuses to strip types for any
    file under `node_modules`** — shipping raw `.ts` source with no build step
@@ -229,7 +229,7 @@ each is a durable lesson for anyone touching this infrastructure again:
    extensions to `.js`, it doesn't add missing ones — needed
    `allowImportingTsExtensions` plus explicit `.ts` suffixes on every
    relative export in the source itself.
-4. `@fate-core/mod-build/testing`'s `smokeLoad()` never bootstrapped a DOM
+4. `@fate-app/mod-build/testing`'s `smokeLoad()` never bootstrapped a DOM
    before Vue was first imported. `@vue/runtime-dom` captures a reference to
    `document` the moment it's first evaluated (module-scope, computed once)
    — a static top-level `import 'vue'` runs before any later
@@ -320,7 +320,7 @@ fate-core-mods/
 │       ├── src/ ...
 │       ├── translations/*.json
 │       ├── README.md  CHANGELOG.md  LICENSE
-│       ├── package.json            # devDeps: @fate-core/mod-build, @fate-core/mod-types (pinned)
+│       ├── package.json            # devDeps: @fate-app/mod-build, @fate-app/mod-types (pinned)
 │       └── vite.config.ts          # export default defineModConfig()
 ├── owners.json                     # { "<modId>": ["github-handle", ...] } — who may modify each mod
 ├── blocklist.json                  # { "<modId>": ["<semver-range>", ...] }
@@ -370,7 +370,7 @@ swapping the base. The base URL ships as an app constant with an override
 field in Developer Mode (useful for testing a staging registry).
 
 `registry.schema.json` — write it once, use it in three places: registry CI,
-`@fate-core/mod-build`'s `manifestChecks` (Phase 2 — retrofit it to consume
+`@fate-app/mod-build`'s `manifestChecks` (Phase 2 — retrofit it to consume
 this schema), and app-side install validation. Keep the schema file **in the
 registry repo** and vendor a copy into `packages/mod-types` (with a CI check
 that they match).
@@ -391,7 +391,7 @@ Checks, in order (fail fast, comment results on the PR):
 4. **Version**: `manifest.version` is a valid semver **strictly greater** than
    the latest published version in `registry.json` (or `1.0.0`+ for new mods).
 5. **Build**: `pnpm install --frozen-lockfile` (lockfile required, registry
-   pinned), `pnpm build` with the **pinned** `@fate-core/mod-build`. Any
+   pinned), `pnpm build` with the **pinned** `@fate-app/mod-build`. Any
    build warning about size limits → fail at hard limits (bundle > 3 MB,
    artifact > 5 MB).
 6. **Security lint** (ESLint flat config shipped in the repo root, run over
@@ -407,7 +407,7 @@ Checks, in order (fail fast, comment results on the PR):
      `crypto` misc. Network access isn't banned (a weather-dice mod could be
      legit) but must be justified in the PR description and re-reviewed.
 7. **Smoke-load**: in Node with jsdom + a stub `globalThis.FateSDK`
-   (export a stub package from `@fate-core/mod-build/testing`): import the
+   (export a stub package from `@fate-app/mod-build/testing`): import the
    built bundle, assert default export shape (`validateBundleShape` — reuse
    the app's function by exporting it from `mod-types`), instantiate each
    component with `@vue/test-utils` mount + stub context (renders without

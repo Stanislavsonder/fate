@@ -1,4 +1,4 @@
-export * from '@fate-core/mod-types'
+export * from '@fate-app/mod-types'
 
 export type TranslationNode = string | TranslationMap
 

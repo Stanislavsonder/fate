@@ -83,7 +83,7 @@ For each module:
 1. Create `bundle.ts`:
 
    ```ts
-   import { defineFateMod } from '@fate-core/mod-types'
+   import { defineFateMod } from '@fate-app/mod-types'
    import constants from './src/constants'
    import templates from './src/templates'
    import components from './src/components'
@@ -108,7 +108,7 @@ For each module:
    ```ts
    // src/mods/assembleMod.ts  (NEW, shared)
    import { signRecord } from '@/modules/utils/localizationSigners'
-   import type { FateModuleManifest, FateModBundle } from '@fate-core/mod-types'
+   import type { FateModuleManifest, FateModBundle } from '@fate-app/mod-types'
 
    export function assembleMod(manifestJson: Record<string, unknown>, bundle: FateModBundle): FateModuleManifest {
      const signed = signRecord(manifestJson, manifestJson.id as string)
@@ -245,7 +245,7 @@ App code (and other modules) then freely writes `character.aspects`.
 
 ### Target
 
-The core `Character` in `@fate-core/mod-types` carries an **index signature
+The core `Character` in `@fate-app/mod-types` carries an **index signature
 escape hatch** plus the typed accessor from Phase 0:
 
 ```ts
@@ -266,13 +266,13 @@ accesses its slice through typed helpers:
 
 ```ts
 // inside sonder@core-aspects code
-import { getModData } from '@fate-core/mod-types'
+import { getModData } from '@fate-app/mod-types'
 const aspects = getModData<CharacterAspect[]>(character, 'aspects') ?? []
 ```
 
 For **built-ins only**, a transitional alternative is allowed: keep the
 `declare module` blocks but retarget them at the published package
-(`declare module '@fate-core/mod-types' { interface Character { … } }`) —
+(`declare module '@fate-app/mod-types' { interface Character { … } }`) —
 this compiles fine inside the workspace and external mods can even do the same
 against their own copy of the package for local DX (their augmentation only
 affects their own compilation, which is exactly what they need). **Pick one
@@ -507,7 +507,7 @@ must notice nothing.**
       full 2.0 manifests
 - [x] Translations merge at runtime; compiler is core-only; `languages.json` shrank
 - [x] No `declare module '@/types'` anywhere — retargeted to
-      `declare module '@fate-core/mod-types'` (the doc's sanctioned
+      `declare module '@fate-app/mod-types'` (the doc's sanctioned
       "transitional, built-ins-only" choice — see Step 3 note; the full
       index-signature + `getModData`/`setModData` accessor path was added to
       `mod-types` too and is demonstrated in `CharacterCard.vue`, but not

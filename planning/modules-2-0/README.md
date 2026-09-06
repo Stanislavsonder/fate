@@ -11,7 +11,7 @@
 | 1 | [phase-1-builtins-migration.md](./phase-1-builtins-migration.md) | All 9 built-in modules run through the new 2.0 pipeline. No user-visible change. |
 | 2 | [phase-2-loader-storage-devmode.md](./phase-2-loader-storage-devmode.md) | The app can load external mod bundles at runtime (install-from-URL, dev mode, local caching). |
 | 3 | [phase-3-registry-store.md](./phase-3-registry-store.md) | Public curated mod registry (GitHub repo + CI) and an in-app Mod Store. **Closed out** — full Cypress coverage, all CI checks, and live-repo verification (a real publish, a real blocklist cycle) done. Only device passes remain (no hardware available). |
-| 4 | [phase-4-sdk-extensions.md](./phase-4-sdk-extensions.md) | Published author SDK (scaffolder, build preset, types) + custom dice capability. **Done** — `@fate-core/mod-types`/`mod-build`/`create-fate-mod` all published to npm at `1.1.0`; `fate-core-mods` accepts `dice`/`theme` submissions; `sonder@dice-d6` is a real, live, published dice mod; author docs (`docs/GUIDE.md`) live in the registry repo. |
+| 4 | [phase-4-sdk-extensions.md](./phase-4-sdk-extensions.md) | Published author SDK (scaffolder, build preset, types) + custom dice capability. **Done** — `@fate-app/mod-types`/`mod-build`/`create-fate-mod` all published to npm at `1.1.0`; `fate-core-mods` accepts `dice`/`theme` submissions; `sonder@dice-d6` is a real, live, published dice mod; author docs (`docs/GUIDE.md`) live in the registry repo. |
 | 5 | [phase-5-other-improvements.md](./phase-5-other-improvements.md) | Backlog of follow-ups identified along the way (not strictly ordered after Phase 4). Phase 4's registry close-out, the Cypress e2e gap, and the privacy policy accuracy fix are done; open items include npm Trusted Publishing, translating the Modules 2.0 UI strings, and the character list card / identity module redesign now that `avatar` is a core field. |
 
 ---
@@ -194,7 +194,7 @@ if one proves wrong, stop and record why before changing course.
 | D4 | Bundle storage | Dexie (IndexedDB), DB version 2, bundle code stored as a string column | Uniform across iOS/Android/web, no filesystem path/scheme divergence. Bundles are ≤ ~1 MB of text. |
 | D5 | Built-in modules | Same package **format** and same ModRegistry **API**, but statically imported and registered with `source: 'builtin'` | One pipeline (dogfoods the SDK) with zero startup regression; the sheet can never be blank because built-ins don't depend on the loader. |
 | D6 | Registry hosting | GitHub Pages of the registry repo: `registry.json` + immutable `mods/<id>/<version>/…` paths; jsDelivr documented as mirror | Free, predictable URLs; immutability makes SHA-256 pinning meaningful. |
-| D7 | Types single source | New pnpm workspace package `packages/mod-types` in this repo, published to npm as `@fate-core/mod-types`; the app imports its own types from it | Zero drift between host and SDK. `pnpm-workspace.yaml` already exists. |
+| D7 | Types single source | New pnpm workspace package `packages/mod-types` in this repo, published to npm as `@fate-app/mod-types`; the app imports its own types from it | Zero drift between host and SDK. `pnpm-workspace.yaml` already exists. |
 | D8 | Mod typing contract | `defineFateMod<TData>()` generic + typed accessors (`getModData<TData>(character, id)`); optionally mods augment interfaces of the *published npm package* | Declaration merging into `@/types` cannot cross a compile boundary. |
 | D9 | Mod CSS | CSS inlined in the bundle, injected as `<style data-mod-id="...">` at load; styling contract = Ionic components + CSS variables. **Tailwind is explicitly NOT available to mods** | The app's Tailwind JIT never sees mod source, so mod Tailwind classes would silently not exist. CSS variables keep mods theme-reactive (dark/light). |
 | D10 | Trust model | Curated PR review + CI-only builds + SHA-256 per file in the index + `blocklist.json` kill-switch + scary typed-confirmation modal for install-from-URL | Closes the "published bundle ≠ reviewed source" gap; remote kill for versions found to be malicious. |
@@ -245,7 +245,7 @@ resolution, or configuration UI* lives in `manifest.json`; anything
 `bundle.mjs` default-exports the executable half:
 
 ```ts
-import { defineFateMod } from '@fate-core/mod-types'
+import { defineFateMod } from '@fate-app/mod-types'
 
 export default defineFateMod<MyModData>({
   components: [{ id: 'my-section', component: MySection, order: 250 }], // precompiled Vue components
@@ -292,7 +292,7 @@ src/mods/                        // NEW directory (Phases 0–3)
   registryClient.ts              // fetch + cache registry.json, apply blocklist
   devMode.ts                     // live-reload connection to a local mod dev server
 
-packages/mod-types/              // NEW workspace package → npm @fate-core/mod-types (Phase 0)
+packages/mod-types/              // NEW workspace package → npm @fate-app/mod-types (Phase 0)
 ```
 
 Existing code that changes: `src/modules/index.ts` (becomes a thin built-ins

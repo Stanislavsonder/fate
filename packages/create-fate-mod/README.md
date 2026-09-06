@@ -9,7 +9,7 @@ pnpm create fate-mod
 
 Prompts for a mod id, display name, author info, and capabilities
 (`sheetComponents`/`dice`/`theme`/`translations`), then generates a ready-to-
-build project using `@fate-core/mod-build`'s Vite preset — `npm install &&
+build project using `@fate-app/mod-build`'s Vite preset — `npm install &&
 npm run dev` gets you live-reloading in the app's Developer Mode.
 
 See [`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md)

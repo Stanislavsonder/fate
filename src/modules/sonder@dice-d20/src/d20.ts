@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import * as CANNON from 'cannon-es'
 import type { Group, Mesh } from 'three'
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
-import type { DiceCollisionEvent } from '@fate-core/mod-types'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 import type { FaceUpAmount, DiceResult } from '@/dice/types'
 import d20Icon from './d20.svg'
 

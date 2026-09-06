@@ -1,4 +1,4 @@
-# @fate-core/mod-types
+# @fate-app/mod-types
 
 Shared TypeScript types and runtime helpers for [Assistant for Fate](https://github.com/Stanislavsonder/fate)
 mods — the single source of truth for the mod manifest/bundle shape, consumed
@@ -18,6 +18,6 @@ Submitting a mod to the public registry: see
 This package's version tracks `SDK_VERSION` (the `FateSDK` ABI, defined in
 the app's `src/mods/sdk.ts`) — same major.minor, patch is free. A mod's
 `manifest.json` `sdk` field is a semver range checked against the app's
-`SDK_VERSION` at load time; this package (and `@fate-core/mod-build`) is how
+`SDK_VERSION` at load time; this package (and `@fate-app/mod-build`) is how
 you compile against a given ABI version. Don't pin a version here that
 doesn't correspond to a real `SDK_VERSION` the app has shipped.

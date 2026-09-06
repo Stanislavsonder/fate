@@ -7,7 +7,7 @@ import type { Character, FateContext } from '@/types'
 /**
  * Integration test for the Phase 2 loader against a REAL built mod, not a
  * hand-written fixture: packages/example-mod's actual manifest.json +
- * dist/bundle.mjs (built via the @fate-core/mod-build preset) + translations.
+ * dist/bundle.mjs (built via the @fate-app/mod-build preset) + translations.
  *
  * The one thing this CANNOT verify in this environment: transport via a real
  * blob: URL — Node's module loader doesn't support importing blob: URLs

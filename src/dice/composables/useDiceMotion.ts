@@ -4,7 +4,7 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics'
 import type { AccelListenerEvent } from '@capacitor/motion'
 import { isIos } from '@/utils/helpers/platform'
 import { ACCEL_THRESHOLD, MAX_DICE_VELOCITY, WALL_PROXIMITY_THRESHOLD, WALL_CORRECTION_STRENGTH } from '@/dice/constants'
-import type { DiceCollisionEvent } from '@fate-core/mod-types'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 import type { Dice } from '../shapes'
 import { getWallEscapeVector } from './useDicePhysics'
 

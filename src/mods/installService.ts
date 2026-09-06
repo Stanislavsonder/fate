@@ -7,7 +7,7 @@ import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
 import appVersion from '@/utils/helpers/appVersion'
-import type { FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
 export type SimpleOutcome = { ok: true } | { ok: false; error: string }

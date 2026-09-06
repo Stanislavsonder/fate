@@ -7,7 +7,7 @@ import { registerBuiltinMods } from './builtins'
 import { importBlobModule } from './importBlobModule'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs } from './sdk'
-import { validateBundleShape, type FateModuleManifest } from '@fate-core/mod-types'
+import { validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
 
 /**
  * Registers built-ins, then loads every enabled external mod from storage.

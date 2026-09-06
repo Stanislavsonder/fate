@@ -45,7 +45,7 @@ importers:
       '@capacitor/status-bar':
         specifier: 8.0.3
         version: 8.0.3(@capacitor/core@8.4.2)
-      '@fate-core/mod-types':
+      '@fate-app/mod-types':
         specifier: workspace:*
         version: link:packages/mod-types
       '@ionic/pwa-elements':
@@ -239,11 +239,11 @@ importers:
 
   packages/example-dice-mod:
     dependencies:
-      '@fate-core/mod-types':
+      '@fate-app/mod-types':
         specifier: workspace:*
         version: link:../mod-types
     devDependencies:
-      '@fate-core/mod-build':
+      '@fate-app/mod-build':
         specifier: workspace:*
         version: link:../mod-build
       '@types/three':
@@ -261,11 +261,11 @@ importers:
 
   packages/example-mod:
     dependencies:
-      '@fate-core/mod-types':
+      '@fate-app/mod-types':
         specifier: workspace:*
         version: link:../mod-types
     devDependencies:
-      '@fate-core/mod-build':
+      '@fate-app/mod-build':
         specifier: workspace:*
         version: link:../mod-build
       '@ionic/vue':
@@ -289,8 +289,8 @@ importers:
 
   packages/mod-build:
     dependencies:
-      '@fate-core/mod-types':
-        specifier: workspace:^1.1.0
+      '@fate-app/mod-types':
+        specifier: workspace:^2.0.0
         version: link:../mod-types
       '@vitejs/plugin-vue':
         specifier: ^6.0.0

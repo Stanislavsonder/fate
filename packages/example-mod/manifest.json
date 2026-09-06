@@ -27,7 +27,7 @@
 	"languages": ["en"],
 	"loadPriority": 100,
 	"name": "t.name",
-	"sdk": "^1.0.0",
+	"sdk": "^2.0.0",
 	"tags": ["example"],
 	"version": "1.0.0"
 }

@@ -2,7 +2,7 @@
 
 This is the contract between the app (the "host") and a mod's code — what a
 mod may rely on, what it must not, and how the pieces fit together. It's
-aimed at mod authors. `@fate-core/mod-types`/`@fate-core/mod-build` are
+aimed at mod authors. `@fate-app/mod-types`/`@fate-app/mod-build` are
 published to npm; scaffold a new project with `pnpm create fate-mod` rather
 than hand-writing the files described below.
 
@@ -30,10 +30,10 @@ Mod Store renders mod listings from manifests alone, without loading any
 bundle.
 
 `bundle.mjs` default-exports the result of `defineFateMod()`
-(`@fate-core/mod-types`):
+(`@fate-app/mod-types`):
 
 ```ts
-import { defineFateMod } from '@fate-core/mod-types'
+import { defineFateMod } from '@fate-app/mod-types'
 
 export default defineFateMod({
   components: [{ id: 'my-section', component: MySection, order: 250 }],
@@ -57,7 +57,7 @@ Your mod runs inside the **same Vue instance** as the host app — not a copy.
 This is what makes reactivity, `provide`/`inject`, and shared component
 context work across the mod boundary. The mechanism (`src/mods/sdk.ts`):
 before loading any mod, the app freezes `window.FateSDK`, and your build
-tool (`@fate-core/mod-build`) rewrites `import { ref } from 'vue'` and
+tool (`@fate-app/mod-build`) rewrites `import { ref } from 'vue'` and
 similar imports into re-exports from `FateSDK.vue` — you never see this
 rewrite; you just write normal imports.
 
@@ -89,7 +89,7 @@ A mod with `"capabilities": ["dice"]` can contribute custom roll shapes and/or
 materials:
 
 ```ts
-import { defineFateMod, Dice, DiceMaterial } from '@fate-core/mod-types'
+import { defineFateMod, Dice, DiceMaterial } from '@fate-app/mod-types'
 import * as THREE from 'three'
 import * as CANNON from 'cannon-es'
 
@@ -108,11 +108,11 @@ export default defineFateMod({
 })
 ```
 
-`Dice`/`DiceMaterial` are real, tiny runtime exports of `@fate-core/mod-types`
+`Dice`/`DiceMaterial` are real, tiny runtime exports of `@fate-app/mod-types`
 (no three/cannon-es logic of their own — that's your subclass's job in
 `createMesh`/`createBody`), so they bundle directly into your `bundle.mjs`.
 `three`/`cannon-es` themselves are the two libraries you must NOT bundle a
-second copy of — `@fate-core/mod-build`'s preset externalizes plain
+second copy of — `@fate-app/mod-build`'s preset externalizes plain
 `import * as THREE from 'three'` / `import * as CANNON from 'cannon-es'` to
 pull from `FateSDK.dice.three`/`FateSDK.dice.cannonEs` instead, the same
 mechanism as `vue`. Shapes/materials register under a namespaced key
@@ -174,7 +174,7 @@ Unchanged from the 1.x module system (`src/modules/utils/installModules.ts`,
 
 - **Tailwind classes.** The host's Tailwind JIT compiler never sees your
   source, so any Tailwind class in your markup silently does nothing. Ship
-  your own CSS — `@fate-core/mod-build` inlines and injects it as a
+  your own CSS — `@fate-app/mod-build` inlines and injects it as a
   `<style>` tag at load (via `vite-plugin-css-injected-by-js`). Style
   against Ionic components and Ionic's CSS variables (`--ion-color-*` etc.)
   so you stay reactive to the host's light/dark theme.
@@ -191,7 +191,7 @@ Unchanged from the 1.x module system (`src/modules/utils/installModules.ts`,
 
 ## 4. Building your mod
 
-Use the `@fate-core/mod-build` Vite preset (published to npm; scaffold a new
+Use the `@fate-app/mod-build` Vite preset (published to npm; scaffold a new
 project with `pnpm create fate-mod` rather than writing these files by hand).
 Your project:
 
@@ -205,7 +205,7 @@ your-mod/
 
 ```ts
 // vite.config.ts
-import { defineModConfig } from '@fate-core/mod-build'
+import { defineModConfig } from '@fate-app/mod-build'
 export default defineModConfig()
 ```
 
@@ -270,7 +270,7 @@ without executing a single line of your code.
   Vue/Ionic major upgrade the host takes, since that changes what
   `FateSDK.vue`/`FateSDK.ionicVue` actually expose.
 
-Current: `SDK_VERSION = '1.1.0'`. Treat every property on `FateSDK` as
+Current: `SDK_VERSION = '2.0.0'`. Treat every property on `FateSDK` as
 something you must support for years once shipped — this is why its surface
 is deliberately small (`src/mods/sdk.ts`'s own comment: "every property
 added here is frozen ABI").

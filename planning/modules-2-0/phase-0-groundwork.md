@@ -87,7 +87,7 @@ this repo:
 
 External mod authors (Phase 4) need these types from **npm**, and the app must
 use the *same* types to guarantee zero drift (decision D7). A pnpm workspace
-package inside this repo, later published as `@fate-core/mod-types`, gives both.
+package inside this repo, later published as `@fate-app/mod-types`, gives both.
 
 ### How
 
@@ -127,14 +127,14 @@ package inside this repo, later published as `@fate-core/mod-types`, gives both.
    app re-exports.
    **Resolved (2026-07-24):** the package-first direction (`Character` etc.
    physically defined in `packages/mod-types`, `src/types.ts` doing
-   `export * from '@fate-core/mod-types'`) compiled clean on the first try —
+   `export * from '@fate-app/mod-types'`) compiled clean on the first try —
    `pnpm build` (vue-tsc + vite build) passed with zero errors, and all 9
    modules' `declare module '@/types'` augmentations kept merging correctly.
    No fallback needed; this is already the Phase-1 end state, so nothing to
    invert later. TypeScript 6.0.3 with `moduleResolution: "bundler"` handles
    `declare module` augmentation through an `export *` barrel without issue.
 4. Add the app dependency: in root `package.json`
-  `"@fate-core/mod-types": "workspace:*"`, then `pnpm install`.
+  `"@fate-app/mod-types": "workspace:*"`, then `pnpm install`.
 5. Add the **new** types in `packages/mod-types/src/bundle.ts` (used from
   Phase 1 onward):
    Also add the typed accessor that replaces declaration-merged character
@@ -170,7 +170,7 @@ Phases 1–3 only touch the registry internals, not the call sites.
 
 1. Create `src/mods/modRegistry.ts`:
   ```ts
-   import type { FateModuleManifest } from '@fate-core/mod-types'
+   import type { FateModuleManifest } from '@fate-app/mod-types'
 
    export type ModSource = 'builtin' | 'registry' | 'url' | 'dev'
    export type ModStatus = 'loaded' | 'errored' | 'disabled'

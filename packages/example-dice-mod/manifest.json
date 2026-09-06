@@ -14,7 +14,7 @@
 	"languages": ["en"],
 	"loadPriority": 100,
 	"name": "t.name",
-	"sdk": "^1.1.0",
+	"sdk": "^2.0.0",
 	"tags": ["example", "dice"],
 	"version": "1.0.0"
 }

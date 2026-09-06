@@ -4,11 +4,11 @@ import * as ionicVue from '@ionic/vue'
 import type * as ionicons from 'ionicons/icons'
 import type * as three from 'three'
 import type * as cannonEs from 'cannon-es'
-import { getModData, setModData } from '@fate-core/mod-types'
+import { getModData, setModData } from '@fate-app/mod-types'
 import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
 
 /** ABI version. Bump per docs/MOD_API.md rules: minor for additions, major for anything removed/changed. */
-export const SDK_VERSION = '1.1.0'
+export const SDK_VERSION = '2.0.0'
 
 export interface FateSDK {
 	version: string
@@ -29,7 +29,7 @@ export interface FateSDK {
 	 * dice-capability mod to load (src/mods/loader.ts), same lazy pattern as
 	 * ionicons. `Dice`/`DiceMaterial` (the tiny, three/cannon-es-agnostic base
 	 * classes) are NOT here — authors get those as real imports from
-	 * @fate-core/mod-types, bundled directly into each mod (see
+	 * @fate-app/mod-types, bundled directly into each mod (see
 	 * packages/mod-types/src/dice.ts for why that's safe/cheap). Experimental:
 	 * a three/cannon-es major bump is an SDK major (docs/MOD_API.md).
 	 */

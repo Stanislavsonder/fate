@@ -27,9 +27,9 @@ console.log(`Module root folder: ${moduleRootFolder}`)
 function generateTypeExtensions() {
 	console.log('Generating type extensions...')
 
-	const content = `import type { Character as _Character, FateConstants as _FateConstants } from '@fate-core/mod-types'
+	const content = `import type { Character as _Character, FateConstants as _FateConstants } from '@fate-app/mod-types'
 
-declare module '@fate-core/mod-types' {
+declare module '@fate-app/mod-types' {
 	interface Character {
 		// Add your custom properties here
 	}
@@ -201,7 +201,7 @@ function generateManifestJson() {
 
 function generateBundleFile() {
 	console.log('Generating bundle file...')
-	const bundleContent = `import { defineFateMod } from '@fate-core/mod-types'
+	const bundleContent = `import { defineFateMod } from '@fate-app/mod-types'
 import constants from './src/constants'
 import templates from './src/templates'
 import components from './src/components'

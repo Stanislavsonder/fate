@@ -1,6 +1,6 @@
-import type { Character as _Character, FateConstants as _FateConstants } from '@fate-core/mod-types'
+import type { Character as _Character, FateConstants as _FateConstants } from '@fate-app/mod-types'
 
-declare module '@fate-core/mod-types' {
+declare module '@fate-app/mod-types' {
 	interface Character {
 		race?: string
 		description?: string

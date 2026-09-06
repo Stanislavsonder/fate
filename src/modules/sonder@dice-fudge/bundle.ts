@@ -1,4 +1,4 @@
-import { defineFateMod } from '@fate-core/mod-types'
+import { defineFateMod } from '@fate-app/mod-types'
 import FudgeDice from './src/fudge'
 
 // Dice mods are app-level (registered by src/dice/registerBuiltinDice.ts,

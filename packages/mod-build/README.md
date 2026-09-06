@@ -1,4 +1,4 @@
-# @fate-core/mod-build
+# @fate-app/mod-build
 
 Vite build preset + dev-mode server for authoring [Assistant for Fate](https://github.com/Stanislavsonder/fate)
 mods — externalizes host-shared libraries (`vue`, `vue-i18n`, `@ionic/vue`,
@@ -7,7 +7,7 @@ and enforces bundle size limits.
 
 ```ts
 // vite.config.ts
-import { defineModConfig } from '@fate-core/mod-build'
+import { defineModConfig } from '@fate-app/mod-build'
 
 export default defineModConfig()
 ```

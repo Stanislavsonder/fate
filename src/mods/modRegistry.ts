@@ -1,4 +1,4 @@
-import type { FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export type ModSource = 'builtin' | 'registry' | 'url' | 'dev'
 export type ModStatus = 'loaded' | 'errored' | 'disabled'

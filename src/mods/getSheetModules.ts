@@ -1,5 +1,5 @@
 import { ModRegistry } from '@/mods/modRegistry'
-import type { FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModuleManifest } from '@fate-app/mod-types'
 
 /**
  * Loaded mods that can be installed on a character sheet — excludes

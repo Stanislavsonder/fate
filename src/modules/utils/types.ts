@@ -1,1 +1,1 @@
-export * from '@fate-core/mod-types'
+export * from '@fate-app/mod-types'

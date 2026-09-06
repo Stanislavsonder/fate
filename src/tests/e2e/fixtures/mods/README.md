@@ -17,7 +17,7 @@ Two kinds of fixture live here:
   pnpm fixtures:mods
   ```
 
-  and commit the diff. Do this whenever `@fate-core/mod-build`'s shim or
+  and commit the diff. Do this whenever `@fate-app/mod-build`'s shim or
   CSS-injection behavior, `SDK_VERSION`, or either example package's source
   changes — nothing ties the snapshots to the live preset output
   automatically, so they drift silently otherwise.

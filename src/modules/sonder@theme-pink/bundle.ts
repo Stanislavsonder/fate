@@ -1,4 +1,4 @@
-import { defineFateMod } from '@fate-core/mod-types'
+import { defineFateMod } from '@fate-app/mod-types'
 
 // Theme mods are app-level (registered by src/composables/useSkins.ts, never
 // installed on a character), so the character-lifecycle hooks are unused

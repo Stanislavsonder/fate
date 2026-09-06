@@ -1,4 +1,4 @@
-import { defineModConfig } from '@fate-core/mod-build'
+import { defineModConfig } from '@fate-app/mod-build'
 
 /**
  * Never published — this is the integration fixture proving the whole

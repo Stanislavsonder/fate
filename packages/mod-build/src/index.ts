@@ -16,7 +16,7 @@ export const EXTERNALS: Record<string, string> = {
 	'ionicons/icons': 'FateSDK.ionicons',
 	// Experimental (dice capability) — see docs/MOD_API.md. `Dice`/`DiceMaterial`
 	// themselves are NOT externalized: import them normally from
-	// @fate-core/mod-types, they bundle directly (see that package's dice.ts).
+	// @fate-app/mod-types, they bundle directly (see that package's dice.ts).
 	three: 'FateSDK.dice.three',
 	'cannon-es': 'FateSDK.dice.cannonEs'
 }

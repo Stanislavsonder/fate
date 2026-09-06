@@ -1,4 +1,4 @@
-import { defineModConfig } from '@fate-core/mod-build'
+import { defineModConfig } from '@fate-app/mod-build'
 
 /**
  * Never published — the worked example (and Cypress fixture source) for the

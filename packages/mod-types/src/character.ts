@@ -23,7 +23,7 @@ export interface Character {
 	avatar: string
 	/**
 	 * Mod-owned data. Built-ins currently attach typed fields here via
-	 * `declare module '@fate-core/mod-types'` augmentation (see each module's
+	 * `declare module '@fate-app/mod-types'` augmentation (see each module's
 	 * src/types.ts); external mods (Phase 2+), which compile separately and
 	 * cannot augment this package, read/write their slice through
 	 * getModData/setModData instead.

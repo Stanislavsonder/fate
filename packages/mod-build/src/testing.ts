@@ -1,6 +1,6 @@
 import { pathToFileURL } from 'node:url'
 import { resolve } from 'node:path'
-import { validateBundleShape, DiceMaterial, type FateModCapability, type FateContext, type Character, type DiceConstructor } from '@fate-core/mod-types'
+import { validateBundleShape, DiceMaterial, type FateModCapability, type FateContext, type Character, type DiceConstructor } from '@fate-app/mod-types'
 // Type-only — fully erased at compile time, so this does NOT trigger vue's
 // runtime evaluation (see the ordering note below). Only real `import`
 // statements (not `import type`) would.
@@ -18,7 +18,7 @@ import type * as CannonEsModule from 'cannon-es'
  * reviewer ever runs the mod. This file is intentionally NOT imported by
  * `./index.ts` (the build-preset entry) — it pulls in `vue`/`vue-i18n`/
  * `jsdom`/`@vue/test-utils`, none of which a mod author's `vite.config.ts`
- * needs, so it's a separate `@fate-core/mod-build/testing` subpath export.
+ * needs, so it's a separate `@fate-app/mod-build/testing` subpath export.
  *
  * `vue`/`vue-i18n` are deliberately imported *dynamically*, never at module
  * top level: `@vue/runtime-dom` captures a reference to `document` the

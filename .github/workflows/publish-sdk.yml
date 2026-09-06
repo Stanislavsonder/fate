@@ -1,6 +1,6 @@
 name: Publish mod SDK packages
 
-# Publishes @fate-core/mod-types, @fate-core/mod-build, and create-fate-mod to
+# Publishes @fate-app/mod-types, @fate-app/mod-build, and create-fate-mod to
 # npm with provenance. Real publishes are tag-triggered (mod-sdk-v*) — the
 # tag is just a trigger, not a package version (each package's own
 # package.json version is what gets published). workflow_dispatch supports a
@@ -8,7 +8,7 @@ name: Publish mod SDK packages
 # pipeline without cutting a release.
 #
 # Requires an NPM_TOKEN repository secret (an npm automation token with
-# publish rights on the @fate-core org) — added manually via repo settings,
+# publish rights on the @fate-app org) — added manually via repo settings,
 # not by this workflow.
 
 on:

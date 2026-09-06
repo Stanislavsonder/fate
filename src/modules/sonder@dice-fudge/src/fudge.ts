@@ -5,7 +5,7 @@ import * as CANNON from 'cannon-es'
 import type { BoxGeometry, BufferGeometry, Group, Material, Mesh } from 'three'
 import { mergeVertices } from 'three/examples/jsm/utils/BufferGeometryUtils.js'
 import { DICE_MASS } from '@/dice/constants'
-import type { DiceCollisionEvent } from '@fate-core/mod-types'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 import type { FaceUpAmount, DiceResult } from '@/dice/types'
 import fudge from './fugde.svg'
 

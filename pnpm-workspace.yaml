@@ -3,7 +3,7 @@ packages:
 allowBuilds:
   cypress: true
 minimumReleaseAgeExclude:
-  - '@fate-core/mod-types@0.1.0'
+  - '@fate-app/mod-types@0.1.0'
 onlyBuiltDependencies:
   - core-js
   - cypress

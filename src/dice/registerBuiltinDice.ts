@@ -2,7 +2,7 @@ import { ModRegistry } from '@/mods/modRegistry'
 import { DICE_SHAPES, DICE_MATERIALS } from './constants'
 import SonderDiceFudge from '@/modules/sonder@dice-fudge'
 import SonderDiceD20 from '@/modules/sonder@dice-d20'
-import type { FateModDice } from '@fate-core/mod-types'
+import type { FateModDice } from '@fate-app/mod-types'
 
 const BUILTIN_DICE_MODS = [SonderDiceFudge, SonderDiceD20]
 

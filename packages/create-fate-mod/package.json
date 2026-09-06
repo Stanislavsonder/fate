@@ -1,6 +1,6 @@
 {
 	"name": "create-fate-mod",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Scaffolder for Assistant for Fate mod projects — run with `pnpm create fate-mod` (or `npm create fate-mod`).",
 	"license": "MIT",
 	"repository": {

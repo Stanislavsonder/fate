@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach } from 'vitest'
 import { ModRegistry } from '@/mods/modRegistry'
 import { registerBuiltinDice, syncExternalDice } from '@/dice/registerBuiltinDice'
 import { DICE_SHAPES, DICE_MATERIALS } from '@/dice/constants'
-import { DiceMaterial } from '@fate-core/mod-types'
+import { DiceMaterial } from '@fate-app/mod-types'
 
 class FakeShapeA {
 	static name = 'FakeShapeA'

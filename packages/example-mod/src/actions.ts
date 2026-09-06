@@ -1,5 +1,5 @@
-import { getModData, setModData } from '@fate-core/mod-types'
-import type { Character, FateContext } from '@fate-core/mod-types'
+import { getModData, setModData } from '@fate-app/mod-types'
+import type { Character, FateContext } from '@fate-app/mod-types'
 import manifest from '../manifest.json'
 
 const NOTE_KEY = 'sonder@example.note'

@@ -1,5 +1,5 @@
-import { Dice, type DiceMaterial, type DiceCollisionEvent, type DiceResult } from '@fate-core/mod-types'
-// Both bare imports below are rewritten by @fate-core/mod-build into reads of
+import { Dice, type DiceMaterial, type DiceCollisionEvent, type DiceResult } from '@fate-app/mod-types'
+// Both bare imports below are rewritten by @fate-app/mod-build into reads of
 // globalThis.FateSDK.dice.* — the host app's own three/cannon-es instances.
 import * as THREE from 'three'
 import * as CANNON from 'cannon-es'

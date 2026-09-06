@@ -3,9 +3,9 @@ export interface DiceFaceConfig {
 	sides: number
 }
 
-// Single source of truth is @fate-core/mod-types (decision D7) — see
+// Single source of truth is @fate-app/mod-types (decision D7) — see
 // src/dice/shapes/index.ts for the same rationale.
-export type { DiceResult } from '@fate-core/mod-types'
+export type { DiceResult } from '@fate-app/mod-types'
 
 export type DiceSceneConfig = {
 	numberOfDice: number

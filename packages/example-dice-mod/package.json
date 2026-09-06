@@ -7,10 +7,10 @@
 		"dev": "node --experimental-transform-types ../mod-build/src/devCli.ts"
 	},
 	"dependencies": {
-		"@fate-core/mod-types": "workspace:*"
+		"@fate-app/mod-types": "workspace:*"
 	},
 	"devDependencies": {
-		"@fate-core/mod-build": "workspace:*",
+		"@fate-app/mod-build": "workspace:*",
 		"@types/three": "0.185.1",
 		"cannon-es": "0.20.0",
 		"three": "0.185.1",

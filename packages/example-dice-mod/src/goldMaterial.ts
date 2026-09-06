@@ -1,4 +1,4 @@
-import { DiceMaterial } from '@fate-core/mod-types'
+import { DiceMaterial } from '@fate-app/mod-types'
 import * as THREE from 'three'
 
 /** Registered by the host under the namespaced key `sonder@example-dice:Gold`. */

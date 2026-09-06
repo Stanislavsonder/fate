@@ -1,4 +1,4 @@
-import { defineFateMod } from '@fate-core/mod-types'
+import { defineFateMod } from '@fate-app/mod-types'
 import constants from './src/constants'
 import templates from './src/templates'
 import components from './src/components'

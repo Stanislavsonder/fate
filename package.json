@@ -61,7 +61,7 @@
 		"@capacitor/motion": "8.0.1",
 		"@capacitor/share": "8.0.1",
 		"@capacitor/status-bar": "8.0.3",
-		"@fate-core/mod-types": "workspace:*",
+		"@fate-app/mod-types": "workspace:*",
 		"@ionic/pwa-elements": "3.4.0",
 		"@ionic/vue": "8.8.15",
 		"@ionic/vue-router": "8.8.15",

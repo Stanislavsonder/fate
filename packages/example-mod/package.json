@@ -7,10 +7,10 @@
 		"dev": "node --experimental-transform-types ../mod-build/src/devCli.ts"
 	},
 	"dependencies": {
-		"@fate-core/mod-types": "workspace:*"
+		"@fate-app/mod-types": "workspace:*"
 	},
 	"devDependencies": {
-		"@fate-core/mod-build": "workspace:*",
+		"@fate-app/mod-build": "workspace:*",
 		"@ionic/vue": "8.8.15",
 		"@vitejs/plugin-vue": "6.0.8",
 		"ionicons": "8.0.13",

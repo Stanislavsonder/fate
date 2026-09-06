@@ -1,5 +1,5 @@
 import { signRecord } from '@/modules/utils/localizationSigners'
-import type { FateModBundle, FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModBundle, FateModuleManifest } from '@fate-app/mod-types'
 
 /**
  * Merges a mod's static manifest.json with its executable bundle into one

@@ -41,7 +41,7 @@ import { registerBuiltinDice } from '@/dice/registerBuiltinDice'
 import type { Dice, DiceConstructor } from '../shapes'
 import type { DiceResult } from '../types'
 import whiteDefault from '../materials/whiteDefault'
-import type { DiceCollisionEvent } from '@fate-core/mod-types'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 
 // Re-export constants, types, and enums
 export { MIN_NUMBER_OF_DICE, MAX_NUMBER_OF_DICE, MIN_GRAVITY, MAX_GRAVITY, MIN_SCALE, MAX_SCALE, MIN_FORCE, MAX_FORCE, DEFAULT_DICE_SCENE_CONFIG }

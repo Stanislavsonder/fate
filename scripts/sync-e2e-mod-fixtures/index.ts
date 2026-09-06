@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
  * Rebuilds the committed Cypress fixture copies of the example mod packages.
  *
  * The e2e suite installs mods from fixture files (served via cy.intercept or
- * seeded straight into IndexedDB) rather than spawning @fate-core/mod-build
+ * seeded straight into IndexedDB) rather than spawning @fate-app/mod-build
  * during the run — so the fixtures are snapshots of real build output and can
  * drift when mod-build's shim/CSS-injection behavior or SDK_VERSION changes.
  * Re-run `pnpm fixtures:mods` (and commit the diff) whenever that happens.

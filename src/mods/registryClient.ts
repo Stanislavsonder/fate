@@ -3,7 +3,7 @@ import { kvService } from '@/db/tables/kv'
 import { modsService } from '@/db/tables/mods'
 import useRegistryBase from '@/composables/useRegistryBase'
 import { showWarningToast } from '@/utils/helpers/toast'
-import type { FateModuleManifest } from '@fate-core/mod-types'
+import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export interface RegistryFileEntry {
 	url: string
