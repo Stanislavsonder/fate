@@ -191,7 +191,7 @@
 				"acceptance-date": "Akzeptanzdatum: {value}",
 				"not-accepted": "Datenschutzrichtlinie nicht akzeptiert. Gehen Sie zu den Einstellungen, lesen und akzeptieren Sie sie. Andernfalls können Sie die App nicht verwenden.",
 				"title": "Datenschutzrichtlinie",
-				"updated": "Datenschutzrichtlinie aktualisiert am {value}. Bitte lesen und akzeptieren Sie sie. Andernfalls können Sie die App nicht verwenden."
+				"updated": "Willkommen zurück! Wir haben unsere Bedingungen etwas aktualisiert und brauchen deine erneute Bestätigung."
 			},
 			"source-code": "Quellcode",
 			"title": "Über die App",

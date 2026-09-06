@@ -1,6 +1,6 @@
 # Politica de Confidențialitate
 
-**Data intrării în vigoare:** 26 iulie 2026
+**Data intrării în vigoare:** 7 septembrie 2026
 
 ## 1. Introducere
 

@@ -191,7 +191,7 @@
 				"acceptance-date": "Tanggal penerimaan: {value}",
 				"not-accepted": "Kebijakan privasi belum diterima. Buka pengaturan, baca, dan terima. Jika tidak, Anda tidak dapat menggunakan aplikasi.",
 				"title": "Kebijakan Privasi",
-				"updated": "Kebijakan privasi diperbarui pada {value}. Silakan baca dan terima. Jika tidak, Anda tidak dapat menggunakan aplikasi."
+				"updated": "Selamat datang kembali! Kami telah memperbarui beberapa ketentuan, jadi kami perlu Anda mengonfirmasinya sekali lagi."
 			},
 			"source-code": "Kode Sumber",
 			"title": "Tentang Aplikasi",

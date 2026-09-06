@@ -1,6 +1,6 @@
 # Datenschutzrichtlinie
 
-**Gültigkeitsdatum:** 26. Juli 2026
+**Gültigkeitsdatum:** 7. September 2026
 
 ## 1. Einführung
 

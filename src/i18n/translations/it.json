@@ -191,7 +191,7 @@
 				"acceptance-date": "Data di accettazione: {value}",
 				"not-accepted": "Politica sulla privacy non accettata. Vai alle impostazioni, leggila e accettala. Altrimenti non puoi usare l'app.",
 				"title": "Politica sulla privacy",
-				"updated": "Politica sulla privacy aggiornata il {value}. Si prega di leggerla e accettarla. Altrimenti non puoi usare l'app."
+				"updated": "Bentornato! Abbiamo aggiornato un po' i nostri termini, quindi dobbiamo chiederti di confermarli di nuovo."
 			},
 			"source-code": "Codice sorgente",
 			"title": "Informazioni sull'app",

@@ -191,7 +191,7 @@
 				"acceptance-date": "Godkjenningsdato: {value}",
 				"not-accepted": "Personvernreglene er ikke akseptert. Gå til innstillinger, les og godkjenn dem. Ellers kan du ikke bruke appen.",
 				"title": "Personvernregler",
-				"updated": "Personvernreglene ble oppdatert {value}. Vennligst les og godkjenn dem. Ellers kan du ikke bruke appen."
+				"updated": "Velkommen tilbake! Vi har gjort noen oppdateringer i vilkårene, så vi trenger at du bekrefter dem på nytt."
 			},
 			"source-code": "Kildekode",
 			"title": "Om appen",

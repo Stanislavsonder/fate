@@ -191,7 +191,7 @@
 				"acceptance-date": "Datum přijetí: {value}",
 				"not-accepted": "Zásady ochrany osobních údajů nebyly přijaty. Přejděte do nastavení, přečtěte si je a přijměte. Jinak nemůžete aplikaci používat.",
 				"title": "Zásady ochrany osobních údajů",
-				"updated": "Zásady ochrany osobních údajů byly aktualizovány {value}. Přečtěte si je a přijměte. Jinak nemůžete aplikaci používat."
+				"updated": "Vítejte zpět! Trochu jsme aktualizovali podmínky, proto je potřeba je znovu potvrdit."
 			},
 			"source-code": "Zdrojový kód",
 			"title": "O aplikaci",

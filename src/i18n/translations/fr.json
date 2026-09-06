@@ -191,7 +191,7 @@
 				"acceptance-date": "Date d'acceptation : {value}",
 				"not-accepted": "Politique de confidentialité non acceptée. Allez dans les paramètres, lisez et acceptez-la. Sinon, vous ne pouvez pas utiliser l'application.",
 				"title": "Politique de confidentialité",
-				"updated": "Politique de confidentialité mise à jour le {value}. Veuillez la lire et l'accepter. Sinon, vous ne pouvez pas utiliser l'application."
+				"updated": "Bon retour ! Nous avons légèrement mis à jour nos conditions et avons besoin que vous les confirmiez à nouveau."
 			},
 			"source-code": "Code source",
 			"title": "À propos de l'application",

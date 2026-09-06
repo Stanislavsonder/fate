@@ -191,7 +191,7 @@
 				"acceptance-date": "Acceptdato: {value}",
 				"not-accepted": "Privatlivspolitikken er ikke accepteret. Gå til indstillinger, læs og accepter den. Ellers kan du ikke bruge appen.",
 				"title": "Privatlivspolitik",
-				"updated": "Privatlivspolitikken blev opdateret den {value}. Læs og accepter den. Ellers kan du ikke bruge appen."
+				"updated": "Velkommen tilbage! Vi har opdateret vores vilkår en smule, så vi beder dig bekræfte dem igen."
 			},
 			"source-code": "Kildekode",
 			"title": "Om appen",

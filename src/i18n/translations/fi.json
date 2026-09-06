@@ -191,7 +191,7 @@
 				"acceptance-date": "Hyväksymispäivämäärä: {value}",
 				"not-accepted": "Tietosuojakäytäntöä ei ole hyväksytty. Siirry asetuksiin, lue ja hyväksy se. Muuten et voi käyttää sovellusta.",
 				"title": "Tietosuojakäytäntö",
-				"updated": "Tietosuojakäytäntö päivitetty {value}. Lue ja hyväksy se. Muuten et voi käyttää sovellusta."
+				"updated": "Tervetuloa takaisin! Olemme päivittäneet ehtojamme hieman, joten tarvitsemme vahvistuksesi uudelleen."
 			},
 			"source-code": "Lähdekoodi",
 			"title": "Tietoa sovelluksesta",

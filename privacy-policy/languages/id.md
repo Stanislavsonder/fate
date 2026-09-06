@@ -1,6 +1,6 @@
 # Kebijakan Privasi
 
-**Tanggal Berlaku:** 26 Juli 2026
+**Tanggal Berlaku:** 7 September 2026
 
 ## 1. Pengantar
 

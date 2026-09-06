@@ -191,7 +191,7 @@
 				"acceptance-date": "Data akceptacji: {value}",
 				"not-accepted": "Polityka prywatności nie została zaakceptowana. Przejdź do ustawień, przeczytaj i zaakceptuj ją. W przeciwnym razie nie możesz korzystać z aplikacji.",
 				"title": "Polityka prywatności",
-				"updated": "Polityka prywatności została zaktualizowana {value}. Przeczytaj i zaakceptuj ją. W przeciwnym razie nie możesz korzystać z aplikacji."
+				"updated": "Witaj ponownie! Wprowadziliśmy kilka zmian w regulaminie, więc prosimy o ponowne potwierdzenie."
 			},
 			"source-code": "Kod źródłowy",
 			"title": "O aplikacji",

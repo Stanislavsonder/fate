@@ -1,6 +1,6 @@
 # Politique de Confidentialité
 
-**Date d'entrée en vigueur :** 26 juillet 2026
+**Date d'entrée en vigueur :** 7 septembre 2026
 
 ## 1. Introduction
 

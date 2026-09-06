@@ -1,6 +1,6 @@
 # Personvernerklæring
 
-**Ikrafttredelsesdato:** 26. juli 2026
+**Ikrafttredelsesdato:** 7. september 2026
 
 ## 1. Introduksjon
 

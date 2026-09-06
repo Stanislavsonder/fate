@@ -190,7 +190,7 @@
 				"acceptance-date": "Acceptance date: {value}",
 				"not-accepted": "Privacy policy not accepted. Go to settings, read and accept it. Otherwise you can't use the app.",
 				"title": "Privacy policy",
-				"updated": "Privacy policy updated on {value}. Please read and accept it. Otherwise you can't use the app."
+				"updated": "Welcome Back! We've made a few updates to our terms, so we need you to confirm them once more."
 			},
 			"source-code": "Source code",
 			"title": "About the app",

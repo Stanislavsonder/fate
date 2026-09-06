@@ -1,6 +1,6 @@
 # Integritetspolicy
 
-**Gäller från:** 26 juli 2026
+**Gäller från:** 7 september 2026
 
 ## 1. Introduktion
 

@@ -1,6 +1,6 @@
 # Privatlivspolitik
 
-**Ikrafttrædelsesdato:** 26. juli 2026
+**Ikrafttrædelsesdato:** 7. september 2026
 
 ## 1. Introduktion
 

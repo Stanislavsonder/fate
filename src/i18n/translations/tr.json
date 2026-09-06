@@ -191,7 +191,7 @@
 				"acceptance-date": "Kabul tarihi: {value}",
 				"not-accepted": "Gizlilik politikası kabul edilmedi. Ayarlara gidin, okuyun ve kabul edin. Aksi takdirde uygulamayı kullanamazsınız.",
 				"title": "Gizlilik Politikası",
-				"updated": "Gizlilik politikası {value} tarihinde güncellendi. Lütfen okuyun ve kabul edin. Aksi takdirde uygulamayı kullanamazsınız."
+				"updated": "Tekrar hoş geldiniz! Koşullarımızı biraz güncelledik, bu yüzden bir kez daha onaylamanızı istiyoruz."
 			},
 			"source-code": "Kaynak Kod",
 			"title": "Uygulama Hakkında",

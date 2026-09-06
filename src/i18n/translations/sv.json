@@ -191,7 +191,7 @@
 				"acceptance-date": "Godkännandedatum: {value}",
 				"not-accepted": "Sekretesspolicyn har inte godkänts. Gå till inställningar, läs och acceptera den. Annars kan du inte använda appen.",
 				"title": "Sekretesspolicy",
-				"updated": "Sekretesspolicyn uppdaterades den {value}. Läs och acceptera den. Annars kan du inte använda appen."
+				"updated": "Välkommen tillbaka! Vi har gjort några uppdateringar i villkoren, så vi behöver att du bekräftar dem igen."
 			},
 			"source-code": "Källkod",
 			"title": "Om appen",

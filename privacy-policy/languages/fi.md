@@ -1,6 +1,6 @@
 # Tietosuojakäytäntö
 
-**Voimaantulopäivä:** 26. heinäkuuta 2026
+**Voimaantulopäivä:** 7. syyskuuta 2026
 
 ## 1. Johdanto
 

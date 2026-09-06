@@ -1,6 +1,6 @@
 # Informativa sulla Privacy
 
-**Data di entrata in vigore:** 26 luglio 2026
+**Data di entrata in vigore:** 7 settembre 2026
 
 ## 1. Introduzione
 

@@ -1,6 +1,6 @@
 # Gizlilik Politikası
 
-**Yürürlük Tarihi:** 26 Temmuz 2026
+**Yürürlük Tarihi:** 7 Eylül 2026
 
 ## 1. Giriş
 

@@ -1,6 +1,6 @@
 # Zásady ochrany osobních údajů
 
-**Datum účinnosti:** 26. července 2026
+**Datum účinnosti:** 7. září 2026
 
 ## 1. Úvod
 

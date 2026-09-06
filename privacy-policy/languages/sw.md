@@ -1,6 +1,6 @@
 # Sera ya Faragha
 
-**Tarehe ya Kuanza Kutumika:** 26 Julai 2026
+**Tarehe ya Kuanza Kutumika:** 7 Septemba 2026
 
 ## 1. Utangulizi
 

@@ -1,6 +1,6 @@
 # Política de Privacidade
 
-**Data de entrada em vigor:** 26 de julho de 2026
+**Data de entrada em vigor:** 7 de setembro de 2026
 
 ## 1. Introdução
 

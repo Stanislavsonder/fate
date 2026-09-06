@@ -4,6 +4,18 @@ describe('Startup page', () => {
 	it('Startup page on first launch should be a Privacy Page', () => {
 		cy.visit('/')
 		cy.get('[data-testid="privacy-policy-content"]').should('exist').and('not.be.empty')
+		cy.get('[data-testid="privacy-policy-updated-notice"]').should('not.exist')
+	})
+
+	it('Shows an update notice when the accepted policy version is outdated', () => {
+		cy.visit('/', {
+			onBeforeLoad(win) {
+				win.localStorage.setItem('privacyPolicyAcceptanceDate', new Date().toISOString())
+				win.localStorage.setItem('privacyPolicyVersionDate', '2024-01-14')
+			}
+		})
+		cy.get('[data-testid="privacy-policy-updated-notice"]').should('exist')
+		cy.get('[data-testid="privacy-policy-content"]').should('exist')
 	})
 
 	it('Language switcher should work', () => {

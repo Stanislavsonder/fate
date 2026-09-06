@@ -1,6 +1,6 @@
 # Polityka Prywatności
 
-**Data wejścia w życie:** 26 lipca 2026 roku
+**Data wejścia w życie:** 7 września 2026 roku
 
 ## 1. Wprowadzenie
 
