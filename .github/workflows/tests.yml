@@ -47,13 +47,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -76,13 +77,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -96,13 +98,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -116,13 +119,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -136,13 +140,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install

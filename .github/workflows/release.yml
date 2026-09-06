@@ -41,13 +41,14 @@ jobs:
           fetch-depth: 0
           fetch-tags: true
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -105,13 +106,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -141,13 +143,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -157,6 +160,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
@@ -224,16 +232,25 @@ jobs:
             exit 1
           fi
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      - name: Cache CocoaPods
+        uses: actions/cache@v6
+        with:
+          path: ios/App/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('ios/App/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
 
       - name: Sync iOS project
         run: pnpm build:ios:ci
