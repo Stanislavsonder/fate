@@ -15,24 +15,21 @@ with `sdk ^2.0.0`. See `planning/branding-migration/` for that runbook.
 
 ## A. Blocking — legal and release
 
-### A1. 29 of 30 privacy policies do not disclose the mod network calls
+### A1. ~~29 of 30 privacy policies do not disclose the mod network calls~~ — fixed
 
-**Only `en.md` has section 5's network disclosure.** The other 29 still carry the pre-2.0.0 text
-stating the app *"does not integrate third-party services and does not use external APIs"* — which
-becomes false the moment the Mod Store ships, since the app fetches the registry on boot.
+All 29 non-English locales now carry a translated §5 ("Network Connections and Third-Party
+Content") matching `en.md`: the automatic catalog refresh, Mod Store browsing, and mod
+installation network calls, the `stanislavsonder.github.io/fate-mods` host, and the no-analytics/
+no-tracking disclaimer. §2–§4 were updated to match (internet-connection disclosure, "installed
+mods" added to the locally-stored/user-controlled data lists). Verified: every file still has
+exactly 9 `## ` sections, none retain the old "does not integrate third-party services" language,
+and all reference `fate-mods`.
 
-This is the one genuine compliance gap left. It is not merge fallout: `2.0.0` only ever updated
-`en.md` (`git diff <merge-base> 2.0.0 -- privacy-policy/` touches exactly one file), and the merge
-preserved each side faithfully.
+`pnpm translate` could not do this — the localizer (`scripts/localizer/index.ts`) only walks JSON
+i18n files, not the hand-maintained Markdown policies — so each file was translated by hand from
+the `en.md` diff, matching the existing register/formality already used per locale.
 
-`pnpm translate` **cannot** fix this — the localizer (`scripts/localizer/index.ts`) only walks
-JSON i18n files under `src/i18n/translations` and `src/modules/*/translations`. The policies are
-hand-maintained Markdown. They need translating by whatever route produced the other 29.
-
-Reference text: `privacy-policy/languages/en.md` §5, which also names the
-`stanislavsonder.github.io/fate-mods` host.
-
-### A2. The Release workflow is failing on `main`
+### A2. ~~The Release workflow is failing on `main`~~ — fixed on `2.0.0`, not yet on `main`
 
 Last run (2026-09-05, id `33988450202`) failed in `appstore-upload`:
 
@@ -42,73 +39,76 @@ ENTITY_ERROR.ATTRIBUTE.INVALID — "You cannot update when the value is already 
 source: /data/attributes/usesNonExemptEncryption
 ```
 
-Cause is a conflict, not a credential problem: `ios/App/App/Info.plist:50` already declares
-`ITSAppUsesNonExemptEncryption = false`, so builds reach App Store Connect with compliance
-already set — and then `apple-actions/upload-testflight-build@v4` tries to PATCH the same
-attribute and ASC rejects the redundant write.
+Confirmed cause: `ios/App/App/Info.plist:50` already declares `ITSAppUsesNonExemptEncryption =
+false`, so builds reach App Store Connect with compliance already set — and the workflow was also
+passing `uses-non-exempt-encryption: 'false'` to `apple-actions/upload-testflight-build@v4`, which
+made the action PATCH the same attribute a second time; ASC rejects the redundant write with a 409.
+Verified against the action's `v4` source (`dist/index.js`): the encryption PATCH only fires when
+`uses-non-exempt-encryption` is a non-empty input — omit it and the action leaves compliance to
+`Info.plist` entirely (preference-order fix #1 from the original note).
 
-Likely fixes, in preference order (needs confirming against the action's inputs — I did not
-verify which it supports):
+Already fixed same-day in `73b0464` ("build: fix for apple pipeline", 2026-09-05 23:08), which
+drops the redundant input from `.github/workflows/release.yml`. That commit is on `2.0.0` but
+**not yet on `main`** — `appstore-upload`/`appstore-submit` only run `if: github.ref ==
+'refs/heads/main'`, so the fix has no live effect until `2.0.0` merges to `main` and a release
+runs from there. `submit-appstore.ts` was checked too and never touches this attribute, so it's
+not a second source of the conflict.
 
-1. Leave `Info.plist` as the single source of truth and stop the action from setting compliance.
-2. Drop the `Info.plist` key and let the action own it.
-
-Worth checking whether the **upload itself succeeded** and only the compliance step failed — if
-so the build may already be in TestFlight and this is a false alarm on an otherwise-good release.
-
-This predates all the merge work.
+Nothing left to do here beyond the eventual `2.0.0` → `main` merge.
 
 ---
 
 ## B. Should fix before 2.0.0 ships
 
-### B1. The mod and developer UI is English-only
+### B1. ~~The mod and developer UI is English-only~~ — fixed
 
-All 29 non-English locales are missing the keys 2.0.0 added (`modules.external`,
-`settings.developer.*`, `settings.mods.*` …). `en.json` has 210 keys; every other locale is
-missing 64, except `pt.json` which is missing 80.
+Resolved by `2a7b174` ("fix: updated translations") just before this pass started. Verified by
+flattening every locale in `src/i18n/translations/*.json` against `en.json` (209 keys each): zero
+missing, zero extra keys across all 29 locales. Also checked every `src/modules/*/translations/`
+directory the same way (including `sonder@core-consequences`) — full parity everywhere.
 
-Pre-existing on `2.0.0` — the merged parity matches `2.0.0` exactly, so the merge introduced
-nothing. Unlike A1, this **is** fixable with `pnpm translate`, since these are JSON i18n files.
+### B2. ~~`modStore/blocklist.cy.ts` fails~~ — not reproducing
 
-### B2. `modStore/blocklist.cy.ts` fails
+Re-ran it in isolation (4 times, including against a freshly-started cold `vite` dev server to
+rule out a warm-cache artifact), as the full `modStore/**` folder (16/16), and as the complete
+suite (`pnpm exec cypress run`, 34/34 e2e; `pnpm vitest run`, 197/197 unit) — all green, no
+flakiness across ~7 runs of this spec. `applyBlocklist` in `src/mods/registryClient.ts` and the
+spec's own tab-remount handling both read correctly on inspection.
 
-The final assertion — that un-blocklisting clears the "flagged as unsafe" explanation — times
-out; the row still contains the text after the registry serves `registry.v4-unblocked.json`.
+Whatever caused the original timeout wasn't reproducible against the current `2.0.0` tree. Leave
+this closed; reopen if it resurfaces (e.g. only under CI's slower/cold environment).
 
-Confirmed pre-existing: it fails identically on a pristine `2.0.0` worktree with its own
-`pnpm install`. Everything else passes (33/34 e2e, 197/197 unit).
-
-Either `applyBlocklist` genuinely does not clear the explanation on unblock, or the spec races
-the tab-remount refetch it documents in its own comment. The comment at
-`src/tests/e2e/specs/modStore/blocklist.cy.ts:22-33` is the place to start.
-
-### B3. No provenance on the published SDK packages
+### B3. No provenance on the published SDK packages — needs manual action on npmjs.com
 
 Every publish logged `Skipped OIDC: ERR_PNPM_AUTH_TOKEN_EXCHANGE (404)`, so
 `@fate-app/mod-types@2.0.0`, `@fate-app/mod-build@2.0.0` and `create-fate-mod@1.2.0` are all
 published **unsigned**, and `NPM_TOKEN` is still a long-lived all-packages write token in repo
 secrets.
 
-The packages now exist, which resolves the chicken-and-egg that blocked this earlier. Per
-`planning/modules-2-0/phase-5-other-improvements.md:90`: for each of the three packages →
-Settings → Trusted Publisher → GitHub Actions → repo `Stanislavsonder/fate`, workflow
-`publish-sdk.yml`, environment none. Then delete the `NPM_TOKEN` secret.
+npm's Trusted Publisher config has no API — it's a web-UI-only setting, and deleting the repo
+secret is irreversible-ish (breaks the fallback path) — so this can't be done by an agent. Still
+outstanding; do this by hand:
 
-### B4. `publish.yml` silently skips mods (registry repo)
+1. On npmjs.com, for each of `@fate-app/mod-types`, `@fate-app/mod-build`, `create-fate-mod` →
+   Settings → Trusted Publisher → GitHub Actions → repo `Stanislavsonder/fate`, workflow
+   `publish-sdk.yml`, environment none.
+2. Cut a trivial release (or re-run `publish-sdk.yml`) and confirm the log no longer shows
+   `Skipped OIDC`.
+3. Only then delete the `NPM_TOKEN` secret from the repo.
 
-`.github/workflows/publish.yml:42` in `Stanislavsonder/fate-mods`:
+### B4. ~~`publish.yml` silently skips mods (registry repo)~~ — fixed
 
-```bash
-MOD_DIR=$(echo "$CHANGED" | grep -oE '^mods/[^/]+/' | sed 's:/$::' | head -n1 || true)
-```
+Fixed and pushed directly to `main` on `Stanislavsonder/fate-mods` at `e38aceb` (per-action
+approval given for this one). The detect step now emits every changed `mods/<id>/` folder
+(newline-delimited `mod-dirs` output, plus a `mod-dirs-csv` for the commit message) instead of
+`head -n1`, and the install/build/publish steps loop over all of them instead of assuming one.
 
-`head -n1` means **one mod per push**. This already bit us: the combined migration commit
-(`809f046`) touched both mods, published `sonder@dice-d6@1.1.0`, and silently skipped
-`sonder@example` — with a green checkmark. It needed a second push to recover.
-
-Fix by looping over every changed mod folder instead of taking the first. Until then, never put
-two mods in one push. `validate-pr.yml` has the same `head -n1` shape and likely the same flaw.
+Checked `validate-pr.yml` too: it's **not** the same bug — `scripts/ci/validate.ts` explicitly
+rejects a PR touching more than one mod folder (`modIds.size > 1` → error) unless a maintainer
+applies the `multi-mod` label. One residual gap: when that label *is* applied, `validate.ts:87`
+(`const modId = [...modIds][0]`) still only builds/lints/smoke-loads the first of the mods —
+milder than publish.yml's silent single-mod skip since a human deliberately opted in, but worth a
+follow-up if multi-mod PRs become common. Left as-is for now; not pushed.
 
 ---
 
@@ -121,21 +121,18 @@ touching `mods/sonder@dice-d6/` re-triggers publish, which hits `publish.ts`'s i
 (`refusing to overwrite`) and **fails CI red**. It would have to ride along with a bump to
 `1.1.1`. `sonder@example`'s changelog is current.
 
-### C2. Local working copy is CRLF, index is LF
+Decision: skip for now — cosmetic gap, not worth publishing a new live version for no functional
+change.
 
-368 files are `i/lf w/crlf` — the worktree predates `.gitattributes`' `* text=auto eol=lf`, and
-`core.autocrlf=true`. Consequence: `pnpm exec prettier --check .` fails locally on ~197 files
-that are perfectly fine in git, and stale stat entries can block a `git checkout` with a phantom
-"modified" file whose index and worktree hashes are identical. CI checks out fresh and is
-unaffected.
+### C2. ~~Local working copy is CRLF, index is LF~~ — not reproducing
 
-Fix when convenient: re-normalize the worktree (`git add --renormalize .`, or delete and
-re-checkout the tree). Purely local; nothing to commit.
+`core.autocrlf` is unset in this worktree and `git add --renormalize .` found nothing to
+renormalize. Whatever worktree the original diagnosis ran against isn't this one; nothing to fix
+here now.
 
-### C3. Branch cleanup
+### C3. ~~Branch cleanup~~ — done
 
-`merge/1.5.0-into-2.0.0` is merged into `2.0.0` (fast-forward) and can be deleted locally and on
-origin.
+Deleted `merge/1.5.0-into-2.0.0` on origin (no local copy existed).
 
 ### C4. `2.0.0` has no CI signal
 
