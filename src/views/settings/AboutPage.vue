@@ -21,10 +21,6 @@ const ABOUT_APP = {
 	},
 	legal: {
 		url: ROUTES.SETTINGS_LEGAL
-	},
-	evilHat: {
-		title: 'Evil Hat Productions',
-		url: 'https://evilhat.com/product/fate-core-system/'
 	}
 }
 </script>
@@ -101,23 +97,6 @@ const ABOUT_APP = {
 						class="text-sm self-center flex gap-1 items-center"
 					>
 						{{ ABOUT_APP.license.title }}
-						<ion-icon
-							class="text-lg"
-							:icon="openOutline"
-						/>
-					</ion-note>
-				</ion-item>
-
-				<ion-item
-					:href="ABOUT_APP.evilHat.url"
-					:detail="false"
-				>
-					<ion-label>{{ $t('settings.about-app.original-author') }}</ion-label>
-					<ion-note
-						slot="end"
-						class="text-sm self-center flex gap-1 items-center"
-					>
-						{{ ABOUT_APP.evilHat.title }}
 						<ion-icon
 							class="text-lg"
 							:icon="openOutline"

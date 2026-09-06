@@ -185,7 +185,6 @@
 				"title": "法律信息与署名"
 			},
 			"license": "许可证",
-			"original-author": "Fate Core的创建者",
 			"privacy-policy": {
 				"accept-policy": "我已阅读并接受隐私政策",
 				"acceptance-date": "接受日期：{value}",

@@ -7,7 +7,7 @@
  *
  * The bundled file is the white, dark-background variant, so it needs inverting on the light
  * theme. The required trademark notice is carried on the Legal & Attribution page (rendered
- * from ATTRIBUTION.md).
+ * from attribution/languages/).
  *
  * @see https://fate-srd.com/official-licensing-fate
  */

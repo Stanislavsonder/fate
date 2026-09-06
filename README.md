@@ -131,4 +131,4 @@ and is *not* covered by the MIT License. The license requires:
 
 The Fate Core logo is a trademark of Evil Hat Productions, LLC and is not used in this project.
 
-See [ATTRIBUTION.md](./ATTRIBUTION.md) for the full notice (this is also what the in-app Legal page shows).
+Full notice (many languages): [attribution/index.md](./attribution/index.md). English: [attribution/languages/en.md](./attribution/languages/en.md) (also what the in-app Legal page shows). Mandatory CC-BY and trademark notices remain in English in every locale.
