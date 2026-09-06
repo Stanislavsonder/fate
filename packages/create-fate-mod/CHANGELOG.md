@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1
+
+Infra-only, no functional change — republished to verify the npm Trusted
+Publisher (OIDC) setup added for provenance-signed publishes.
+
 ## 1.1.0
 
 Tracks `SDK_VERSION` 1.1.0 — scaffolded projects now pin
