@@ -7,9 +7,9 @@ name: Publish mod SDK packages
 # dry run (npm pack + `publish --dry-run`, no real publish) to verify the
 # pipeline without cutting a release.
 #
-# Requires an NPM_TOKEN repository secret (an npm automation token with
-# publish rights on the @fate-app org) — added manually via repo settings,
-# not by this workflow.
+# Auth is npm Trusted Publisher (OIDC) — configured per-package on npmjs.com
+# (GitHub Actions publisher, this repo, this workflow file). No npm token
+# involved; id-token: write below is what lets pnpm mint the OIDC token.
 
 on:
   push:
@@ -31,10 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
           registry-url: 'https://registry.npmjs.org'
@@ -55,5 +55,3 @@ jobs:
       - name: Publish
         if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry-run)
         run: pnpm --filter "./packages/mod-types" --filter "./packages/mod-build" --filter "./packages/create-fate-mod" publish --access public --no-git-checks --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
