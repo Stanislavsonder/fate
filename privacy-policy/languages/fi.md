@@ -1,6 +1,6 @@
 # Tietosuojakäytäntö
 
-**Voimaantulopäivä:** 14. tammikuuta 2025
+**Voimaantulopäivä:** 26. heinäkuuta 2026
 
 ## 1. Johdanto
 
@@ -8,19 +8,29 @@ Tervetuloa käyttämään "Assistant for Fate" -sovellusta ("Sovellus"). Yksityi
 
 ## 2. Tietojen kerääminen
 
-Sovellus toimii täysin offline-tilassa eikä kerää käyttäjien henkilötietoja. Emme pyydä, tallenna tai välitä mitään henkilökohtaisia tietoja, kuten nimiä, sähköpostiosoitteita tai yhteystietoja.
+Sovellus ei kerää käyttäjien henkilötietoja. Emme pyydä, tallenna tai välitä mitään henkilökohtaisia tietoja, kuten nimiä, sähköpostiosoitteita tai yhteystietoja. Hahmosi ja asetuksesi eivät koskaan poistu laitteeltasi.
+
+Sovellus muodostaa internetyhteyden vain yhtä tarkoitusta varten: valinnaisten yhteisömodien ja niiden luettelon lataamiseksi, kuten kohdassa 5 kuvataan. Nämä pyynnöt eivät koskaan sisällä hahmotietojasi, asetuksiasi tai muita henkilökohtaisia tietoja.
 
 ## 3. Tietojen tallennus
 
-Kaikki tiedot, jotka liittyvät hahmoihisi ja asetuksiisi (esim. teema, kieli, noppien heittotasetukset), tallennetaan paikallisesti laitteellesi selaimen sisäisten tallennusmekanismien, kuten Local Storagen ja IndexedDB:n, avulla. Nämä tiedot pysyvät laitteellasi, eikä niihin pääse käsiksi me tai kolmannet osapuolet.
+Kaikki tiedot, jotka liittyvät hahmoihisi ja asetuksiisi (esim. teema, kieli, noppien heittotasetukset, asennetut modit), tallennetaan paikallisesti laitteellesi selaimen sisäisten tallennusmekanismien, kuten Local Storagen ja IndexedDB:n, avulla. Nämä tiedot pysyvät laitteellasi, eikä niihin pääse käsiksi me tai kolmannet osapuolet.
 
 ## 4. Käyttäjän hallinta
 
-Sinulla on täydellinen hallinta tietoihisi Sovelluksessa. Voit päivittää tai poistaa hahmosi ja asetuksesi Sovelluksen käyttöliittymän kautta. Lisäksi voit tyhjentää kaikki Sovelluksen tiedot laitteesi asetusten kautta.
+Sinulla on täydellinen hallinta tietoihisi Sovelluksessa. Voit päivittää tai poistaa hahmosi, asetuksesi ja asennetut modit Sovelluksen käyttöliittymän kautta. Lisäksi voit tyhjentää kaikki Sovelluksen tiedot laitteesi asetusten kautta.
 
-## 5. Kolmannen osapuolen palvelut
+## 5. Verkkoyhteydet ja Kolmannen Osapuolen Sisältö
 
-Sovellus ei integroi kolmannen osapuolen palveluita eikä käytä ulkoisia API-rajapintoja. Mitään tietoja ei jaeta kolmansien osapuolien kanssa tai kerätä heidän toimesta.
+Sovellus tukee valinnaisia, yhteisön luomia modeja. Jotta ne olisivat saatavilla, Sovellus tekee seuraavat verkkopyynnöt:
+
+- **Modiluettelon päivitys (automaattinen):** kun Sovellus käynnistyy, se lataa julkisen modiluettelon virallisesta modirekisteristä, joka on isännöity GitHub Pagesissa (`stanislavsonder.github.io/fate-mods`). Tämä pitää Mod Storen listauksen ajan tasalla.
+- **Mod Storen selaaminen (toimintasi seurauksena):** modin sivun avaaminen Mod Storessa lataa kyseisen modin kuvauksen samasta rekisteristä.
+- **Modin asentaminen (toimintasi seurauksena):** modin asentaminen — Mod Storesta tai itse antamastasi URL-osoitteesta — lataa modin tiedostot (sen manifestin, koodipaketin ja käännökset) rekisteristä tai kyseisestä URL-osoitteesta.
+
+Nämä ovat tavallisia latauspyyntöjä. Ne eivät sisällä hahmotietoja, asetuksia tai Sovelluksen lisäämiä tunnisteita. Kuten minkä tahansa internetyhteyden kohdalla, isännöintipalveluntarjoaja (GitHub tai antamasi URL-osoitteen isäntä) voi teknisesti nähdä tavanomaisia yhteyden metatietoja, kuten IP-osoitteesi; tätä säätelee kyseisen palveluntarjoajan oma tietosuojakäytäntö, ei meidän.
+
+Sovellus ei sisällä analytiikkaa, mainontaa tai minkäänlaista seurantaa. Emme jaa mitään tietoja kolmansille osapuolille emmekä kerää niitä heidän puolestaan.
 
 ## 6. Lasten yksityisyys
 
