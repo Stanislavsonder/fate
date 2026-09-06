@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Добавить Каскады FATE: Core",
-		"short": "Добавить Каскады FATE: Core."
+		"full": "Добавить Каскады Fate Core",
+		"short": "Добавить Каскады Fate Core."
 	},
 	"edit": "Редактировать трюк",
 	"empty": "Нет трюков",
@@ -21,7 +21,7 @@
 	},
 	"label": "Трюки",
 	"list": "Список трюков",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Навык не требуется",
 	"price": "Цена: {value} жетонов"
 }

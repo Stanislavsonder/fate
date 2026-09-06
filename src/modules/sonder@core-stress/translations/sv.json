@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Konfigurera stressrutor",
 	"description": {
-		"full": "Lägg till stressen från FATE: Core. Denna modul inkluderar: fysisk och mental stress.",
-		"short": "Lägg till stressen från FATE: Core"
+		"full": "Lägg till stressen från Fate Core. Denna modul inkluderar: fysisk och mental stress.",
+		"short": "Lägg till stressen från Fate Core"
 	},
 	"errors": {
 		"empty": "Minst en stressruta måste finnas.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Stressnivå",
 	"lockBox": "Olåst stressruta. Klicka för att låsa.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Ta bort stressruta",
 	"stress": {
 		"mental": {

@@ -1,8 +1,8 @@
 {
 	"add": "Adaugă câmp de consecință",
 	"description": {
-		"full": "Adaugă secțiunea Consecințe FATE: Core la fișa personajului pentru urmărirea consecințelor.",
-		"short": "Adaugă secțiunea Consecințe FATE: Core"
+		"full": "Adaugă secțiunea Consecințe Fate Core la fișa personajului pentru urmărirea consecințelor.",
+		"short": "Adaugă secțiunea Consecințe Fate Core"
 	},
 	"edit": "Editează câmpurile de consecințe",
 	"empty": "Nu au fost adăugate câmpuri de consecințe.",
@@ -11,7 +11,7 @@
 	"list": "Câmpuri de consecințe",
 	"locked": "Câmpul de consecință este blocat. Apasă pentru deblocare.",
 	"lockedType": "Câmp de consecință blocat {value}",
-	"name": "FATE: Core Consecințe",
+	"name": "Fate Core Consecințe",
 	"remove": "Elimină câmpul de consecință",
 	"stressLevel": "Nivel de stres",
 	"type": {

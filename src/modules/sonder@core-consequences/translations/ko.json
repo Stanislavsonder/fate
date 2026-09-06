@@ -1,8 +1,8 @@
 {
 	"add": "결과 필드 추가",
 	"description": {
-		"full": "FATE: Core 결과 섹션을 캐릭터 시트에 추가하여 결과를 추적합니다.",
-		"short": "FATE: Core 결과 섹션을 추가"
+		"full": "Fate Core 결과 섹션을 캐릭터 시트에 추가하여 결과를 추적합니다.",
+		"short": "Fate Core 결과 섹션을 추가"
 	},
 	"edit": "결과 필드 편집",
 	"empty": "아직 결과 필드가 추가되지 않았습니다.",
@@ -11,7 +11,7 @@
 	"list": "결과 필드",
 	"locked": "결과 필드가 잠겨 있습니다. 클릭하여 해제하세요.",
 	"lockedType": "잠긴 {value} 결과 필드",
-	"name": "FATE: Core 결과",
+	"name": "Fate Core 결과",
 	"remove": "결과 필드 제거",
 	"stressLevel": "스트레스 수준",
 	"type": {

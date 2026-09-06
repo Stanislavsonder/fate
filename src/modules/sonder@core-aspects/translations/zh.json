@@ -2,8 +2,8 @@
 	"add": "添加要素",
 	"aspect": "要素",
 	"description": {
-		"full": "将FATE: Core 方面部分添加到角色表。",
-		"short": "将FATE: Core 方面部分添加到角色表。"
+		"full": "将Fate Core 方面部分添加到角色表。",
+		"short": "将Fate Core 方面部分添加到角色表。"
 	},
 	"edit": "编辑要素",
 	"empty": "尚未添加任何要素。",
@@ -13,7 +13,7 @@
 		"typeInvalid": "无效的要素类型。"
 	},
 	"label": "要素",
-	"name": "FATE: Core 方面",
+	"name": "Fate Core 方面",
 	"type": {
 		"consequence": {
 			"description": "持久的伤害或挫折。",

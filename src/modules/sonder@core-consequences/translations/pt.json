@@ -1,7 +1,7 @@
 {
 	"description": {
-		"full": "Adiciona a seção de Consequências do FATE: Core à ficha de personagem para rastrear consequências.",
-		"short": "Adiciona a seção de Consequências do FATE: Core"
+		"full": "Adiciona a seção de Consequências do Fate Core à ficha de personagem para rastrear consequências.",
+		"short": "Adiciona a seção de Consequências do Fate Core"
 	},
-	"name": "FATE: Core Consequências"
+	"name": "Fate Core Consequências"
 }

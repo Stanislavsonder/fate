@@ -1,8 +1,8 @@
 {
 	"add": "結果フィールドを追加",
 	"description": {
-		"full": "キャラクターシートにFATE: Core の結果セクションを追加し、結果を追跡します。",
-		"short": "FATE: Core の結果セクションを追加"
+		"full": "キャラクターシートにFate Core の結果セクションを追加し、結果を追跡します。",
+		"short": "Fate Core の結果セクションを追加"
 	},
 	"edit": "結果フィールドを編集",
 	"empty": "結果フィールドがまだ追加されていません。",
@@ -11,7 +11,7 @@
 	"list": "結果フィールド",
 	"locked": "結果フィールドはロックされています。クリックして解除。",
 	"lockedType": "ロックされた{value}結果フィールド",
-	"name": "FATE: Core 結果",
+	"name": "Fate Core 結果",
 	"remove": "結果フィールドを削除",
 	"stressLevel": "ストレスレベル",
 	"type": {

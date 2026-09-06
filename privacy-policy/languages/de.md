@@ -4,7 +4,7 @@
 
 ## 1. Einführung
 
-Willkommen bei "FATE: Core" ("der App"). Ihre Privatsphäre ist uns wichtig. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen behandeln, wenn Sie unsere App nutzen.
+Willkommen bei "Assistant for Fate" ("der App"). Ihre Privatsphäre ist uns wichtig. Diese Datenschutzrichtlinie erklärt, wie wir Ihre Informationen behandeln, wenn Sie unsere App nutzen.
 
 ## 2. Datenerfassung
 

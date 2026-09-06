@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "アバターが設定されていません",
 			"label": "アバター",
-			"section": "キャラクターのアバター"
+			"section": "キャラクターのアバター",
+			"upload": "アバターをアップロード"
 		},
 		"description": {
 			"label": "説明",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "アイデンティティ",
-	"name": "FATE Core: アイデンティティ"
+	"name": "Fate Core アイデンティティ"
 }

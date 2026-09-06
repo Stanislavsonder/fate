@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Ongeza ujuzi 18 wa FATE: Core. Moduli hii inajumuisha: Michezo, Wizi, Mawasiliano, Ufundi, Kudanganya, Kuendesha, Huruma, Kupigana, Kuchunguza, Maarifa, Kutarajia, Mwili, Kuchokoza, Mahusiano, Rasilimali, Kupiga Risasi, Kujificha na Utashi.",
-		"short": "Ongeza ujuzi 18 wa FATE: Core."
+		"full": "Ongeza ujuzi 18 wa Fate Core. Moduli hii inajumuisha: Michezo, Wizi, Mawasiliano, Ufundi, Kudanganya, Kuendesha, Huruma, Kupigana, Kuchunguza, Maarifa, Kutarajia, Mwili, Kuchokoza, Mahusiano, Rasilimali, Kupiga Risasi, Kujificha na Utashi.",
+		"short": "Ongeza ujuzi 18 wa Fate Core."
 	},
 	"empty": "Hakuna ujuzi ulioongezwa bado",
 	"label": "Ujuzi",
@@ -55,7 +55,7 @@
 		"9": "Kimajabu",
 		"10": "Kimungu"
 	},
-	"name": "FATE: Core Ujuzi",
+	"name": "Fate Core Ujuzi",
 	"nothing-to-add": "Hakuna ujuzi wa kuongeza",
 	"open-skill-modal": "Fungua dirisha la ujuzi",
 	"skills": {

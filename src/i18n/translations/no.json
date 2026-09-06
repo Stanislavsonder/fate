@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Forfatter",
+			"legal": {
+				"title": "Juridisk informasjon og attribusjon"
+			},
 			"license": "Lisens",
-			"original-author": "Skaperne av FATE: Core",
+			"original-author": "Skaperne av Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Jeg har lest og aksepterer personvernreglene",
 				"acceptance-date": "Godkjenningsdato: {value}",

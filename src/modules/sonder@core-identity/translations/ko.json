@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "아직 아바타가 설정되지 않았습니다",
 			"label": "아바타",
-			"section": "캐릭터 아바타"
+			"section": "캐릭터 아바타",
+			"upload": "아바타 업로드"
 		},
 		"description": {
 			"label": "설명",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "정체성",
-	"name": "FATE Core: 정체성"
+	"name": "Fate Core 정체성"
 }

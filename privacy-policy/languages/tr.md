@@ -4,7 +4,7 @@
 
 ## 1. Giriş
 
-"FATE: Core" ("Uygulama")'a hoş geldiniz. Gizliliğiniz bizim için önemlidir. Bu Gizlilik Politikası, Uygulamamızı kullanırken bilgilerinizin nasıl işlendiğini açıklar.
+"Assistant for Fate" ("Uygulama")'a hoş geldiniz. Gizliliğiniz bizim için önemlidir. Bu Gizlilik Politikası, Uygulamamızı kullanırken bilgilerinizin nasıl işlendiğini açıklar.
 
 ## 2. Veri Toplama
 

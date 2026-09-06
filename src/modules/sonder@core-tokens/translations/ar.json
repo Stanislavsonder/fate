@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "الرموز المتاحة: {value}"
+		"availableTokens": "نقاط Fate المتاحة: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "الحد الأقصى للرموز",
-			"tooltip": "الحد الأقصى لعدد الرموز للشخصية"
+			"name": "الحد الأقصى لنقاط Fate",
+			"tooltip": "الحد الأقصى لعدد نقاط Fate للشخصية"
 		}
 	},
 	"description": {
-		"full": "أضف قسم FATE Tokens إلى ورقة الشخصية لتتبع استخدام الرموز.",
-		"short": "أضف قسم FATE Tokens"
+		"full": "أضف قسم Fate Points إلى ورقة الشخصية لتتبع استخدام نقاط Fate.",
+		"short": "أضف قسم Fate Points"
 	},
-	"empty": "لا توجد رموز متاحة",
-	"label": "رموز FATE",
-	"name": "FATE Tokens"
+	"empty": "لا توجد نقاط Fate متاحة",
+	"label": "نقاط Fate",
+	"name": "Fate Points"
 }

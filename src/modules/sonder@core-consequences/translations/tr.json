@@ -1,8 +1,8 @@
 {
 	"add": "Sonuç alanı ekle",
 	"description": {
-		"full": "Karakter sayfasına FATE: Core Sonuçlar bölümünü ekleyerek sonuçları takip etmenizi sağlar.",
-		"short": "Karakter sayfasına FATE: Core Sonuçlar bölümünü ekler"
+		"full": "Karakter sayfasına Fate Core Sonuçlar bölümünü ekleyerek sonuçları takip etmenizi sağlar.",
+		"short": "Karakter sayfasına Fate Core Sonuçlar bölümünü ekler"
 	},
 	"edit": "Sonuç alanlarını düzenle",
 	"empty": "Henüz sonuç alanı eklenmedi.",
@@ -11,7 +11,7 @@
 	"list": "Sonuç alanları",
 	"locked": "Sonuç alanı kilitli. Açmak için tıklayın.",
 	"lockedType": "Kilitli {value} sonuç alanı",
-	"name": "FATE: Core Sonuçlar",
+	"name": "Fate Core Sonuçlar",
 	"remove": "Sonuç alanını kaldır",
 	"stressLevel": "Stres seviyesi",
 	"type": {

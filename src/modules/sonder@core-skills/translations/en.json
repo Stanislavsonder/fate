@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Add the 18 FATE: Core skills. This module includes: Athletics, Burglary, Contacts, Crafts, Deceive, Drive, Empathy, Fight, Investigate, Lore, Notice, Physique, Provoke, Rapport, Resources, Shoot, Stealth, and Will.",
-		"short": "Add the 18 FATE: Core skills."
+		"full": "Add the 18 Fate Core skills. This module includes: Athletics, Burglary, Contacts, Crafts, Deceive, Drive, Empathy, Fight, Investigate, Lore, Notice, Physique, Provoke, Rapport, Resources, Shoot, Stealth, and Will.",
+		"short": "Add the 18 Fate Core skills."
 	},
 	"empty": "No skills added yet",
 	"label": "Skills",
@@ -55,7 +55,7 @@
 		"9": "Mythical",
 		"10": "Godlike"
 	},
-	"name": "FATE: Core Skills",
+	"name": "Fate Core Skills",
 	"nothing-to-add": "No skills to add",
 	"open-skill-modal": "Open skill modal window",
 	"skills": {

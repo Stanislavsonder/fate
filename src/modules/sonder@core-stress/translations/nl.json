@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Stressvakken configureren",
 	"description": {
-		"full": "Voeg de stress van FATE: Core toe. Deze module bevat: fysieke en mentale stress.",
-		"short": "Voeg de stress van FATE: Core toe"
+		"full": "Voeg de stress van Fate Core toe. Deze module bevat: fysieke en mentale stress.",
+		"short": "Voeg de stress van Fate Core toe"
 	},
 	"errors": {
 		"empty": "Er moet minstens één stressvak bestaan.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Stressniveau",
 	"lockBox": "Ontgrendeld stressvak. Klik om te vergrendelen.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Verwijder stressvak",
 	"stress": {
 		"mental": {

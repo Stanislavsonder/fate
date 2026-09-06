@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Žádný avatar nenastaven",
 			"label": "Avatar",
-			"section": "Avatar postavy"
+			"section": "Avatar postavy",
+			"upload": "Nahrát avatar"
 		},
 		"description": {
 			"label": "Popis",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identita",
-	"name": "FATE Core: Identita"
+	"name": "Fate Core Identita"
 }

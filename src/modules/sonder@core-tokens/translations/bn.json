@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "উপলব্ধ টোকেন: {value}"
+		"availableTokens": "উপলব্ধ Fate পয়েন্ট: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "সর্বোচ্চ টোকেন",
-			"tooltip": "চরিত্রের সর্বোচ্চ টোকেন সংখ্যা"
+			"name": "সর্বাধিক Fate পয়েন্ট",
+			"tooltip": "চরিত্রের সর্বাধিক Fate পয়েন্ট সংখ্যা"
 		}
 	},
 	"description": {
-		"full": "টোকেন ব্যবহারের ট্র্যাক রাখতে চরিত্র শীটে FATE Tokens বিভাগ যোগ করুন।",
-		"short": "FATE Tokens বিভাগ যোগ করুন"
+		"full": "চরিত্র শীটে Fate Points বিভাগ যোগ করুন যাতে Fate পয়েন্টের ব্যবহার ট্র্যাক করা যায়।",
+		"short": "Fate Points বিভাগ যোগ করুন"
 	},
-	"empty": "কোনও টোকেন উপলব্ধ নেই",
-	"label": "FATE টোকেন",
-	"name": "FATE Tokens"
+	"empty": "কোনো উপলব্ধ Fate পয়েন্ট নেই",
+	"label": "Fate পয়েন্ট",
+	"name": "Fate Points"
 }

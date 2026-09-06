@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Adaugă cele 18 abilități FATE: Core. Acest modul include: Atletism, Furt, Contacte, Meșteșuguri, Înșelătorie, Condus, Empatie, Luptă, Investigare, Cunoștințe, Observație, Fizic, Provocare, Raport, Resurse, Tragere, Furtivitate și Voință.",
-		"short": "Adaugă cele 18 abilități FATE: Core."
+		"full": "Adaugă cele 18 abilități Fate Core. Acest modul include: Atletism, Furt, Contacte, Meșteșuguri, Înșelătorie, Condus, Empatie, Luptă, Investigare, Cunoștințe, Observație, Fizic, Provocare, Raport, Resurse, Tragere, Furtivitate și Voință.",
+		"short": "Adaugă cele 18 abilități Fate Core."
 	},
 	"empty": "Nicio abilitate adăugată încă",
 	"label": "Abilități",
@@ -55,7 +55,7 @@
 		"9": "Mitic",
 		"10": "Divin"
 	},
-	"name": "FATE: Core Abilități",
+	"name": "Fate Core Abilități",
 	"nothing-to-add": "Nicio abilitate de adăugat",
 	"open-skill-modal": "Deschide fereastra de abilități",
 	"skills": {

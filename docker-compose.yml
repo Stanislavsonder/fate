@@ -1,17 +1,17 @@
 services:
-  fate-core:
+  fate:
     build:
       context: .
       dockerfile: Dockerfile
-    image: fate-core:latest
-    container_name: fate-core
+    image: fate:latest
+    container_name: fate
     restart: unless-stopped
     ports:
       - '8080:80'
     networks:
       - proxy_network
     labels:
-      - 'com.docker.compose.project=fate-core'
+      - 'com.docker.compose.project=fate'
 
 networks:
   proxy_network:

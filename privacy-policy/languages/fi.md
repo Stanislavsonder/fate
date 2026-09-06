@@ -4,7 +4,7 @@
 
 ## 1. Johdanto
 
-Tervetuloa käyttämään "FATE: Core" -sovellusta ("Sovellus"). Yksityisyytesi on meille tärkeää. Tämä tietosuojakäytäntö selittää, miten käsittelemme tietojasi, kun käytät Sovellustamme.
+Tervetuloa käyttämään "Assistant for Fate" -sovellusta ("Sovellus"). Yksityisyytesi on meille tärkeää. Tämä tietosuojakäytäntö selittää, miten käsittelemme tietojasi, kun käytät Sovellustamme.
 
 ## 2. Tietojen kerääminen
 

@@ -4,7 +4,7 @@
 
 ## 1. Úvod
 
-Vítejte v aplikaci "FATE: Core" ("Aplikace"). Vaše soukromí je pro nás důležité. Tyto Zásady ochrany osobních údajů vysvětlují, jak nakládáme s vašimi informacemi při používání naší Aplikace.
+Vítejte v aplikaci "Assistant for Fate" ("Aplikace"). Vaše soukromí je pro nás důležité. Tyto Zásady ochrany osobních údajů vysvětlují, jak nakládáme s vašimi informacemi při používání naší Aplikace.
 
 ## 2. Shromažďování údajů
 

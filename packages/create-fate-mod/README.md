@@ -1,6 +1,6 @@
 # create-fate-mod
 
-Scaffolder for [FATE: Core](https://github.com/Stanislavsonder/fate-core) mod
+Scaffolder for [Assistant for Fate](https://github.com/Stanislavsonder/fate) mod
 projects.
 
 ```

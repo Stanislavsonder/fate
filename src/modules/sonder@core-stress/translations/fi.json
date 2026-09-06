@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Määritä stressilaatikot",
 	"description": {
-		"full": "Lisää FATE: Core stressi. Tämä moduuli sisältää: fyysisen ja henkisen stressin.",
-		"short": "Lisää FATE: Core stressi"
+		"full": "Lisää Fate Core stressi. Tämä moduuli sisältää: fyysisen ja henkisen stressin.",
+		"short": "Lisää Fate Core stressi"
 	},
 	"errors": {
 		"empty": "Ainakin yhden stressiruudun on oltava olemassa.",
@@ -28,7 +28,7 @@
 	"label": "Stressi",
 	"level": "Stressitaso",
 	"lockBox": "Avaamaton stressilaatikko. Klikkaa lukitaksesi.",
-	"name": "FATE: Core Stressi",
+	"name": "Fate Core Stressi",
 	"removeBox": "Poista stressilaatikko",
 	"stress": {
 		"mental": {

@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "توکن‌های در دسترس: {value}"
+		"availableTokens": "امتیازهای Fate در دسترس: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "حداکثر توکن‌ها",
-			"tooltip": "حداکثر تعداد توکن‌های شخصیت"
+			"name": "حداکثر امتیاز Fate",
+			"tooltip": "حداکثر تعداد امتیازهای Fate شخصیت"
 		}
 	},
 	"description": {
-		"full": "بخش FATE Tokens را به برگه شخصیت اضافه کنید تا استفاده از توکن‌ها را پیگیری کنید.",
-		"short": "افزودن بخش FATE Tokens"
+		"full": "بخش Fate Points را به برگه شخصیت اضافه کنید تا استفاده از امتیازهای Fate را پیگیری کنید.",
+		"short": "بخش Fate Points را اضافه کنید"
 	},
-	"empty": "هیچ توکنی در دسترس نیست",
-	"label": "توکن‌های FATE",
-	"name": "FATE Tokens"
+	"empty": "هیچ امتیاز Fate در دسترس نیست",
+	"label": "امتیازهای Fate",
+	"name": "Fate Points"
 }

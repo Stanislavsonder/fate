@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "הגדר תיבות לחץ",
 	"description": {
-		"full": "הוסף את הלחץ של FATE: Core. מודול זה כולל: לחץ פיזי ומנטלי.",
-		"short": "הוסף את הלחץ של FATE: Core"
+		"full": "הוסף את הלחץ של Fate Core. מודול זה כולל: לחץ פיזי ומנטלי.",
+		"short": "הוסף את הלחץ של Fate Core"
 	},
 	"errors": {
 		"empty": "חייב להיות לפחות תיבת מתח אחת.",
@@ -28,7 +28,7 @@
 	"label": "לחץ",
 	"level": "רמת לחץ",
 	"lockBox": "תיבת לחץ פתוחה. לחץ כדי לנעול.",
-	"name": "FATE: Core סטרס",
+	"name": "Fate Core סטרס",
 	"removeBox": "הסר תיבת לחץ",
 	"stress": {
 		"mental": {

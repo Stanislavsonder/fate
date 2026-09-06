@@ -8,3 +8,7 @@ onlyBuiltDependencies:
   - core-js
   - cypress
   - esbuild
+# Audit temporary overrides
+overrides:
+  nanoid: 3.3.18
+  postcss: 8.5.23

@@ -8,7 +8,7 @@ const testAspect: CharacterAspect = {
 	type: CharacterAspectType.Trouble
 }
 
-describe('FATE: Core Modules crush-test', () => {
+describe('Fate Core Modules crush-test', () => {
 	it('Crush-test!', () => {
 		cy.removeAllCharacters()
 		cy.acceptPrivacyPolicy()
@@ -24,7 +24,7 @@ describe('FATE: Core Modules crush-test', () => {
 			cy.get(`ion-checkbox[data-testname="${id}"]`).click()
 		}
 
-		// Configure tokens - set max to 5
+		// Configure fate points - set max to 5
 		cy.get('ion-button[data-testname*="sonder@core-tokens"]').click()
 		cy.get('[data-testid="config-option-number"][data-testname="max-tokens"]').type('{backspace}5{esc}')
 
@@ -35,17 +35,17 @@ describe('FATE: Core Modules crush-test', () => {
 		cy.get('[data-testid="sheet-section"]').should('exist').and('have.length', 3)
 		cy.get('[data-testid="sheet-section"]').eq(0).contains('Aspects')
 		cy.get('[data-testid="sheet-section"]').eq(1).contains('Stress')
-		cy.get('[data-testid="sheet-section"]').eq(2).contains('Tokens')
+		cy.get('[data-testid="sheet-section"]').eq(2).contains('Fate Points')
 
 		// Add an Aspect
 		cy.addAspect(testAspect)
 
-		// Add 10 tokens
+		// Add 10 fate points
 		for (let i = 0; i < 10; i++) {
 			cy.get('[data-testid="add-token"]').click({ force: true })
 		}
 
-		// Check that max tokens is 5
+		// Check that max fate points is 5
 		cy.get('[data-testid="token"]').should('have.length', 5)
 
 		// Check is 2 types of stress are presented

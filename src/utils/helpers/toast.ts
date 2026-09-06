@@ -11,8 +11,15 @@ interface ToastItem {
 	duration: number
 }
 
+const MAX_QUEUE_LENGTH = 3
+
 const toastQueue: ToastItem[] = []
+let currentToast: ToastItem | null = null
 let isProcessingQueue = false
+
+function isSameToast(a: ToastItem, b: Pick<ToastItem, 'message' | 'color'>): boolean {
+	return a.message === b.message && a.color === b.color
+}
 
 async function processToastQueue(): Promise<void> {
 	if (isProcessingQueue || toastQueue.length === 0) {
@@ -20,25 +27,48 @@ async function processToastQueue(): Promise<void> {
 	}
 
 	isProcessingQueue = true
-	const { message, color, duration } = toastQueue.shift()!
+	const item = toastQueue.shift()!
+	currentToast = item
 
-	const toast = await toastController.create({
-		message,
-		duration,
-		color,
-		position: 'top'
-	})
+	try {
+		const toast = await toastController.create({
+			message: item.message,
+			duration: item.duration,
+			color: item.color,
+			position: 'top'
+		})
 
-	await toast.present()
+		await toast.present()
 
-	setTimeout(() => {
+		setTimeout(() => {
+			currentToast = null
+			isProcessingQueue = false
+			processToastQueue()
+		}, item.duration + 100)
+	} catch (error) {
+		console.error('[Toast]', error)
+		currentToast = null
 		isProcessingQueue = false
 		processToastQueue()
-	}, duration + 100) // Add a small buffer between toasts
+	}
 }
 
 export async function showToast(message: string, color: ToastColor = 'primary', duration = 2000): Promise<void> {
-	toastQueue.push({ message, color, duration })
+	const item = { message, color, duration }
+
+	if (currentToast && isSameToast(currentToast, item)) {
+		return
+	}
+
+	if (toastQueue.some(queued => isSameToast(queued, item))) {
+		return
+	}
+
+	if (toastQueue.length >= MAX_QUEUE_LENGTH) {
+		return
+	}
+
+	toastQueue.push(item)
 	processToastQueue()
 }
 

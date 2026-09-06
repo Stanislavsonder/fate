@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Dodaj 18 umiejętności FATE: Core. Ten moduł zawiera: Atletyka, Włamywanie, Kontakty, Rzemiosło, Oszustwo, Prowadzenie, Empatia, Walka, Śledztwo, Wiedza, Spostrzegawczość, Fizyczność, Prowokowanie, Relacje, Zasoby, Strzelanie, Skradanie się i Wola.",
-		"short": "Dodaj 18 umiejętności FATE: Core."
+		"full": "Dodaj 18 umiejętności Fate Core. Ten moduł zawiera: Atletyka, Włamywanie, Kontakty, Rzemiosło, Oszustwo, Prowadzenie, Empatia, Walka, Śledztwo, Wiedza, Spostrzegawczość, Fizyczność, Prowokowanie, Relacje, Zasoby, Strzelanie, Skradanie się i Wola.",
+		"short": "Dodaj 18 umiejętności Fate Core."
 	},
 	"empty": "Brak dodanych umiejętności",
 	"label": "Umiejętności",
@@ -55,7 +55,7 @@
 		"9": "Mityczny",
 		"10": "Boski"
 	},
-	"name": "FATE: Core Umiejętności",
+	"name": "Fate Core Umiejętności",
 	"nothing-to-add": "Brak umiejętności do dodania",
 	"open-skill-modal": "Otwórz okno umiejętności",
 	"skills": {

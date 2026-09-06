@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configurați casetele de stres",
 	"description": {
-		"full": "Adaugă stresul din FATE: Core. Acest modul include: stres fizic și mental.",
-		"short": "Adaugă stresul din FATE: Core"
+		"full": "Adaugă stresul din Fate Core. Acest modul include: stres fizic și mental.",
+		"short": "Adaugă stresul din Fate Core"
 	},
 	"errors": {
 		"empty": "Trebuie să existe cel puțin o casetă de stres.",
@@ -28,7 +28,7 @@
 	"label": "Stres",
 	"level": "Nivel de stres",
 	"lockBox": "Casetă de stres deblocată. Faceți clic pentru a bloca.",
-	"name": "FATE: Core Stres",
+	"name": "Fate Core Stres",
 	"removeBox": "Eliminați caseta de stres",
 	"stress": {
 		"mental": {

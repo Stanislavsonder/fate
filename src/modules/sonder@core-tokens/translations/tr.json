@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Mevcut jetonlar: {value}"
+		"availableTokens": "Kullanılabilir Fate puanları: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maksimum jeton",
-			"tooltip": "Karakterin maksimum jeton sayısı"
+			"name": "Maksimum Fate puanı",
+			"tooltip": "Karakterin maksimum Fate puanı sayısı"
 		}
 	},
 	"description": {
-		"full": "FATE Tokens bölümünü karakter sayfasına ekleyerek jeton kullanımını takip edin.",
-		"short": "FATE Tokens bölümü ekleyin"
+		"full": "Fate Points bölümünü karakter sayfasına ekleyerek Fate puanı kullanımını takip edin.",
+		"short": "Fate Points bölümü ekleyin"
 	},
-	"empty": "Mevcut jeton yok",
-	"label": "FATE Jetonları",
-	"name": "FATE Tokens"
+	"empty": "Kullanılabilir Fate puanı yok",
+	"label": "Fate Puanları",
+	"name": "Fate Points"
 }

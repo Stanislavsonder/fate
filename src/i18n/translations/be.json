@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Аўтар",
+			"legal": {
+				"title": "Прававая інфармацыя і атрыбуцыя"
+			},
 			"license": "Ліцэнзія",
-			"original-author": "Стваральнікі FATE: Core",
+			"original-author": "Стваральнікі Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Я прачытаў(ла) і прымаю палітыку канфідэнцыяльнасці",
 				"acceptance-date": "Дата прыняцця: {value}",

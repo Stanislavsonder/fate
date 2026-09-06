@@ -2,8 +2,8 @@
 	"add": "양상 추가",
 	"aspect": "양상",
 	"description": {
-		"full": "FATE: Core 측면 섹션을 캐릭터 시트에 추가합니다.",
-		"short": "FATE: Core 측면 섹션을 캐릭터 시트에 추가합니다."
+		"full": "Fate Core 측면 섹션을 캐릭터 시트에 추가합니다.",
+		"short": "Fate Core 측면 섹션을 캐릭터 시트에 추가합니다."
 	},
 	"edit": "양상 편집",
 	"empty": "아직 추가된 양상이 없습니다.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "잘못된 양상 유형입니다."
 	},
 	"label": "양상",
-	"name": "FATE: Core 측면",
+	"name": "Fate Core 측면",
 	"type": {
 		"consequence": {
 			"description": "지속적인 부상 또는 좌절.",

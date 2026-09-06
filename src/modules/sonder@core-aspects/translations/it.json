@@ -2,8 +2,8 @@
 	"add": "Aggiungi aspetto",
 	"aspect": "Aspetto",
 	"description": {
-		"full": "Aggiunge la sezione Aspetti di FATE: Core alla scheda del personaggio.",
-		"short": "Aggiunge la sezione Aspetti di FATE: Core alla scheda del personaggio."
+		"full": "Aggiunge la sezione Aspetti di Fate Core alla scheda del personaggio.",
+		"short": "Aggiunge la sezione Aspetti di Fate Core alla scheda del personaggio."
 	},
 	"edit": "Modifica aspetto",
 	"empty": "Nessun aspetto aggiunto ancora.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Tipo di aspetto non valido."
 	},
 	"label": "Aspetti",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Una ferita o battuta d'arresto duratura.",

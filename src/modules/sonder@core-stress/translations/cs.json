@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Konfigurovat pole stresu",
 	"description": {
-		"full": "Přidejte stres FATE: Core. Tento modul zahrnuje: fyzický a psychický stres.",
-		"short": "Přidejte stres FATE: Core"
+		"full": "Přidejte stres Fate Core. Tento modul zahrnuje: fyzický a psychický stres.",
+		"short": "Přidejte stres Fate Core"
 	},
 	"errors": {
 		"empty": "Musí existovat alespoň jedno políčko stresu.",
@@ -28,7 +28,7 @@
 	"label": "Stres",
 	"level": "Úroveň stresu",
 	"lockBox": "Odemčené pole stresu. Klikněte pro zamknutí.",
-	"name": "FATE: Core Stres",
+	"name": "Fate Core Stres",
 	"removeBox": "Odstranit pole stresu",
 	"stress": {
 		"mental": {

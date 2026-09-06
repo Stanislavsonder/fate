@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "FATE: Core Akrobatik Hareketlerini Ekleyin",
-		"short": "FATE: Core Akrobatik Hareketlerini Ekleyin."
+		"full": "Fate Core Akrobatik Hareketlerini Ekleyin",
+		"short": "Fate Core Akrobatik Hareketlerini Ekleyin."
 	},
 	"edit": "Numarayı düzenle",
 	"empty": "Hiç numara yok",
@@ -21,7 +21,7 @@
 	},
 	"label": "Numaralar",
 	"list": "Numara listesi",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Beceri gerekmiyor",
 	"price": "Fiyat: {value} jeton"
 }

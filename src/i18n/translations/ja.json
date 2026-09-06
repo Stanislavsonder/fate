@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "作者",
+			"legal": {
+				"title": "法的情報とクレジット"
+			},
 			"license": "ライセンス",
-			"original-author": "FATE: Core の作成者",
+			"original-author": "Fate Core の作成者",
 			"privacy-policy": {
 				"accept-policy": "プライバシーポリシーを読み、同意しました",
 				"acceptance-date": "同意日: {value}",

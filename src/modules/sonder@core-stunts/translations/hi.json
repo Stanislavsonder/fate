@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "FATE: Core स्टंट जोड़ें",
-		"short": "FATE: Core स्टंट जोड़ें."
+		"full": "Fate Core स्टंट जोड़ें",
+		"short": "Fate Core स्टंट जोड़ें."
 	},
 	"edit": "स्टंट संपादित करें",
 	"empty": "कोई स्टंट नहीं",
@@ -21,7 +21,7 @@
 	},
 	"label": "स्टंट्स",
 	"list": "स्टंट की सूची",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "कोई कौशल आवश्यक नहीं",
 	"price": "कीमत: {value} टोकन"
 }

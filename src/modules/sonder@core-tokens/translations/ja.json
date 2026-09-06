@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "利用可能なトークン: {value}"
+		"availableTokens": "利用可能なFateポイント: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "最大トークン数",
-			"tooltip": "キャラクターの最大トークン数"
+			"name": "最大Fateポイント数",
+			"tooltip": "キャラクターの最大Fateポイント数"
 		}
 	},
 	"description": {
-		"full": "キャラクターシートに FATE Tokens セクションを追加し、トークンの使用を追跡します。",
-		"short": "FATE Tokens セクションを追加"
+		"full": "キャラクターシートに Fate Points セクションを追加し、Fateポイントの使用を追跡します。",
+		"short": "Fate Points セクションを追加"
 	},
-	"empty": "利用可能なトークンがありません",
-	"label": "FATEトークン",
-	"name": "FATE Tokens"
+	"empty": "利用可能なFateポイントがありません",
+	"label": "Fateポイント",
+	"name": "Fate Points"
 }

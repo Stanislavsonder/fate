@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Auteur",
+			"legal": {
+				"title": "Mentions légales et attributions"
+			},
 			"license": "Licence",
-			"original-author": "Créateurs de FATE: Core",
+			"original-author": "Créateurs de Fate Core",
 			"privacy-policy": {
 				"accept-policy": "J'ai lu et j'accepte la politique de confidentialité",
 				"acceptance-date": "Date d'acceptation : {value}",

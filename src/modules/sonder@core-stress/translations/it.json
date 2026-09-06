@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configura caselle di stress",
 	"description": {
-		"full": "Aggiungi lo stress di FATE: Core. Questo modulo include: stress fisico e mentale.",
-		"short": "Aggiungi lo stress di FATE: Core"
+		"full": "Aggiungi lo stress di Fate Core. Questo modulo include: stress fisico e mentale.",
+		"short": "Aggiungi lo stress di Fate Core"
 	},
 	"errors": {
 		"empty": "Deve esistere almeno una casella di stress.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Livello di stress",
 	"lockBox": "Casella di stress sbloccata. Clicca per bloccare.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Rimuovi casella di stress",
 	"stress": {
 		"mental": {

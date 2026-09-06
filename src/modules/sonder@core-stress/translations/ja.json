@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "ストレスボックスを設定",
 	"description": {
-		"full": "FATE: Coreのストレスを追加します。このモジュールには、身体的および精神的ストレスが含まれます。",
-		"short": "FATE: Coreのストレスを追加"
+		"full": "Fate Coreのストレスを追加します。このモジュールには、身体的および精神的ストレスが含まれます。",
+		"short": "Fate Coreのストレスを追加"
 	},
 	"errors": {
 		"empty": "少なくとも1つのストレスボックスが必要です。",
@@ -28,7 +28,7 @@
 	"label": "ストレス",
 	"level": "ストレスレベル",
 	"lockBox": "解除されたストレスボックス。クリックしてロック。",
-	"name": "FATE: Core ストレス",
+	"name": "Fate Core ストレス",
 	"removeBox": "ストレスボックスを削除",
 	"stress": {
 		"mental": {

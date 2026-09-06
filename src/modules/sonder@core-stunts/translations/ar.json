@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "أضف حيل FATE: Core",
-		"short": "أضف حيل FATE: Core."
+		"full": "أضف حيل Fate Core",
+		"short": "أضف حيل Fate Core."
 	},
 	"edit": "تحرير الخدعة",
 	"empty": "لا توجد خدع",
@@ -21,7 +21,7 @@
 	},
 	"label": "الخدع",
 	"list": "قائمة الخدع",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "لا حاجة لمهارة",
 	"price": "السعر: {value} رموز"
 }

@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Přidejte 18 dovedností FATE: Core. Tento modul zahrnuje: Atletika, Vloupání, Kontakty, Řemesla, Podvod, Řízení, Empatie, Boj, Vyšetřování, Znalosti, Všímavost, Fyzická kondice, Provokace, Vztahy, Zdroje, Střelba, Plížení a Vůle.",
-		"short": "Přidejte 18 dovedností FATE: Core."
+		"full": "Přidejte 18 dovedností Fate Core. Tento modul zahrnuje: Atletika, Vloupání, Kontakty, Řemesla, Podvod, Řízení, Empatie, Boj, Vyšetřování, Znalosti, Všímavost, Fyzická kondice, Provokace, Vztahy, Zdroje, Střelba, Plížení a Vůle.",
+		"short": "Přidejte 18 dovedností Fate Core."
 	},
 	"empty": "Žádné dovednosti zatím nepřidány",
 	"label": "Dovednosti",
@@ -55,7 +55,7 @@
 		"9": "Mytický",
 		"10": "Božský"
 	},
-	"name": "FATE: Core Dovednosti",
+	"name": "Fate Core Dovednosti",
 	"nothing-to-add": "Žádné dovednosti k přidání",
 	"open-skill-modal": "Otevřít okno dovedností",
 	"skills": {

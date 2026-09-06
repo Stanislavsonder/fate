@@ -1,8 +1,8 @@
 {
 	"add": "Legg til konsekvensfelt",
 	"description": {
-		"full": "Legger til FATE: Core Konsekvenser-seksjonen i karakterarket for å spore konsekvenser.",
-		"short": "Legger til FATE: Core Konsekvenser-seksjonen"
+		"full": "Legger til Fate Core Konsekvenser-seksjonen i karakterarket for å spore konsekvenser.",
+		"short": "Legger til Fate Core Konsekvenser-seksjonen"
 	},
 	"edit": "Rediger konsekvensfelt",
 	"empty": "Ingen konsekvensfelt lagt til ennå.",
@@ -11,7 +11,7 @@
 	"list": "Konsekvensfelt",
 	"locked": "Konsekvensfeltet er låst. Klikk for å låse opp.",
 	"lockedType": "Låst {value} konsekvensfelt",
-	"name": "FATE: Core Konsekvenser",
+	"name": "Fate Core Konsekvenser",
 	"remove": "Fjern konsekvensfelt",
 	"stressLevel": "Stressnivå",
 	"type": {

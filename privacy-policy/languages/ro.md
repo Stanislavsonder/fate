@@ -4,7 +4,7 @@
 
 ## 1. Introducere
 
-Bine ați venit la "FATE: Core" ("Aplicația"). Confidențialitatea dumneavoastră este importantă pentru noi. Această Politică de Confidențialitate explică modul în care gestionăm informațiile dumneavoastră atunci când utilizați Aplicația noastră.
+Bine ați venit la "Assistant for Fate" ("Aplicația"). Confidențialitatea dumneavoastră este importantă pentru noi. Această Politică de Confidențialitate explică modul în care gestionăm informațiile dumneavoastră atunci când utilizați Aplicația noastră.
 
 ## 2. Colectarea Datelor
 

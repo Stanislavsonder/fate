@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Adicione as 18 habilidades do FATE: Core. Este módulo inclui: Atletismo, Arrombamento, Contatos, Ofícios, Enganar, Dirigir, Empatia, Lutar, Investigar, Conhecimento, Perceber, Físico, Provocar, Rapport, Recursos, Atirar, Furtividade e Vontade.",
-		"short": "Adicione as 18 habilidades do FATE: Core."
+		"full": "Adicione as 18 habilidades do Fate Core. Este módulo inclui: Atletismo, Arrombamento, Contatos, Ofícios, Enganar, Dirigir, Empatia, Lutar, Investigar, Conhecimento, Perceber, Físico, Provocar, Rapport, Recursos, Atirar, Furtividade e Vontade.",
+		"short": "Adicione as 18 habilidades do Fate Core."
 	},
 	"empty": "Nenhuma habilidade adicionada ainda",
 	"label": "Habilidades",
@@ -55,7 +55,7 @@
 		"9": "Mítico",
 		"10": "Divino"
 	},
-	"name": "FATE: Core Habilidades",
+	"name": "Fate Core Habilidades",
 	"nothing-to-add": "Nenhuma habilidade para adicionar",
 	"open-skill-modal": "Abrir janela de habilidades",
 	"skills": {

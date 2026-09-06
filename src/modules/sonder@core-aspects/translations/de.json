@@ -2,8 +2,8 @@
 	"add": "Aspekt hinzufügen",
 	"aspect": "Aspekt",
 	"description": {
-		"full": "Fügt die Sektion Aspekte von FATE: Core zum Charakterbogen hinzu.",
-		"short": "Fügt die Sektion Aspekte von FATE: Core zum Charakterbogen hinzu."
+		"full": "Fügt die Sektion Aspekte von Fate Core zum Charakterbogen hinzu.",
+		"short": "Fügt die Sektion Aspekte von Fate Core zum Charakterbogen hinzu."
 	},
 	"edit": "Aspekt bearbeiten",
 	"empty": "Noch keine Aspekte hinzugefügt.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Ungültiger Aspekttyp."
 	},
 	"label": "Aspekte",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Eine anhaltende Verletzung oder ein Rückschlag.",

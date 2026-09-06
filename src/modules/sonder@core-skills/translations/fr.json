@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Ajoutez les 18 compétences de FATE : Core. Ce module inclut : Athlétisme, Cambriolage, Contacts, Artisanat, Tromperie, Conduite, Empathie, Combat, Investigation, Connaissances, Observation, Physique, Provocation, Relationnel, Ressources, Tir, Discrétion et Volonté.",
-		"short": "Ajoutez les 18 compétences de FATE : Core."
+		"full": "Ajoutez les 18 compétences de Fate Core. Ce module inclut : Athlétisme, Cambriolage, Contacts, Artisanat, Tromperie, Conduite, Empathie, Combat, Investigation, Connaissances, Observation, Physique, Provocation, Relationnel, Ressources, Tir, Discrétion et Volonté.",
+		"short": "Ajoutez les 18 compétences de Fate Core."
 	},
 	"empty": "Aucune compétence ajoutée",
 	"label": "Compétences",
@@ -55,7 +55,7 @@
 		"9": "Mythique",
 		"10": "Divin"
 	},
-	"name": "FATE: Core Compétences",
+	"name": "Fate Core Compétences",
 	"nothing-to-add": "Aucune compétence à ajouter",
 	"open-skill-modal": "Ouvrir la fenêtre des compétences",
 	"skills": {

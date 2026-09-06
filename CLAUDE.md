@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-FATE: Core is a Vue 3 + Ionic hybrid mobile/web app serving as a digital character sheet for the FATE Core RPG system. It targets iOS, Android, and web via Capacitor.
+Assistant for Fate is a Vue 3 + Ionic hybrid mobile/web app serving as a digital character sheet for the Fate RPG system. It targets iOS, Android, and web via Capacitor.
 
 - **Package manager:** pnpm (required — do not use npm/yarn)
 - **Node:** >=24.14.0

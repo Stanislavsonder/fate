@@ -1,8 +1,8 @@
 {
 	"add": "Dodaj pole konsekwencji",
 	"description": {
-		"full": "Dodaje sekcję Konsekwencje FATE: Core do karty postaci w celu śledzenia konsekwencji.",
-		"short": "Dodaje sekcję Konsekwencje FATE: Core"
+		"full": "Dodaje sekcję Konsekwencje Fate Core do karty postaci w celu śledzenia konsekwencji.",
+		"short": "Dodaje sekcję Konsekwencje Fate Core"
 	},
 	"edit": "Edytuj pola konsekwencji",
 	"empty": "Nie dodano jeszcze żadnych pól konsekwencji.",
@@ -11,7 +11,7 @@
 	"list": "Pola konsekwencji",
 	"locked": "Pole konsekwencji jest zablokowane. Kliknij, aby odblokować.",
 	"lockedType": "Zablokowane pole konsekwencji {value}",
-	"name": "FATE: Core Konsekwencje",
+	"name": "Fate Core Konsekwencje",
 	"remove": "Usuń pole konsekwencji",
 	"stressLevel": "Poziom stresu",
 	"type": {

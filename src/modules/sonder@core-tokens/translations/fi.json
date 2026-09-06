@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Saatavilla olevat merkit: {value}"
+		"availableTokens": "Käytettävissä olevat Fate-pisteet: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maksimi merkit",
-			"tooltip": "Hahmon enimmäismäärä merkkejä"
+			"name": "Fate-pisteiden enimmäismäärä",
+			"tooltip": "Hahmon Fate-pisteiden enimmäismäärä"
 		}
 	},
 	"description": {
-		"full": "Lisää FATE Tokens -osio hahmolomakkeeseen seuraamaan merkkien käyttöä.",
-		"short": "Lisää FATE Tokens -osio"
+		"full": "Lisää Fate Points -osio hahmolomakkeeseen seuraamaan Fate-pisteiden käyttöä.",
+		"short": "Lisää Fate Points -osio"
 	},
-	"empty": "Ei saatavilla olevia merkkejä",
-	"label": "FATE-merkit",
-	"name": "FATE Tokens"
+	"empty": "Ei käytettävissä olevia Fate-pisteitä",
+	"label": "Fate-pisteet",
+	"name": "Fate Points"
 }

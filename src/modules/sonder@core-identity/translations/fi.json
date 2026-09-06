@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Ei asetettua avataria",
 			"label": "Avatar",
-			"section": "Hahmon avatar"
+			"section": "Hahmon avatar",
+			"upload": "Lataa avatar"
 		},
 		"description": {
 			"label": "Kuvaus",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identiteetti",
-	"name": "FATE Core: Identiteetti"
+	"name": "Fate Core Identiteetti"
 }

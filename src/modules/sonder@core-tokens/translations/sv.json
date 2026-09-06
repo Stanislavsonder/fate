@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Tillgängliga markörer: {value}"
+		"availableTokens": "Tillgängliga Fate-poäng: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maximala polletter",
-			"tooltip": "Maximalt antal polletter för karaktären"
+			"name": "Max Fate-poäng",
+			"tooltip": "Maximalt antal Fate-poäng för karaktären"
 		}
 	},
 	"description": {
-		"full": "Lägg till FATE Tokens-sektionen i karaktärsbladet för att spåra användningen av tokens.",
-		"short": "Lägg till FATE Tokens-sektion"
+		"full": "Lägg till Fate Points-sektionen i karaktärsbladet för att spåra användningen av Fate-poäng.",
+		"short": "Lägg till Fate Points-sektion"
 	},
-	"empty": "Inga tillgängliga markörer",
-	"label": "FATE-markörer",
-	"name": "FATE Tokens"
+	"empty": "Inga tillgängliga Fate-poäng",
+	"label": "Fate-poäng",
+	"name": "Fate Points"
 }

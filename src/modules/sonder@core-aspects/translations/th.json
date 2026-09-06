@@ -13,7 +13,7 @@
 		"typeInvalid": "ประเภทแง่มุมไม่ถูกต้อง"
 	},
 	"label": "แง่มุม",
-	"name": "FATE: แง่มุมหลัก",
+	"name": "Fate แง่มุมหลัก",
 	"type": {
 		"consequence": {
 			"description": "การบาดเจ็บหรืออุปสรรคที่ยาวนาน",

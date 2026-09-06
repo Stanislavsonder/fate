@@ -14,6 +14,7 @@ export const ROUTES = {
 	SETTINGS: '/tabs/settings',
 	SETTINGS_ABOUT: '/tabs/settings/about',
 	SETTINGS_PRIVACY_POLICY: '/tabs/settings/about/privacy-policy',
+	SETTINGS_LEGAL: '/tabs/settings/about/legal',
 	SETTINGS_LANGUAGE: '/tabs/settings/language',
 	SETTINGS_THEME: '/tabs/settings/theme',
 	SETTINGS_DEVELOPER: '/tabs/settings/developer',
@@ -68,6 +69,10 @@ const routes: Array<RouteRecordRaw> = [
 			{
 				path: tabRoute(ROUTES.SETTINGS_PRIVACY_POLICY),
 				component: () => import('@/views/settings/about/PrivacyPolicyPage.vue')
+			},
+			{
+				path: tabRoute(ROUTES.SETTINGS_LEGAL),
+				component: () => import('@/views/settings/about/LegalPage.vue')
 			},
 			{
 				path: tabRoute(ROUTES.SETTINGS_LANGUAGE),

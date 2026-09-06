@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/web-manifest-combined.json",
-	"name": "FATE: Core",
-	"short_name": "FATE",
-	"description": "FATE: Core character sheet manager and role playing game assistant.",
+	"name": "Assistant for Fate",
+	"short_name": "Fate Assistant",
+	"description": "Character sheets, dice and modules for the Fate roleplaying game system.",
 	"start_url": "/",
 	"scope": "/",
 	"icons": [

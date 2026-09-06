@@ -7,7 +7,7 @@
  * (src/mods/registryClient.ts) both need the exact same schema — see
  * planning/modules-2-0/phase-3-registry-store.md, Decision 2.
  *
- * Usage: node --experimental-transform-types ./scripts/check-registry-schema/index.ts
+ * Usage: node ./scripts/check-registry-schema/index.ts
  */
 
 import fs from 'fs'

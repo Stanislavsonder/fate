@@ -2,8 +2,8 @@
 	"add": "Add aspect",
 	"aspect": "Aspect",
 	"description": {
-		"full": "Adds the FATE: Core Aspects section to the character sheet.",
-		"short": "Adds the FATE: Core Aspects section to the character sheet."
+		"full": "Adds the Fate Core Aspects section to the character sheet.",
+		"short": "Adds the Fate Core Aspects section to the character sheet."
 	},
 	"edit": "Edit aspect",
 	"empty": "No aspects added yet.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Invalid aspect type."
 	},
 	"label": "Aspects",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "A lasting injury or setback.",

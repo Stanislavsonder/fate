@@ -2,8 +2,8 @@
 	"add": "アスペクトを追加",
 	"aspect": "アスペクト",
 	"description": {
-		"full": "キャラクターシートにFATE: Core の特質セクションを追加します。",
-		"short": "キャラクターシートにFATE: Core の特質セクションを追加します。"
+		"full": "キャラクターシートにFate Core の特質セクションを追加します。",
+		"short": "キャラクターシートにFate Core の特質セクションを追加します。"
 	},
 	"edit": "アスペクトを編集",
 	"empty": "まだアスペクトが追加されていません。",
@@ -13,7 +13,7 @@
 		"typeInvalid": "無効なアスペクトの種類です。"
 	},
 	"label": "アスペクト",
-	"name": "FATE: Core 特質",
+	"name": "Fate Core 特質",
 	"type": {
 		"consequence": {
 			"description": "持続的な傷や挫折。",

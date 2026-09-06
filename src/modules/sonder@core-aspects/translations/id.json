@@ -13,7 +13,7 @@
 		"typeInvalid": "Jenis aspek tidak valid."
 	},
 	"label": "Aspek",
-	"name": "FATE: Aspek Inti",
+	"name": "Fate Aspek Inti",
 	"type": {
 		"consequence": {
 			"description": "Cedera atau kemunduran yang bertahan lama.",

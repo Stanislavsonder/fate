@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Jetoane disponibile: {value}"
+		"availableTokens": "Puncte Fate disponibile: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Jetoane maxime",
-			"tooltip": "Numărul maxim de jetoane ale personajului"
+			"name": "Puncte Fate max.",
+			"tooltip": "Numărul maxim de puncte Fate ale personajului"
 		}
 	},
 	"description": {
-		"full": "Adăugați secțiunea FATE Tokens la foaia de personaj pentru a urmări utilizarea jetoanelor.",
-		"short": "Adăugați secțiunea FATE Tokens"
+		"full": "Adaugă secțiunea Fate Points la foaia de personaj pentru a urmări utilizarea punctelor Fate.",
+		"short": "Adaugă secțiunea Fate Points"
 	},
-	"empty": "Nu există jetoane disponibile",
-	"label": "Jetoane FATE",
-	"name": "FATE Tokens"
+	"empty": "Niciun punct Fate disponibil",
+	"label": "Puncte Fate",
+	"name": "Fate Points"
 }

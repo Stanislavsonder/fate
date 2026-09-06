@@ -18,7 +18,7 @@
 
 ## 1. What this app is (context for someone who has never seen it)
 
-**FATE: Core** is a digital character sheet for the FATE Core tabletop RPG.
+**Assistant for Fate** is a digital character sheet for the Fate tabletop RPG.
 It is a single codebase that ships to three targets:
 
 - **Web** (PWA, built with Vite, served statically)

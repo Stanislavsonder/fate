@@ -1,8 +1,8 @@
 {
 	"add": "Add consequence field",
 	"description": {
-		"full": "Adds the FATE: Core Consequences section to the character sheet to track consequences.",
-		"short": "Adds the FATE: Core Consequences section"
+		"full": "Adds the Fate Core Consequences section to the character sheet to track consequences.",
+		"short": "Adds the Fate Core Consequences section"
 	},
 	"edit": "Edit consequence fields",
 	"empty": "No consequence fields added yet.",
@@ -11,7 +11,7 @@
 	"list": "Consequence fields",
 	"locked": "Consequence field is locked. Click to unlock.",
 	"lockedType": "Locked {value} consequence field",
-	"name": "FATE: Core Consequences",
+	"name": "Fate Core Consequences",
 	"remove": "Remove consequence field",
 	"stressLevel": "Stress level",
 	"type": {

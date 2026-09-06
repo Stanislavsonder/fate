@@ -193,7 +193,7 @@ export default [
 function readmeMd(answers: ScaffoldAnswers): string {
 	return `# ${answers.displayName}
 
-A FATE: Core mod (\`${answers.id}\`), scaffolded by \`create-fate-mod\`.
+An Assistant for Fate mod (\`${answers.id}\`), scaffolded by \`create-fate-mod\`.
 
 ## Developing
 

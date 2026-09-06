@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Додати Каскади FATE: Core",
-		"short": "Додати Каскади FATE: Core."
+		"full": "Додати Каскади Fate Core",
+		"short": "Додати Каскади Fate Core."
 	},
 	"edit": "Редагувати трюк",
 	"empty": "Немає трюків",
@@ -21,7 +21,7 @@
 	},
 	"label": "Трюки",
 	"list": "Список трюків",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Навичка не потрібна",
 	"price": "Ціна: {value} жетонів"
 }

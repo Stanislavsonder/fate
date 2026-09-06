@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Dostupné žetony: {value}"
+		"availableTokens": "Dostupné body Fate: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maximální počet žetonů",
-			"tooltip": "Maximální počet žetonů postavy"
+			"name": "Maximum bodů Fate",
+			"tooltip": "Maximální počet bodů Fate postavy"
 		}
 	},
 	"description": {
-		"full": "Přidejte sekci FATE Tokens do listu postavy pro sledování použití žetonů.",
-		"short": "Přidejte sekci FATE Tokens"
+		"full": "Přidat sekci Fate Points do listu postavy pro sledování použití bodů Fate.",
+		"short": "Přidat sekci Fate Points"
 	},
-	"empty": "Žádné dostupné žetony",
-	"label": "Žetony FATE",
-	"name": "FATE Tokens"
+	"empty": "Žádné dostupné body Fate",
+	"label": "Body Fate",
+	"name": "Fate Points"
 }

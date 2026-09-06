@@ -1,8 +1,8 @@
 {
 	"add": "Agregar campo de consecuencia",
 	"description": {
-		"full": "Añade la sección de Consecuencias de FATE: Core a la hoja de personaje para registrar las consecuencias.",
-		"short": "Añade la sección de Consecuencias de FATE: Core"
+		"full": "Añade la sección de Consecuencias de Fate Core a la hoja de personaje para registrar las consecuencias.",
+		"short": "Añade la sección de Consecuencias de Fate Core"
 	},
 	"edit": "Editar campos de consecuencia",
 	"empty": "Aún no se han agregado campos de consecuencia.",
@@ -11,7 +11,7 @@
 	"list": "Campos de consecuencia",
 	"locked": "El campo de consecuencia está bloqueado. Haz clic para desbloquearlo.",
 	"lockedType": "Campo de consecuencia bloqueado {value}",
-	"name": "FATE: Core Consecuencias",
+	"name": "Fate Core Consecuencias",
 	"remove": "Eliminar campo de consecuencia",
 	"stressLevel": "Nivel de estrés",
 	"type": {

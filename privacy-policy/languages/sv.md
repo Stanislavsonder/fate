@@ -4,7 +4,7 @@
 
 ## 1. Introduktion
 
-Välkommen till "FATE: Core" ("Appen"). Din integritet är viktig för oss. Denna integritetspolicy förklarar hur vi hanterar din information när du använder vår App.
+Välkommen till "Assistant for Fate" ("Appen"). Din integritet är viktig för oss. Denna integritetspolicy förklarar hur vi hanterar din information när du använder vår App.
 
 ## 2. Datainsamling
 

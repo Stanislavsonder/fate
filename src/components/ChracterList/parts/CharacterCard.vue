@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import type { Character } from '@/types'
-import { computed, useId } from 'vue'
-import AvatarPlaceholderDark from '@/assets/avatar-placeholder-dark.png'
-import AvatarPlaceholderLight from '@/assets/avatar-placeholder-light.png'
-import useTheme from '@/composables/useTheme'
+import { useId } from 'vue'
+import CharacterPlaceholder from '@/assets/character-placeholder.jpg'
 import { downloadOutline, ellipsisVertical, settings, shareOutline } from 'ionicons/icons'
 import { IonIcon, IonPopover, IonButton, IonContent, IonList, IonItem, IonLabel } from '@ionic/vue'
 import { confirmRemove } from '@/utils/helpers/dialog'
@@ -21,9 +19,7 @@ const emit = defineEmits<{
 }>()
 
 const popoverId = useId()
-const { isDarkMode } = useTheme()
 const canShare = CharacterService.canShare
-const placeholder = computed<string>(() => (isDarkMode.value ? AvatarPlaceholderDark : AvatarPlaceholderLight))
 
 async function remove() {
 	if (await confirmRemove(character.name)) {
@@ -37,7 +33,7 @@ async function remove() {
 		<img
 			class="aspect-square object-cover w-full rounded-xl rounded-bl-none rounded-tr-none"
 			:alt="character.name"
-			:src="character.avatar || placeholder"
+			:src="character.avatar || CharacterPlaceholder"
 		/>
 		<div class="p-2">
 			<h3 class="font-bold mb-2 pe-8">{{ character.name }}</h3>

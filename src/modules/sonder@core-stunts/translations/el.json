@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Προσθέστε Κατορθώματα FATE: Core",
-		"short": "Προσθέστε Κατορθώματα FATE: Core."
+		"full": "Προσθέστε Κατορθώματα Fate Core",
+		"short": "Προσθέστε Κατορθώματα Fate Core."
 	},
 	"edit": "Επεξεργασία κόλπου",
 	"empty": "Δεν υπάρχουν κόλπα",
@@ -21,7 +21,7 @@
 	},
 	"label": "Κόλπα",
 	"list": "Λίστα κόλπων",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Δεν απαιτείται δεξιότητα",
 	"price": "Τιμή: {value} μάρκες"
 }

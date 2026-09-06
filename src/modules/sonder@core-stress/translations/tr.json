@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Stres kutularını yapılandır",
 	"description": {
-		"full": "FATE: Core stresini ekleyin. Bu modül şunları içerir: fiziksel ve zihinsel stres.",
-		"short": "FATE: Core stresini ekleyin"
+		"full": "Fate Core stresini ekleyin. Bu modül şunları içerir: fiziksel ve zihinsel stres.",
+		"short": "Fate Core stresini ekleyin"
 	},
 	"errors": {
 		"empty": "En az bir stres kutusu olmalıdır.",
@@ -28,7 +28,7 @@
 	"label": "Stres",
 	"level": "Stres seviyesi",
 	"lockBox": "Kilitsiz stres kutusu. Kilitlemek için tıklayın.",
-	"name": "FATE: Core Stres",
+	"name": "Fate Core Stres",
 	"removeBox": "Stres kutusunu kaldır",
 	"stress": {
 		"mental": {

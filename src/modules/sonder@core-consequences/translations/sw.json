@@ -1,8 +1,8 @@
 {
 	"add": "Ongeza uwanja wa matokeo",
 	"description": {
-		"full": "Inaongeza sehemu ya Matokeo ya FATE: Core kwenye karatasi ya mhusika ili kufuatilia matokeo.",
-		"short": "Inaongeza sehemu ya Matokeo ya FATE: Core"
+		"full": "Inaongeza sehemu ya Matokeo ya Fate Core kwenye karatasi ya mhusika ili kufuatilia matokeo.",
+		"short": "Inaongeza sehemu ya Matokeo ya Fate Core"
 	},
 	"edit": "Hariri uwanja wa matokeo",
 	"empty": "Hakuna uwanja wa matokeo ulioongezwa bado.",
@@ -11,7 +11,7 @@
 	"list": "Viwanja vya matokeo",
 	"locked": "Uwanja wa matokeo umefungwa. Bofya kufungua.",
 	"lockedType": "Uwanja wa matokeo uliofungwa {value}",
-	"name": "FATE: Core Matokeo",
+	"name": "Fate Core Matokeo",
 	"remove": "Ondoa uwanja wa matokeo",
 	"stressLevel": "Kiwango cha msongo",
 	"type": {

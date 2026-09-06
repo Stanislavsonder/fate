@@ -10,15 +10,40 @@ export default defineConfig({
 		tailwindcss(),
 		VitePWA({
 			registerType: 'autoUpdate',
+			injectRegister: false,
 			manifest: false,
 			workbox: {
-				maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-				globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
-				navigateFallback: '/index.html',
-				navigateFallbackDenylist: [/^\/api/],
+				cleanupOutdatedCaches: true,
+				skipWaiting: true,
+				clientsClaim: true,
+				globPatterns: [],
 				runtimeCaching: [
 					{
-						urlPattern: /\.(?:png|jpg|jpeg|svg|gif|ico|webp)$/,
+						urlPattern: ({ request }) => request.mode === 'navigate',
+						handler: 'NetworkFirst',
+						options: {
+							cacheName: 'pages',
+							networkTimeoutSeconds: 3,
+							expiration: {
+								maxEntries: 20,
+								maxAgeSeconds: 7 * 24 * 60 * 60
+							}
+						}
+					},
+					{
+						urlPattern: /\.(?:js|css)$/i,
+						handler: 'NetworkFirst',
+						options: {
+							cacheName: 'assets',
+							networkTimeoutSeconds: 3,
+							expiration: {
+								maxEntries: 60,
+								maxAgeSeconds: 7 * 24 * 60 * 60
+							}
+						}
+					},
+					{
+						urlPattern: /\.(?:png|jpg|jpeg|svg|gif|ico|webp|woff|woff2)$/i,
 						handler: 'CacheFirst',
 						options: {
 							cacheName: 'images',

@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Penulis",
+			"legal": {
+				"title": "Informasi hukum dan atribusi"
+			},
 			"license": "Lisensi",
-			"original-author": "Pencipta FATE: Core",
+			"original-author": "Pencipta Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Saya telah membaca dan menerima kebijakan privasi",
 				"acceptance-date": "Tanggal penerimaan: {value}",

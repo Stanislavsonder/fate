@@ -40,6 +40,8 @@ describe('Character identity', () => {
 
 		// Remove image
 		cy.get('[data-testid="character-image-remove-button"]').click()
-		cy.get('[data-testid="character-image"]').should('have.attr', 'src').and('include', 'avatar-placeholder')
+		// with no avatar the image is replaced by the full-square upload target
+		cy.get('[data-testid="character-image"]').should('not.exist')
+		cy.get('[data-testid="character-image-placeholder"]').should('exist')
 	})
 })

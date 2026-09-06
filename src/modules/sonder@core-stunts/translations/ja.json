@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "FATE: Core スタントを追加",
-		"short": "FATE: Core スタントを追加."
+		"full": "Fate Core スタントを追加",
+		"short": "Fate Core スタントを追加."
 	},
 	"edit": "スタントを編集",
 	"empty": "スタントなし",
@@ -21,7 +21,7 @@
 	},
 	"label": "スタント",
 	"list": "スタント一覧",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "スキル不要",
 	"price": "価格: {value} トークン"
 }

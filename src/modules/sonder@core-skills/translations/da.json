@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Tilføj de 18 FATE: Core-færdigheder. Denne modul inkluderer: Atletik, Indbrud, Kontakter, Håndværk, Bedrag, Køre, Empati, Kæmpe, Undersøge, Viden, Bemærke, Fysik, Provokere, Relationer, Ressourcer, Skyde, Snige og Vilje.",
-		"short": "Tilføj de 18 FATE: Core-færdigheder."
+		"full": "Tilføj de 18 Fate Core-færdigheder. Denne modul inkluderer: Atletik, Indbrud, Kontakter, Håndværk, Bedrag, Køre, Empati, Kæmpe, Undersøge, Viden, Bemærke, Fysik, Provokere, Relationer, Ressourcer, Skyde, Snige og Vilje.",
+		"short": "Tilføj de 18 Fate Core-færdigheder."
 	},
 	"empty": "Ingen færdigheder tilføjet endnu",
 	"label": "Færdigheder",
@@ -55,7 +55,7 @@
 		"9": "Mythisk",
 		"10": "Guddommelig"
 	},
-	"name": "FATE: Core Færdigheder",
+	"name": "Fate Core Færdigheder",
 	"nothing-to-add": "Ingen færdigheder at tilføje",
 	"open-skill-modal": "Åbn færdighedsvinduet",
 	"skills": {

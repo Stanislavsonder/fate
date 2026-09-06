@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Füge FATE: Core Stunts hinzu",
-		"short": "Füge FATE: Core Stunts hinzu."
+		"full": "Füge Fate Core Stunts hinzu",
+		"short": "Füge Fate Core Stunts hinzu."
 	},
 	"edit": "Stunt bearbeiten",
 	"empty": "Keine Stunts",
@@ -21,7 +21,7 @@
 	},
 	"label": "Stunts",
 	"list": "Liste der Stunts",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Keine Fertigkeit erforderlich",
 	"price": "Preis: {value} Token"
 }

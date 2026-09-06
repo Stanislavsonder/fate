@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Tilgjengelige poletter: {value}"
+		"availableTokens": "Tilgjengelige Fate-poeng: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maksimalt antall poletter",
-			"tooltip": "Maksimalt antall poletter for karakteren"
+			"name": "Maks Fate-poeng",
+			"tooltip": "Maksimalt antall Fate-poeng for karakteren"
 		}
 	},
 	"description": {
-		"full": "Legg til FATE Tokens-seksjonen på karakterarket for å spore bruken av tokens.",
-		"short": "Legg til FATE Tokens-seksjon"
+		"full": "Legg til Fate Points-seksjonen på karakterarket for å spore bruken av Fate-poeng.",
+		"short": "Legg til Fate Points-seksjon"
 	},
-	"empty": "Ingen tilgjengelige poletter",
-	"label": "FATE-poletter",
-	"name": "FATE Tokens"
+	"empty": "Ingen tilgjengelige Fate-poeng",
+	"label": "Fate-poeng",
+	"name": "Fate Points"
 }

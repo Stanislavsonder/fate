@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Tilføj FATE: Core Stunts",
-		"short": "Tilføj FATE: Core Stunts."
+		"full": "Tilføj Fate Core Stunts",
+		"short": "Tilføj Fate Core Stunts."
 	},
 	"edit": "Rediger stunt",
 	"empty": "Ingen stunts",
@@ -21,7 +21,7 @@
 	},
 	"label": "Stunts",
 	"list": "Liste over stunts",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Ingen færdighed nødvendig",
 	"price": "Pris: {value} poletter"
 }

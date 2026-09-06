@@ -1,6 +1,6 @@
 # @fate-core/mod-types
 
-Shared TypeScript types and runtime helpers for [FATE: Core](https://github.com/Stanislavsonder/fate-core)
+Shared TypeScript types and runtime helpers for [Assistant for Fate](https://github.com/Stanislavsonder/fate)
 mods — the single source of truth for the mod manifest/bundle shape, consumed
 by both the app and community mod authors.
 

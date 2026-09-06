@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Füge die 18 FATE: Core-Fähigkeiten hinzu. Dieses Modul umfasst: Athletik, Einbruch, Kontakte, Handwerk, Täuschen, Fahren, Empathie, Kämpfen, Ermitteln, Wissen, Wahrnehmen, Physis, Provozieren, Rapport, Ressourcen, Schießen, Heimlichkeit und Willenskraft.",
-		"short": "Füge die 18 FATE: Core-Fähigkeiten hinzu."
+		"full": "Füge die 18 Fate Core-Fähigkeiten hinzu. Dieses Modul umfasst: Athletik, Einbruch, Kontakte, Handwerk, Täuschen, Fahren, Empathie, Kämpfen, Ermitteln, Wissen, Wahrnehmen, Physis, Provozieren, Rapport, Ressourcen, Schießen, Heimlichkeit und Willenskraft.",
+		"short": "Füge die 18 Fate Core-Fähigkeiten hinzu."
 	},
 	"empty": "Noch keine Fähigkeiten hinzugefügt",
 	"label": "Fähigkeiten",
@@ -55,7 +55,7 @@
 		"9": "Mythisch",
 		"10": "Göttlich"
 	},
-	"name": "FATE: Core Fertigkeiten",
+	"name": "Fate Core Fertigkeiten",
 	"nothing-to-add": "Keine Fähigkeiten hinzuzufügen",
 	"open-skill-modal": "Fähigkeiten-Fenster öffnen",
 	"skills": {

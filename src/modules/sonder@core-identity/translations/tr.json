@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Henüz bir avatar ayarlanmadı",
 			"label": "Avatar",
-			"section": "Karakter Avatarı"
+			"section": "Karakter Avatarı",
+			"upload": "Avatar yükle"
 		},
 		"description": {
 			"label": "Açıklama",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Kimlik",
-	"name": "FATE Core: Kimlik"
+	"name": "Fate Core Kimlik"
 }

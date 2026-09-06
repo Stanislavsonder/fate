@@ -1,8 +1,8 @@
 {
 	"add": "添加后果字段",
 	"description": {
-		"full": "将FATE: Core 后果部分添加到角色表，以跟踪后果。",
-		"short": "将FATE: Core 后果部分添加"
+		"full": "将Fate Core 后果部分添加到角色表，以跟踪后果。",
+		"short": "将Fate Core 后果部分添加"
 	},
 	"edit": "编辑后果字段",
 	"empty": "尚未添加任何后果字段。",
@@ -11,7 +11,7 @@
 	"list": "后果字段",
 	"locked": "后果字段已锁定。点击解锁。",
 	"lockedType": "已锁定的{value}后果字段",
-	"name": "FATE: Core 后果",
+	"name": "Fate Core 后果",
 	"remove": "删除后果字段",
 	"stressLevel": "压力等级",
 	"type": {

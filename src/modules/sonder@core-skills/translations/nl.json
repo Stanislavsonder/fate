@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Voeg de 18 FATE: Core-vaardigheden toe. Deze module omvat: Atletiek, Inbraak, Contacten, Ambachten, Misleiden, Rijden, Empathie, Vechten, Onderzoeken, Kennis, Opletten, Fysiek, Uitdagen, Relaties, Middelen, Schieten, Onzichtbaarheid en Wil.",
-		"short": "Voeg de 18 FATE: Core-vaardigheden toe."
+		"full": "Voeg de 18 Fate Core-vaardigheden toe. Deze module omvat: Atletiek, Inbraak, Contacten, Ambachten, Misleiden, Rijden, Empathie, Vechten, Onderzoeken, Kennis, Opletten, Fysiek, Uitdagen, Relaties, Middelen, Schieten, Onzichtbaarheid en Wil.",
+		"short": "Voeg de 18 Fate Core-vaardigheden toe."
 	},
 	"empty": "Nog geen vaardigheden toegevoegd",
 	"label": "Vaardigheden",
@@ -55,7 +55,7 @@
 		"9": "Mythisch",
 		"10": "Goddelijk"
 	},
-	"name": "FATE: Core Vaardigheden",
+	"name": "Fate Core Vaardigheden",
 	"nothing-to-add": "Geen vaardigheden om toe te voegen",
 	"open-skill-modal": "Vaardigheidsvenster openen",
 	"skills": {

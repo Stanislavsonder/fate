@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Lägg till de 18 FATE: Core-färdigheterna. Denna modul inkluderar: Atletik, Inbrott, Kontakter, Hantverk, Bedra, Köra, Empati, Strid, Undersöka, Kunskap, Notera, Fysik, Provecera, Kontakt, Resurser, Skjuta, Smyga och Vilja.",
-		"short": "Lägg till de 18 FATE: Core-färdigheterna."
+		"full": "Lägg till de 18 Fate Core-färdigheterna. Denna modul inkluderar: Atletik, Inbrott, Kontakter, Hantverk, Bedra, Köra, Empati, Strid, Undersöka, Kunskap, Notera, Fysik, Provecera, Kontakt, Resurser, Skjuta, Smyga och Vilja.",
+		"short": "Lägg till de 18 Fate Core-färdigheterna."
 	},
 	"empty": "Inga färdigheter har lagts till ännu",
 	"label": "Färdigheter",
@@ -55,7 +55,7 @@
 		"9": "Mytisk",
 		"10": "Gudomlig"
 	},
-	"name": "FATE: Core Färdigheter",
+	"name": "Fate Core Färdigheter",
 	"nothing-to-add": "Inga färdigheter att lägga till",
 	"open-skill-modal": "Öppna färdighetsfönstret",
 	"skills": {

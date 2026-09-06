@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Δεν έχει οριστεί avatar",
 			"label": "Avatar",
-			"section": "Avatar χαρακτήρα"
+			"section": "Avatar χαρακτήρα",
+			"upload": "Μεταφόρτωση άβαταρ"
 		},
 		"description": {
 			"label": "Περιγραφή",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Ταυτότητα",
-	"name": "FATE Core: Ταυτότητα"
+	"name": "Fate Core Ταυτότητα"
 }

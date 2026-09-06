@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "사용 가능한 토큰: {value}"
+		"availableTokens": "사용 가능한 Fate 포인트: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "최대 토큰 수",
-			"tooltip": "캐릭터의 최대 토큰 수"
+			"name": "최대 Fate 포인트",
+			"tooltip": "캐릭터의 최대 Fate 포인트 수"
 		}
 	},
 	"description": {
-		"full": "캐릭터 시트에 FATE Tokens 섹션을 추가하여 토큰 사용을 추적합니다.",
-		"short": "FATE Tokens 섹션 추가"
+		"full": "캐릭터 시트에 Fate Points 섹션을 추가하여 Fate 포인트 사용을 추적합니다.",
+		"short": "Fate Points 섹션 추가"
 	},
-	"empty": "사용 가능한 토큰 없음",
-	"label": "FATE 토큰",
-	"name": "FATE Tokens"
+	"empty": "사용 가능한 Fate 포인트가 없습니다",
+	"label": "Fate 포인트",
+	"name": "Fate Points"
 }

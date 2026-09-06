@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Доступные жетоны: {value}"
+		"availableTokens": "Доступные очки Fate: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Максимум жетонов",
-			"tooltip": "Максимальное количество жетонов персонажа"
+			"name": "Максимум очков Fate",
+			"tooltip": "Максимальное количество очков Fate персонажа"
 		}
 	},
 	"description": {
-		"full": "Добавить раздел FATE Tokens в лист персонажа для отслеживания использования жетонов.",
-		"short": "Добавить раздел FATE Tokens"
+		"full": "Добавить раздел Fate Points в лист персонажа для отслеживания использования очков Fate.",
+		"short": "Добавить раздел Fate Points"
 	},
-	"empty": "Нет доступных жетонов",
-	"label": "Жетоны FATE",
-	"name": "FATE Tokens"
+	"empty": "Нет доступных очков Fate",
+	"label": "Очки Fate",
+	"name": "Fate Points"
 }

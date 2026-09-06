@@ -2,8 +2,8 @@
 	"add": "Aspect toevoegen",
 	"aspect": "Aspect",
 	"description": {
-		"full": "Voegt de sectie Aspecten van FATE: Core toe aan het karakterblad.",
-		"short": "Voegt de sectie Aspecten van FATE: Core toe aan het karakterblad."
+		"full": "Voegt de sectie Aspecten van Fate Core toe aan het karakterblad.",
+		"short": "Voegt de sectie Aspecten van Fate Core toe aan het karakterblad."
 	},
 	"edit": "Aspect bewerken",
 	"empty": "Nog geen aspecten toegevoegd.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Ongeldig aspecttype."
 	},
 	"label": "Aspecten",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Een blijvende verwonding of tegenslag.",

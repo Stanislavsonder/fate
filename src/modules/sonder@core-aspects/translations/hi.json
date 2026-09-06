@@ -13,7 +13,7 @@
 		"typeInvalid": "अमान्य अस्पेक्ट प्रकार।"
 	},
 	"label": "अस्पेक्ट",
-	"name": "FATE: कोर अस्पेक्ट",
+	"name": "Fate कोर अस्पेक्ट",
 	"type": {
 		"consequence": {
 			"description": "एक स्थायी चोट या असफलता।",

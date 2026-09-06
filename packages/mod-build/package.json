@@ -1,7 +1,7 @@
 {
 	"name": "@fate-core/mod-build",
 	"version": "1.1.0",
-	"description": "Vite build preset + dev-mode server for authoring FATE: Core mods — externalizes host-shared libraries against window.FateSDK, inlines CSS, and enforces bundle size limits.",
+	"description": "Vite build preset + dev-mode server for authoring Assistant for Fate mods — externalizes host-shared libraries against window.FateSDK, inlines CSS, and enforces bundle size limits.",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

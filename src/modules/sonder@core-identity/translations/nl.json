@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Nog geen avatar ingesteld",
 			"label": "Avatar",
-			"section": "Personage Avatar"
+			"section": "Personage Avatar",
+			"upload": "Avatar uploaden"
 		},
 		"description": {
 			"label": "Beschrijving",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identiteit",
-	"name": "FATE Core: Identiteit"
+	"name": "Fate Core Identiteit"
 }

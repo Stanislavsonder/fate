@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configure stress boxes",
 	"description": {
-		"full": "Add the FATE: Core stress. This module includes: Physical and Mental stress.",
-		"short": "Add the FATE: Core stress"
+		"full": "Add the Fate Core stress. This module includes: Physical and Mental stress.",
+		"short": "Add the Fate Core stress"
 	},
 	"errors": {
 		"empty": "At least one stress box should exist.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Stress level",
 	"lockBox": "Unlocked stress box. Click to lock.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Remove stress box",
 	"stress": {
 		"mental": {

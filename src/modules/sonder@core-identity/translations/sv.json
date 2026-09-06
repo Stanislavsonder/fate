@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Ingen avatar inställd",
 			"label": "Avatar",
-			"section": "Karaktärsavatar"
+			"section": "Karaktärsavatar",
+			"upload": "Ladda upp avatar"
 		},
 		"description": {
 			"label": "Beskrivning",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identitet",
-	"name": "FATE Core: Identitet"
+	"name": "Fate Core Identitet"
 }

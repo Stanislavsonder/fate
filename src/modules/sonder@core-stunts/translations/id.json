@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Tambahkan Stunts FATE: Core",
-		"short": "Tambahkan Stunts FATE: Core."
+		"full": "Tambahkan Stunts Fate Core",
+		"short": "Tambahkan Stunts Fate Core."
 	},
 	"edit": "Edit aksi",
 	"empty": "Tidak ada aksi",
@@ -21,7 +21,7 @@
 	},
 	"label": "Aksi",
 	"list": "Daftar aksi",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Tidak memerlukan keahlian",
 	"price": "Harga: {value} token"
 }

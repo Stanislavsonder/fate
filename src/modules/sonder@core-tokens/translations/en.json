@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Available tokens: {value}"
+		"availableTokens": "Available fate points: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Max tokens",
-			"tooltip": "Maximum number of tokens of the character"
+			"name": "Max fate points",
+			"tooltip": "Maximum number of fate points of the character"
 		}
 	},
 	"description": {
-		"full": "Add FATE Tokens section to the character sheet to track token's usage.",
-		"short": "Add FATE Tokens section"
+		"full": "Add Fate Points section to the character sheet to track fate point usage.",
+		"short": "Add Fate Points section"
 	},
-	"empty": "No available tokens",
-	"label": "FATE Tokens",
-	"name": "FATE Tokens"
+	"empty": "No available fate points",
+	"label": "Fate Points",
+	"name": "Fate Points"
 }

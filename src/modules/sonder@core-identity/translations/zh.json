@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "尚未设置头像",
 			"label": "头像",
-			"section": "角色头像"
+			"section": "角色头像",
+			"upload": "上传头像"
 		},
 		"description": {
 			"label": "描述",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "身份",
-	"name": "FATE Core: 身份"
+	"name": "Fate Core 身份"
 }

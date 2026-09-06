@@ -1,8 +1,8 @@
 {
 	"add": "Konsequenzfeld hinzufügen",
 	"description": {
-		"full": "Fügt die Sektion Konsequenzen von FATE: Core zum Charakterbogen hinzu, um Konsequenzen zu verfolgen.",
-		"short": "Fügt die Sektion Konsequenzen von FATE: Core hinzu"
+		"full": "Fügt die Sektion Konsequenzen von Fate Core zum Charakterbogen hinzu, um Konsequenzen zu verfolgen.",
+		"short": "Fügt die Sektion Konsequenzen von Fate Core hinzu"
 	},
 	"edit": "Konsequenzfelder bearbeiten",
 	"empty": "Noch keine Konsequenzfelder hinzugefügt.",
@@ -11,7 +11,7 @@
 	"list": "Konsequenzfelder",
 	"locked": "Das Konsequenzfeld ist gesperrt. Klicken zum Entsperren.",
 	"lockedType": "Gesperrtes {value}-Konsequenzfeld",
-	"name": "FATE: Core Konsequenzen",
+	"name": "Fate Core Konsequenzen",
 	"remove": "Konsequenzfeld entfernen",
 	"stressLevel": "Stresslevel",
 	"type": {

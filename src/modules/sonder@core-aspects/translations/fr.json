@@ -2,8 +2,8 @@
 	"add": "Ajouter un aspect",
 	"aspect": "Aspect",
 	"description": {
-		"full": "Ajoute la section Aspects de FATE: Core à la fiche de personnage.",
-		"short": "Ajoute la section Aspects de FATE: Core à la fiche de personnage."
+		"full": "Ajoute la section Aspects de Fate Core à la fiche de personnage.",
+		"short": "Ajoute la section Aspects de Fate Core à la fiche de personnage."
 	},
 	"edit": "Modifier l'aspect",
 	"empty": "Aucun aspect ajouté pour le moment.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Type d'aspect invalide."
 	},
 	"label": "Aspects",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Une blessure ou un revers durable.",

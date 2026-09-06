@@ -2,6 +2,6 @@
 	"integrations": {
 		"capacitor": {}
 	},
-	"name": "FATE: Core",
+	"name": "Assistant for Fate",
 	"type": "vue-vite"
 }

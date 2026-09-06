@@ -1,8 +1,8 @@
 {
 	"add": "Gevolgveld toevoegen",
 	"description": {
-		"full": "Voegt de sectie Gevolgen van FATE: Core toe aan het karakterblad om gevolgen bij te houden.",
-		"short": "Voegt de sectie Gevolgen van FATE: Core toe"
+		"full": "Voegt de sectie Gevolgen van Fate Core toe aan het karakterblad om gevolgen bij te houden.",
+		"short": "Voegt de sectie Gevolgen van Fate Core toe"
 	},
 	"edit": "Gevolgvelden bewerken",
 	"empty": "Nog geen gevolgvelden toegevoegd.",
@@ -11,7 +11,7 @@
 	"list": "Gevolgvelden",
 	"locked": "Het gevolgveld is vergrendeld. Klik om te ontgrendelen.",
 	"lockedType": "Vergrendeld {value} gevolgveld",
-	"name": "FATE: Core Gevolgen",
+	"name": "Fate Core Gevolgen",
 	"remove": "Gevolgveld verwijderen",
 	"stressLevel": "Stressniveau",
 	"type": {

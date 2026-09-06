@@ -2,8 +2,8 @@
 	"add": "Lisää aspekti",
 	"aspect": "Aspekti",
 	"description": {
-		"full": "Lisää FATE: Core Aspektit -osion hahmolomakkeeseen.",
-		"short": "Lisää FATE: Core Aspektit -osion hahmolomakkeeseen."
+		"full": "Lisää Fate Core Aspektit -osion hahmolomakkeeseen.",
+		"short": "Lisää Fate Core Aspektit -osion hahmolomakkeeseen."
 	},
 	"edit": "Muokkaa aspektia",
 	"empty": "Ei vielä lisättyjä aspekteja.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Virheellinen aspektityyppi."
 	},
 	"label": "Aspektit",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Pitkäkestoinen vamma tai takaisku.",

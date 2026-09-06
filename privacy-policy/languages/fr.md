@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-Bienvenue sur "FATE: Core" ("l'Application"). Votre confidentialité est importante pour nous. Cette Politique de Confidentialité explique comment nous gérons vos informations lorsque vous utilisez notre Application.
+Bienvenue sur "Assistant for Fate" ("l'Application"). Votre confidentialité est importante pour nous. Cette Politique de Confidentialité explique comment nous gérons vos informations lorsque vous utilisez notre Application.
 
 ## 2. Collecte de Données
 

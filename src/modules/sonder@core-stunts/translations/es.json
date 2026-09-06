@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Añadir Proezas de FATE: Core",
-		"short": "Añadir Proezas de FATE: Core."
+		"full": "Añadir Proezas de Fate Core",
+		"short": "Añadir Proezas de Fate Core."
 	},
 	"edit": "Editar hazaña",
 	"empty": "No hay hazañas",
@@ -21,7 +21,7 @@
 	},
 	"label": "Hazañas",
 	"list": "Lista de hazañas",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "No se necesita habilidad",
 	"price": "Precio: {value} fichas"
 }

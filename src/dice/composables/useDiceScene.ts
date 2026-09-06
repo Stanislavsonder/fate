@@ -106,7 +106,7 @@ export default function useDiceScene(config: Ref<DiceSceneConfig>, canvas: Ref<H
 			canvas: canvas.value
 		})
 		renderer.shadowMap.enabled = true
-		renderer.shadowMap.type = THREE.PCFSoftShadowMap
+		renderer.shadowMap.type = THREE.PCFShadowMap
 		renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 		// Capture dimensions

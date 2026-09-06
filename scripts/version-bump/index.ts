@@ -83,7 +83,7 @@ if (!newPackageVersion) {
 packageJsonData.version = newPackageVersion
 
 // Write updated package.json back to disk
-writeFile(packageJsonPath, JSON.stringify(packageJsonData, null, 2))
+writeFile(packageJsonPath, JSON.stringify(packageJsonData, null, '\t') + '\n')
 console.log(`package.json version: ${oldPackageVersion} -> ${newPackageVersion}`)
 
 // -- 2) Update iOS .pbxproj (MARKETING_VERSION & CURRENT_PROJECT_VERSION) --

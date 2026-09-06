@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "אסימונים זמינים: {value}"
+		"availableTokens": "נקודות Fate זמינות: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "אסימונים מקסימליים",
-			"tooltip": "המספר המקסימלי של אסימוני הדמות"
+			"name": "מקסימום נקודות Fate",
+			"tooltip": "המספר המרבי של נקודות Fate של הדמות"
 		}
 	},
 	"description": {
-		"full": "הוסף את קטע FATE Tokens לגיליון הדמות כדי לעקוב אחר השימוש באסימונים.",
-		"short": "הוסף קטע FATE Tokens"
+		"full": "הוסף את המקטע Fate Points לגיליון הדמות כדי לעקוב אחר השימוש בנקודות Fate.",
+		"short": "הוסף מקטע Fate Points"
 	},
-	"empty": "אין אסימונים זמינים",
-	"label": "אסימוני FATE",
-	"name": "FATE Tokens"
+	"empty": "אין נקודות Fate זמינות",
+	"label": "נקודות Fate",
+	"name": "Fate Points"
 }

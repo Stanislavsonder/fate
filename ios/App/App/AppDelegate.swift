@@ -1,4 +1,5 @@
 import UIKit
+import WebKit
 import Capacitor
 
 @UIApplicationMain
@@ -10,7 +11,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         application.applicationSupportsShakeToEdit = false
+        purgeServiceWorkerData()
         return true
+    }
+
+    private func purgeServiceWorkerData() {
+        var types: Set<String> = [
+            WKWebsiteDataTypeDiskCache,
+            WKWebsiteDataTypeMemoryCache
+        ]
+        if #available(iOS 16.0, *) {
+            types.insert(WKWebsiteDataTypeServiceWorkerRegistrations)
+        }
+        WKWebsiteDataStore.default().removeData(ofTypes: types, modifiedSince: .distantPast, completionHandler: {})
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

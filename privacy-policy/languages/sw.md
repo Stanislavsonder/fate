@@ -4,7 +4,7 @@
 
 ## 1. Utangulizi
 
-Karibu kwenye "FATE: Core" ("Programu"). Faragha yako ni muhimu kwetu. Sera hii ya Faragha inaelezea jinsi tunavyoshughulikia maelezo yako unapoitumia Programu yetu.
+Karibu kwenye "Assistant for Fate" ("Programu"). Faragha yako ni muhimu kwetu. Sera hii ya Faragha inaelezea jinsi tunavyoshughulikia maelezo yako unapoitumia Programu yetu.
 
 ## 2. Ukusanyaji wa Data
 

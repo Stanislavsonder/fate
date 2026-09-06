@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Ongeza Mbinu za FATE: Core",
-		"short": "Ongeza Mbinu za FATE: Core."
+		"full": "Ongeza Mbinu za Fate Core",
+		"short": "Ongeza Mbinu za Fate Core."
 	},
 	"edit": "Hariri hila",
 	"empty": "Hakuna hila",
@@ -21,7 +21,7 @@
 	},
 	"label": "Hila",
 	"list": "Orodha ya hila",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Hakuna ujuzi unaohitajika",
 	"price": "Bei: {value} tokeni"
 }

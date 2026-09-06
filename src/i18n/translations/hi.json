@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "लेखक",
+			"legal": {
+				"title": "कानूनी जानकारी और एट्रिब्यूशन"
+			},
 			"license": "लाइसेंस",
-			"original-author": "FATE: Core के निर्माता",
+			"original-author": "Fate Core के निर्माता",
 			"privacy-policy": {
 				"accept-policy": "मैंने गोपनीयता नीति पढ़ी है और उसे स्वीकार करता/करती हूं",
 				"acceptance-date": "स्वीकृति तिथि: {value}",

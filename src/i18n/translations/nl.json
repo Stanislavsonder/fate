@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Auteur",
+			"legal": {
+				"title": "Juridisch en naamsvermelding"
+			},
 			"license": "Licentie",
-			"original-author": "Makers van FATE: Core",
+			"original-author": "Makers van Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Ik heb het privacybeleid gelezen en accepteer het",
 				"acceptance-date": "Acceptatiedatum: {value}",

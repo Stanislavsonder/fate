@@ -5,12 +5,12 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>FATE: Core</string>
+	<string>Fate Assistant</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>FATE Character</string>
+			<string>Fate Character Sheet</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -22,7 +22,7 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeName</key>
-			<string>FATE Modules</string>
+			<string>Fate Module</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>LSHandlerRank</key>
@@ -47,12 +47,14 @@
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>LSSupportsOpeningDocumentsInPlace</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera to take pictures</string>
+	<string>$(PRODUCT_NAME) uses your camera so you can take a new photo to use as your character's avatar.</string>
 	<key>NSMotionUsageDescription</key>
 	<string>$(PRODUCT_NAME) uses the accelerometer to detect motion for dice roll feature.</string>
 	<key>UILaunchStoryboardName</key>
@@ -88,7 +90,7 @@
 				<string>public.json</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>FATE Character</string>
+			<string>Fate Character Sheet</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.sonder.fate-core.fchar</string>
 			<key>UTTypeTagSpecification</key>
@@ -107,7 +109,7 @@
 				<string>public.json</string>
 			</array>
 			<key>UTTypeDescription</key>
-			<string>FATE Modules</string>
+			<string>Fate Module</string>
 			<key>UTTypeIdentifier</key>
 			<string>com.sonder.fate-core.fmod</string>
 			<key>UTTypeTagSpecification</key>

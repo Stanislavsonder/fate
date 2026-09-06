@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "אין אוואטר מוגדר",
 			"label": "אוואטר",
-			"section": "אוואטר הדמות"
+			"section": "אוואטר הדמות",
+			"upload": "העלאת אווטאר"
 		},
 		"description": {
 			"label": "תיאור",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "זהות",
-	"name": "FATE Core: זהות"
+	"name": "Fate Core זהות"
 }

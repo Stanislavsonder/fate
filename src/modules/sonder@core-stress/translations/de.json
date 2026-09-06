@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Stressboxen konfigurieren",
 	"description": {
-		"full": "Füge den Stress von FATE: Core hinzu. Dieses Modul umfasst: Physischer und mentaler Stress.",
-		"short": "Füge den Stress von FATE: Core hinzu"
+		"full": "Füge den Stress von Fate Core hinzu. Dieses Modul umfasst: Physischer und mentaler Stress.",
+		"short": "Füge den Stress von Fate Core hinzu"
 	},
 	"errors": {
 		"empty": "Mindestens ein Stresskasten muss existieren.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Stresslevel",
 	"lockBox": "Entsperrte Stressbox. Klicken zum Sperren.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Stressbox entfernen",
 	"stress": {
 		"mental": {

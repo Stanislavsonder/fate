@@ -2,8 +2,8 @@
 	"add": "Lägg till aspekt",
 	"aspect": "Aspekt",
 	"description": {
-		"full": "Lägger till avsnittet Aspekter från FATE: Core i karaktärsbladet.",
-		"short": "Lägger till avsnittet Aspekter från FATE: Core i karaktärsbladet."
+		"full": "Lägger till avsnittet Aspekter från Fate Core i karaktärsbladet.",
+		"short": "Lägger till avsnittet Aspekter från Fate Core i karaktärsbladet."
 	},
 	"edit": "Redigera aspekt",
 	"empty": "Inga aspekter har lagts till ännu.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Ogiltig aspekttyp."
 	},
 	"label": "Aspekter",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "En långvarig skada eller motgång.",

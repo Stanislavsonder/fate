@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Aggiungi le 18 abilità di FATE: Core. Questo modulo include: Atletica, Scasso, Contatti, Mestieri, Inganno, Guida, Empatia, Combattimento, Investigare, Conoscenza, Osservare, Fisico, Provocare, Rapporti, Risorse, Sparare, Furtività e Volontà.",
-		"short": "Aggiungi le 18 abilità di FATE: Core."
+		"full": "Aggiungi le 18 abilità di Fate Core. Questo modulo include: Atletica, Scasso, Contatti, Mestieri, Inganno, Guida, Empatia, Combattimento, Investigare, Conoscenza, Osservare, Fisico, Provocare, Rapporti, Risorse, Sparare, Furtività e Volontà.",
+		"short": "Aggiungi le 18 abilità di Fate Core."
 	},
 	"empty": "Nessuna abilità aggiunta",
 	"label": "Abilità",
@@ -55,7 +55,7 @@
 		"9": "Mitico",
 		"10": "Divino"
 	},
-	"name": "FATE: Core Abilità",
+	"name": "Fate Core Abilità",
 	"nothing-to-add": "Nessuna abilità da aggiungere",
 	"open-skill-modal": "Apri finestra abilità",
 	"skills": {

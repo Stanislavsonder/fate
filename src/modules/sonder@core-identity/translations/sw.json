@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Hakuna avatar iliyowekwa bado",
 			"label": "Avatar",
-			"section": "Avatar ya mhusika"
+			"section": "Avatar ya mhusika",
+			"upload": "Pakia avatar"
 		},
 		"description": {
 			"label": "Maelezo",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Utambulisho",
-	"name": "FATE Core: Utambulisho"
+	"name": "Fate Core Utambulisho"
 }

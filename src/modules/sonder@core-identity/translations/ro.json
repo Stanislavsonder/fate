@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Niciun avatar setat",
 			"label": "Avatar",
-			"section": "Avatarul personajului"
+			"section": "Avatarul personajului",
+			"upload": "Încarcă avatar"
 		},
 		"description": {
 			"label": "Descriere",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identitate",
-	"name": "FATE Core: Identitate"
+	"name": "Fate Core Identitate"
 }

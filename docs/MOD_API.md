@@ -1,4 +1,4 @@
-# FATE: Core Mod API
+# Assistant for Fate — Mod API
 
 This is the contract between the app (the "host") and a mod's code — what a
 mod may rely on, what it must not, and how the pieces fit together. It's

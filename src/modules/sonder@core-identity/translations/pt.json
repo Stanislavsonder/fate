@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Nenhum avatar definido",
 			"label": "Avatar",
-			"section": "Avatar do personagem"
+			"section": "Avatar do personagem",
+			"upload": "Enviar avatar"
 		},
 		"description": {
 			"label": "Descrição",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identidade",
-	"name": "FATE Core: Identidade"
+	"name": "Fate Core Identidade"
 }

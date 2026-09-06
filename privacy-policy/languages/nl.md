@@ -4,7 +4,7 @@
 
 ## 1. Introductie
 
-Welkom bij "FATE: Core" ("de App"). Uw privacy is belangrijk voor ons. Dit Privacybeleid legt uit hoe we uw informatie behandelen wanneer u onze App gebruikt.
+Welkom bij "Assistant for Fate" ("de App"). Uw privacy is belangrijk voor ons. Dit Privacybeleid legt uit hoe we uw informatie behandelen wanneer u onze App gebruikt.
 
 ## 2. Gegevensverzameling
 

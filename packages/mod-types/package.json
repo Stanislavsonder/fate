@@ -1,7 +1,7 @@
 {
 	"name": "@fate-core/mod-types",
 	"version": "1.1.0",
-	"description": "Shared TypeScript types and runtime helpers for FATE: Core mods — the single source of truth for the mod manifest/bundle shape, consumed by both the app and community mod authors.",
+	"description": "Shared TypeScript types and runtime helpers for Assistant for Fate mods — the single source of truth for the mod manifest/bundle shape, consumed by both the app and community mod authors.",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

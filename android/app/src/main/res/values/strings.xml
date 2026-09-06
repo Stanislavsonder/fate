@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">FATE: Core</string>
-    <string name="title_activity_main">FATE: Core</string>
+    <string name="app_name">Fate Assistant</string>
+    <string name="title_activity_main">Fate Assistant</string>
     <string name="package_name">com.sonder.fate_core</string>
     <string name="custom_url_scheme">com.sonder.fate_core</string>
 </resources>

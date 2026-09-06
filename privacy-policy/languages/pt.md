@@ -4,7 +4,7 @@
 
 ## 1. Introdução
 
-Bem-vindo ao "FATE: Core" ("o Aplicativo"). Sua privacidade é importante para nós. Esta Política de Privacidade explica como tratamos suas informações ao usar nosso Aplicativo.
+Bem-vindo ao "Assistant for Fate" ("o Aplicativo"). Sua privacidade é importante para nós. Esta Política de Privacidade explica como tratamos suas informações ao usar nosso Aplicativo.
 
 ## 2. Coleta de Dados
 

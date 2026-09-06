@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Lisää FATE: Core Stunts",
-		"short": "Lisää FATE: Core Stunts."
+		"full": "Lisää Fate Core Stunts",
+		"short": "Lisää Fate Core Stunts."
 	},
 	"edit": "Muokkaa temppua",
 	"empty": "Ei temppuja",
@@ -21,7 +21,7 @@
 	},
 	"label": "Temput",
 	"list": "Temppulista",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Ei taitoa vaadita",
 	"price": "Hinta: {value} pelimerkkiä"
 }

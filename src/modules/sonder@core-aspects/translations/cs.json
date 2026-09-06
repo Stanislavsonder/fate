@@ -2,8 +2,8 @@
 	"add": "Přidat aspekt",
 	"aspect": "Aspekt",
 	"description": {
-		"full": "Přidává sekci Aspekty FATE: Core do listu postavy.",
-		"short": "Přidává sekci Aspekty FATE: Core do listu postavy."
+		"full": "Přidává sekci Aspekty Fate Core do listu postavy.",
+		"short": "Přidává sekci Aspekty Fate Core do listu postavy."
 	},
 	"edit": "Upravit aspekt",
 	"empty": "Zatím nebyly přidány žádné aspekty.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Neplatný typ aspektu."
 	},
 	"label": "Aspekty",
-	"name": "FATE: Core Aspekty",
+	"name": "Fate Core Aspekty",
 	"type": {
 		"consequence": {
 			"description": "Dlouhotrvající zranění nebo nezdar.",

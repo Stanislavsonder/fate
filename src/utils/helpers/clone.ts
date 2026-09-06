@@ -27,7 +27,7 @@ export function clone<T>(value: T): T {
  * being silently dropped.
  *
  * Use this instead of `clone()` for structures that mix plain data with those
- * non-serializable values, such as the FATE module `context`.
+ * non-serializable values, such as the Fate module `context`.
  *
  * @template T The type of the input value.
  * @param {T} value The value to clone. It may be a primitive, object, array, or Vue ref.

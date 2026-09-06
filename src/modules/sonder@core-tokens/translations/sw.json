@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Tokeni zinazopatikana: {value}"
+		"availableTokens": "Pointi za Fate zinazopatikana: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Tokeni za juu",
-			"tooltip": "Idadi ya juu ya tokeni za mhusika"
+			"name": "Kiwango cha juu cha pointi za Fate",
+			"tooltip": "Idadi ya juu ya pointi za Fate za mhusika"
 		}
 	},
 	"description": {
-		"full": "Ongeza sehemu ya FATE Tokens kwenye karatasi ya tabia ili kufuatilia matumizi ya tokeni.",
-		"short": "Ongeza sehemu ya FATE Tokens"
+		"full": "Ongeza sehemu ya Fate Points kwenye karatasi ya mhusika ili kufuatilia matumizi ya pointi za Fate.",
+		"short": "Ongeza sehemu ya Fate Points"
 	},
-	"empty": "Hakuna tokeni zinazopatikana",
-	"label": "Tokeni za FATE",
-	"name": "FATE Tokens"
+	"empty": "Hakuna pointi za Fate zinazopatikana",
+	"label": "Pointi za Fate",
+	"name": "Fate Points"
 }

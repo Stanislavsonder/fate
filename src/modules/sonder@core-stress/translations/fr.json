@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configurer les cases de stress",
 	"description": {
-		"full": "Ajoutez le stress de FATE : Core. Ce module comprend : stress physique et mental.",
-		"short": "Ajoutez le stress de FATE : Core"
+		"full": "Ajoutez le stress de Fate Core. Ce module comprend : stress physique et mental.",
+		"short": "Ajoutez le stress de Fate Core"
 	},
 	"errors": {
 		"empty": "Au moins une case de stress doit exister.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Niveau de stress",
 	"lockBox": "Case de stress déverrouillée. Cliquez pour verrouiller.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Supprimer la case de stress",
 	"stress": {
 		"mental": {

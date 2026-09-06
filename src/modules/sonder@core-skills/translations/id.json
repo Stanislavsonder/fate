@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Tambahkan 18 keterampilan FATE: Core. Modul ini mencakup: Atletik, Pencurian, Kontak, Kerajinan, Menipu, Mengemudi, Empati, Bertarung, Menyelidiki, Pengetahuan, Perhatian, Fisik, Memprovokasi, Hubungan, Sumber Daya, Menembak, Stealth, dan Kemauan.",
-		"short": "Tambahkan 18 keterampilan FATE: Core."
+		"full": "Tambahkan 18 keterampilan Fate Core. Modul ini mencakup: Atletik, Pencurian, Kontak, Kerajinan, Menipu, Mengemudi, Empati, Bertarung, Menyelidiki, Pengetahuan, Perhatian, Fisik, Memprovokasi, Hubungan, Sumber Daya, Menembak, Stealth, dan Kemauan.",
+		"short": "Tambahkan 18 keterampilan Fate Core."
 	},
 	"empty": "Belum ada keterampilan yang ditambahkan",
 	"label": "Keterampilan",
@@ -55,7 +55,7 @@
 		"9": "Mistik",
 		"10": "Ilahi"
 	},
-	"name": "FATE: Core Keterampilan",
+	"name": "Fate Core Keterampilan",
 	"nothing-to-add": "Tidak ada keterampilan untuk ditambahkan",
 	"open-skill-modal": "Buka jendela keterampilan",
 	"skills": {

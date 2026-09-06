@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configurar casillas de estrés",
 	"description": {
-		"full": "Agrega el estrés de FATE: Core. Este módulo incluye: estrés físico y mental.",
-		"short": "Agrega el estrés de FATE: Core"
+		"full": "Agrega el estrés de Fate Core. Este módulo incluye: estrés físico y mental.",
+		"short": "Agrega el estrés de Fate Core"
 	},
 	"errors": {
 		"empty": "Debe existir al menos una casilla de estrés.",
@@ -28,7 +28,7 @@
 	"label": "Estrés",
 	"level": "Nivel de estrés",
 	"lockBox": "Casilla de estrés desbloqueada. Haz clic para bloquear.",
-	"name": "FATE: Core Estrés",
+	"name": "Fate Core Estrés",
 	"removeBox": "Eliminar casilla de estrés",
 	"stress": {
 		"mental": {

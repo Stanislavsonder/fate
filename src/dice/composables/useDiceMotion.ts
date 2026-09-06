@@ -124,6 +124,8 @@ export function applyShakeImpulse(
 	}
 }
 
+let hapticsSupported = true
+
 /**
  * Handles dice collision effects (haptic feedback)
  */
@@ -141,11 +143,13 @@ export function handleDiceCollision(
 		return
 	}
 
-	if (!isHapticEnabled) return
+	if (!isHapticEnabled || !hapticsSupported) return
 
 	const now = Date.now()
 	if (impactVelocity > velocityThreshold && now - lastCollisionTime.current > collisionCooldown) {
 		lastCollisionTime.current = now
-		Haptics.impact({ style: ImpactStyle.Light })
+		void Haptics.impact({ style: ImpactStyle.Light }).catch(() => {
+			hapticsSupported = false
+		})
 	}
 }

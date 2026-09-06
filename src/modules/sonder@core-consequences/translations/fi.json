@@ -1,8 +1,8 @@
 {
 	"add": "Lisää seurauskenttä",
 	"description": {
-		"full": "Lisää FATE: Core Seuraukset -osion hahmolomakkeeseen seuraamaan seurauksia.",
-		"short": "Lisää FATE: Core Seuraukset -osion"
+		"full": "Lisää Fate Core Seuraukset -osion hahmolomakkeeseen seuraamaan seurauksia.",
+		"short": "Lisää Fate Core Seuraukset -osion"
 	},
 	"edit": "Muokkaa seurauskenttiä",
 	"empty": "Ei lisättyjä seurauskenttiä.",
@@ -11,7 +11,7 @@
 	"list": "Seurauskentät",
 	"locked": "Seurauskenttä on lukittu. Klikkaa avataksesi.",
 	"lockedType": "Lukittu {value} seurauskenttä",
-	"name": "FATE: Core Seuraukset",
+	"name": "Fate Core Seuraukset",
 	"remove": "Poista seurauskenttä",
 	"stressLevel": "Stressitaso",
 	"type": {

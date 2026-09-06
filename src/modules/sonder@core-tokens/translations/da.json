@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Tilgængelige tokens: {value}"
+		"availableTokens": "Tilgængelige Fate-point: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maksimale jetoner",
-			"tooltip": "Maksimalt antal jetoner for karakteren"
+			"name": "Maks Fate-point",
+			"tooltip": "Maksimalt antal Fate-point for karakteren"
 		}
 	},
 	"description": {
-		"full": "Tilføj FATE Tokens-sektionen til karakterskemaet for at spore brugen af tokens.",
-		"short": "Tilføj FATE Tokens-sektion"
+		"full": "Tilføj Fate Points-sektionen til karakterskemaet for at spore brugen af Fate-point.",
+		"short": "Tilføj Fate Points-sektion"
 	},
-	"empty": "Ingen tilgængelige tokens",
-	"label": "FATE Tokens",
-	"name": "FATE Tokens"
+	"empty": "Ingen tilgængelige Fate-point",
+	"label": "Fate-point",
+	"name": "Fate Points"
 }

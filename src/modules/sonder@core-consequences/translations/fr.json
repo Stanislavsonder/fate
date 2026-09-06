@@ -1,8 +1,8 @@
 {
 	"add": "Ajouter un champ de conséquence",
 	"description": {
-		"full": "Ajoute la section Conséquences de FATE: Core à la fiche de personnage pour suivre les conséquences.",
-		"short": "Ajoute la section Conséquences de FATE: Core"
+		"full": "Ajoute la section Conséquences de Fate Core à la fiche de personnage pour suivre les conséquences.",
+		"short": "Ajoute la section Conséquences de Fate Core"
 	},
 	"edit": "Modifier les champs de conséquence",
 	"empty": "Aucun champ de conséquence ajouté pour le moment.",
@@ -11,7 +11,7 @@
 	"list": "Champs de conséquence",
 	"locked": "Le champ de conséquence est verrouillé. Cliquez pour le déverrouiller.",
 	"lockedType": "Champ de conséquence verrouillé {value}",
-	"name": "FATE: Core Conséquences",
+	"name": "Fate Core Conséquences",
 	"remove": "Supprimer le champ de conséquence",
 	"stressLevel": "Niveau de stress",
 	"type": {

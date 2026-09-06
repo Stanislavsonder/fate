@@ -2,8 +2,8 @@
 	"add": "הוסף היבט",
 	"aspect": "היבט",
 	"description": {
-		"full": "מוסיף את סעיף ההיבטים של FATE: Core לדף הדמות.",
-		"short": "מוסיף את סעיף ההיבטים של FATE: Core לדף הדמות."
+		"full": "מוסיף את סעיף ההיבטים של Fate Core לדף הדמות.",
+		"short": "מוסיף את סעיף ההיבטים של Fate Core לדף הדמות."
 	},
 	"edit": "ערוך היבט",
 	"empty": "טרם נוספו היבטים.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "סוג היבט לא חוקי."
 	},
 	"label": "היבטים",
-	"name": "FATE: Core היבטים",
+	"name": "Fate Core היבטים",
 	"type": {
 		"consequence": {
 			"description": "פציעה מתמשכת או מכשול.",

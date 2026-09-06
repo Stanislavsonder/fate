@@ -1,8 +1,8 @@
 {
 	"add": "Přidat pole důsledku",
 	"description": {
-		"full": "Přidává sekci Následky FATE: Core do listu postavy pro sledování následků.",
-		"short": "Přidává sekci Následky FATE: Core"
+		"full": "Přidává sekci Následky Fate Core do listu postavy pro sledování následků.",
+		"short": "Přidává sekci Následky Fate Core"
 	},
 	"edit": "Upravit pole důsledků",
 	"empty": "Zatím nebyla přidána žádná pole důsledků.",
@@ -11,7 +11,7 @@
 	"list": "Pole důsledků",
 	"locked": "Pole důsledků je uzamčené. Klikněte pro odemčení.",
 	"lockedType": "Uzamčené pole důsledku {value}",
-	"name": "FATE: Core Následky",
+	"name": "Fate Core Následky",
 	"remove": "Odstranit pole důsledku",
 	"stressLevel": "Úroveň stresu",
 	"type": {

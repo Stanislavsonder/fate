@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Configurar caixas de estresse",
 	"description": {
-		"full": "Adicione o estresse do FATE: Core. Este módulo inclui: estresse físico e mental.",
-		"short": "Adicione o estresse do FATE: Core"
+		"full": "Adicione o estresse do Fate Core. Este módulo inclui: estresse físico e mental.",
+		"short": "Adicione o estresse do Fate Core"
 	},
 	"errors": {
 		"empty": "Pelo menos uma caixa de estresse deve existir.",
@@ -28,7 +28,7 @@
 	"label": "Estresse",
 	"level": "Nível de estresse",
 	"lockBox": "Caixa de estresse desbloqueada. Clique para bloquear.",
-	"name": "FATE: Core Estresse",
+	"name": "Fate Core Estresse",
 	"removeBox": "Remover caixa de estresse",
 	"stress": {
 		"mental": {

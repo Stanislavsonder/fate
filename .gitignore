@@ -18,6 +18,7 @@ log.txt
 npm-debug.log*
 
 /.idea
+/.claude/settings.local.json
 /.ionic
 /.sass-cache
 /.sourcemaps
@@ -49,3 +50,6 @@ android/.idea
 
 # Localizer input file
 /scripts/localizer/input.json
+
+# Release pipeline temp output
+/release-artifacts

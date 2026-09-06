@@ -2,8 +2,8 @@
 	"add": "Legg til aspekt",
 	"aspect": "Aspekt",
 	"description": {
-		"full": "Legger til FATE: Core Aspekter-seksjonen i karakterarket.",
-		"short": "Legger til FATE: Core Aspekter-seksjonen i karakterarket."
+		"full": "Legger til Fate Core Aspekter-seksjonen i karakterarket.",
+		"short": "Legger til Fate Core Aspekter-seksjonen i karakterarket."
 	},
 	"edit": "Rediger aspekt",
 	"empty": "Ingen aspekter lagt til ennå.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Ugyldig aspekttype."
 	},
 	"label": "Aspekter",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "En varig skade eller tilbakeslag.",

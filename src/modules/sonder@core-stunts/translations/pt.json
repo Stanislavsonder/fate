@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Adicionar Manobras de FATE: Core",
-		"short": "Adicionar Manobras de FATE: Core."
+		"full": "Adicionar Manobras de Fate Core",
+		"short": "Adicionar Manobras de Fate Core."
 	},
 	"edit": "Editar façanha",
 	"empty": "Nenhuma façanha",
@@ -21,7 +21,7 @@
 	},
 	"label": "Façanhas",
 	"list": "Lista de façanhas",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Nenhuma habilidade necessária",
 	"price": "Preço: {value} fichas"
 }

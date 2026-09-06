@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Даступныя жэтоны: {value}"
+		"availableTokens": "Даступныя ачкі Fate: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Максімум жэтонаў",
-			"tooltip": "Максімальная колькасць жэтонаў персанажа"
+			"name": "Максімум ачкоў Fate",
+			"tooltip": "Максімальная колькасць ачкоў Fate персанажа"
 		}
 	},
 	"description": {
-		"full": "Дадаць раздзел FATE Tokens у ліст персанажа для адсочвання выкарыстання жэтонаў.",
-		"short": "Дадаць раздзел FATE Tokens"
+		"full": "Дадаць раздзел Fate Points у ліст персанажа для адсочвання выкарыстання ачкоў Fate.",
+		"short": "Дадаць раздзел Fate Points"
 	},
-	"empty": "Няма даступных жэтонаў",
-	"label": "Жэтоны FATE",
-	"name": "FATE Tokens"
+	"empty": "Няма даступных ачкоў Fate",
+	"label": "Ачкі Fate",
+	"name": "Fate Points"
 }

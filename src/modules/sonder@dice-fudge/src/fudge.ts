@@ -167,10 +167,10 @@ function createDiceBody(world: CANNON.World, onCollide: (event: DiceCollisionEve
 }
 
 /**
- * Determines which face of a FATE die is facing up
+ * Determines which face of a Fate die is facing up
  */
 export function getFateDieValue(dice: Dice): number {
-	// The FATE dice have + on the left/right faces and - on the front/back faces
+	// The Fate dice have + on the left/right faces and - on the front/back faces
 	// We need to determine which face is most facing up (highest y-component)
 
 	// Create vectors for each face direction in local space

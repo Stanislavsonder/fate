@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "المؤلف",
+			"legal": {
+				"title": "معلومات قانونية وإسناد"
+			},
 			"license": "الرخصة",
-			"original-author": "مبدعو FATE: Core",
+			"original-author": "مبدعو Fate Core",
 			"privacy-policy": {
 				"accept-policy": "لقد قرأت وأقبل سياسة الخصوصية",
 				"acceptance-date": "تاريخ القبول: {value}",

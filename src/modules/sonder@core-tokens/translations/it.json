@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Gettoni disponibili: {value}"
+		"availableTokens": "Punti Fate disponibili: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Gettoni massimi",
-			"tooltip": "Numero massimo di gettoni del personaggio"
+			"name": "Punti Fate max",
+			"tooltip": "Numero massimo di punti Fate del personaggio"
 		}
 	},
 	"description": {
-		"full": "Aggiungi la sezione FATE Tokens alla scheda del personaggio per tracciare l'uso dei token.",
-		"short": "Aggiungi sezione FATE Tokens"
+		"full": "Aggiungi la sezione Fate Points alla scheda del personaggio per tracciare l'uso dei punti Fate.",
+		"short": "Aggiungi la sezione Fate Points"
 	},
-	"empty": "Nessun gettone disponibile",
-	"label": "Gettoni FATE",
-	"name": "FATE Tokens"
+	"empty": "Nessun punto Fate disponibile",
+	"label": "Punti Fate",
+	"name": "Fate Points"
 }

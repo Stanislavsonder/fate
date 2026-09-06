@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "Tekijä",
+			"legal": {
+				"title": "Oikeudelliset tiedot ja lähdemerkinnät"
+			},
 			"license": "Lisenssi",
-			"original-author": "FATE: Core -luojat",
+			"original-author": "Fate Core -luojat",
 			"privacy-policy": {
 				"accept-policy": "Olen lukenut ja hyväksyn tietosuojakäytännön",
 				"acceptance-date": "Hyväksymispäivämäärä: {value}",

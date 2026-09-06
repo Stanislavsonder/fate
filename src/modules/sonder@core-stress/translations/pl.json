@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Konfiguruj pola stresu",
 	"description": {
-		"full": "Dodaj stres FATE: Core. Ten moduł obejmuje: stres fizyczny i psychiczny.",
-		"short": "Dodaj stres FATE: Core"
+		"full": "Dodaj stres Fate Core. Ten moduł obejmuje: stres fizyczny i psychiczny.",
+		"short": "Dodaj stres Fate Core"
 	},
 	"errors": {
 		"empty": "Musi istnieć przynajmniej jedno pole stresu.",
@@ -28,7 +28,7 @@
 	"label": "Stres",
 	"level": "Poziom stresu",
 	"lockBox": "Odblokowane pole stresu. Kliknij, aby zablokować.",
-	"name": "FATE: Core Stres",
+	"name": "Fate Core Stres",
 	"removeBox": "Usuń pole stresu",
 	"stress": {
 		"mental": {

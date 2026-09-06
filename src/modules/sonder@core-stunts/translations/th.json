@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "เพิ่มกลเม็ดของ FATE: Core",
-		"short": "เพิ่มกลเม็ดของ FATE: Core."
+		"full": "เพิ่มกลเม็ดของ Fate Core",
+		"short": "เพิ่มกลเม็ดของ Fate Core."
 	},
 	"edit": "แก้ไขกลเม็ด",
 	"empty": "ไม่มีกลเม็ด",
@@ -21,7 +21,7 @@
 	},
 	"label": "กลเม็ด",
 	"list": "รายการกลเม็ด",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "ไม่ต้องใช้ทักษะ",
 	"price": "ราคา: {value} โทเคน"
 }

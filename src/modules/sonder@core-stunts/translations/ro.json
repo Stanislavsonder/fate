@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Adăugați Cascadorii FATE: Core",
-		"short": "Adăugați Cascadorii FATE: Core."
+		"full": "Adăugați Cascadorii Fate Core",
+		"short": "Adăugați Cascadorii Fate Core."
 	},
 	"edit": "Editează cascadoria",
 	"empty": "Nicio cascadorie",
@@ -21,7 +21,7 @@
 	},
 	"label": "Cascadorii",
 	"list": "Lista cascadoriilor",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Nicio abilitate necesară",
 	"price": "Preț: {value} jetoane"
 }

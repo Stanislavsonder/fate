@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "FATE: Core'un 18 becerisini ekleyin. Bu modül şunları içerir: Atletizm, Hırsızlık, İlişkiler, Zanaat, Aldatma, Sürüş, Empati, Dövüş, Araştırma, Bilgi, Dikkat, Fiziksel, Kışkırtma, Rapor, Kaynaklar, Atış, Gizlilik ve İrade.",
-		"short": "FATE: Core'un 18 becerisini ekleyin."
+		"full": "Fate Core'un 18 becerisini ekleyin. Bu modül şunları içerir: Atletizm, Hırsızlık, İlişkiler, Zanaat, Aldatma, Sürüş, Empati, Dövüş, Araştırma, Bilgi, Dikkat, Fiziksel, Kışkırtma, Rapor, Kaynaklar, Atış, Gizlilik ve İrade.",
+		"short": "Fate Core'un 18 becerisini ekleyin."
 	},
 	"empty": "Henüz eklenmiş beceri yok",
 	"label": "Beceriler",
@@ -55,7 +55,7 @@
 		"9": "Mitik",
 		"10": "İlahi"
 	},
-	"name": "FATE: Core Beceriler",
+	"name": "Fate Core Beceriler",
 	"nothing-to-add": "Eklenecek beceri yok",
 	"open-skill-modal": "Beceri penceresini aç",
 	"skills": {

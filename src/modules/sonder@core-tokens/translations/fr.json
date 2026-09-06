@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Jetons disponibles : {value}"
+		"availableTokens": "Points Fate disponibles : {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Jetons max",
-			"tooltip": "Nombre maximum de jetons du personnage"
+			"name": "Points Fate max",
+			"tooltip": "Nombre maximum de points Fate du personnage"
 		}
 	},
 	"description": {
-		"full": "Ajoutez une section FATE Tokens à la fiche de personnage pour suivre l'utilisation des jetons.",
-		"short": "Ajoutez une section FATE Tokens"
+		"full": "Ajoutez une section Fate Points à la fiche de personnage pour suivre l'utilisation des points Fate.",
+		"short": "Ajoutez une section Fate Points"
 	},
-	"empty": "Aucun jeton disponible",
-	"label": "Jetons FATE",
-	"name": "FATE Tokens"
+	"empty": "Aucun point Fate disponible",
+	"label": "Points Fate",
+	"name": "Fate Points"
 }

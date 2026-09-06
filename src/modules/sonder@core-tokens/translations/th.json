@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "โทเค็นที่ใช้ได้: {value}"
+		"availableTokens": "แต้ม Fate ที่ใช้ได้: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "โทเค็นสูงสุด",
-			"tooltip": "จำนวนโทเค็นสูงสุดของตัวละคร"
+			"name": "แต้ม Fate สูงสุด",
+			"tooltip": "จำนวนแต้ม Fate สูงสุดของตัวละคร"
 		}
 	},
 	"description": {
-		"full": "เพิ่มส่วน FATE Tokens ลงในแผ่นตัวละครเพื่อติดตามการใช้โทเค็น",
-		"short": "เพิ่มส่วน FATE Tokens"
+		"full": "เพิ่มส่วน Fate Points ลงในแผ่นตัวละครเพื่อติดตามการใช้แต้ม Fate",
+		"short": "เพิ่มส่วน Fate Points"
 	},
-	"empty": "ไม่มีโทเค็นที่ใช้ได้",
-	"label": "โทเค็น FATE",
-	"name": "FATE Tokens"
+	"empty": "ไม่มีแต้ม Fate ที่ใช้ได้",
+	"label": "แต้ม Fate",
+	"name": "Fate Points"
 }

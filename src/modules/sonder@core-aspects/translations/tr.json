@@ -2,8 +2,8 @@
 	"add": "Özellik ekle",
 	"aspect": "Özellik",
 	"description": {
-		"full": "Karakter sayfasına FATE: Core Unsurlar bölümünü ekler.",
-		"short": "Karakter sayfasına FATE: Core Unsurlar bölümünü ekler."
+		"full": "Karakter sayfasına Fate Core Unsurlar bölümünü ekler.",
+		"short": "Karakter sayfasına Fate Core Unsurlar bölümünü ekler."
 	},
 	"edit": "Özelliği düzenle",
 	"empty": "Henüz hiçbir özellik eklenmedi.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Geçersiz özellik türü."
 	},
 	"label": "Özellikler",
-	"name": "FATE: Core Unsurlar",
+	"name": "Fate Core Unsurlar",
 	"type": {
 		"consequence": {
 			"description": "Uzun süren bir yara veya aksilik.",

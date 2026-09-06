@@ -1,9 +1,9 @@
 {
-	"name": "fate-core",
+	"name": "fate",
 	"private": true,
 	"version": "2.0.0",
 	"repository": {
-		"url": "https://github.com/Stanislavsonder/fate-core.git"
+		"url": "https://github.com/Stanislavsonder/fate.git"
 	},
 	"engines": {
 		"node": ">=24.18.0"
@@ -22,9 +22,11 @@
 	"packageManager": "pnpm@11.17.0",
 	"scripts": {
 		"dev": "pnpm compile-translation && vite --host",
-		"translate": "node --experimental-transform-types ./scripts/localizer/index.ts",
+		"translate": "node ./scripts/localizer/index.ts",
 		"build:android": "pnpm build && npx cap sync android && npx cap open android",
+		"build:android:ci": "pnpm build && npx cap sync android",
 		"build:ios": "pnpm build && npx cap sync ios && npx cap open ios",
+		"build:ios:ci": "pnpm build && npx cap sync ios",
 		"build": "pnpm compile-translation && vue-tsc && vite build",
 		"preview": "vite preview",
 		"test:e2e": "cypress run",
@@ -35,14 +37,17 @@
 		"test": "pnpm test:unit && pnpm test:e2e",
 		"cypress:open": "cypress open",
 		"prepare": "husky",
-		"version-bump": "node --experimental-transform-types ./scripts/version-bump/index.ts",
+		"version-bump": "node ./scripts/version-bump/index.ts",
 		"version-bump:patch": "pnpm version-bump --patch",
 		"version-bump:minor": "pnpm version-bump --minor",
 		"version-bump:major": "pnpm version-bump --major",
-		"compile-translation": "node --experimental-transform-types ./scripts/translation-compiler/index.ts",
-		"module:generate": "node --experimental-transform-types ./scripts/module-generator/index.ts",
-		"check-registry-schema": "node --experimental-transform-types ./scripts/check-registry-schema/index.ts",
-		"fixtures:mods": "node --experimental-transform-types ./scripts/sync-e2e-mod-fixtures/index.ts"
+		"check-version-bump": "node ./scripts/check-version-bump/index.ts",
+		"compile-translation": "node ./scripts/translation-compiler/index.ts",
+		"module:generate": "node ./scripts/module-generator/index.ts",
+		"check-registry-schema": "node ./scripts/check-registry-schema/index.ts",
+		"fixtures:mods": "node ./scripts/sync-e2e-mod-fixtures/index.ts",
+		"release-notes": "node ./scripts/release-notes/index.ts",
+		"submit-appstore": "node ./scripts/release/submit-appstore.ts"
 	},
 	"dependencies": {
 		"@capacitor/android": "8.4.2",
@@ -119,5 +124,5 @@
 		"vitest": "4.1.10",
 		"vue-tsc": "3.3.8"
 	},
-	"description": "FATE: Core - A digital character sheet for the FATE Core RPG system."
+	"description": "Assistant for Fate - character sheets, dice and modules for the Fate RPG system."
 }

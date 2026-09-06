@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "هنوز هیچ آواتاری تنظیم نشده است",
 			"label": "آواتار",
-			"section": "آواتار شخصیت"
+			"section": "آواتار شخصیت",
+			"upload": "بارگذاری آواتار"
 		},
 		"description": {
 			"label": "توضیحات",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "هویت",
-	"name": "FATE Core: هویت"
+	"name": "Fate Core هویت"
 }

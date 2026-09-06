@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "스트레스 상자 설정",
 	"description": {
-		"full": "FATE: Core 스트레스를 추가합니다. 이 모듈에는 신체적 및 정신적 스트레스가 포함됩니다.",
-		"short": "FATE: Core 스트레스 추가"
+		"full": "Fate Core 스트레스를 추가합니다. 이 모듈에는 신체적 및 정신적 스트레스가 포함됩니다.",
+		"short": "Fate Core 스트레스 추가"
 	},
 	"errors": {
 		"empty": "적어도 하나의 스트레스 박스가 있어야 합니다.",
@@ -28,7 +28,7 @@
 	"label": "스트레스",
 	"level": "스트레스 레벨",
 	"lockBox": "잠금 해제된 스트레스 상자. 클릭하여 잠금.",
-	"name": "FATE: Core 스트레스",
+	"name": "Fate Core 스트레스",
 	"removeBox": "스트레스 상자 제거",
 	"stress": {
 		"mental": {

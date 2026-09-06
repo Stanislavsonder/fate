@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "تهيئة صناديق التوتر",
 	"description": {
-		"full": "أضف ضغط FATE: Core. يتضمن هذا الوحدة: الضغط البدني والنفسي.",
-		"short": "أضف ضغط FATE: Core"
+		"full": "أضف ضغط Fate Core. يتضمن هذا الوحدة: الضغط البدني والنفسي.",
+		"short": "أضف ضغط Fate Core"
 	},
 	"errors": {
 		"empty": "يجب أن يكون هناك على الأقل مربع توتر واحد.",
@@ -28,7 +28,7 @@
 	"label": "توتر",
 	"level": "مستوى التوتر",
 	"lockBox": "صندوق التوتر مفتوح. انقر لقفله.",
-	"name": "FATE: Core إجهاد",
+	"name": "Fate Core إجهاد",
 	"removeBox": "إزالة صندوق التوتر",
 	"stress": {
 		"mental": {

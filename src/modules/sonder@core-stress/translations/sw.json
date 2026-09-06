@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Sanidi masanduku ya mfadhaiko",
 	"description": {
-		"full": "Ongeza msongo wa FATE: Core. Moduli hii inajumuisha: msongo wa mwili na akili.",
-		"short": "Ongeza msongo wa FATE: Core"
+		"full": "Ongeza msongo wa Fate Core. Moduli hii inajumuisha: msongo wa mwili na akili.",
+		"short": "Ongeza msongo wa Fate Core"
 	},
 	"errors": {
 		"empty": "Lazima kuwe na angalau kisanduku kimoja cha msongo.",
@@ -28,7 +28,7 @@
 	"label": "Msongo wa mawazo",
 	"level": "Kiwango cha mfadhaiko",
 	"lockBox": "Sanduku la mfadhaiko limefunguliwa. Bonyeza ili kulifunga.",
-	"name": "FATE: Core Msongo",
+	"name": "Fate Core Msongo",
 	"removeBox": "Ondoa sanduku la mfadhaiko",
 	"stress": {
 		"mental": {

@@ -181,8 +181,11 @@
 	"settings": {
 		"about-app": {
 			"author": "نویسنده",
+			"legal": {
+				"title": "اطلاعات حقوقی و انتساب"
+			},
 			"license": "مجوز",
-			"original-author": "خالقین FATE: Core",
+			"original-author": "خالقین Fate Core",
 			"privacy-policy": {
 				"accept-policy": "من سیاست حفظ حریم خصوصی را خوانده‌ام و قبول دارم",
 				"acceptance-date": "تاریخ پذیرش: {value}",

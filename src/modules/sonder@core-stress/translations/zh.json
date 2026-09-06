@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "配置压力格",
 	"description": {
-		"full": "添加FATE: Core压力模块。此模块包括：身体和精神压力。",
-		"short": "添加FATE: Core压力"
+		"full": "添加Fate Core压力模块。此模块包括：身体和精神压力。",
+		"short": "添加Fate Core压力"
 	},
 	"errors": {
 		"empty": "至少应存在一个压力框。",
@@ -28,7 +28,7 @@
 	"label": "压力",
 	"level": "压力等级",
 	"lockBox": "已解锁的压力格。点击锁定。",
-	"name": "FATE: Core 压力",
+	"name": "Fate Core 压力",
 	"removeBox": "移除压力格",
 	"stress": {
 		"mental": {

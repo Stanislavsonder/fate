@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "添加 FATE: Core 特技",
-		"short": "添加 FATE: Core 特技."
+		"full": "添加 Fate Core 特技",
+		"short": "添加 Fate Core 特技."
 	},
 	"edit": "编辑特技",
 	"empty": "没有特技",
@@ -21,7 +21,7 @@
 	},
 	"label": "特技",
 	"list": "特技列表",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "不需要技能",
 	"price": "价格：{value} 代币"
 }

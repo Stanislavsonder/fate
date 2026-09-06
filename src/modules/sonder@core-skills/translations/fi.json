@@ -30,8 +30,8 @@
 		}
 	},
 	"description": {
-		"full": "Lisää 18 FATE: Core -taitoa. Tämä moduuli sisältää: Urheilu, Murtautuminen, Kontaktit, Käsityöt, Hämätä, Ajaa, Empatia, Taistelu, Tutkia, Tietämys, Huomio, Fyysinen, Provosointi, Suhde, Resurssit, Ampuminen, Hiipiminen ja Tahto.",
-		"short": "Lisää 18 FATE: Core -taitoa."
+		"full": "Lisää 18 Fate Core -taitoa. Tämä moduuli sisältää: Urheilu, Murtautuminen, Kontaktit, Käsityöt, Hämätä, Ajaa, Empatia, Taistelu, Tutkia, Tietämys, Huomio, Fyysinen, Provosointi, Suhde, Resurssit, Ampuminen, Hiipiminen ja Tahto.",
+		"short": "Lisää 18 Fate Core -taitoa."
 	},
 	"empty": "Ei lisättyjä taitoja",
 	"label": "Taidot",
@@ -55,7 +55,7 @@
 		"9": "Myyttinen",
 		"10": "Jumalainen"
 	},
-	"name": "FATE: Core Taidot",
+	"name": "Fate Core Taidot",
 	"nothing-to-add": "Ei lisättäviä taitoja",
 	"open-skill-modal": "Avaa taitoikkuna",
 	"skills": {

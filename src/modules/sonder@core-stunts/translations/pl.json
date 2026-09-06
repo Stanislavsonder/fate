@@ -4,8 +4,8 @@
 		"name": "Unknown"
 	},
 	"description": {
-		"full": "Dodaj Sztuczki FATE: Core",
-		"short": "Dodaj Sztuczki FATE: Core."
+		"full": "Dodaj Sztuczki Fate Core",
+		"short": "Dodaj Sztuczki Fate Core."
 	},
 	"edit": "Edytuj wyczyn",
 	"empty": "Brak wyczynów",
@@ -21,7 +21,7 @@
 	},
 	"label": "Wyczyny",
 	"list": "Lista wyczynów",
-	"name": "FATE: Core Stunts",
+	"name": "Fate Core Stunts",
 	"noSkillNeeded": "Brak wymaganej umiejętności",
 	"price": "Cena: {value} żetonów"
 }

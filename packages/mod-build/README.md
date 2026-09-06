@@ -1,6 +1,6 @@
 # @fate-core/mod-build
 
-Vite build preset + dev-mode server for authoring [FATE: Core](https://github.com/Stanislavsonder/fate-core)
+Vite build preset + dev-mode server for authoring [Assistant for Fate](https://github.com/Stanislavsonder/fate)
 mods — externalizes host-shared libraries (`vue`, `vue-i18n`, `@ionic/vue`,
 `ionicons`) against `window.FateSDK` instead of bundling them, inlines CSS,
 and enforces bundle size limits.

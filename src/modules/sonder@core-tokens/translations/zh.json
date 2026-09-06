@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "可用标记: {value}"
+		"availableTokens": "可用 Fate 点数：{value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "最大代币数",
-			"tooltip": "角色的最大代币数量"
+			"name": "最大 Fate 点数",
+			"tooltip": "角色的最大 Fate 点数"
 		}
 	},
 	"description": {
-		"full": "在角色卡上添加 FATE Tokens 部分，以跟踪代币的使用情况。",
-		"short": "添加 FATE Tokens 部分"
+		"full": "在角色卡上添加 Fate Points 部分，以跟踪 Fate 点数的使用情况。",
+		"short": "添加 Fate Points 部分"
 	},
-	"empty": "没有可用的标记",
-	"label": "FATE 标记",
-	"name": "FATE Tokens"
+	"empty": "没有可用的 Fate 点数",
+	"label": "Fate 点数",
+	"name": "Fate Points"
 }

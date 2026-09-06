@@ -2,8 +2,8 @@
 	"add": "Añadir aspecto",
 	"aspect": "Aspecto",
 	"description": {
-		"full": "Añade la sección de Aspectos de FATE: Core a la hoja de personaje.",
-		"short": "Añade la sección de Aspectos de FATE: Core a la hoja de personaje."
+		"full": "Añade la sección de Aspectos de Fate Core a la hoja de personaje.",
+		"short": "Añade la sección de Aspectos de Fate Core a la hoja de personaje."
 	},
 	"edit": "Editar aspecto",
 	"empty": "No se han añadido aspectos aún.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Tipo de aspecto inválido."
 	},
 	"label": "Aspectos",
-	"name": "FATE: Core Aspects",
+	"name": "Fate Core Aspects",
 	"type": {
 		"consequence": {
 			"description": "Una lesión o revés duradero.",

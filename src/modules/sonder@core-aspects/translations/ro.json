@@ -2,8 +2,8 @@
 	"add": "Adaugă aspect",
 	"aspect": "Aspect",
 	"description": {
-		"full": "Adaugă secțiunea Aspecte FATE: Core la fișa personajului.",
-		"short": "Adaugă secțiunea Aspecte FATE: Core la fișa personajului."
+		"full": "Adaugă secțiunea Aspecte Fate Core la fișa personajului.",
+		"short": "Adaugă secțiunea Aspecte Fate Core la fișa personajului."
 	},
 	"edit": "Editează aspect",
 	"empty": "Nu au fost adăugate aspecte încă.",
@@ -13,7 +13,7 @@
 		"typeInvalid": "Tip de aspect invalid."
 	},
 	"label": "Aspecte",
-	"name": "FATE: Core Aspecte",
+	"name": "Fate Core Aspecte",
 	"type": {
 		"consequence": {
 			"description": "O rană sau un eșec de lungă durată.",

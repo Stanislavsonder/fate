@@ -4,7 +4,7 @@
 
 ## 1. Pengantar
 
-Selamat datang di "FATE: Core" ("Aplikasi"). Privasi Anda penting bagi kami. Kebijakan Privasi ini menjelaskan bagaimana kami menangani informasi Anda saat menggunakan Aplikasi kami.
+Selamat datang di "Assistant for Fate" ("Aplikasi"). Privasi Anda penting bagi kami. Kebijakan Privasi ini menjelaskan bagaimana kami menangani informasi Anda saat menggunakan Aplikasi kami.
 
 ## 2. Pengumpulan Data
 

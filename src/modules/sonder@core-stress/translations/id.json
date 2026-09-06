@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Konfigurasi kotak stres",
 	"description": {
-		"full": "Tambahkan stres FATE: Core. Modul ini mencakup: stres fisik dan mental.",
-		"short": "Tambahkan stres FATE: Core"
+		"full": "Tambahkan stres Fate Core. Modul ini mencakup: stres fisik dan mental.",
+		"short": "Tambahkan stres Fate Core"
 	},
 	"errors": {
 		"empty": "Setidaknya harus ada satu kotak stres.",
@@ -28,7 +28,7 @@
 	"label": "Stres",
 	"level": "Tingkat stres",
 	"lockBox": "Kotak stres terbuka. Klik untuk mengunci.",
-	"name": "FATE: Core Stres",
+	"name": "Fate Core Stres",
 	"removeBox": "Hapus kotak stres",
 	"stress": {
 		"mental": {

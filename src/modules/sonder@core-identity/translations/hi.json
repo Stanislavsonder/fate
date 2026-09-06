@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "अभी तक कोई अवतार सेट नहीं किया गया",
 			"label": "अवतार",
-			"section": "चरित्र अवतार"
+			"section": "चरित्र अवतार",
+			"upload": "अवतार अपलोड करें"
 		},
 		"description": {
 			"label": "वर्णन",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "पहचान",
-	"name": "FATE Core: पहचान"
+	"name": "Fate Core पहचान"
 }

@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Brak ustawionego awatara",
 			"label": "Awatar",
-			"section": "Awatar postaci"
+			"section": "Awatar postaci",
+			"upload": "Prześlij awatar"
 		},
 		"description": {
 			"label": "Opis",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Tożsamość",
-	"name": "FATE Core: Tożsamość"
+	"name": "Fate Core Tożsamość"
 }

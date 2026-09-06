@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "Token yang tersedia: {value}"
+		"availableTokens": "Poin Fate tersedia: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "Maksimum token",
-			"tooltip": "Jumlah maksimum token karakter"
+			"name": "Maks poin Fate",
+			"tooltip": "Jumlah maksimum poin Fate karakter"
 		}
 	},
 	"description": {
-		"full": "Tambahkan bagian FATE Tokens ke lembar karakter untuk melacak penggunaan token.",
-		"short": "Tambahkan bagian FATE Tokens"
+		"full": "Tambahkan bagian Fate Points ke lembar karakter untuk melacak penggunaan poin Fate.",
+		"short": "Tambahkan bagian Fate Points"
 	},
-	"empty": "Tidak ada token yang tersedia",
-	"label": "Token FATE",
-	"name": "FATE Tokens"
+	"empty": "Tidak ada poin Fate yang tersedia",
+	"label": "Poin Fate",
+	"name": "Fate Points"
 }

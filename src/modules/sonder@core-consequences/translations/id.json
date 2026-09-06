@@ -1,8 +1,8 @@
 {
 	"add": "Tambahkan bidang konsekuensi",
 	"description": {
-		"full": "Menambahkan bagian Konsekuensi FATE: Core ke lembar karakter untuk melacak konsekuensi.",
-		"short": "Menambahkan bagian Konsekuensi FATE: Core"
+		"full": "Menambahkan bagian Konsekuensi Fate Core ke lembar karakter untuk melacak konsekuensi.",
+		"short": "Menambahkan bagian Konsekuensi Fate Core"
 	},
 	"edit": "Edit bidang konsekuensi",
 	"empty": "Belum ada bidang konsekuensi yang ditambahkan.",
@@ -11,7 +11,7 @@
 	"list": "Bidang konsekuensi",
 	"locked": "Bidang konsekuensi terkunci. Klik untuk membuka.",
 	"lockedType": "Bidang konsekuensi terkunci {value}",
-	"name": "FATE: Core Konsekuensi",
+	"name": "Fate Core Konsekuensi",
 	"remove": "Hapus bidang konsekuensi",
 	"stressLevel": "Tingkat stres",
 	"type": {

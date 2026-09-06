@@ -1,18 +1,18 @@
 {
 	"a11y": {
-		"availableTokens": "उपलब्ध टोकन: {value}"
+		"availableTokens": "उपलब्ध Fate अंक: {value}"
 	},
 	"config": {
 		"maxTokens": {
-			"name": "अधिकतम टोकन",
-			"tooltip": "चरित्र के अधिकतम टोकन की संख्या"
+			"name": "अधिकतम Fate अंक",
+			"tooltip": "चरित्र के अधिकतम Fate अंक"
 		}
 	},
 	"description": {
-		"full": "चरित्र पत्रक में FATE Tokens अनुभाग जोड़ें ताकि टोकन के उपयोग को ट्रैक किया जा सके।",
-		"short": "FATE Tokens अनुभाग जोड़ें"
+		"full": "चरित्र शीट में Fate Points अनुभाग जोड़ें ताकि Fate अंकों के उपयोग को ट्रैक किया जा सके।",
+		"short": "Fate Points अनुभाग जोड़ें"
 	},
-	"empty": "कोई उपलब्ध टोकन नहीं",
-	"label": "FATE टोकन",
-	"name": "FATE Tokens"
+	"empty": "कोई उपलब्ध Fate अंक नहीं",
+	"label": "Fate अंक",
+	"name": "Fate Points"
 }

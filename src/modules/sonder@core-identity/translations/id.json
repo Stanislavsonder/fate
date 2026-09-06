@@ -10,7 +10,8 @@
 		"avatar": {
 			"empty": "Belum ada avatar yang diatur",
 			"label": "Avatar",
-			"section": "Avatar Karakter"
+			"section": "Avatar Karakter",
+			"upload": "Unggah avatar"
 		},
 		"description": {
 			"label": "Deskripsi",
@@ -26,5 +27,5 @@
 		}
 	},
 	"label": "Identitas",
-	"name": "FATE Core: Identitas"
+	"name": "Fate Core Identitas"
 }

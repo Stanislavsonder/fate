@@ -15,8 +15,8 @@
 	},
 	"configureBoxes": "Konfigurer stressbokse",
 	"description": {
-		"full": "Tilføj FATE: Core stress. Denne modul inkluderer: fysisk og mental stress.",
-		"short": "Tilføj FATE: Core stress"
+		"full": "Tilføj Fate Core stress. Denne modul inkluderer: fysisk og mental stress.",
+		"short": "Tilføj Fate Core stress"
 	},
 	"errors": {
 		"empty": "Mindst én stressboks skal eksistere.",
@@ -28,7 +28,7 @@
 	"label": "Stress",
 	"level": "Stressniveau",
 	"lockBox": "Ulåst stressboks. Klik for at låse.",
-	"name": "FATE: Core Stress",
+	"name": "Fate Core Stress",
 	"removeBox": "Fjern stressboks",
 	"stress": {
 		"mental": {
