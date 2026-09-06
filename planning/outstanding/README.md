@@ -78,23 +78,28 @@ spec's own tab-remount handling both read correctly on inspection.
 Whatever caused the original timeout wasn't reproducible against the current `2.0.0` tree. Leave
 this closed; reopen if it resurfaces (e.g. only under CI's slower/cold environment).
 
-### B3. No provenance on the published SDK packages — needs manual action on npmjs.com
+### B3. ~~No provenance on the published SDK packages~~ — fixed
 
-Every publish logged `Skipped OIDC: ERR_PNPM_AUTH_TOKEN_EXCHANGE (404)`, so
-`@fate-app/mod-types@2.0.0`, `@fate-app/mod-build@2.0.0` and `create-fate-mod@1.2.0` are all
-published **unsigned**, and `NPM_TOKEN` is still a long-lived all-packages write token in repo
-secrets.
+Trusted Publisher configured on npmjs.com for all three packages (GitHub Actions → repo
+`Stanislavsonder/fate`, workflow `publish-sdk.yml`, no environment, direct-publish allowed).
+Verified for real: bumped `create-fate-mod` to `1.2.1` (infra-only, no functional change — see its
+CHANGELOG) specifically to force a genuine OIDC exchange, since pnpm refuses to even attempt auth
+against an already-published version. The tag-triggered run's log confirmed it:
 
-npm's Trusted Publisher config has no API — it's a web-UI-only setting, and deleting the repo
-secret is irreversible-ish (breaks the fallback path) — so this can't be done by an agent. Still
-outstanding; do this by hand:
+```
+GET .../idtoken/...?audience=npm%3Aregistry.npmjs.org 200 38ms
+📦 create-fate-mod@1.2.1 → https://registry.npmjs.org/
+✅ Published package create-fate-mod@1.2.1
+```
 
-1. On npmjs.com, for each of `@fate-app/mod-types`, `@fate-app/mod-build`, `create-fate-mod` →
-   Settings → Trusted Publisher → GitHub Actions → repo `Stanislavsonder/fate`, workflow
-   `publish-sdk.yml`, environment none.
-2. Cut a trivial release (or re-run `publish-sdk.yml`) and confirm the log no longer shows
-   `Skipped OIDC`.
-3. Only then delete the `NPM_TOKEN` secret from the repo.
+No `Skipped OIDC`, no token involved. Followed up with the full hardening:
+
+1. All three packages switched to "Require two-factor authentication and disallow bypass 2FA
+   tokens."
+2. `NPM_TOKEN` deleted from both the repo secrets and npm itself.
+3. `publish-sdk.yml` cleaned up — dropped the now-dead `NODE_AUTH_TOKEN` env var and its comment,
+   and bumped `actions/checkout`/`actions/setup-node` from `v4` to `v7` (matching every other
+   workflow in the repo) to drop the Node 20 deprecation warning.
 
 ### B4. ~~`publish.yml` silently skips mods (registry repo)~~ — fixed
 
