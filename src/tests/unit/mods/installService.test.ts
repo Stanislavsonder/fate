@@ -373,7 +373,7 @@ describe('installFromRegistry', () => {
 		expect(fetchMock).toHaveBeenCalledTimes(1)
 	})
 
-	it('refuses an explicit non-latest version request (no pinned hash exists for older versions)', async () => {
+	it('refuses an explicit version without pinned release metadata', async () => {
 		const entry = baseRegistryEntry({ versions: ['0.9.0', '1.0.0'] })
 		getIndex.mockResolvedValue({ index: baseRegistryIndex([entry]) })
 		getMod.mockResolvedValue(undefined)
@@ -381,6 +381,54 @@ describe('installFromRegistry', () => {
 		const result = await installFromRegistry('reg@mod', '0.9.0')
 
 		expect(result.ok).toBe(false)
+	})
+
+	it('installs an older version from its pinned release metadata', async () => {
+		const manifestJson = { id: 'reg@mod', version: '0.9.0', entry: 'bundle.mjs', languages: [] }
+		const manifestText = JSON.stringify(manifestJson)
+		const bundleText = 'export default {}'
+		const manifestHash = await sha256Hex(manifestText)
+		const bundleHash = await sha256Hex(bundleText)
+		const files = {
+			'manifest.json': { url: 'mods/reg@mod/0.9.0/manifest.json', sha256: manifestHash, size: manifestText.length },
+			'bundle.mjs': { url: 'mods/reg@mod/0.9.0/bundle.mjs', sha256: bundleHash, size: bundleText.length }
+		}
+		const entry = baseRegistryEntry({
+			versions: ['0.9.0', '1.0.0'],
+			releases: {
+				'0.9.0': { version: '0.9.0', files },
+				'1.0.0': { version: '1.0.0', files: baseRegistryEntry().files }
+			}
+		})
+		getIndex.mockResolvedValue({ index: baseRegistryIndex([entry]) })
+		getMod.mockResolvedValue(undefined)
+		loadExternalMod.mockResolvedValue({ id: 'reg@mod', version: '0.9.0' })
+		vi.stubGlobal(
+			'fetch',
+			vi
+				.fn()
+				.mockResolvedValueOnce(textResponse(manifestText))
+				.mockResolvedValueOnce(jsonResponse(manifestJson))
+				.mockResolvedValueOnce(textResponse(bundleText))
+		)
+
+		const result = await installFromRegistry('reg@mod', '0.9.0')
+
+		expect(result.ok).toBe(true)
+		expect(putMod).toHaveBeenCalledWith(expect.objectContaining({ version: '0.9.0', sourceUrl: 'https://registry.example.com/mods/reg@mod/0.9.0' }))
+	})
+
+	it('refuses a blocklisted version before downloading it', async () => {
+		const entry = baseRegistryEntry()
+		getIndex.mockResolvedValue({ index: { ...baseRegistryIndex([entry]), blocklist: { 'reg@mod': ['1.0.0'] } } })
+		getMod.mockResolvedValue(undefined)
+		const fetchMock = vi.fn()
+		vi.stubGlobal('fetch', fetchMock)
+
+		const result = await installFromRegistry('reg@mod')
+
+		expect(result.ok).toBe(false)
+		expect(fetchMock).not.toHaveBeenCalled()
 	})
 
 	it('refuses an id that conflicts with a built-in mod', async () => {

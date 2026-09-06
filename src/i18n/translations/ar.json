@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "بواسطة {name}",
+				"blocked": "هذا الإصدار محظور",
 				"config": "خيارات الإعداد",
+				"downgrade": "الرجوع إلى إصدار أقدم",
 				"install": "تثبيت",
 				"installed": "مثبّت",
+				"latest": "الأحدث",
 				"readme": "حول",
 				"remove": "إزالة",
 				"update": "تحديث",

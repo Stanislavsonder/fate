@@ -2,7 +2,7 @@ import semver from 'semver'
 import { ModRegistry } from './modRegistry'
 import { loadExternalMod, safeManifest } from './loader'
 import { SDK_VERSION } from './sdk'
-import { getIndex, type RegistryFileEntry, type RegistryModEntry } from './registryClient'
+import { getIndex, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
@@ -265,13 +265,41 @@ export async function setEnabled(id: string, enabled: boolean): Promise<SimpleOu
 
 /** Exported for reuse by the Mod Store's Browse tab ("compatible with my app version" filter/badges). */
 export function isEntryCompatible(entry: RegistryModEntry): boolean {
-	if (typeof entry.appVersion === 'string' && !semver.satisfies(appVersion, entry.appVersion)) {
+	return isRegistryReleaseCompatible(entry, entry.latestVersion)
+}
+
+export function getRegistryRelease(entry: RegistryModEntry, version: string): RegistryReleaseEntry | null {
+	const release = entry.releases?.[version]
+	if (release) {
+		return release
+	}
+	if (version !== entry.latestVersion) {
+		return null
+	}
+	return {
+		version,
+		appVersion: entry.appVersion,
+		sdk: entry.sdk,
+		files: entry.files
+	}
+}
+
+export function isRegistryReleaseCompatible(entry: RegistryModEntry, version: string): boolean {
+	const release = getRegistryRelease(entry, version)
+	if (!release) {
 		return false
 	}
-	if (typeof entry.sdk === 'string' && !semver.satisfies(SDK_VERSION, entry.sdk)) {
+	if (typeof release.appVersion === 'string' && !semver.satisfies(appVersion, release.appVersion)) {
+		return false
+	}
+	if (typeof release.sdk === 'string' && !semver.satisfies(SDK_VERSION, release.sdk)) {
 		return false
 	}
 	return true
+}
+
+export function isRegistryVersionBlocked(blocklist: Record<string, string[]>, id: string, version: string): boolean {
+	return (blocklist[id] ?? []).some(range => semver.satisfies(version, range))
 }
 
 async function hashFile(text: string): Promise<string> {
@@ -281,7 +309,7 @@ async function hashFile(text: string): Promise<string> {
 
 async function verifyFileHash(url: string, expected: RegistryFileEntry | undefined): Promise<SimpleOutcome> {
 	if (!expected) {
-		return { ok: true } // nothing pinned for this file — nothing to check
+		return { ok: false, error: `${url} is not hash-pinned in the registry index — refusing to install.` }
 	}
 	let text: string
 	try {
@@ -300,16 +328,42 @@ async function verifyFileHash(url: string, expected: RegistryFileEntry | undefin
 	return { ok: true }
 }
 
-/**
- * Installs a mod from the registry. If `version` is omitted, installs the
- * newest version whose `appVersion`/`sdk` both match this app — currently
- * only the registry's *latest* published version, since older versions'
- * files aren't hash-pinned in the index (only `latestVersion` carries a
- * `files` map — see fate-mods' publish.ts). Requesting an explicit
- * older version is refused for the same reason: there's no pinned hash to
- * verify it against, and installing without one would be a silent,
- * unadvertised weakening of the registry's trust model.
- */
+async function fetchRegistryRelease(entry: RegistryModEntry, release: RegistryReleaseEntry): Promise<FetchResult<FetchedModFiles>> {
+	const { getRegistryBase } = useRegistryBase()
+	const registryBase = getRegistryBase()
+	const versionBaseUrl = `${registryBase}/mods/${entry.id}/${release.version}`
+	const manifestFile = release.files['manifest.json']
+	const manifestUrl = `${registryBase}/${manifestFile?.url ?? `mods/${entry.id}/${release.version}/manifest.json`}`
+	const manifestHashResult = await verifyFileHash(manifestUrl, manifestFile)
+	if (!manifestHashResult.ok) {
+		return manifestHashResult
+	}
+
+	const fetchedManifest = await fetchManifest(versionBaseUrl)
+	if (!fetchedManifest.ok) {
+		return fetchedManifest
+	}
+	if (fetchedManifest.data.id !== entry.id || fetchedManifest.data.version !== release.version) {
+		return { ok: false, error: `Registry manifest does not match "${entry.id}"@${release.version}` }
+	}
+
+	const fetched = await fetchBundleAndTranslations(versionBaseUrl, fetchedManifest.data)
+	if (!fetched.ok) {
+		return fetched
+	}
+
+	const entryFile = typeof fetchedManifest.data.entry === 'string' ? fetchedManifest.data.entry : 'bundle.mjs'
+	const bundleFile = release.files[entryFile]
+	if (!bundleFile) {
+		return { ok: false, error: `${entryFile} is not hash-pinned in the registry index — refusing to install.` }
+	}
+	if (bundleFile.sha256 !== fetched.data.sha256) {
+		return { ok: false, error: `${entryFile} does not match the registry index hash — refusing to install (possible tampering).` }
+	}
+
+	return fetched
+}
+
 export async function installFromRegistry(id: string, version?: string): Promise<InstallOutcome> {
 	if (ModRegistry.get(id)?.source === 'builtin') {
 		return { ok: false, error: `"${id}" conflicts with a built-in mod` }
@@ -326,52 +380,34 @@ export async function installFromRegistry(id: string, version?: string): Promise
 	if (!entry) {
 		return { ok: false, error: `"${id}" was not found in the registry` }
 	}
-	if (version !== undefined && version !== entry.latestVersion) {
-		return {
-			ok: false,
-			error: `Only the latest published version of "${id}" can be installed from the registry right now (requested ${version}, latest is ${entry.latestVersion}).`
-		}
+	const selectedVersion = version ?? entry.latestVersion
+	const release = getRegistryRelease(entry, selectedVersion)
+	if (!release) {
+		return { ok: false, error: `"${id}"@${selectedVersion} has no hash-pinned release metadata` }
 	}
-	if (!isEntryCompatible(entry)) {
-		return { ok: false, error: `"${id}"@${entry.latestVersion} is not compatible with this app version` }
+	if (isRegistryVersionBlocked(index.blocklist, id, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is blocked and cannot be installed` }
 	}
-
-	const { getRegistryBase } = useRegistryBase()
-	const registryBase = getRegistryBase()
-	const versionBaseUrl = `${registryBase}/mods/${id}/${entry.latestVersion}`
-
-	const manifestHashResult = await verifyFileHash(`${registryBase}/${entry.files['manifest.json']?.url}`, entry.files['manifest.json'])
-	if (!manifestHashResult.ok) {
-		return { ok: false, error: manifestHashResult.error }
+	if (!isRegistryReleaseCompatible(entry, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is not compatible with this app version` }
 	}
 
-	const fetchedManifest = await fetchManifest(versionBaseUrl)
-	if (!fetchedManifest.ok) {
-		return { ok: false, error: fetchedManifest.error }
-	}
-
-	const fetched = await fetchBundleAndTranslations(versionBaseUrl, fetchedManifest.data)
+	const fetched = await fetchRegistryRelease(entry, release)
 	if (!fetched.ok) {
 		return { ok: false, error: fetched.error }
-	}
-
-	const entryFile = typeof fetchedManifest.data.entry === 'string' ? fetchedManifest.data.entry : 'bundle.mjs'
-	const bundleFileEntry = entry.files[entryFile]
-	if (bundleFileEntry && bundleFileEntry.sha256 !== fetched.data.sha256) {
-		return { ok: false, error: `${entryFile} does not match the registry index hash — refusing to install (possible tampering).` }
 	}
 
 	const now = Date.now()
 	const row: StoredMod = {
 		id,
-		version: entry.latestVersion,
+		version: selectedVersion,
 		source: 'registry',
 		enabled: true,
 		manifestJson: JSON.stringify(fetched.data.manifest),
 		bundleCode: fetched.data.bundleCode,
 		translationsJson: fetched.data.translationsJson,
 		sha256: fetched.data.sha256,
-		sourceUrl: versionBaseUrl,
+		sourceUrl: `${useRegistryBase().getRegistryBase()}/mods/${id}/${selectedVersion}`,
 		installedAt: now,
 		updatedAt: now
 	}
@@ -387,13 +423,7 @@ export async function installFromRegistry(id: string, version?: string): Promise
 	}
 }
 
-/**
- * Same hash-pinned-against-the-index fetch as installFromRegistry, but
- * validates the new bundle BEFORE overwriting the stored row — same
- * "don't brick a working mod on a bad update" guarantee as update().
- * No-op (ok:true) result when already on the latest compatible version.
- */
-export async function updateFromRegistry(id: string): Promise<InstallOutcome> {
+export async function changeRegistryVersion(id: string, version?: string): Promise<InstallOutcome> {
 	const existingRow = await modsService.get(id)
 	if (!existingRow) {
 		return { ok: false, error: `"${id}" is not installed` }
@@ -407,45 +437,33 @@ export async function updateFromRegistry(id: string): Promise<InstallOutcome> {
 	if (!entry) {
 		return { ok: false, error: `"${id}" was not found in the registry` }
 	}
-	if (!isEntryCompatible(entry)) {
-		return { ok: false, error: `"${id}"@${entry.latestVersion} is not compatible with this app version` }
+	const selectedVersion = version ?? entry.latestVersion
+	const release = getRegistryRelease(entry, selectedVersion)
+	if (!release) {
+		return { ok: false, error: `"${id}"@${selectedVersion} has no hash-pinned release metadata` }
+	}
+	if (isRegistryVersionBlocked(index.blocklist, id, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is blocked and cannot be installed` }
+	}
+	if (!isRegistryReleaseCompatible(entry, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is not compatible with this app version` }
 	}
 
-	const { getRegistryBase } = useRegistryBase()
-	const registryBase = getRegistryBase()
-	const versionBaseUrl = `${registryBase}/mods/${id}/${entry.latestVersion}`
-
-	const manifestHashResult = await verifyFileHash(`${registryBase}/${entry.files['manifest.json']?.url}`, entry.files['manifest.json'])
-	if (!manifestHashResult.ok) {
-		return { ok: false, error: manifestHashResult.error }
-	}
-
-	const fetchedManifest = await fetchManifest(versionBaseUrl)
-	if (!fetchedManifest.ok) {
-		return { ok: false, error: fetchedManifest.error }
-	}
-
-	const fetched = await fetchBundleAndTranslations(versionBaseUrl, fetchedManifest.data)
+	const fetched = await fetchRegistryRelease(entry, release)
 	if (!fetched.ok) {
 		return { ok: false, error: fetched.error }
 	}
 
-	const entryFile = typeof fetchedManifest.data.entry === 'string' ? fetchedManifest.data.entry : 'bundle.mjs'
-	const bundleFileEntry = entry.files[entryFile]
-	if (bundleFileEntry && bundleFileEntry.sha256 !== fetched.data.sha256) {
-		return { ok: false, error: `${entryFile} does not match the registry index hash — refusing to install (possible tampering).` }
-	}
-
 	const row: StoredMod = {
 		id,
-		version: entry.latestVersion,
+		version: selectedVersion,
 		source: 'registry',
 		enabled: existingRow.enabled,
 		manifestJson: JSON.stringify(fetched.data.manifest),
 		bundleCode: fetched.data.bundleCode,
 		translationsJson: fetched.data.translationsJson,
 		sha256: fetched.data.sha256,
-		sourceUrl: versionBaseUrl,
+		sourceUrl: `${useRegistryBase().getRegistryBase()}/mods/${id}/${selectedVersion}`,
 		installedAt: existingRow.installedAt,
 		updatedAt: Date.now()
 	}
@@ -458,6 +476,10 @@ export async function updateFromRegistry(id: string): Promise<InstallOutcome> {
 	} catch (e) {
 		return { ok: false, error: `Update failed to load — keeping the previously installed version: ${errorMessage(e)}` }
 	}
+}
+
+export async function updateFromRegistry(id: string): Promise<InstallOutcome> {
+	return changeRegistryVersion(id)
 }
 
 export interface AvailableUpdate {
@@ -482,7 +504,7 @@ export async function checkForUpdates(): Promise<AvailableUpdate[]> {
 		if (row.source !== 'registry') continue
 		const entry = index.mods.find(m => m.id === row.id)
 		if (!entry) continue
-		if (isEntryCompatible(entry) && semver.gt(entry.latestVersion, row.version)) {
+		if (isEntryCompatible(entry) && !isRegistryVersionBlocked(index.blocklist, entry.id, entry.latestVersion) && semver.gt(entry.latestVersion, row.version)) {
 			updates.push({ id: row.id, installedVersion: row.version, latestCompatibleVersion: entry.latestVersion })
 		}
 	}

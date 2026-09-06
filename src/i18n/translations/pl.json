@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Autor: {name}",
+				"blocked": "Ta wersja jest zablokowana",
 				"config": "Opcje konfiguracji",
+				"downgrade": "Obniż wersję",
 				"install": "Zainstaluj",
 				"installed": "Zainstalowano",
+				"latest": "najnowsza",
 				"readme": "O modzie",
 				"remove": "Usuń",
 				"update": "Aktualizuj",

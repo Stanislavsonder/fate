@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Autor: {name}",
+				"blocked": "Tato verze je zablokovaná",
 				"config": "Možnosti konfigurace",
+				"downgrade": "Přejít na starší verzi",
 				"install": "Nainstalovat",
 				"installed": "Nainstalováno",
+				"latest": "nejnovější",
 				"readme": "O modu",
 				"remove": "Odebrat",
 				"update": "Aktualizovat",

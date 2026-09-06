@@ -249,9 +249,12 @@
 			},
 			"detail": {
 				"author": "By {name}",
+				"blocked": "This version is blocked",
 				"config": "Configuration options",
+				"downgrade": "Downgrade",
 				"install": "Install",
 				"installed": "Installed",
+				"latest": "latest",
 				"readme": "About",
 				"remove": "Remove",
 				"update": "Update",

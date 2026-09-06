@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Av {name}",
+				"blocked": "Den här versionen är blockerad",
 				"config": "Konfigurationsalternativ",
+				"downgrade": "Nedgradera",
 				"install": "Installera",
 				"installed": "Installerad",
+				"latest": "senaste",
 				"readme": "Om",
 				"remove": "Ta bort",
 				"update": "Uppdatera",

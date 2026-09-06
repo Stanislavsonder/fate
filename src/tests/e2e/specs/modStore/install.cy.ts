@@ -16,6 +16,40 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('exist').and('contain.text', 'v1.0.0')
 	})
 
+	it('installs a selected older hash-pinned version', () => {
+		cy.visitModStore('registry.v2-update.json')
+		cy.interceptModFiles('e2e@fixture-mod', '1.0.0')
+
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
+		cy.get('[data-testid="mod-store-version-button"]').click()
+		cy.get('[data-testid="mod-store-version-1.0.0"]').click()
+		cy.get('[data-testid="mod-store-install-button"]').should('contain.text', 'v1.0.0').click()
+
+		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+
+		cy.closeModStoreModal()
+		cy.switchModStoreTab('installed')
+		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('exist').and('contain.text', 'v1.0.0')
+	})
+
+	it('downgrades an installed mod through the version selector', () => {
+		cy.visitModStore('registry.v2-update.json')
+		cy.interceptModFiles('e2e@fixture-mod', '1.0.1')
+		cy.interceptModFiles('e2e@fixture-mod', '1.0.0')
+
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
+		cy.get('[data-testid="mod-store-install-button"]').click()
+		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+
+		cy.get('[data-testid="mod-store-version-button"]').click()
+		cy.get('[data-testid="mod-store-version-1.0.0"]').click()
+		cy.get('[data-testid="mod-store-update-button"]').should('contain.text', 'Downgrade').click()
+
+		cy.closeModStoreModal()
+		cy.switchModStoreTab('installed')
+		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('contain.text', 'v1.0.0')
+	})
+
 	it('refuses to install when the downloaded bundle does not match the registry index hash (tampering)', () => {
 		// Overrides just the bundle.mjs intercept above with content that doesn't match
 		// registry.v1.json's pinned hash for it — indistinguishable, from the app's

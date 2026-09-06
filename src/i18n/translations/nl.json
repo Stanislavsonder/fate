@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Door {name}",
+				"blocked": "Deze versie is geblokkeerd",
 				"config": "Configuratieopties",
+				"downgrade": "Downgraden",
 				"install": "Installeren",
 				"installed": "Geïnstalleerd",
+				"latest": "nieuwste",
 				"readme": "Over",
 				"remove": "Verwijderen",
 				"update": "Bijwerken",

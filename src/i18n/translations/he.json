@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "מאת {name}",
+				"blocked": "גרסה זו חסומה",
 				"config": "אפשרויות תצורה",
+				"downgrade": "שדרוג לאחור",
 				"install": "התקן",
 				"installed": "מותקן",
+				"latest": "האחרונה",
 				"readme": "אודות",
 				"remove": "הסר",
 				"update": "עדכן",

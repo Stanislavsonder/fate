@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Af {name}",
+				"blocked": "Denne version er blokeret",
 				"config": "Konfigurationsindstillinger",
+				"downgrade": "Nedgrader",
 				"install": "Installer",
 				"installed": "Installeret",
+				"latest": "seneste",
 				"readme": "Om",
 				"remove": "Fjern",
 				"update": "Opdater",

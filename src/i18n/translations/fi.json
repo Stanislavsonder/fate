@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Tekijä: {name}",
+				"blocked": "Tämä versio on estetty",
 				"config": "Asetusvaihtoehdot",
+				"downgrade": "Vaihda vanhempaan versioon",
 				"install": "Asenna",
 				"installed": "Asennettu",
+				"latest": "uusin",
 				"readme": "Tietoja",
 				"remove": "Poista",
 				"update": "Päivitä",

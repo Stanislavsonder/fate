@@ -11,6 +11,13 @@ export interface RegistryFileEntry {
 	size: number
 }
 
+export interface RegistryReleaseEntry {
+	version: string
+	appVersion?: string
+	sdk?: string
+	files: Record<string, RegistryFileEntry>
+}
+
 /** A registry.json entry: the mod's full static manifest embedded verbatim,
  * plus publish-time fields — see fate-mods' scripts/ci/publish.ts. */
 export interface RegistryModEntry extends FateModuleManifest {
@@ -19,6 +26,8 @@ export interface RegistryModEntry extends FateModuleManifest {
 	files: Record<string, RegistryFileEntry>
 	readmeUrl?: string
 	versions: string[]
+	/** Missing only in legacy schema-v1 caches, where the latest release remains available through `files`. */
+	releases?: Record<string, RegistryReleaseEntry>
 	/** Per-language display strings extracted at publish time so the Mod Store
 	 * can render browse cards without fetching each mod's translations. */
 	strings: Record<string, { name: string; short: string }>

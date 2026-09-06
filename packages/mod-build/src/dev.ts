@@ -82,11 +82,30 @@ export async function startDevServer(options: DevServerOptions): Promise<DevServ
 			return
 		}
 
-		const relative = decodeURIComponent(url.pathname.replace(/^\/+/, ''))
-		// dist/ (the built bundle) takes priority; everything else (manifest.json,
-		// translations/) is served straight from the project root.
-		const distPath = join(distDir, relative)
-		const filePath = existsSync(distPath) ? distPath : join(root, relative)
+		let pathname: string
+		try {
+			pathname = decodeURIComponent(url.pathname)
+		} catch {
+			res.writeHead(400)
+			res.end('Bad request')
+			return
+		}
+
+		let filePath: string | null = null
+		if (pathname === '/bundle.mjs') {
+			const bundlePath = join(distDir, 'bundle.mjs')
+			filePath = existsSync(bundlePath) ? bundlePath : null
+		} else if (pathname === '/manifest.json') {
+			filePath = join(root, 'manifest.json')
+		} else if (/^\/translations\/[a-z]{2}(?:-[A-Z]{2})?\.json$/.test(pathname)) {
+			filePath = join(root, pathname.slice(1))
+		}
+
+		if (!filePath) {
+			res.writeHead(404)
+			res.end('Not found')
+			return
+		}
 
 		try {
 			const stats = await stat(filePath)

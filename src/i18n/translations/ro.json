@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "De {name}",
+				"blocked": "Această versiune este blocată",
 				"config": "Opțiuni de configurare",
+				"downgrade": "Revino la versiunea anterioară",
 				"install": "Instalează",
 				"installed": "Instalat",
+				"latest": "cea mai recentă",
 				"readme": "Despre",
 				"remove": "Elimină",
 				"update": "Actualizează",

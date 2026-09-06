@@ -27,7 +27,7 @@ describe('Mod Store - Update', () => {
 		cy.switchModStoreTab('browse')
 
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
-		cy.get('[data-testid="mod-store-update-button"]').should('contain.text', 'Update available').and('contain.text', '1.0.1')
+		cy.get('[data-testid="mod-store-update-button"]').should('contain.text', 'Update').and('contain.text', '1.0.1')
 		cy.get('[data-testid="mod-store-update-button"]').click()
 
 		cy.getToast().should('contain.text', '"e2e@fixture-mod" updated')

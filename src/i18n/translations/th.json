@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "โดย {name}",
+				"blocked": "เวอร์ชันนี้ถูกบล็อก",
 				"config": "ตัวเลือกการตั้งค่า",
+				"downgrade": "ดาวน์เกรด",
 				"install": "ติดตั้ง",
 				"installed": "ติดตั้งแล้ว",
+				"latest": "ล่าสุด",
 				"readme": "เกี่ยวกับ",
 				"remove": "ลบ",
 				"update": "อัปเดต",

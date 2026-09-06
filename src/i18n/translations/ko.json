@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "{name}",
+				"blocked": "이 버전은 차단되었습니다",
 				"config": "구성 옵션",
+				"downgrade": "다운그레이드",
 				"install": "설치",
 				"installed": "설치됨",
+				"latest": "최신",
 				"readme": "정보",
 				"remove": "제거",
 				"update": "업데이트",

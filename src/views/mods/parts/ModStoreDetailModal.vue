@@ -1,16 +1,24 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import semver from 'semver'
+import { chevronDown } from 'ionicons/icons'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import MarkdownIt from 'markdown-it'
-import { IonButton, IonBadge, IonChip, IonLabel, IonNote, IonList, IonItem } from '@ionic/vue'
+import { IonBadge, IonButton, IonChip, IonIcon, IonItem, IonLabel, IonList, IonNote, IonPopover } from '@ionic/vue'
 import ModalWindow from '@/components/ui/ModalWindow.vue'
-import { type RegistryModEntry } from '@/mods/registryClient'
-import { isEntryCompatible, installFromRegistry, updateFromRegistry, remove } from '@/mods/installService'
-import { modsService } from '@/db/tables/mods'
 import useRegistryBase from '@/composables/useRegistryBase'
+import { modsService } from '@/db/tables/mods'
+import i18n from '@/i18n'
+import {
+	changeRegistryVersion,
+	getRegistryRelease,
+	installFromRegistry,
+	isRegistryReleaseCompatible,
+	isRegistryVersionBlocked,
+	remove
+} from '@/mods/installService'
+import { getIndex, type RegistryModEntry } from '@/mods/registryClient'
 import { confirmRemove } from '@/utils/helpers/dialog'
 import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
-import i18n from '@/i18n'
 
 const { entry } = defineProps<{ entry: RegistryModEntry }>()
 const emit = defineEmits<{ changed: [] }>()
@@ -22,52 +30,64 @@ const { getRegistryBase } = useRegistryBase()
 
 const busy = ref(false)
 const installedVersion = ref<string | null>(null)
-const readmeHtml = ref('')
+const selectedVersion = ref(entry.latestVersion)
+const blocklist = ref<Record<string, string[]>>({})
+const versionPopover = ref<InstanceType<typeof IonPopover>>()
 
 const strings = computed(() => entry.strings[locale.value] ?? entry.strings.en ?? Object.values(entry.strings)[0] ?? { name: entry.id, short: '' })
-const compatible = computed(() => isEntryCompatible(entry))
-const hasUpdate = computed(() => installedVersion.value !== null && installedVersion.value !== entry.latestVersion)
+const versions = computed(() => entry.versions.filter(version => getRegistryRelease(entry, version)).sort(semver.rcompare))
+const selectedIsBlocked = computed(() => isRegistryVersionBlocked(blocklist.value, entry.id, selectedVersion.value))
+const selectedIsCompatible = computed(() => isRegistryReleaseCompatible(entry, selectedVersion.value))
+const selectedIsInstalled = computed(() => selectedVersion.value === installedVersion.value)
+const imageUrl = computed(() => {
+	if (!entry.image) {
+		return null
+	}
+	const imageFile = getRegistryRelease(entry, entry.latestVersion)?.files[entry.image]
+	return imageFile ? `${getRegistryBase()}/${imageFile.url}` : null
+})
 
-async function refreshInstalledState() {
-	const row = await modsService.get(entry.id)
-	installedVersion.value = row?.version ?? null
+const actionKey = computed(() => {
+	if (!installedVersion.value) {
+		return 'settings.mods.detail.install'
+	}
+	if (selectedIsInstalled.value) {
+		return 'settings.mods.detail.installed'
+	}
+	return semver.gt(selectedVersion.value, installedVersion.value) ? 'settings.mods.detail.update' : 'settings.mods.detail.downgrade'
+})
+
+function versionLabel(version: string): string {
+	const latest = version === entry.latestVersion ? ` (${t('settings.mods.detail.latest')})` : ''
+	return `v${version}${latest}`
 }
 
-async function loadReadme() {
-	readmeHtml.value = ''
-	if (!entry.readmeUrl) {
-		return
-	}
-	try {
-		const res = await fetch(`${getRegistryBase()}/${entry.readmeUrl}`)
-		if (!res.ok) {
-			return
-		}
-		const raw = await res.text()
-		readmeHtml.value = new MarkdownIt().render(raw)
-	} catch {
-		// README is supplementary — a failed fetch just leaves the section empty.
-	}
+async function refreshState() {
+	const [row, registry] = await Promise.all([modsService.get(entry.id), getIndex()])
+	installedVersion.value = row?.version ?? null
+	blocklist.value = registry.index?.blocklist ?? {}
+	selectedVersion.value = entry.latestVersion
 }
 
 watch(
 	isOpen,
 	open => {
 		if (open) {
-			refreshInstalledState()
-			loadReadme()
+			refreshState()
 		}
 	},
 	{ immediate: true }
 )
 
-async function install() {
+async function performVersionAction() {
 	busy.value = true
 	try {
-		const result = await installFromRegistry(entry.id)
+		const result = installedVersion.value
+			? await changeRegistryVersion(entry.id, selectedVersion.value)
+			: await installFromRegistry(entry.id, selectedVersion.value)
 		if (result.ok) {
-			await showSuccessToast('settings.mods.installSuccess', { id: entry.id })
-			await refreshInstalledState()
+			await showSuccessToast(installedVersion.value ? 'settings.mods.updateSuccess' : 'settings.mods.installSuccess', { id: entry.id })
+			await refreshState()
 			emit('changed')
 		} else {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
@@ -77,20 +97,9 @@ async function install() {
 	}
 }
 
-async function performUpdate() {
-	busy.value = true
-	try {
-		const result = await updateFromRegistry(entry.id)
-		if (result.ok) {
-			await showSuccessToast('settings.mods.updateSuccess', { id: entry.id })
-			await refreshInstalledState()
-			emit('changed')
-		} else {
-			await showErrorToast('settings.mods.errors.action', { error: result.error })
-		}
-	} finally {
-		busy.value = false
-	}
+async function selectVersion(version: string) {
+	selectedVersion.value = version
+	await versionPopover.value?.$el.dismiss()
 }
 
 async function performRemove() {
@@ -101,7 +110,7 @@ async function performRemove() {
 	try {
 		const result = await remove(entry.id)
 		if (result.ok) {
-			await refreshInstalledState()
+			await refreshState()
 			emit('changed')
 		} else if (result.reason === 'blocked') {
 			await showWarningToast('settings.mods.removeBlocked', { characters: result.characterNames.join(', ') })
@@ -120,20 +129,95 @@ async function performRemove() {
 		:title="strings.name"
 	>
 		<div class="p-4">
-			<p class="text-secondary">{{ $t('settings.mods.detail.author', { name: entry.author.name }) }}</p>
+			<h1 class="text-3xl font-bold">{{ strings.name }}</h1>
+
+			<img
+				v-if="imageUrl"
+				:src="imageUrl"
+				:alt="strings.name"
+				class="mt-4 max-h-72 w-full rounded-lg object-cover"
+			/>
+
+			<ion-note class="mt-3 block">{{ $t('settings.mods.detail.author', { name: entry.author.name }) }}</ion-note>
 
 			<ion-badge
-				v-if="!compatible"
+				v-if="selectedIsBlocked || !selectedIsCompatible"
 				color="danger"
+				class="mt-2"
 			>
-				{{ $t('settings.mods.browse.incompatible') }}
+				{{ selectedIsBlocked ? $t('settings.mods.detail.blocked') : $t('settings.mods.browse.incompatible') }}
 			</ion-badge>
 
-			<p class="mt-2">{{ t(entry.description.full || entry.description.short) }}</p>
+			<div class="mt-4 flex">
+				<ion-button
+					:data-testid="installedVersion ? 'mod-store-update-button' : 'mod-store-install-button'"
+					:disabled="busy || selectedIsBlocked || !selectedIsCompatible || selectedIsInstalled"
+					expand="block"
+					class="m-0 flex-1"
+					style="--border-radius: 4px 0 0 4px"
+					@click="performVersionAction"
+				>
+					{{ $t(actionKey) }} {{ versionLabel(selectedVersion) }}
+				</ion-button>
+				<ion-button
+					id="mod-version-trigger"
+					data-testid="mod-store-version-button"
+					:disabled="busy"
+					class="m-0"
+					style="--border-radius: 0 4px 4px 0"
+					:aria-label="$t('settings.mods.detail.versions')"
+				>
+					<ion-icon
+						:icon="chevronDown"
+						aria-hidden="true"
+					/>
+				</ion-button>
+			</div>
+
+			<ion-popover
+				ref="versionPopover"
+				trigger="mod-version-trigger"
+			>
+				<ion-list lines="none">
+					<ion-item
+						v-for="version in versions"
+						:key="version"
+						button
+						:detail="false"
+						:disabled="isRegistryVersionBlocked(blocklist, entry.id, version) || !isRegistryReleaseCompatible(entry, version)"
+						:data-testid="`mod-store-version-${version}`"
+						@click="selectVersion(version)"
+					>
+						<ion-label>{{ versionLabel(version) }}</ion-label>
+						<ion-note
+							v-if="version === installedVersion"
+							slot="end"
+						>
+							{{ $t('settings.mods.detail.installed') }}
+						</ion-note>
+					</ion-item>
+				</ion-list>
+			</ion-popover>
+
+			<ion-button
+				v-if="installedVersion"
+				color="danger"
+				fill="clear"
+				data-testid="mod-store-remove-button"
+				:disabled="busy"
+				expand="block"
+				@click="performRemove"
+			>
+				{{ $t('settings.mods.detail.remove') }}
+			</ion-button>
+
+			<div class="my-6 h-px bg-[var(--ion-color-step-200)]" />
+
+			<p>{{ t(entry.description.full || entry.description.short) }}</p>
 
 			<div
 				v-if="entry.tags.length"
-				class="mt-2 flex flex-wrap gap-1"
+				class="mt-4 flex flex-wrap gap-1"
 			>
 				<ion-chip
 					v-for="tag in entry.tags"
@@ -142,75 +226,6 @@ async function performRemove() {
 					{{ tag }}
 				</ion-chip>
 			</div>
-
-			<div class="mt-4">
-				<ion-button
-					v-if="!installedVersion"
-					data-testid="mod-store-install-button"
-					:disabled="busy || !compatible"
-					expand="block"
-					@click="install"
-				>
-					{{ $t('settings.mods.detail.install') }}
-				</ion-button>
-				<template v-else>
-					<ion-note class="block">{{ $t('settings.mods.detail.installed') }}: v{{ installedVersion }}</ion-note>
-					<ion-button
-						v-if="hasUpdate"
-						data-testid="mod-store-update-button"
-						:disabled="busy"
-						expand="block"
-						@click="performUpdate"
-					>
-						{{ $t('settings.mods.detail.updateAvailable') }} ({{ entry.latestVersion }})
-					</ion-button>
-					<ion-button
-						color="danger"
-						fill="outline"
-						data-testid="mod-store-remove-button"
-						:disabled="busy"
-						expand="block"
-						@click="performRemove"
-					>
-						{{ $t('settings.mods.detail.remove') }}
-					</ion-button>
-				</template>
-			</div>
-
-			<template v-if="entry.config?.options?.length">
-				<ion-label>
-					<h3 class="mt-4">{{ $t('settings.mods.detail.config') }}</h3>
-				</ion-label>
-				<ion-list :inset="true">
-					<ion-item
-						v-for="option in entry.config.options"
-						:key="option.id"
-						lines="none"
-					>
-						<ion-label>{{ t(option.name) }}</ion-label>
-						<ion-note slot="end">{{ option.type }}</ion-note>
-					</ion-item>
-				</ion-list>
-			</template>
-
-			<template v-if="entry.versions.length > 1">
-				<ion-label>
-					<h3 class="mt-4">{{ $t('settings.mods.detail.versions') }}</h3>
-				</ion-label>
-				<p class="text-secondary">{{ entry.versions.slice().reverse().join(', ') }}</p>
-			</template>
-
-			<template v-if="readmeHtml">
-				<ion-label>
-					<h3 class="mt-4">{{ $t('settings.mods.detail.readme') }}</h3>
-				</ion-label>
-				<!-- eslint-disable vue/no-v-html -->
-				<div
-					class="markdown"
-					v-html="readmeHtml"
-				/>
-				<!-- eslint-enable vue/no-v-html -->
-			</template>
 		</div>
 	</ModalWindow>
 </template>

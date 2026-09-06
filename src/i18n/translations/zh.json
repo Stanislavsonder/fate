@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "作者：{name}",
+				"blocked": "此版本已被阻止",
 				"config": "配置选项",
+				"downgrade": "降级",
 				"install": "安装",
 				"installed": "已安装",
+				"latest": "最新",
 				"readme": "关于",
 				"remove": "移除",
 				"update": "更新",

@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "作者: {name}",
+				"blocked": "このバージョンはブロックされています",
 				"config": "設定オプション",
+				"downgrade": "ダウングレード",
 				"install": "インストール",
 				"installed": "インストール済み",
+				"latest": "最新",
 				"readme": "概要",
 				"remove": "削除",
 				"update": "更新",

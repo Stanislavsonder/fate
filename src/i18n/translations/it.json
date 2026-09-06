@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Di {name}",
+				"blocked": "Questa versione è bloccata",
 				"config": "Opzioni di configurazione",
+				"downgrade": "Esegui downgrade",
 				"install": "Installa",
 				"installed": "Installato",
+				"latest": "più recente",
 				"readme": "Informazioni",
 				"remove": "Rimuovi",
 				"update": "Aggiorna",

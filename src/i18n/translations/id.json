@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Oleh {name}",
+				"blocked": "Versi ini diblokir",
 				"config": "Opsi konfigurasi",
+				"downgrade": "Turunkan versi",
 				"install": "Pasang",
 				"installed": "Terpasang",
+				"latest": "terbaru",
 				"readme": "Tentang",
 				"remove": "Hapus",
 				"update": "Perbarui",

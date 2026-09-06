@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "{name} tarafından",
+				"blocked": "Bu sürüm engellendi",
 				"config": "Yapılandırma seçenekleri",
+				"downgrade": "Sürümü düşür",
 				"install": "Kur",
 				"installed": "Kurulu",
+				"latest": "en yeni",
 				"readme": "Hakkında",
 				"remove": "Kaldır",
 				"update": "Güncelle",

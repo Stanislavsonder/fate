@@ -22,6 +22,7 @@ export interface FateModuleManifest {
 		short: string
 		full?: string
 	}
+	image?: string
 	languages: string[]
 	tags: string[]
 	dependencies?: Record<string, string>

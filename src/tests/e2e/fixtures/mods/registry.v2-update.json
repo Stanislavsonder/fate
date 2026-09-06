@@ -29,6 +29,50 @@
 			"loadPriority": 100,
 			"name": "Fixture Mod",
 			"publishedAt": "2026-02-01T00:00:00.000Z",
+			"releases": {
+				"1.0.0": {
+					"files": {
+						"bundle.mjs": {
+							"sha256": "a5e747a857be216d4c3586da6bfd4946aefd260f3d35dd684b0785d25278a41a",
+							"size": 100,
+							"url": "mods/e2e@fixture-mod/1.0.0/bundle.mjs"
+						},
+						"manifest.json": {
+							"sha256": "7336cb38ef9c8784f0a0b69f8fdd7d221c763123c802bae5a9e8d6c93feb3a76",
+							"size": 315,
+							"url": "mods/e2e@fixture-mod/1.0.0/manifest.json"
+						},
+						"translations/en.json": {
+							"sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+							"size": 3,
+							"url": "mods/e2e@fixture-mod/1.0.0/translations/en.json"
+						}
+					},
+					"sdk": ">=1.0.0",
+					"version": "1.0.0"
+				},
+				"1.0.1": {
+					"files": {
+						"bundle.mjs": {
+							"sha256": "08d39c0805d9653359439ad666722b8dc2ab7b35f6a00f4d29286cfa42313c74",
+							"size": 100,
+							"url": "mods/e2e@fixture-mod/1.0.1/bundle.mjs"
+						},
+						"manifest.json": {
+							"sha256": "3417232c36efe394eb12d6299e90f6c3a84cbeed89da6a8497b998ecf75cf02f",
+							"size": 315,
+							"url": "mods/e2e@fixture-mod/1.0.1/manifest.json"
+						},
+						"translations/en.json": {
+							"sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+							"size": 3,
+							"url": "mods/e2e@fixture-mod/1.0.1/translations/en.json"
+						}
+					},
+					"sdk": ">=1.0.0",
+					"version": "1.0.1"
+				}
+			},
 			"sdk": ">=1.0.0",
 			"strings": { "en": { "name": "E2E Fixture Mod", "short": "A mod that exists only to be installed by Cypress specs." } },
 			"tags": ["fixture"],
@@ -36,5 +80,5 @@
 			"versions": ["1.0.0", "1.0.1"]
 		}
 	],
-	"schemaVersion": 1
+	"schemaVersion": 2
 }

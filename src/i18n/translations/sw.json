@@ -250,9 +250,12 @@
 			},
 			"detail": {
 				"author": "Na {name}",
+				"blocked": "Toleo hili limezuiwa",
 				"config": "Chaguo za usanidi",
+				"downgrade": "Rudisha toleo la awali",
 				"install": "Sakinisha",
 				"installed": "Imesakinishwa",
+				"latest": "jipya zaidi",
 				"readme": "Kuhusu",
 				"remove": "Ondoa",
 				"update": "Sasisha",
