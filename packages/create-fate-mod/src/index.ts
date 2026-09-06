@@ -32,7 +32,7 @@ async function main(): Promise<void> {
 			{
 				type: 'text',
 				name: 'authorGithub',
-				message: 'Your GitHub handle (fate-core-mods CI verifies this against the PR author)',
+				message: 'Your GitHub handle (fate-mods CI verifies this against the PR author)',
 				validate: (value: string) => GITHUB_PATTERN.test(value) || 'Must be a valid GitHub username'
 			},
 			{

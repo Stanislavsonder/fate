@@ -2,7 +2,7 @@
 
 /**
  * Fails CI if packages/mod-types/registry.schema.json has drifted from the
- * canonical copy in the fate-core-mods repo (main branch). That repo's own
+ * canonical copy in the fate-mods repo (main branch). That repo's own
  * CI (validate-pr.yml/publish.yml) and this app's install-time validation
  * (src/mods/registryClient.ts) both need the exact same schema — see
  * planning/modules-2-0/phase-3-registry-store.md, Decision 2.
@@ -13,7 +13,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const CANONICAL_URL = 'https://raw.githubusercontent.com/Stanislavsonder/fate-core-mods/main/registry.schema.json'
+const CANONICAL_URL = 'https://raw.githubusercontent.com/Stanislavsonder/fate-mods/main/registry.schema.json'
 const VENDORED_PATH = path.join(process.cwd(), 'packages', 'mod-types', 'registry.schema.json')
 
 async function main(): Promise<void> {
@@ -22,7 +22,7 @@ async function main(): Promise<void> {
 	const res = await fetch(CANONICAL_URL)
 	if (!res.ok) {
 		console.error(
-			`Could not fetch canonical schema from ${CANONICAL_URL} (${res.status}). If fate-core-mods hasn't been pushed yet, this check can't run — skip it until Phase 3's registry repo is live.`
+			`Could not fetch canonical schema from ${CANONICAL_URL} (${res.status}). If fate-mods hasn't been pushed yet, this check can't run — skip it until Phase 3's registry repo is live.`
 		)
 		process.exitCode = 1
 		return
@@ -33,7 +33,7 @@ async function main(): Promise<void> {
 		console.error(
 			[
 				'packages/mod-types/registry.schema.json has drifted from the canonical copy in',
-				'https://github.com/Stanislavsonder/fate-core-mods (registry.schema.json on main).',
+				'https://github.com/Stanislavsonder/fate-mods (registry.schema.json on main).',
 				'Update the vendored copy to match, or update the canonical copy first if this change is intentional.'
 			].join(' ')
 		)
@@ -41,7 +41,7 @@ async function main(): Promise<void> {
 		return
 	}
 
-	console.log('registry.schema.json matches the canonical copy in fate-core-mods.')
+	console.log('registry.schema.json matches the canonical copy in fate-mods.')
 }
 
 // Setting process.exitCode (not process.exit()) lets Node's event loop drain

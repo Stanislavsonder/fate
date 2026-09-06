@@ -2,7 +2,7 @@ import { ref, watch } from 'vue'
 
 const STORAGE_KEY = 'registryBaseOverride'
 
-export const DEFAULT_REGISTRY_BASE = 'https://stanislavsonder.github.io/fate-core-mods'
+export const DEFAULT_REGISTRY_BASE = 'https://stanislavsonder.github.io/fate-mods'
 
 function getSavedValue(): string {
 	return localStorage.getItem(STORAGE_KEY) ?? ''

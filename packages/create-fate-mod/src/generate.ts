@@ -207,7 +207,7 @@ Then, in the app: Settings → Developer Mode → enable it → connect to
 
 ## Publishing
 
-See [\`fate-core-mods\`](https://github.com/Stanislavsonder/fate-core-mods)'s
+See [\`fate-mods\`](https://github.com/Stanislavsonder/fate-mods)'s
 \`SUBMITTING.md\` for how to submit this mod to the public registry once it's
 ready. In short: \`npm run build\`, then open a pull request against that repo
 adding this folder under \`mods/${answers.id}/\`.

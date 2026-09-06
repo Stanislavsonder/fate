@@ -12,7 +12,7 @@ export interface RegistryFileEntry {
 }
 
 /** A registry.json entry: the mod's full static manifest embedded verbatim,
- * plus publish-time fields — see fate-core-mods' scripts/ci/publish.ts. */
+ * plus publish-time fields — see fate-mods' scripts/ci/publish.ts. */
 export interface RegistryModEntry extends FateModuleManifest {
 	latestVersion: string
 	publishedAt: string

@@ -253,7 +253,7 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
 | `loadPriority` | yes | higher loads first; tiebreak for topological sort |
 | `sdk` | yes | semver range gating the **ABI version** (`FateSDK.version`) — see Versioning below |
 | `entry` | yes | relative path to your bundle, conventionally `"bundle.mjs"` |
-| `capabilities` | yes | `["sheetComponents"]` for a character-sheet mod; `["dice"]`/`["theme"]` also work for externally-loaded mods (install-from-URL, dev mode) as of the app's SDK 1.1.0 — the curated public registry's own CI may lag behind on accepting `dice`/`theme` submissions, check `fate-core-mods`' `SUBMITTING.md` for current status |
+| `capabilities` | yes | `["sheetComponents"]` for a character-sheet mod; `["dice"]`/`["theme"]` also work for externally-loaded mods (install-from-URL, dev mode) as of the app's SDK 1.1.0 — the curated public registry's own CI may lag behind on accepting `dice`/`theme` submissions, check `fate-mods`' `SUBMITTING.md` for current status |
 | `config` | no | `{ groups: [], options: [] }` — declarative settings schema, rendered by the host's existing config UI, unchanged from 1.x |
 
 ## 7. Versioning rules

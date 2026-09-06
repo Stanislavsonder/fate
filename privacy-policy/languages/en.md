@@ -24,7 +24,7 @@ You have full control over your data within the App. You can update or delete yo
 
 The App supports optional, community-created mods. To make them available, the App performs the following network requests:
 
-- **Mod catalog refresh (automatic):** when the App starts, it downloads the public mod catalog from the official mod registry, hosted on GitHub Pages (`stanislavsonder.github.io/fate-core-mods`). This keeps the Mod Store listing up to date.
+- **Mod catalog refresh (automatic):** when the App starts, it downloads the public mod catalog from the official mod registry, hosted on GitHub Pages (`stanislavsonder.github.io/fate-mods`). This keeps the Mod Store listing up to date.
 - **Mod Store browsing (on your action):** opening a mod's page in the Mod Store downloads that mod's description from the same registry.
 - **Mod installation (on your action):** installing a mod — from the Mod Store or from a URL you provide yourself — downloads the mod's files (its manifest, code bundle, and translations) from the registry or from that URL.
 

@@ -305,7 +305,7 @@ async function verifyFileHash(url: string, expected: RegistryFileEntry | undefin
  * newest version whose `appVersion`/`sdk` both match this app — currently
  * only the registry's *latest* published version, since older versions'
  * files aren't hash-pinned in the index (only `latestVersion` carries a
- * `files` map — see fate-core-mods' publish.ts). Requesting an explicit
+ * `files` map — see fate-mods' publish.ts). Requesting an explicit
  * older version is refused for the same reason: there's no pinned hash to
  * verify it against, and installing without one would be a silent,
  * unadvertised weakening of the registry's trust model.

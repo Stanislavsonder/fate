@@ -7,7 +7,7 @@ packages/*/dist
 
 /src/i18n/languages.json
 
-# Must byte-match the canonical copy in github.com/Stanislavsonder/fate-core-mods
+# Must byte-match the canonical copy in github.com/Stanislavsonder/fate-mods
 # (scripts/check-registry-schema/index.ts enforces this) — not this repo's to reformat.
 packages/mod-types/registry.schema.json
 

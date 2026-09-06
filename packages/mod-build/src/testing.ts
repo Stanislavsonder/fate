@@ -10,7 +10,7 @@ import type * as ThreeModule from 'three'
 import type * as CannonEsModule from 'cannon-es'
 
 /**
- * `fate-core-mods`'s CI smoke-load check (see the registry repo's
+ * `fate-mods`'s CI smoke-load check (see the registry repo's
  * `validate-pr.yml`) imports a freshly built `bundle.mjs` in plain Node and
  * runs it through the exact same `validateBundleShape` gate the app's real
  * loader uses (`src/mods/loader.ts` in the app repo), then mounts every

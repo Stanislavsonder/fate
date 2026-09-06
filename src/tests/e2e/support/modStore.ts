@@ -7,7 +7,7 @@ import { ACTUAL_POLICY_VERSION_DATE } from '@/composables/usePolicy'
  * registryBaseOverride for every Mod Store spec — if an intercept pattern is
  * ever wrong, requests fail loudly against this host instead of silently
  * falling through to the real production registry. */
-export const FIXTURE_REGISTRY_BASE = 'https://fixture-registry.invalid/fate-core-mods'
+export const FIXTURE_REGISTRY_BASE = 'https://fixture-registry.invalid/fate-mods'
 
 /** Seeds privacy-policy acceptance + the registryBaseOverride into localStorage
  * before the app's module graph first evaluates. useRegistryBase's override ref

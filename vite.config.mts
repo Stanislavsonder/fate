@@ -60,7 +60,7 @@ export default defineConfig({
 						// runtimeCaching rule can't silently reintroduce a stale-cached
 						// registry.json defeating registryClient.ts's own blocklist checks
 						// — see planning/modules-2-0/phase-3-registry-store.md, Decision 6.
-						urlPattern: /^https:\/\/stanislavsonder\.github\.io\/fate-core-mods\//,
+						urlPattern: /^https:\/\/stanislavsonder\.github\.io\/fate-mods\//,
 						handler: 'NetworkOnly'
 					}
 				]

@@ -14,5 +14,5 @@ npm run dev` gets you live-reloading in the app's Developer Mode.
 
 See [`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md)
 for the full authoring contract, and
-[`fate-core-mods`](https://github.com/Stanislavsonder/fate-core-mods)'s
+[`fate-mods`](https://github.com/Stanislavsonder/fate-mods)'s
 `SUBMITTING.md` for how to publish what you build.

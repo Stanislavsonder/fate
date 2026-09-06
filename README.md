@@ -22,7 +22,7 @@ This is an independent project. It is not published, sponsored or endorsed by Ev
 
 The character sheet is fully modular. Built-in modules (aspects, skills, stress, dice, â¦) live in `src/modules/`, and the app also loads community-made mods at runtime:
 
-- **Mod Store** â browse and install mods from the public registry, right in the app (Settings â Mods). The registry lives in its own repo: [fate-core-mods](https://github.com/Stanislavsonder/fate-core-mods).
+- **Mod Store** â browse and install mods from the public registry, right in the app (Settings â Mods). The registry lives in its own repo: [fate-mods](https://github.com/Stanislavsonder/fate-mods).
 - **Write your own** â scaffold a mod project with `create-fate-mod`, build it against the `@fate-app/mod-types` / `@fate-app/mod-build` SDK, and live-reload it in the app via Developer Mode. See [docs/MOD_API.md](./docs/MOD_API.md) for the full author guide.
 
 ## Install the app
