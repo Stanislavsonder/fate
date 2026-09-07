@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "توضیحات",
-		"name": "نام",
-		"quantity": "مقدار",
-		"validation-error": "خطای اعتبارسنجی"
-	},
-	"character": {
-		"configure": "پیکربندی",
-		"create": "ایجاد شخصیت",
-		"export": "صادرات شخصیت",
-		"exportSuccess": "شخصیت با موفقیت صادر شد!",
-		"import": {
-			"error": {
-				"extension": "امکان وارد کردن شخصیت وجود ندارد. پسوند فایل باید .fchar باشد",
-				"validation": "امکان وارد کردن شخصیت وجود ندارد. فایل نامعتبر است.",
-				"version": "امکان وارد کردن شخصیت وجود ندارد. نسخه شخصیت قدیمی است."
-			},
-			"success": "شخصیت با موفقیت وارد شد!",
-			"title": "وارد کردن شخصیت از فایل"
-		},
-		"messages": {
-			"remove": "آیا مطمئن هستید که می‌خواهید {value} را حذف کنید؟",
-			"update": "نسخه شخصیت قدیمی است. به‌روزرسانی کنیم؟"
-		},
-		"name": "نام شخصیت",
-		"new-character": "شخصیت جدید",
-		"no-characters": "هنوز هیچ شخصیتی ایجاد نشده است. یک شخصیت جدید بسازید یا از فایل وارد کنید.",
-		"not-selected": "شخصیتی انتخاب نشده است. یکی را انتخاب کنید یا یک شخصیت جدید بسازید!",
-		"remove-message": "آیا مطمئن هستید که می‌خواهید این شخصیت را حذف کنید؟",
-		"save": "ذخیره شخصیت",
-		"share": "اشتراک‌گذاری شخصیت",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "نسخه شخصیت قدیمی است. آیا می‌خواهید به‌روزرسانی کنید؟",
-		"updated": "شخصیت با موفقیت از نسخه v{from} به v{to} به‌روزرسانی شد!",
-		"your-characters": "شخصیت‌های شما"
-	},
-	"common": {
-		"actions": {
-			"add": "افزودن",
-			"back": "بازگشت",
-			"cancel": "لغو",
-			"close": "بستن",
-			"confirm": "تأیید",
-			"create": "ایجاد",
-			"decrease": "کاهش",
-			"delete": "حذف",
-			"edit": "ویرایش",
-			"finish": "پایان",
-			"go": "برو",
-			"increase": "افزایش",
-			"next": "بعدی",
-			"remove": "حذف",
-			"reset": "بازنشانی",
-			"save": "ذخیره",
-			"select": "انتخاب",
-			"update": "به‌روزرسانی",
-			"upload": "آپلود",
-			"use": "استفاده"
-		},
-		"messages": {
-			"emptyList": "هنوز عنصری اضافه نشده است",
-			"remove": "آیا مطمئن هستید که می‌خواهید آن را حذف کنید؟",
-			"remove-named": "آیا مطمئن هستید که می‌خواهید \"{value}\" را حذف کنید؟"
-		},
-		"or": "یا",
-		"state": {
-			"disabled": "غیرفعال",
-			"enabled": "فعال"
-		}
-	},
-	"debug": {
-		"add-mock-character": "افزودن شخصیت آزمایشی"
-	},
-	"errors": {
-		"boundary": {
-			"description": "برنامه با مشکلی مواجه شد و نمی‌تواند به طور ایمن ادامه دهد. بارگیری مجدد باید آن را برطرف کند.",
-			"reload": "بارگیری مجدد",
-			"title": "مشکلی پیش آمد"
-		},
-		"character": {
-			"create": "ایجاد شخصیت امکان‌پذیر نبود. {error}",
-			"export": "صادر کردن شخصیت امکان‌پذیر نبود. {error}",
-			"list": "بارگیری لیست شخصیت‌ها امکان‌پذیر نبود. {error}",
-			"load": "بارگیری شخصیت امکان‌پذیر نبود. {error}",
-			"remove": "حذف شخصیت امکان‌پذیر نبود. {error}",
-			"save": "ذخیره شخصیت امکان‌پذیر نبود. ممکن است تغییرات ذخیره نشوند. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "نسخه مورد نیاز برنامه \"{requiredVersion}\" است اما نسخه فعلی \"{appVersion}\" می‌باشد",
-			"incompatible": "ناسازگار با \"{anotherModule}\"",
-			"missingDependencies": "وابستگی‌های گم‌شده: {modules}",
-			"notFound": "ماژول یافت نشد: \"{module}\"",
-			"otherDependsOn": "ماژول‌های دیگر به آن وابسته هستند: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "ماژول '{module}' به نسخه '{requiredAppVersion}' برنامه نیاز دارد، اما نسخه فعلی '{currentAppVersion}' است.",
-			"dependencyCycle": "یک چرخه وابستگی شامل {modules} شناسایی شد.",
-			"genericError": "خطای ناشناخته‌ای در هنگام حل ماژول رخ داد.",
-			"incompatibleModules": "ماژول '{module}' با این موارد ناسازگار است: {incompatible}.",
-			"missingDependency": "ماژول '{module}' وابستگی '{dependency}' را ندارد.",
-			"versionMismatch": "ماژول '{module}' به نسخه '{requiredVersion}' از '{dependency}' نیاز دارد، اما نسخه یافت شده '{actualVersion}' است."
-		},
-		"modules": {
-			"export": "امکان صدور ماژول‌ها وجود ندارد. {error}"
-		},
-		"outdatedBrowser": "مرورگر سیستم شما قدیمی است. ممکن است برنامه به درستی کار نکند. لطفاً آن را به‌روزرسانی کنید.",
-		"unexpected": "اتفاق غیرمنتظره‌ای افتاد. ممکن است برخی از بخش‌های برنامه طبق انتظار کار نکنند."
-	},
-	"forms": {
-		"description": "توضیحات",
-		"name": "نام",
-		"price": "قیمت",
-		"quantity": "تعداد",
-		"skill": "مهارت",
-		"type": "نوع"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "نویسنده",
-			"dependencies": "وابستگی‌ها",
-			"description": "توضیحات",
-			"id": "ID",
-			"label": "پیکربندی سفارشی",
-			"languages": "زبان‌ها",
-			"mainSettings": "تنظیمات اصلی",
-			"name": "نام",
-			"version": "نسخه"
-		},
-		"export": "صادرات پیکربندی ماژول‌ها",
-		"exportSuccess": "ماژول‌ها با موفقیت صادر شدند!",
-		"external": "خارجی",
-		"import": {
-			"error": {
-				"extension": "امکان وارد کردن ماژول‌ها وجود ندارد. پسوند فایل باید .fmod باشد",
-				"validation": "امکان وارد کردن ماژول‌ها وجود ندارد. فایل نامعتبر است.",
-				"version": "امکان وارد کردن ماژول‌ها وجود ندارد. نسخه ماژول‌ها قدیمی است."
-			},
-			"success": "ماژول‌ها با موفقیت وارد شدند!",
-			"title": "وارد کردن ماژول‌ها از فایل"
-		},
-		"installed": "ماژول‌های نصب شده ({value}):",
-		"save": "ذخیره پیکربندی ماژول‌ها",
-		"selected": "ماژول‌های انتخاب‌شده",
-		"share": "اشتراک‌گذاری پیکربندی ماژول‌ها",
-		"updated": "ماژول {module} به نسخه v{version} به‌روزرسانی شد"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "جنس تاس",
-				"title": "گزینه‌های تاس",
-				"type": "نوع تاس"
-			},
-			"force": "نیرو",
-			"general": {
-				"haptic": "بازخورد لمسی",
-				"shake": "تکان دادن برای انداختن",
-				"show-result": "نمایش نتیجه روی صفحه",
-				"title": "تنظیمات عمومی"
-			},
-			"gravity": "گرانش",
-			"haptic": "بازخورد لمسی",
-			"number": "تعداد تاس",
-			"physics": {
-				"force": "نیرو",
-				"gravity": "گرانش",
-				"number": "تعداد تاس",
-				"size": "اندازه تاس",
-				"title": "تنظیمات فیزیکی"
-			},
-			"reset": "بازنشانی تنظیمات",
-			"resetPhysics": "بازنشانی تنظیمات فیزیک",
-			"shake": "تکان دهید برای پرتاب",
-			"size": "اندازه تاس",
-			"title": "پیکربندی پرتاب تاس"
-		},
-		"result": "نتیجه پرتاب {value} است",
-		"rolling": "در حال پرتاب...",
-		"throw": "پرتاب {value} تاس"
-	},
-	"settings": {
-		"about-app": {
-			"author": "نویسنده",
-			"legal": {
-				"title": "اطلاعات حقوقی و انتساب"
-			},
-			"license": "مجوز",
-			"privacy-policy": {
-				"accept-policy": "من سیاست حفظ حریم خصوصی را خوانده‌ام و قبول دارم",
-				"acceptance-date": "تاریخ پذیرش: {value}",
-				"not-accepted": "سیاست حفظ حریم خصوصی پذیرفته نشده است. به تنظیمات بروید، آن را بخوانید و قبول کنید. در غیر این صورت نمی‌توانید از برنامه استفاده کنید.",
-				"title": "سیاست حفظ حریم خصوصی",
-				"updated": "خوش آمدید! شرایط را کمی به‌روزرسانی کرده‌ایم، بنابراین لازم است یک‌بار دیگر آن‌ها را تأیید کنید."
-			},
-			"source-code": "کد منبع",
-			"title": "درباره اپلیکیشن",
-			"version": "نسخه"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "نمایش اطلاعات اشکال‌زدایی",
-				"toggleDescription": "ابزارهای اشکال‌زدایی اضافی را در برنامه نشان می‌دهد — اشکال‌زدای فیزیک تاس و صفحات پنهان توسعه‌دهنده."
-			},
-			"devMod": {
-				"connect": "اتصال",
-				"connected": "متصل به \"{id}\"",
-				"disconnect": "قطع اتصال",
-				"error": "اتصال به ماد توسعه ممکن نشد. {error}",
-				"title": "اتصال ماد توسعه",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "در حال نصب \"{id}\" از خارج از رجیستری بررسی‌شده هستید. با دسترسی کامل به برنامه و داده‌های شخصیت اجرا می‌شود. برای تأیید \"{id}\" یا \"install\" را تایپ کنید.",
-				"confirmPlaceholder": "برای تأیید تایپ کنید",
-				"confirmTitle": "کد خارجی نصب شود؟",
-				"error": "نصب ماد ممکن نشد. {error}",
-				"install": "نصب",
-				"success": "\"{id}\" نصب شد",
-				"title": "نصب از URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "فروشگاه ماد را به جای رجیستری واقعی به رجیستری آزمایشی وصل کنید. برای پیش‌فرض خالی بگذارید.",
-				"save": "ذخیره",
-				"title": "لغو URL پایه رجیستری"
-			},
-			"title": "توسعه‌دهنده",
-			"toggle": "حالت توسعه‌دهنده",
-			"toggleDescription": "نصب ماد از URL را فعال می‌کند. فقط برای نویسندگان و آزمایش‌کنندگان — مادها دسترسی کامل به برنامه دارند."
-		},
-		"language": "زبان",
-		"mods": {
-			"actions": {
-				"disable": "غیرفعال کردن",
-				"enable": "فعال کردن",
-				"remove": "حذف",
-				"retry": "تلاش دوباره",
-				"update": "به‌روزرسانی"
-			},
-			"blocked": "\"{id}\" غیرفعال شد — این نسخه ناامن علامت‌گذاری شده است. فروشگاه ماد را برای به‌روزرسانی بررسی کنید.",
-			"browse": {
-				"compatibleOnly": "فقط سازگار با این برنامه",
-				"empty": "مادی یافت نشد",
-				"incompatible": "با این نسخه برنامه سازگار نیست",
-				"loadError": "بارگذاری فروشگاه ماد ممکن نشد. {error}",
-				"offline": "به‌روزرسانی ممکن نشد — نتایج ذخیره‌شده نمایش داده می‌شود",
-				"searchPlaceholder": "جستجوی ماد",
-				"stale": "نتایج ذخیره‌شده نمایش داده می‌شود — برای تازه‌سازی بکشید"
-			},
-			"detail": {
-				"author": "توسط {name}",
-				"blocked": "این نسخه مسدود شده است",
-				"config": "گزینه‌های پیکربندی",
-				"downgrade": "بازگشت به نسخه قدیمی‌تر",
-				"install": "نصب",
-				"installed": "نصب‌شده",
-				"latest": "جدیدترین",
-				"readme": "درباره",
-				"remove": "حذف",
-				"update": "به‌روزرسانی",
-				"updateAvailable": "به‌روزرسانی موجود است",
-				"versions": "نسخه‌ها"
-			},
-			"empty": "هیچ مادی نصب نشده",
-			"errors": {
-				"action": "تکمیل عمل ممکن نشد. {error}",
-				"list": "بارگذاری مادهای نصب‌شده ممکن نشد. {error}"
-			},
-			"installSuccess": "\"{id}\" نصب شد",
-			"removeBlocked": "هنوز توسط این‌ها استفاده می‌شود: {characters}",
-			"restartToApply": "برای اعمال تغییرات، راه‌اندازی مجدد کنید",
-			"source": {
-				"dev": "Dev",
-				"registry": "رجیستری",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "غیرفعال",
-				"errored": "خطا",
-				"loaded": "بارگذاری‌شده"
-			},
-			"tabs": {
-				"browse": "مرور",
-				"installed": "نصب‌شده"
-			},
-			"title": "مادها",
-			"updateSuccess": "\"{id}\" به‌روز شد"
-		},
-		"theme": {
-			"dark": "تاریک",
-			"defaultSkin": "پیش‌فرض",
-			"light": "روشن",
-			"system": "سیستم",
-			"title": "تم"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "نصب \"{module}\" از فروشگاه ماد",
-			"notInstalled": "\"{module}\" نصب نشده است",
-			"openModStore": "باز کردن فروشگاه ماد"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "شخصیت"
-		},
-		"roll-dice": {
-			"title": "تاس بیاندازید"
-		},
-		"settings": {
-			"title": "تنظیمات"
-		}
-	}
+  "a11y": {
+    "description": "توضیحات",
+    "name": "نام",
+    "quantity": "مقدار",
+    "validation-error": "خطای اعتبارسنجی"
+  },
+  "character": {
+    "configure": "پیکربندی",
+    "create": "ایجاد شخصیت",
+    "export": "صادرات شخصیت",
+    "exportSuccess": "شخصیت با موفقیت صادر شد!",
+    "import": {
+      "error": {
+        "extension": "امکان وارد کردن شخصیت وجود ندارد. پسوند فایل باید .fchar باشد",
+        "validation": "امکان وارد کردن شخصیت وجود ندارد. فایل نامعتبر است.",
+        "version": "امکان وارد کردن شخصیت وجود ندارد. نسخه شخصیت قدیمی است."
+      },
+      "success": "شخصیت با موفقیت وارد شد!",
+      "title": "وارد کردن شخصیت از فایل"
+    },
+    "messages": {
+      "remove": "آیا مطمئن هستید که می‌خواهید {value} را حذف کنید؟",
+      "update": "نسخه شخصیت قدیمی است. به‌روزرسانی کنیم؟"
+    },
+    "name": "نام شخصیت",
+    "new-character": "شخصیت جدید",
+    "no-characters": "هنوز هیچ شخصیتی ایجاد نشده است. یک شخصیت جدید بسازید یا از فایل وارد کنید.",
+    "not-selected": "شخصیتی انتخاب نشده است. یکی را انتخاب کنید یا یک شخصیت جدید بسازید!",
+    "remove-message": "آیا مطمئن هستید که می‌خواهید این شخصیت را حذف کنید؟",
+    "save": "ذخیره شخصیت",
+    "share": "اشتراک‌گذاری شخصیت",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "نسخه شخصیت قدیمی است. آیا می‌خواهید به‌روزرسانی کنید؟",
+    "updated": "شخصیت با موفقیت از نسخه v{from} به v{to} به‌روزرسانی شد!",
+    "your-characters": "شخصیت‌های شما"
+  },
+  "common": {
+    "actions": {
+      "add": "افزودن",
+      "back": "بازگشت",
+      "cancel": "لغو",
+      "close": "بستن",
+      "confirm": "تأیید",
+      "create": "ایجاد",
+      "decrease": "کاهش",
+      "delete": "حذف",
+      "edit": "ویرایش",
+      "finish": "پایان",
+      "go": "برو",
+      "increase": "افزایش",
+      "next": "بعدی",
+      "remove": "حذف",
+      "reset": "بازنشانی",
+      "save": "ذخیره",
+      "select": "انتخاب",
+      "update": "به‌روزرسانی",
+      "upload": "آپلود",
+      "use": "استفاده"
+    },
+    "messages": {
+      "emptyList": "هنوز عنصری اضافه نشده است",
+      "remove": "آیا مطمئن هستید که می‌خواهید آن را حذف کنید؟",
+      "remove-named": "آیا مطمئن هستید که می‌خواهید \"{value}\" را حذف کنید؟"
+    },
+    "or": "یا",
+    "state": {
+      "disabled": "غیرفعال",
+      "enabled": "فعال"
+    }
+  },
+  "debug": {
+    "add-mock-character": "افزودن شخصیت آزمایشی"
+  },
+  "errors": {
+    "boundary": {
+      "description": "برنامه با مشکلی مواجه شد و نمی‌تواند به طور ایمن ادامه دهد. بارگیری مجدد باید آن را برطرف کند.",
+      "reload": "بارگیری مجدد",
+      "title": "مشکلی پیش آمد"
+    },
+    "character": {
+      "create": "ایجاد شخصیت امکان‌پذیر نبود. {error}",
+      "export": "صادر کردن شخصیت امکان‌پذیر نبود. {error}",
+      "list": "بارگیری لیست شخصیت‌ها امکان‌پذیر نبود. {error}",
+      "load": "بارگیری شخصیت امکان‌پذیر نبود. {error}",
+      "remove": "حذف شخصیت امکان‌پذیر نبود. {error}",
+      "save": "ذخیره شخصیت امکان‌پذیر نبود. ممکن است تغییرات ذخیره نشوند. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "نسخه مورد نیاز برنامه \"{requiredVersion}\" است اما نسخه فعلی \"{appVersion}\" می‌باشد",
+      "incompatible": "ناسازگار با \"{anotherModule}\"",
+      "missingDependencies": "وابستگی‌های گم‌شده: {modules}",
+      "notFound": "ماژول یافت نشد: \"{module}\"",
+      "otherDependsOn": "ماژول‌های دیگر به آن وابسته هستند: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "ماژول '{module}' به نسخه '{requiredAppVersion}' برنامه نیاز دارد، اما نسخه فعلی '{currentAppVersion}' است.",
+      "dependencyCycle": "یک چرخه وابستگی شامل {modules} شناسایی شد.",
+      "genericError": "خطای ناشناخته‌ای در هنگام حل ماژول رخ داد.",
+      "incompatibleModules": "ماژول '{module}' با این موارد ناسازگار است: {incompatible}.",
+      "missingDependency": "ماژول '{module}' وابستگی '{dependency}' را ندارد.",
+      "versionMismatch": "ماژول '{module}' به نسخه '{requiredVersion}' از '{dependency}' نیاز دارد، اما نسخه یافت شده '{actualVersion}' است."
+    },
+    "modules": {
+      "export": "امکان صدور ماژول‌ها وجود ندارد. {error}"
+    },
+    "outdatedBrowser": "مرورگر سیستم شما قدیمی است. ممکن است برنامه به درستی کار نکند. لطفاً آن را به‌روزرسانی کنید.",
+    "unexpected": "اتفاق غیرمنتظره‌ای افتاد. ممکن است برخی از بخش‌های برنامه طبق انتظار کار نکنند."
+  },
+  "forms": {
+    "description": "توضیحات",
+    "name": "نام",
+    "price": "قیمت",
+    "quantity": "تعداد",
+    "skill": "مهارت",
+    "type": "نوع"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "نویسنده",
+      "dependencies": "وابستگی‌ها",
+      "description": "توضیحات",
+      "id": "ID",
+      "label": "پیکربندی سفارشی",
+      "languages": "زبان‌ها",
+      "mainSettings": "تنظیمات اصلی",
+      "name": "نام",
+      "version": "نسخه"
+    },
+    "export": "صادرات پیکربندی ماژول‌ها",
+    "exportSuccess": "ماژول‌ها با موفقیت صادر شدند!",
+    "external": "خارجی",
+    "import": {
+      "error": {
+        "extension": "امکان وارد کردن ماژول‌ها وجود ندارد. پسوند فایل باید .fmod باشد",
+        "validation": "امکان وارد کردن ماژول‌ها وجود ندارد. فایل نامعتبر است.",
+        "version": "امکان وارد کردن ماژول‌ها وجود ندارد. نسخه ماژول‌ها قدیمی است."
+      },
+      "success": "ماژول‌ها با موفقیت وارد شدند!",
+      "title": "وارد کردن ماژول‌ها از فایل"
+    },
+    "installed": "ماژول‌های نصب شده ({value}):",
+    "save": "ذخیره پیکربندی ماژول‌ها",
+    "selected": "ماژول‌های انتخاب‌شده",
+    "share": "اشتراک‌گذاری پیکربندی ماژول‌ها",
+    "updated": "ماژول {module} به نسخه v{version} به‌روزرسانی شد"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "جنس تاس",
+        "title": "گزینه‌های تاس",
+        "type": "نوع تاس"
+      },
+      "force": "نیرو",
+      "general": {
+        "haptic": "بازخورد لمسی",
+        "shake": "تکان دادن برای انداختن",
+        "show-result": "نمایش نتیجه روی صفحه",
+        "title": "تنظیمات عمومی"
+      },
+      "gravity": "گرانش",
+      "haptic": "بازخورد لمسی",
+      "number": "تعداد تاس",
+      "physics": {
+        "force": "نیرو",
+        "gravity": "گرانش",
+        "number": "تعداد تاس",
+        "size": "اندازه تاس",
+        "title": "تنظیمات فیزیکی"
+      },
+      "reset": "بازنشانی تنظیمات",
+      "resetPhysics": "بازنشانی تنظیمات فیزیک",
+      "shake": "تکان دهید برای پرتاب",
+      "size": "اندازه تاس",
+      "title": "پیکربندی پرتاب تاس"
+    },
+    "result": "نتیجه پرتاب {value} است",
+    "rolling": "در حال پرتاب...",
+    "throw": "پرتاب {value} تاس"
+  },
+  "settings": {
+    "about-app": {
+      "author": "نویسنده",
+      "legal": {
+        "title": "اطلاعات حقوقی و انتساب"
+      },
+      "license": "مجوز",
+      "privacy-policy": {
+        "accept-policy": "من سیاست حفظ حریم خصوصی را خوانده‌ام و قبول دارم",
+        "acceptance-date": "تاریخ پذیرش: {value}",
+        "not-accepted": "سیاست حفظ حریم خصوصی پذیرفته نشده است. به تنظیمات بروید، آن را بخوانید و قبول کنید. در غیر این صورت نمی‌توانید از برنامه استفاده کنید.",
+        "title": "سیاست حفظ حریم خصوصی",
+        "updated": "خوش آمدید! شرایط را کمی به‌روزرسانی کرده‌ایم، بنابراین لازم است یک‌بار دیگر آن‌ها را تأیید کنید."
+      },
+      "source-code": "کد منبع",
+      "title": "درباره اپلیکیشن",
+      "version": "نسخه"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "نمایش اطلاعات اشکال‌زدایی",
+        "toggleDescription": "ابزارهای اشکال‌زدایی اضافی را در برنامه نشان می‌دهد — اشکال‌زدای فیزیک تاس و صفحات پنهان توسعه‌دهنده."
+      },
+      "devMod": {
+        "connect": "اتصال",
+        "connected": "متصل به \"{id}\"",
+        "disconnect": "قطع اتصال",
+        "error": "اتصال به ماد توسعه ممکن نشد. {error}",
+        "title": "اتصال ماد توسعه",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "در حال نصب \"{id}\" از خارج از رجیستری بررسی‌شده هستید. با دسترسی کامل به برنامه و داده‌های شخصیت اجرا می‌شود. برای تأیید \"{id}\" یا \"install\" را تایپ کنید.",
+        "confirmPlaceholder": "برای تأیید تایپ کنید",
+        "confirmTitle": "کد خارجی نصب شود؟",
+        "error": "نصب ماد ممکن نشد. {error}",
+        "install": "نصب",
+        "success": "\"{id}\" نصب شد",
+        "title": "نصب از URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "فروشگاه ماد را به جای رجیستری واقعی به رجیستری آزمایشی وصل کنید. برای پیش‌فرض خالی بگذارید.",
+        "save": "ذخیره",
+        "title": "لغو URL پایه رجیستری"
+      },
+      "title": "توسعه‌دهنده",
+      "toggle": "حالت توسعه‌دهنده",
+      "toggleDescription": "نصب ماد از URL را فعال می‌کند. فقط برای نویسندگان و آزمایش‌کنندگان — مادها دسترسی کامل به برنامه دارند."
+    },
+    "language": "زبان",
+    "mods": {
+      "actions": {
+        "disable": "غیرفعال کردن",
+        "enable": "فعال کردن",
+        "remove": "حذف",
+        "retry": "تلاش دوباره",
+        "update": "به‌روزرسانی",
+        "removeAnyway": "حذف در هر صورت"
+      },
+      "blocked": "\"{id}\" غیرفعال شد — این نسخه ناامن علامت‌گذاری شده است. فروشگاه ماد را برای به‌روزرسانی بررسی کنید.",
+      "browse": {
+        "compatibleOnly": "فقط سازگار با این برنامه",
+        "empty": "مادی یافت نشد",
+        "incompatible": "با این نسخه برنامه سازگار نیست",
+        "loadError": "بارگذاری فروشگاه ماد ممکن نشد. {error}",
+        "offline": "به‌روزرسانی ممکن نشد — نتایج ذخیره‌شده نمایش داده می‌شود",
+        "searchPlaceholder": "جستجوی ماد",
+        "stale": "نتایج ذخیره‌شده نمایش داده می‌شود — برای تازه‌سازی بکشید"
+      },
+      "detail": {
+        "author": "توسط {name}",
+        "blocked": "این نسخه مسدود شده است",
+        "config": "گزینه‌های پیکربندی",
+        "downgrade": "بازگشت به نسخه قدیمی‌تر",
+        "install": "نصب",
+        "installed": "نصب‌شده",
+        "latest": "جدیدترین",
+        "readme": "درباره",
+        "remove": "حذف",
+        "update": "به‌روزرسانی",
+        "updateAvailable": "به‌روزرسانی موجود است",
+        "versions": "نسخه‌ها"
+      },
+      "empty": "هیچ مادی نصب نشده",
+      "errors": {
+        "action": "تکمیل عمل ممکن نشد. {error}",
+        "list": "بارگذاری مادهای نصب‌شده ممکن نشد. {error}"
+      },
+      "installSuccess": "\"{id}\" نصب شد",
+      "restartToApply": "برای اعمال تغییرات، راه‌اندازی مجدد کنید",
+      "source": {
+        "dev": "Dev",
+        "registry": "رجیستری",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "غیرفعال",
+        "errored": "خطا",
+        "loaded": "بارگذاری‌شده"
+      },
+      "tabs": {
+        "browse": "مرور",
+        "installed": "نصب‌شده"
+      },
+      "title": "مادها",
+      "updateSuccess": "\"{id}\" به‌روز شد",
+      "removeConfirm": {
+        "inUse": "هنوز توسط این‌ها استفاده می‌شود: {characters}",
+        "willUninstall": "حذف آن این ماد را از آن شخصیت‌ها حذف می‌کند."
+      }
+    },
+    "theme": {
+      "dark": "تاریک",
+      "defaultSkin": "پیش‌فرض",
+      "light": "روشن",
+      "system": "سیستم",
+      "title": "تم"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "نصب \"{module}\" از فروشگاه ماد",
+      "notInstalled": "\"{module}\" نصب نشده است",
+      "openModStore": "باز کردن فروشگاه ماد"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "شخصیت"
+    },
+    "roll-dice": {
+      "title": "تاس بیاندازید"
+    },
+    "settings": {
+      "title": "تنظیمات"
+    }
+  }
 }

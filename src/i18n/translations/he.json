@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "תיאור",
-		"name": "שם",
-		"quantity": "כמות",
-		"validation-error": "שגיאת אימות"
-	},
-	"character": {
-		"configure": "הגדר",
-		"create": "צור דמות",
-		"export": "ייצא דמות",
-		"exportSuccess": "הדמות יוצאה בהצלחה!",
-		"import": {
-			"error": {
-				"extension": "לא ניתן לייבא את הדמות. סיומת הקובץ חייבת להיות .fchar",
-				"validation": "לא ניתן לייבא את הדמות. הקובץ אינו תקף.",
-				"version": "לא ניתן לייבא את הדמות. גרסת הדמות מיושנת."
-			},
-			"success": "הדמות יובאה בהצלחה!",
-			"title": "ייבוא דמות מקובץ"
-		},
-		"messages": {
-			"remove": "האם אתה בטוח שברצונך להסיר את {value}?",
-			"update": "גרסת הדמות אינה מעודכנת. לעדכן?"
-		},
-		"name": "שם הדמות",
-		"new-character": "דמות חדשה",
-		"no-characters": "טרם נוצרו דמויות. צור דמות חדשה או יבא מקובץ.",
-		"not-selected": "לא נבחרה דמות. בחר אחת או צור חדשה!",
-		"remove-message": "האם אתה בטוח שברצונך להסיר את הדמות הזו?",
-		"save": "שמור דמות",
-		"share": "שתף דמות",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "גרסת הדמות אינה מעודכנת. האם תרצה לעדכן אותה?",
-		"updated": "הדמות עודכנה בהצלחה מ-v{from} ל-v{to}!",
-		"your-characters": "הדמויות שלך"
-	},
-	"common": {
-		"actions": {
-			"add": "הוסף",
-			"back": "חזור",
-			"cancel": "בטל",
-			"close": "סגור",
-			"confirm": "אשר",
-			"create": "צור",
-			"decrease": "להקטין",
-			"delete": "מחק",
-			"edit": "ערוך",
-			"finish": "סיים",
-			"go": "לך",
-			"increase": "להגדיל",
-			"next": "הבא",
-			"remove": "מחק",
-			"reset": "איפוס",
-			"save": "שמור",
-			"select": "בחר",
-			"update": "עדכון",
-			"upload": "העלה",
-			"use": "השתמש"
-		},
-		"messages": {
-			"emptyList": "טרם נוספו פריטים",
-			"remove": "האם אתה בטוח שברצונך להסיר אותו?",
-			"remove-named": "האם אתה בטוח שברצונך להסיר את \"{value}\"?"
-		},
-		"or": "או",
-		"state": {
-			"disabled": "מנוטרל",
-			"enabled": "מופעל"
-		}
-	},
-	"debug": {
-		"add-mock-character": "הוסף דמות דמה"
-	},
-	"errors": {
-		"boundary": {
-			"description": "האפליקציה נתקלה בבעיה ואינה יכולה להמשיך באופן בטוח. טעינה מחדש אמורה לפתור את הבעיה.",
-			"reload": "טען מחדש",
-			"title": "משהו השתבש"
-		},
-		"character": {
-			"create": "לא ניתן היה ליצור את הדמות. {error}",
-			"export": "לא ניתן היה לייצא את הדמות. {error}",
-			"list": "לא ניתן היה שטען את רשימת הדמויות. {error}",
-			"load": "לא ניתן היה שטען את הדמות. {error}",
-			"remove": "לא ניתן היה להסיר את הדמות. {error}",
-			"save": "לא ניתן היה לשמור את הדמות. ייתכן שהשינויים לא יישמרו. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "נדרש גרסת אפליקציה \"{requiredVersion}\", אך הנוכחית היא \"{appVersion}\"",
-			"incompatible": "לא תואם עם \"{anotherModule}\"",
-			"missingDependencies": "תלויות חסרות: {modules}",
-			"notFound": "מודול לא נמצא: \"{module}\"",
-			"otherDependsOn": "מודולים אחרים תלויים בו: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "המודול '{module}' דורש גרסת אפליקציה '{requiredAppVersion}', אך הגרסה הנוכחית היא '{currentAppVersion}'.",
-			"dependencyCycle": "זוהה מעגל תלות הכולל: {modules}.",
-			"genericError": "אירעה שגיאה לא ידועה במהלך פתרון המודול.",
-			"incompatibleModules": "המודול '{module}' אינו תואם ל: {incompatible}.",
-			"missingDependency": "המודול '{module}' חסר את התלות '{dependency}'.",
-			"versionMismatch": "המודול '{module}' דורש את גרסת '{requiredVersion}' של '{dependency}', אך נמצאה גרסה '{actualVersion}'."
-		},
-		"modules": {
-			"export": "לא ניתן היה לייצא את המודולים. {error}"
-		},
-		"outdatedBrowser": "הדפדפן של המערכת שלך מיושן. האפליקציה עשויה לא לפעול כראוי. אנא עדכן אותו.",
-		"unexpected": "משהו בלתי צפוי קרה. חלקים מסוימים באפליקציה עשויים שלא לעבוד כצפוי."
-	},
-	"forms": {
-		"description": "תיאור",
-		"name": "שם",
-		"price": "מחיר",
-		"quantity": "כמות",
-		"skill": "יכולת",
-		"type": "סוג"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "מחבר",
-			"dependencies": "תלותים",
-			"description": "תיאור",
-			"id": "ID",
-			"label": "תצורה מותאמת אישית",
-			"languages": "שפות",
-			"mainSettings": "הגדרות ראשיות",
-			"name": "שם",
-			"version": "גרסה"
-		},
-		"export": "ייצא תצורת מודולים",
-		"exportSuccess": "המודולים יוצאו בהצלחה!",
-		"external": "חיצוני",
-		"import": {
-			"error": {
-				"extension": "לא ניתן לייבא את המודולים. סיומת הקובץ חייבת להיות .fmod",
-				"validation": "לא ניתן לייבא את המודולים. הקובץ אינו תקף.",
-				"version": "לא ניתן לייבא את המודולים. גרסת המודולים מיושנת."
-			},
-			"success": "המודולים יובאו בהצלחה!",
-			"title": "ייבוא מודולים מקובץ"
-		},
-		"installed": "מודולים מותקנים ({value}):",
-		"save": "שמור תצורת מודולים",
-		"selected": "מודולים שנבחרו",
-		"share": "שתף תצורת מודולים",
-		"updated": "המודול {module} עודכן לגרסה v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "חומר הקוביות",
-				"title": "אפשרויות קוביות",
-				"type": "סוג קוביות"
-			},
-			"force": "כוח",
-			"general": {
-				"haptic": "משוב מגע",
-				"shake": "נער כדי להטיל",
-				"show-result": "הצג תוצאה על המסך",
-				"title": "הגדרות כלליות"
-			},
-			"gravity": "כוח משיכה",
-			"haptic": "משוב מישושי",
-			"number": "מספר קוביות",
-			"physics": {
-				"force": "כוח",
-				"gravity": "כבידה",
-				"number": "מספר קוביות",
-				"size": "גודל קוביות",
-				"title": "הגדרות פיזיקה"
-			},
-			"reset": "איפוס הגדרות",
-			"resetPhysics": "אפס הגדרות פיזיקה",
-			"shake": "נער כדי לזרוק",
-			"size": "גודל הקוביות",
-			"title": "הגדרות הטלת קוביות"
-		},
-		"result": "תוצאת ההטלה היא {value}",
-		"rolling": "מטיל...",
-		"throw": "הטל {value} קוביות"
-	},
-	"settings": {
-		"about-app": {
-			"author": "מחבר",
-			"legal": {
-				"title": "מידע משפטי וייחוס"
-			},
-			"license": "רישיון",
-			"privacy-policy": {
-				"accept-policy": "קראתי ואני מקבל את מדיניות הפרטיות",
-				"acceptance-date": "תאריך קבלה: {value}",
-				"not-accepted": "מדיניות הפרטיות לא התקבלה. עבור להגדרות, קרא וקבל אותה. אחרת לא תוכל להשתמש באפליקציה.",
-				"title": "מדיניות פרטיות",
-				"updated": "ברוך שובך! עדכנו מעט את התנאים שלנו, ולכן עליך לאשר אותם שוב."
-			},
-			"source-code": "קוד מקור",
-			"title": "אודות האפליקציה",
-			"version": "גרסה"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "הצג מידע לניפוי באגים",
-				"toggleDescription": "מציג כלי ניפוי באגים נוספים באפליקציה — מנפה באגים של פיזיקת הקוביות ודפי מפתח מוסתרים."
-			},
-			"devMod": {
-				"connect": "התחבר",
-				"connected": "מחובר אל \"{id}\"",
-				"disconnect": "נתק",
-				"error": "לא ניתן להתחבר למוד הפיתוח. {error}",
-				"title": "התחברות למוד פיתוח",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "אתה מתקין את \"{id}\" מחוץ לרישום שנבדק. הוא יפעל עם גישה מלאה לאפליקציה ולנתוני הדמויות. הקלד \"{id}\" או \"install\" לאישור.",
-				"confirmPlaceholder": "הקלד לאישור",
-				"confirmTitle": "להתקין קוד חיצוני?",
-				"error": "לא ניתן להתקין את המוד. {error}",
-				"install": "התקן",
-				"success": "\"{id}\" הותקן",
-				"title": "התקנה מכתובת URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "הפנה את חנות המודים לרישום staging במקום האמיתי. השאר ריק לשימוש בברירת המחדל.",
-				"save": "שמור",
-				"title": "דריסת כתובת הבסיס של הרישום"
-			},
-			"title": "מפתח",
-			"toggle": "מצב מפתח",
-			"toggleDescription": "מאפשר התקנת מודים מכתובת URL. רק למחברים ולבודקים — למודים יש גישה מלאה לאפליקציה."
-		},
-		"language": "שפה",
-		"mods": {
-			"actions": {
-				"disable": "השבת",
-				"enable": "הפעל",
-				"remove": "הסר",
-				"retry": "נסה שוב",
-				"update": "עדכן"
-			},
-			"blocked": "\"{id}\" הושבת — הגרסה סומנה כלא בטוחה. בדוק בחנות המודים אם יש עדכון.",
-			"browse": {
-				"compatibleOnly": "רק תואמים לאפליקציה זו",
-				"empty": "לא נמצאו מודים",
-				"incompatible": "לא תואם לגרסת האפליקציה הזו",
-				"loadError": "לא ניתן לטעון את חנות המודים. {error}",
-				"offline": "לא ניתן לרענן — מוצגות תוצאות מהמטמון",
-				"searchPlaceholder": "חיפוש מודים",
-				"stale": "מוצגות תוצאות מהמטמון — משוך לרענון"
-			},
-			"detail": {
-				"author": "מאת {name}",
-				"blocked": "גרסה זו חסומה",
-				"config": "אפשרויות תצורה",
-				"downgrade": "שדרוג לאחור",
-				"install": "התקן",
-				"installed": "מותקן",
-				"latest": "האחרונה",
-				"readme": "אודות",
-				"remove": "הסר",
-				"update": "עדכן",
-				"updateAvailable": "עדכון זמין",
-				"versions": "גרסאות"
-			},
-			"empty": "אין מודים מותקנים",
-			"errors": {
-				"action": "לא ניתן להשלים את הפעולה. {error}",
-				"list": "לא ניתן לטעון מודים מותקנים. {error}"
-			},
-			"installSuccess": "\"{id}\" הותקן",
-			"removeBlocked": "עדיין בשימוש על ידי: {characters}",
-			"restartToApply": "הפעלה מחדש כדי להחיל שינויים",
-			"source": {
-				"dev": "Dev",
-				"registry": "רישום",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "מושבת",
-				"errored": "שגיאה",
-				"loaded": "נטען"
-			},
-			"tabs": {
-				"browse": "עיון",
-				"installed": "מותקנים"
-			},
-			"title": "מודים",
-			"updateSuccess": "\"{id}\" עודכן"
-		},
-		"theme": {
-			"dark": "כהה",
-			"defaultSkin": "ברירת מחדל",
-			"light": "בהיר",
-			"system": "מערכת",
-			"title": "ערכת נושא"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "התקן את \"{module}\" מחנות המודים",
-			"notInstalled": "\"{module}\" אינו מותקן",
-			"openModStore": "פתח את חנות המודים"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "דמות"
-		},
-		"roll-dice": {
-			"title": "הטלת קוביות"
-		},
-		"settings": {
-			"title": "הגדרות"
-		}
-	}
+  "a11y": {
+    "description": "תיאור",
+    "name": "שם",
+    "quantity": "כמות",
+    "validation-error": "שגיאת אימות"
+  },
+  "character": {
+    "configure": "הגדר",
+    "create": "צור דמות",
+    "export": "ייצא דמות",
+    "exportSuccess": "הדמות יוצאה בהצלחה!",
+    "import": {
+      "error": {
+        "extension": "לא ניתן לייבא את הדמות. סיומת הקובץ חייבת להיות .fchar",
+        "validation": "לא ניתן לייבא את הדמות. הקובץ אינו תקף.",
+        "version": "לא ניתן לייבא את הדמות. גרסת הדמות מיושנת."
+      },
+      "success": "הדמות יובאה בהצלחה!",
+      "title": "ייבוא דמות מקובץ"
+    },
+    "messages": {
+      "remove": "האם אתה בטוח שברצונך להסיר את {value}?",
+      "update": "גרסת הדמות אינה מעודכנת. לעדכן?"
+    },
+    "name": "שם הדמות",
+    "new-character": "דמות חדשה",
+    "no-characters": "טרם נוצרו דמויות. צור דמות חדשה או יבא מקובץ.",
+    "not-selected": "לא נבחרה דמות. בחר אחת או צור חדשה!",
+    "remove-message": "האם אתה בטוח שברצונך להסיר את הדמות הזו?",
+    "save": "שמור דמות",
+    "share": "שתף דמות",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "גרסת הדמות אינה מעודכנת. האם תרצה לעדכן אותה?",
+    "updated": "הדמות עודכנה בהצלחה מ-v{from} ל-v{to}!",
+    "your-characters": "הדמויות שלך"
+  },
+  "common": {
+    "actions": {
+      "add": "הוסף",
+      "back": "חזור",
+      "cancel": "בטל",
+      "close": "סגור",
+      "confirm": "אשר",
+      "create": "צור",
+      "decrease": "להקטין",
+      "delete": "מחק",
+      "edit": "ערוך",
+      "finish": "סיים",
+      "go": "לך",
+      "increase": "להגדיל",
+      "next": "הבא",
+      "remove": "מחק",
+      "reset": "איפוס",
+      "save": "שמור",
+      "select": "בחר",
+      "update": "עדכון",
+      "upload": "העלה",
+      "use": "השתמש"
+    },
+    "messages": {
+      "emptyList": "טרם נוספו פריטים",
+      "remove": "האם אתה בטוח שברצונך להסיר אותו?",
+      "remove-named": "האם אתה בטוח שברצונך להסיר את \"{value}\"?"
+    },
+    "or": "או",
+    "state": {
+      "disabled": "מנוטרל",
+      "enabled": "מופעל"
+    }
+  },
+  "debug": {
+    "add-mock-character": "הוסף דמות דמה"
+  },
+  "errors": {
+    "boundary": {
+      "description": "האפליקציה נתקלה בבעיה ואינה יכולה להמשיך באופן בטוח. טעינה מחדש אמורה לפתור את הבעיה.",
+      "reload": "טען מחדש",
+      "title": "משהו השתבש"
+    },
+    "character": {
+      "create": "לא ניתן היה ליצור את הדמות. {error}",
+      "export": "לא ניתן היה לייצא את הדמות. {error}",
+      "list": "לא ניתן היה שטען את רשימת הדמויות. {error}",
+      "load": "לא ניתן היה שטען את הדמות. {error}",
+      "remove": "לא ניתן היה להסיר את הדמות. {error}",
+      "save": "לא ניתן היה לשמור את הדמות. ייתכן שהשינויים לא יישמרו. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "נדרש גרסת אפליקציה \"{requiredVersion}\", אך הנוכחית היא \"{appVersion}\"",
+      "incompatible": "לא תואם עם \"{anotherModule}\"",
+      "missingDependencies": "תלויות חסרות: {modules}",
+      "notFound": "מודול לא נמצא: \"{module}\"",
+      "otherDependsOn": "מודולים אחרים תלויים בו: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "המודול '{module}' דורש גרסת אפליקציה '{requiredAppVersion}', אך הגרסה הנוכחית היא '{currentAppVersion}'.",
+      "dependencyCycle": "זוהה מעגל תלות הכולל: {modules}.",
+      "genericError": "אירעה שגיאה לא ידועה במהלך פתרון המודול.",
+      "incompatibleModules": "המודול '{module}' אינו תואם ל: {incompatible}.",
+      "missingDependency": "המודול '{module}' חסר את התלות '{dependency}'.",
+      "versionMismatch": "המודול '{module}' דורש את גרסת '{requiredVersion}' של '{dependency}', אך נמצאה גרסה '{actualVersion}'."
+    },
+    "modules": {
+      "export": "לא ניתן היה לייצא את המודולים. {error}"
+    },
+    "outdatedBrowser": "הדפדפן של המערכת שלך מיושן. האפליקציה עשויה לא לפעול כראוי. אנא עדכן אותו.",
+    "unexpected": "משהו בלתי צפוי קרה. חלקים מסוימים באפליקציה עשויים שלא לעבוד כצפוי."
+  },
+  "forms": {
+    "description": "תיאור",
+    "name": "שם",
+    "price": "מחיר",
+    "quantity": "כמות",
+    "skill": "יכולת",
+    "type": "סוג"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "מחבר",
+      "dependencies": "תלותים",
+      "description": "תיאור",
+      "id": "ID",
+      "label": "תצורה מותאמת אישית",
+      "languages": "שפות",
+      "mainSettings": "הגדרות ראשיות",
+      "name": "שם",
+      "version": "גרסה"
+    },
+    "export": "ייצא תצורת מודולים",
+    "exportSuccess": "המודולים יוצאו בהצלחה!",
+    "external": "חיצוני",
+    "import": {
+      "error": {
+        "extension": "לא ניתן לייבא את המודולים. סיומת הקובץ חייבת להיות .fmod",
+        "validation": "לא ניתן לייבא את המודולים. הקובץ אינו תקף.",
+        "version": "לא ניתן לייבא את המודולים. גרסת המודולים מיושנת."
+      },
+      "success": "המודולים יובאו בהצלחה!",
+      "title": "ייבוא מודולים מקובץ"
+    },
+    "installed": "מודולים מותקנים ({value}):",
+    "save": "שמור תצורת מודולים",
+    "selected": "מודולים שנבחרו",
+    "share": "שתף תצורת מודולים",
+    "updated": "המודול {module} עודכן לגרסה v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "חומר הקוביות",
+        "title": "אפשרויות קוביות",
+        "type": "סוג קוביות"
+      },
+      "force": "כוח",
+      "general": {
+        "haptic": "משוב מגע",
+        "shake": "נער כדי להטיל",
+        "show-result": "הצג תוצאה על המסך",
+        "title": "הגדרות כלליות"
+      },
+      "gravity": "כוח משיכה",
+      "haptic": "משוב מישושי",
+      "number": "מספר קוביות",
+      "physics": {
+        "force": "כוח",
+        "gravity": "כבידה",
+        "number": "מספר קוביות",
+        "size": "גודל קוביות",
+        "title": "הגדרות פיזיקה"
+      },
+      "reset": "איפוס הגדרות",
+      "resetPhysics": "אפס הגדרות פיזיקה",
+      "shake": "נער כדי לזרוק",
+      "size": "גודל הקוביות",
+      "title": "הגדרות הטלת קוביות"
+    },
+    "result": "תוצאת ההטלה היא {value}",
+    "rolling": "מטיל...",
+    "throw": "הטל {value} קוביות"
+  },
+  "settings": {
+    "about-app": {
+      "author": "מחבר",
+      "legal": {
+        "title": "מידע משפטי וייחוס"
+      },
+      "license": "רישיון",
+      "privacy-policy": {
+        "accept-policy": "קראתי ואני מקבל את מדיניות הפרטיות",
+        "acceptance-date": "תאריך קבלה: {value}",
+        "not-accepted": "מדיניות הפרטיות לא התקבלה. עבור להגדרות, קרא וקבל אותה. אחרת לא תוכל להשתמש באפליקציה.",
+        "title": "מדיניות פרטיות",
+        "updated": "ברוך שובך! עדכנו מעט את התנאים שלנו, ולכן עליך לאשר אותם שוב."
+      },
+      "source-code": "קוד מקור",
+      "title": "אודות האפליקציה",
+      "version": "גרסה"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "הצג מידע לניפוי באגים",
+        "toggleDescription": "מציג כלי ניפוי באגים נוספים באפליקציה — מנפה באגים של פיזיקת הקוביות ודפי מפתח מוסתרים."
+      },
+      "devMod": {
+        "connect": "התחבר",
+        "connected": "מחובר אל \"{id}\"",
+        "disconnect": "נתק",
+        "error": "לא ניתן להתחבר למוד הפיתוח. {error}",
+        "title": "התחברות למוד פיתוח",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "אתה מתקין את \"{id}\" מחוץ לרישום שנבדק. הוא יפעל עם גישה מלאה לאפליקציה ולנתוני הדמויות. הקלד \"{id}\" או \"install\" לאישור.",
+        "confirmPlaceholder": "הקלד לאישור",
+        "confirmTitle": "להתקין קוד חיצוני?",
+        "error": "לא ניתן להתקין את המוד. {error}",
+        "install": "התקן",
+        "success": "\"{id}\" הותקן",
+        "title": "התקנה מכתובת URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "הפנה את חנות המודים לרישום staging במקום האמיתי. השאר ריק לשימוש בברירת המחדל.",
+        "save": "שמור",
+        "title": "דריסת כתובת הבסיס של הרישום"
+      },
+      "title": "מפתח",
+      "toggle": "מצב מפתח",
+      "toggleDescription": "מאפשר התקנת מודים מכתובת URL. רק למחברים ולבודקים — למודים יש גישה מלאה לאפליקציה."
+    },
+    "language": "שפה",
+    "mods": {
+      "actions": {
+        "disable": "השבת",
+        "enable": "הפעל",
+        "remove": "הסר",
+        "retry": "נסה שוב",
+        "update": "עדכן",
+        "removeAnyway": "הסר בכל זאת"
+      },
+      "blocked": "\"{id}\" הושבת — הגרסה סומנה כלא בטוחה. בדוק בחנות המודים אם יש עדכון.",
+      "browse": {
+        "compatibleOnly": "רק תואמים לאפליקציה זו",
+        "empty": "לא נמצאו מודים",
+        "incompatible": "לא תואם לגרסת האפליקציה הזו",
+        "loadError": "לא ניתן לטעון את חנות המודים. {error}",
+        "offline": "לא ניתן לרענן — מוצגות תוצאות מהמטמון",
+        "searchPlaceholder": "חיפוש מודים",
+        "stale": "מוצגות תוצאות מהמטמון — משוך לרענון"
+      },
+      "detail": {
+        "author": "מאת {name}",
+        "blocked": "גרסה זו חסומה",
+        "config": "אפשרויות תצורה",
+        "downgrade": "שדרוג לאחור",
+        "install": "התקן",
+        "installed": "מותקן",
+        "latest": "האחרונה",
+        "readme": "אודות",
+        "remove": "הסר",
+        "update": "עדכן",
+        "updateAvailable": "עדכון זמין",
+        "versions": "גרסאות"
+      },
+      "empty": "אין מודים מותקנים",
+      "errors": {
+        "action": "לא ניתן להשלים את הפעולה. {error}",
+        "list": "לא ניתן לטעון מודים מותקנים. {error}"
+      },
+      "installSuccess": "\"{id}\" הותקן",
+      "restartToApply": "הפעלה מחדש כדי להחיל שינויים",
+      "source": {
+        "dev": "Dev",
+        "registry": "רישום",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "מושבת",
+        "errored": "שגיאה",
+        "loaded": "נטען"
+      },
+      "tabs": {
+        "browse": "עיון",
+        "installed": "מותקנים"
+      },
+      "title": "מודים",
+      "updateSuccess": "\"{id}\" עודכן",
+      "removeConfirm": {
+        "inUse": "עדיין בשימוש על ידי: {characters}",
+        "willUninstall": "ההסרה תסיר את המוד מהדמויות האלה."
+      }
+    },
+    "theme": {
+      "dark": "כהה",
+      "defaultSkin": "ברירת מחדל",
+      "light": "בהיר",
+      "system": "מערכת",
+      "title": "ערכת נושא"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "התקן את \"{module}\" מחנות המודים",
+      "notInstalled": "\"{module}\" אינו מותקן",
+      "openModStore": "פתח את חנות המודים"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "דמות"
+    },
+    "roll-dice": {
+      "title": "הטלת קוביות"
+    },
+    "settings": {
+      "title": "הגדרות"
+    }
+  }
 }

@@ -5,12 +5,14 @@ import { ModRegistry, type ModSource, type ModStatus } from '@/mods/modRegistry'
 import { safeManifest } from '@/mods/loader'
 import { registerModTranslations } from '@/mods/registerModTranslations'
 import { modsService } from '@/db/tables/mods'
-import { checkForUpdates, setEnabled, update, updateFromRegistry, remove } from '@/mods/installService'
-import { confirmRemove } from '@/utils/helpers/dialog'
-import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
+import { checkForUpdates, getCharactersUsingMod, setEnabled, update, updateFromRegistry, remove } from '@/mods/installService'
+import { confirmRemoveMod } from '@/utils/helpers/dialog'
+import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
+import useCharacter from '@/store/useCharacter'
 import i18n from '@/i18n'
 
 const { t } = i18n.global
+const characterStore = useCharacter()
 
 interface ModRow {
 	id: string
@@ -111,20 +113,26 @@ async function updateMod(row: ModRow) {
 }
 
 async function removeMod(row: ModRow) {
-	if (!(await confirmRemove(t(row.name)))) {
+	const usedBy = await getCharactersUsingMod(row.id)
+	if (
+		!(await confirmRemoveMod(
+			t(row.name),
+			usedBy.map(character => character.name)
+		))
+	) {
 		return
 	}
 
 	busyId.value = row.id
 	try {
 		const result = await remove(row.id)
-		if (result.ok) {
+		if (!result.ok) {
+			await showErrorToast('settings.mods.errors.action', { error: result.error })
 			return
 		}
-		if (result.reason === 'blocked') {
-			await showWarningToast('settings.mods.removeBlocked', { characters: result.characterNames.join(', ') })
-		} else {
-			await showErrorToast('settings.mods.errors.action', { error: result.error })
+		const currentId = characterStore.character?.id
+		if (currentId != null && usedBy.some(character => character.id === currentId)) {
+			await characterStore.loadCharacter(currentId)
 		}
 	} finally {
 		busyId.value = null

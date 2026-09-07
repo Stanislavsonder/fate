@@ -156,6 +156,17 @@ export function useModuleSelection(allModules: Map<string, FateModuleManifest>, 
 				}
 			}
 		}
+
+		// Modules that are on the character but not selectable right now (disabled
+		// or errored in the registry) stay attached so Update does not strip them.
+		if (initialConfiguration) {
+			for (const [id, data] of Object.entries(initialConfiguration)) {
+				if (!(id in finalModules) && !allModules.has(id)) {
+					finalModules[id] = data
+				}
+			}
+		}
+
 		return finalModules
 	}
 

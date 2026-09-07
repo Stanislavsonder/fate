@@ -14,6 +14,10 @@
 		1px 1px 0 var(--color-secondary);
 }
 
+ion-alert.remove-mod-alert::part(message) {
+	white-space: pre-line;
+}
+
 .markdown {
 	padding: 1rem;
 

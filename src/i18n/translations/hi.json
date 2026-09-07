@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "विवरण",
-		"name": "नाम",
-		"quantity": "मात्रा",
-		"validation-error": "मान्यता त्रुटि"
-	},
-	"character": {
-		"configure": "कॉन्फ़िगर करें",
-		"create": "चरित्र बनाएँ",
-		"export": "चरित्र निर्यात करें",
-		"exportSuccess": "चरित्र सफलतापूर्वक निर्यात किया गया!",
-		"import": {
-			"error": {
-				"extension": "चरित्र आयात नहीं किया जा सका। फ़ाइल एक्सटेंशन .fchar होना चाहिए",
-				"validation": "चरित्र आयात नहीं किया जा सका। फ़ाइल अमान्य है।",
-				"version": "चरित्र आयात नहीं किया जा सका। चरित्र का संस्करण पुराना है।"
-			},
-			"success": "चरित्र सफलतापूर्वक आयात किया गया!",
-			"title": "फ़ाइल से चरित्र आयात करें"
-		},
-		"messages": {
-			"remove": "क्या आप वाकई {value} को हटाना चाहते हैं?",
-			"update": "चरित्र संस्करण पुराना हो गया है। क्या आप इसे अपडेट करना चाहते हैं?"
-		},
-		"name": "चरित्र का नाम",
-		"new-character": "नया पात्र",
-		"no-characters": "अभी तक कोई चरित्र नहीं बनाया गया है। एक नया बनाएँ या फ़ाइल से आयात करें।",
-		"not-selected": "अभी तक कोई चरित्र चयनित नहीं है। एक चुनें या नया बनाएँ!",
-		"remove-message": "क्या आप वाकई इस चरित्र को हटाना चाहते हैं?",
-		"save": "चरित्र सहेजें",
-		"share": "चरित्र साझा करें",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "चरित्र संस्करण पुराना हो गया है। क्या आप इसे अपडेट करना चाहते हैं?",
-		"updated": "चरित्र सफलतापूर्वक v{from} से v{to} तक अपडेट किया गया!",
-		"your-characters": "आपके पात्र"
-	},
-	"common": {
-		"actions": {
-			"add": "जोड़ें",
-			"back": "वापस",
-			"cancel": "रद्द करें",
-			"close": "बंद करें",
-			"confirm": "पुष्टि करें",
-			"create": "बनाएं",
-			"decrease": "घटाएं",
-			"delete": "हटाएं",
-			"edit": "संपादित करें",
-			"finish": "समाप्त करें",
-			"go": "जाओ",
-			"increase": "बढ़ाएं",
-			"next": "अगला",
-			"remove": "हटाएं",
-			"reset": "रीसेट करें",
-			"save": "सहेजें",
-			"select": "चुनें",
-			"update": "अपडेट करें",
-			"upload": "अपलोड करें",
-			"use": "प्रयोग करें"
-		},
-		"messages": {
-			"emptyList": "अभी तक कोई तत्व नहीं जोड़ा गया है",
-			"remove": "क्या आप इसे हटाना चाहते हैं?",
-			"remove-named": "क्या आप \"{value}\" को हटाना चाहते हैं?"
-		},
-		"or": "या",
-		"state": {
-			"disabled": "अक्षम",
-			"enabled": "सक्षम"
-		}
-	},
-	"debug": {
-		"add-mock-character": "नकली चरित्र जोड़ें"
-	},
-	"errors": {
-		"boundary": {
-			"description": "ऐप में कोई समस्या आ गई है और यह सुरक्षित रूप से जारी नहीं रह सकता है। पुनः लोड करने से यह ठीक हो जाना चाहिए।",
-			"reload": "पुनः लोड करें",
-			"title": "कुछ गड़बड़ हो गई"
-		},
-		"character": {
-			"create": "पात्र नहीं बनाया जा सका। {error}",
-			"export": "पात्र को निर्यात नहीं किया जा सका। {error}",
-			"list": "पात्रों की सूची लोड नहीं की जा सकी। {error}",
-			"load": "पात्र को लोड नहीं किया जा सका। {error}",
-			"remove": "पात्र को हटाया नहीं जा सका। {error}",
-			"save": "पात्र को सहेजा नहीं जा सका। बदलाव सहेजे नहीं जा सकते हैं। {error}"
-		},
-		"module": {
-			"appVersionMismatch": "आवश्यक ऐप संस्करण \"{requiredVersion}\" है, लेकिन वर्तमान \"{appVersion}\" है",
-			"incompatible": "\"{anotherModule}\" के साथ असंगत",
-			"missingDependencies": "अनुपलब्ध निर्भरताएँ: {modules}",
-			"notFound": "मॉड्यूल नहीं मिला: \"{module}\"",
-			"otherDependsOn": "अन्य मॉड्यूल इस पर निर्भर हैं: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "मॉड्यूल '{module}' को ऐप संस्करण '{requiredAppVersion}' की आवश्यकता है, लेकिन वर्तमान संस्करण '{currentAppVersion}' है।",
-			"dependencyCycle": "एक निर्भरता चक्र पाया गया जिसमें शामिल हैं: {modules}।",
-			"genericError": "मॉड्यूल समाधान के दौरान एक अज्ञात त्रुटि हुई।",
-			"incompatibleModules": "मॉड्यूल '{module}' इनसे असंगत है: {incompatible}।",
-			"missingDependency": "मॉड्यूल '{module}' में निर्भरता '{dependency}' अनुपलब्ध है।",
-			"versionMismatch": "मॉड्यूल '{module}' को '{dependency}' का संस्करण '{requiredVersion}' चाहिए, लेकिन मिला '{actualVersion}'।"
-		},
-		"modules": {
-			"export": "मॉड्यूल निर्यात नहीं किया जा सका। {error}"
-		},
-		"outdatedBrowser": "आपका सिस्टम ब्राउज़र पुराना हो चुका है। एप्लिकेशन अपेक्षित रूप से काम नहीं कर सकता। कृपया इसे अपडेट करें।",
-		"unexpected": "कुछ अप्रत्याशित हुआ। ऐप के कुछ हिस्से उम्मीद के मुताबिक काम नहीं कर सकते हैं।"
-	},
-	"forms": {
-		"description": "विवरण",
-		"name": "नाम",
-		"price": "कीमत",
-		"quantity": "मात्रा",
-		"skill": "कौशल",
-		"type": "प्रकार"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "लेखक",
-			"dependencies": "निर्भरता",
-			"description": "विवरण",
-			"id": "आईडी",
-			"label": "कस्टम कॉन्फ़िगरेशन",
-			"languages": "भाषाएँ",
-			"mainSettings": "मुख्य सेटिंग्स",
-			"name": "नाम",
-			"version": "संस्करण"
-		},
-		"export": "मॉड्यूल कॉन्फ़िगरेशन निर्यात करें",
-		"exportSuccess": "मॉड्यूल सफलतापूर्वक निर्यात किया गया!",
-		"external": "बाहरी",
-		"import": {
-			"error": {
-				"extension": "मॉड्यूल आयात नहीं किए जा सके। फ़ाइल एक्सटेंशन .fmod होना चाहिए",
-				"validation": "मॉड्यूल आयात नहीं किए जा सके। फ़ाइल अमान्य है।",
-				"version": "मॉड्यूल आयात नहीं किए जा सके। मॉड्यूल का संस्करण पुराना है।"
-			},
-			"success": "मॉड्यूल सफलतापूर्वक आयात किए गए!",
-			"title": "फ़ाइल से मॉड्यूल आयात करें"
-		},
-		"installed": "इंस्टॉल किए गए मॉड्यूल ({value}):",
-		"save": "मॉड्यूल कॉन्फ़िगरेशन सहेजें",
-		"selected": "चयनित मॉड्यूल",
-		"share": "मॉड्यूल कॉन्फ़िगरेशन साझा करें",
-		"updated": "मॉड्यूल {module} को v{version} पर अपडेट किया गया"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "पासे की सामग्री",
-				"title": "पासे के विकल्प",
-				"type": "पासे का प्रकार"
-			},
-			"force": "बल",
-			"general": {
-				"haptic": "हैप्टिक प्रतिक्रिया",
-				"shake": "फेंकने के लिए हिलाएं",
-				"show-result": "स्क्रीन पर परिणाम दिखाएं",
-				"title": "सामान्य सेटिंग्स"
-			},
-			"gravity": "गुरुत्वाकर्षण",
-			"haptic": "स्पर्श प्रतिक्रिया",
-			"number": "पाँचों की संख्या",
-			"physics": {
-				"force": "बल",
-				"gravity": "गुरुत्वाकर्षण",
-				"number": "पासों की संख्या",
-				"size": "पासे का आकार",
-				"title": "भौतिकी सेटिंग्स"
-			},
-			"reset": "कॉन्फ़िगरेशन रीसेट करें",
-			"resetPhysics": "भौतिकी सेटिंग्स रीसेट करें",
-			"shake": "फेंकने के लिए हिलाएं",
-			"size": "पासा का आकार",
-			"title": "पासा फेंकने की कॉन्फ़िगरेशन"
-		},
-		"result": "फेंकने का परिणाम {value} है",
-		"rolling": "फेंका जा रहा है...",
-		"throw": "{value} पासे फेंकें"
-	},
-	"settings": {
-		"about-app": {
-			"author": "लेखक",
-			"legal": {
-				"title": "कानूनी जानकारी और एट्रिब्यूशन"
-			},
-			"license": "लाइसेंस",
-			"privacy-policy": {
-				"accept-policy": "मैंने गोपनीयता नीति पढ़ी है और उसे स्वीकार करता/करती हूं",
-				"acceptance-date": "स्वीकृति तिथि: {value}",
-				"not-accepted": "गोपनीयता नीति स्वीकार नहीं की गई है। सेटिंग्स पर जाएं, इसे पढ़ें और स्वीकार करें। अन्यथा आप ऐप का उपयोग नहीं कर सकते।",
-				"title": "गोपनीयता नीति",
-				"updated": "वापसी पर स्वागत है! हमने अपनी शर्तों में कुछ अपडेट किए हैं, इसलिए कृपया उन्हें एक बार फिर से पुष्टि करें।"
-			},
-			"source-code": "स्रोत कोड",
-			"title": "एप्लिकेशन के बारे में",
-			"version": "संस्करण"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "डिबग जानकारी दिखाएँ",
-				"toggleDescription": "ऐप में अतिरिक्त डिबग टूल दिखाता है — पासे की भौतिकी डीबगर और छिपे डेवलपर पेज।"
-			},
-			"devMod": {
-				"connect": "कनेक्ट करें",
-				"connected": "\"{id}\" से कनेक्टेड",
-				"disconnect": "डिस्कनेक्ट करें",
-				"error": "डेव मॉड से कनेक्ट नहीं हो सका। {error}",
-				"title": "डेव मॉड कनेक्ट करें",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "आप समीक्षित रजिस्ट्री के बाहर से \"{id}\" इंस्टॉल कर रहे हैं। इसे ऐप और आपके कैरेक्टर डेटा तक पूरा एक्सेस मिलेगा। पुष्टि के लिए \"{id}\" या \"install\" टाइप करें।",
-				"confirmPlaceholder": "पुष्टि के लिए टाइप करें",
-				"confirmTitle": "बाहरी कोड इंस्टॉल करें?",
-				"error": "मॉड इंस्टॉल नहीं हो सका। {error}",
-				"install": "इंस्टॉल करें",
-				"success": "\"{id}\" इंस्टॉल हो गया",
-				"title": "URL से इंस्टॉल करें",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Mod Store को असली की जगह स्टेजिंग रजिस्ट्री पर पॉइंट करें। डिफ़ॉल्ट के लिए खाली छोड़ें।",
-				"save": "सेव करें",
-				"title": "रजिस्ट्री बेस URL ओवरराइड"
-			},
-			"title": "डेवलपर",
-			"toggle": "डेवलपर मोड",
-			"toggleDescription": "URL से मॉड इंस्टॉल करने की अनुमति देता है। केवल लेखकों और टेस्टर्स के लिए — मॉड्स को ऐप तक पूरा एक्सेस मिलता है।"
-		},
-		"language": "भाषा",
-		"mods": {
-			"actions": {
-				"disable": "अक्षम करें",
-				"enable": "सक्षम करें",
-				"remove": "हटाएँ",
-				"retry": "फिर से कोशिश करें",
-				"update": "अपडेट करें"
-			},
-			"blocked": "\"{id}\" अक्षम कर दिया गया — यह संस्करण असुरक्षित चिह्नित है। अपडेट के लिए Mod Store देखें।",
-			"browse": {
-				"compatibleOnly": "केवल इस ऐप के साथ संगत",
-				"empty": "कोई मॉड नहीं मिला",
-				"incompatible": "इस ऐप संस्करण से संगत नहीं",
-				"loadError": "Mod Store लोड नहीं हो सका। {error}",
-				"offline": "रिफ़्रेश नहीं हो सका — कैश परिणाम दिखाए जा रहे हैं",
-				"searchPlaceholder": "मॉड खोजें",
-				"stale": "कैश परिणाम दिखाए जा रहे हैं — रिफ़्रेश के लिए खींचें"
-			},
-			"detail": {
-				"author": "{name} द्वारा",
-				"blocked": "यह संस्करण अवरुद्ध है",
-				"config": "कॉन्फ़िगरेशन विकल्प",
-				"downgrade": "पुराने संस्करण पर जाएँ",
-				"install": "इंस्टॉल करें",
-				"installed": "इंस्टॉल किया गया",
-				"latest": "नवीनतम",
-				"readme": "परिचय",
-				"remove": "हटाएँ",
-				"update": "अपडेट करें",
-				"updateAvailable": "अपडेट उपलब्ध",
-				"versions": "संस्करण"
-			},
-			"empty": "कोई मॉड इंस्टॉल नहीं",
-			"errors": {
-				"action": "क्रिया पूरी नहीं हो सकी। {error}",
-				"list": "इंस्टॉल किए गए मॉड लोड नहीं हो सके। {error}"
-			},
-			"installSuccess": "\"{id}\" इंस्टॉल हो गया",
-			"removeBlocked": "अभी भी इनके द्वारा उपयोग में: {characters}",
-			"restartToApply": "बदलाव लागू करने के लिए पुनः आरंभ करें",
-			"source": {
-				"dev": "Dev",
-				"registry": "रजिस्ट्री",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "अक्षम",
-				"errored": "त्रुटि",
-				"loaded": "लोडेड"
-			},
-			"tabs": {
-				"browse": "ब्राउज़ करें",
-				"installed": "इंस्टॉल किए गए"
-			},
-			"title": "मॉड्स",
-			"updateSuccess": "\"{id}\" अपडेट हो गया"
-		},
-		"theme": {
-			"dark": "डार्क",
-			"defaultSkin": "डिफ़ॉल्ट",
-			"light": "लाइट",
-			"system": "सिस्टम",
-			"title": "थीम"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Mod Store से \"{module}\" इंस्टॉल करें",
-			"notInstalled": "\"{module}\" इंस्टॉल नहीं है",
-			"openModStore": "Mod Store खोलें"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "चरित्र"
-		},
-		"roll-dice": {
-			"title": "पासा फेंको"
-		},
-		"settings": {
-			"title": "सेटिंग्स"
-		}
-	}
+  "a11y": {
+    "description": "विवरण",
+    "name": "नाम",
+    "quantity": "मात्रा",
+    "validation-error": "मान्यता त्रुटि"
+  },
+  "character": {
+    "configure": "कॉन्फ़िगर करें",
+    "create": "चरित्र बनाएँ",
+    "export": "चरित्र निर्यात करें",
+    "exportSuccess": "चरित्र सफलतापूर्वक निर्यात किया गया!",
+    "import": {
+      "error": {
+        "extension": "चरित्र आयात नहीं किया जा सका। फ़ाइल एक्सटेंशन .fchar होना चाहिए",
+        "validation": "चरित्र आयात नहीं किया जा सका। फ़ाइल अमान्य है।",
+        "version": "चरित्र आयात नहीं किया जा सका। चरित्र का संस्करण पुराना है।"
+      },
+      "success": "चरित्र सफलतापूर्वक आयात किया गया!",
+      "title": "फ़ाइल से चरित्र आयात करें"
+    },
+    "messages": {
+      "remove": "क्या आप वाकई {value} को हटाना चाहते हैं?",
+      "update": "चरित्र संस्करण पुराना हो गया है। क्या आप इसे अपडेट करना चाहते हैं?"
+    },
+    "name": "चरित्र का नाम",
+    "new-character": "नया पात्र",
+    "no-characters": "अभी तक कोई चरित्र नहीं बनाया गया है। एक नया बनाएँ या फ़ाइल से आयात करें।",
+    "not-selected": "अभी तक कोई चरित्र चयनित नहीं है। एक चुनें या नया बनाएँ!",
+    "remove-message": "क्या आप वाकई इस चरित्र को हटाना चाहते हैं?",
+    "save": "चरित्र सहेजें",
+    "share": "चरित्र साझा करें",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "चरित्र संस्करण पुराना हो गया है। क्या आप इसे अपडेट करना चाहते हैं?",
+    "updated": "चरित्र सफलतापूर्वक v{from} से v{to} तक अपडेट किया गया!",
+    "your-characters": "आपके पात्र"
+  },
+  "common": {
+    "actions": {
+      "add": "जोड़ें",
+      "back": "वापस",
+      "cancel": "रद्द करें",
+      "close": "बंद करें",
+      "confirm": "पुष्टि करें",
+      "create": "बनाएं",
+      "decrease": "घटाएं",
+      "delete": "हटाएं",
+      "edit": "संपादित करें",
+      "finish": "समाप्त करें",
+      "go": "जाओ",
+      "increase": "बढ़ाएं",
+      "next": "अगला",
+      "remove": "हटाएं",
+      "reset": "रीसेट करें",
+      "save": "सहेजें",
+      "select": "चुनें",
+      "update": "अपडेट करें",
+      "upload": "अपलोड करें",
+      "use": "प्रयोग करें"
+    },
+    "messages": {
+      "emptyList": "अभी तक कोई तत्व नहीं जोड़ा गया है",
+      "remove": "क्या आप इसे हटाना चाहते हैं?",
+      "remove-named": "क्या आप \"{value}\" को हटाना चाहते हैं?"
+    },
+    "or": "या",
+    "state": {
+      "disabled": "अक्षम",
+      "enabled": "सक्षम"
+    }
+  },
+  "debug": {
+    "add-mock-character": "नकली चरित्र जोड़ें"
+  },
+  "errors": {
+    "boundary": {
+      "description": "ऐप में कोई समस्या आ गई है और यह सुरक्षित रूप से जारी नहीं रह सकता है। पुनः लोड करने से यह ठीक हो जाना चाहिए।",
+      "reload": "पुनः लोड करें",
+      "title": "कुछ गड़बड़ हो गई"
+    },
+    "character": {
+      "create": "पात्र नहीं बनाया जा सका। {error}",
+      "export": "पात्र को निर्यात नहीं किया जा सका। {error}",
+      "list": "पात्रों की सूची लोड नहीं की जा सकी। {error}",
+      "load": "पात्र को लोड नहीं किया जा सका। {error}",
+      "remove": "पात्र को हटाया नहीं जा सका। {error}",
+      "save": "पात्र को सहेजा नहीं जा सका। बदलाव सहेजे नहीं जा सकते हैं। {error}"
+    },
+    "module": {
+      "appVersionMismatch": "आवश्यक ऐप संस्करण \"{requiredVersion}\" है, लेकिन वर्तमान \"{appVersion}\" है",
+      "incompatible": "\"{anotherModule}\" के साथ असंगत",
+      "missingDependencies": "अनुपलब्ध निर्भरताएँ: {modules}",
+      "notFound": "मॉड्यूल नहीं मिला: \"{module}\"",
+      "otherDependsOn": "अन्य मॉड्यूल इस पर निर्भर हैं: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "मॉड्यूल '{module}' को ऐप संस्करण '{requiredAppVersion}' की आवश्यकता है, लेकिन वर्तमान संस्करण '{currentAppVersion}' है।",
+      "dependencyCycle": "एक निर्भरता चक्र पाया गया जिसमें शामिल हैं: {modules}।",
+      "genericError": "मॉड्यूल समाधान के दौरान एक अज्ञात त्रुटि हुई।",
+      "incompatibleModules": "मॉड्यूल '{module}' इनसे असंगत है: {incompatible}।",
+      "missingDependency": "मॉड्यूल '{module}' में निर्भरता '{dependency}' अनुपलब्ध है।",
+      "versionMismatch": "मॉड्यूल '{module}' को '{dependency}' का संस्करण '{requiredVersion}' चाहिए, लेकिन मिला '{actualVersion}'।"
+    },
+    "modules": {
+      "export": "मॉड्यूल निर्यात नहीं किया जा सका। {error}"
+    },
+    "outdatedBrowser": "आपका सिस्टम ब्राउज़र पुराना हो चुका है। एप्लिकेशन अपेक्षित रूप से काम नहीं कर सकता। कृपया इसे अपडेट करें।",
+    "unexpected": "कुछ अप्रत्याशित हुआ। ऐप के कुछ हिस्से उम्मीद के मुताबिक काम नहीं कर सकते हैं।"
+  },
+  "forms": {
+    "description": "विवरण",
+    "name": "नाम",
+    "price": "कीमत",
+    "quantity": "मात्रा",
+    "skill": "कौशल",
+    "type": "प्रकार"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "लेखक",
+      "dependencies": "निर्भरता",
+      "description": "विवरण",
+      "id": "आईडी",
+      "label": "कस्टम कॉन्फ़िगरेशन",
+      "languages": "भाषाएँ",
+      "mainSettings": "मुख्य सेटिंग्स",
+      "name": "नाम",
+      "version": "संस्करण"
+    },
+    "export": "मॉड्यूल कॉन्फ़िगरेशन निर्यात करें",
+    "exportSuccess": "मॉड्यूल सफलतापूर्वक निर्यात किया गया!",
+    "external": "बाहरी",
+    "import": {
+      "error": {
+        "extension": "मॉड्यूल आयात नहीं किए जा सके। फ़ाइल एक्सटेंशन .fmod होना चाहिए",
+        "validation": "मॉड्यूल आयात नहीं किए जा सके। फ़ाइल अमान्य है।",
+        "version": "मॉड्यूल आयात नहीं किए जा सके। मॉड्यूल का संस्करण पुराना है।"
+      },
+      "success": "मॉड्यूल सफलतापूर्वक आयात किए गए!",
+      "title": "फ़ाइल से मॉड्यूल आयात करें"
+    },
+    "installed": "इंस्टॉल किए गए मॉड्यूल ({value}):",
+    "save": "मॉड्यूल कॉन्फ़िगरेशन सहेजें",
+    "selected": "चयनित मॉड्यूल",
+    "share": "मॉड्यूल कॉन्फ़िगरेशन साझा करें",
+    "updated": "मॉड्यूल {module} को v{version} पर अपडेट किया गया"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "पासे की सामग्री",
+        "title": "पासे के विकल्प",
+        "type": "पासे का प्रकार"
+      },
+      "force": "बल",
+      "general": {
+        "haptic": "हैप्टिक प्रतिक्रिया",
+        "shake": "फेंकने के लिए हिलाएं",
+        "show-result": "स्क्रीन पर परिणाम दिखाएं",
+        "title": "सामान्य सेटिंग्स"
+      },
+      "gravity": "गुरुत्वाकर्षण",
+      "haptic": "स्पर्श प्रतिक्रिया",
+      "number": "पाँचों की संख्या",
+      "physics": {
+        "force": "बल",
+        "gravity": "गुरुत्वाकर्षण",
+        "number": "पासों की संख्या",
+        "size": "पासे का आकार",
+        "title": "भौतिकी सेटिंग्स"
+      },
+      "reset": "कॉन्फ़िगरेशन रीसेट करें",
+      "resetPhysics": "भौतिकी सेटिंग्स रीसेट करें",
+      "shake": "फेंकने के लिए हिलाएं",
+      "size": "पासा का आकार",
+      "title": "पासा फेंकने की कॉन्फ़िगरेशन"
+    },
+    "result": "फेंकने का परिणाम {value} है",
+    "rolling": "फेंका जा रहा है...",
+    "throw": "{value} पासे फेंकें"
+  },
+  "settings": {
+    "about-app": {
+      "author": "लेखक",
+      "legal": {
+        "title": "कानूनी जानकारी और एट्रिब्यूशन"
+      },
+      "license": "लाइसेंस",
+      "privacy-policy": {
+        "accept-policy": "मैंने गोपनीयता नीति पढ़ी है और उसे स्वीकार करता/करती हूं",
+        "acceptance-date": "स्वीकृति तिथि: {value}",
+        "not-accepted": "गोपनीयता नीति स्वीकार नहीं की गई है। सेटिंग्स पर जाएं, इसे पढ़ें और स्वीकार करें। अन्यथा आप ऐप का उपयोग नहीं कर सकते।",
+        "title": "गोपनीयता नीति",
+        "updated": "वापसी पर स्वागत है! हमने अपनी शर्तों में कुछ अपडेट किए हैं, इसलिए कृपया उन्हें एक बार फिर से पुष्टि करें।"
+      },
+      "source-code": "स्रोत कोड",
+      "title": "एप्लिकेशन के बारे में",
+      "version": "संस्करण"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "डिबग जानकारी दिखाएँ",
+        "toggleDescription": "ऐप में अतिरिक्त डिबग टूल दिखाता है — पासे की भौतिकी डीबगर और छिपे डेवलपर पेज।"
+      },
+      "devMod": {
+        "connect": "कनेक्ट करें",
+        "connected": "\"{id}\" से कनेक्टेड",
+        "disconnect": "डिस्कनेक्ट करें",
+        "error": "डेव मॉड से कनेक्ट नहीं हो सका। {error}",
+        "title": "डेव मॉड कनेक्ट करें",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "आप समीक्षित रजिस्ट्री के बाहर से \"{id}\" इंस्टॉल कर रहे हैं। इसे ऐप और आपके कैरेक्टर डेटा तक पूरा एक्सेस मिलेगा। पुष्टि के लिए \"{id}\" या \"install\" टाइप करें।",
+        "confirmPlaceholder": "पुष्टि के लिए टाइप करें",
+        "confirmTitle": "बाहरी कोड इंस्टॉल करें?",
+        "error": "मॉड इंस्टॉल नहीं हो सका। {error}",
+        "install": "इंस्टॉल करें",
+        "success": "\"{id}\" इंस्टॉल हो गया",
+        "title": "URL से इंस्टॉल करें",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Mod Store को असली की जगह स्टेजिंग रजिस्ट्री पर पॉइंट करें। डिफ़ॉल्ट के लिए खाली छोड़ें।",
+        "save": "सेव करें",
+        "title": "रजिस्ट्री बेस URL ओवरराइड"
+      },
+      "title": "डेवलपर",
+      "toggle": "डेवलपर मोड",
+      "toggleDescription": "URL से मॉड इंस्टॉल करने की अनुमति देता है। केवल लेखकों और टेस्टर्स के लिए — मॉड्स को ऐप तक पूरा एक्सेस मिलता है।"
+    },
+    "language": "भाषा",
+    "mods": {
+      "actions": {
+        "disable": "अक्षम करें",
+        "enable": "सक्षम करें",
+        "remove": "हटाएँ",
+        "retry": "फिर से कोशिश करें",
+        "update": "अपडेट करें",
+        "removeAnyway": "फिर भी हटाएँ"
+      },
+      "blocked": "\"{id}\" अक्षम कर दिया गया — यह संस्करण असुरक्षित चिह्नित है। अपडेट के लिए Mod Store देखें।",
+      "browse": {
+        "compatibleOnly": "केवल इस ऐप के साथ संगत",
+        "empty": "कोई मॉड नहीं मिला",
+        "incompatible": "इस ऐप संस्करण से संगत नहीं",
+        "loadError": "Mod Store लोड नहीं हो सका। {error}",
+        "offline": "रिफ़्रेश नहीं हो सका — कैश परिणाम दिखाए जा रहे हैं",
+        "searchPlaceholder": "मॉड खोजें",
+        "stale": "कैश परिणाम दिखाए जा रहे हैं — रिफ़्रेश के लिए खींचें"
+      },
+      "detail": {
+        "author": "{name} द्वारा",
+        "blocked": "यह संस्करण अवरुद्ध है",
+        "config": "कॉन्फ़िगरेशन विकल्प",
+        "downgrade": "पुराने संस्करण पर जाएँ",
+        "install": "इंस्टॉल करें",
+        "installed": "इंस्टॉल किया गया",
+        "latest": "नवीनतम",
+        "readme": "परिचय",
+        "remove": "हटाएँ",
+        "update": "अपडेट करें",
+        "updateAvailable": "अपडेट उपलब्ध",
+        "versions": "संस्करण"
+      },
+      "empty": "कोई मॉड इंस्टॉल नहीं",
+      "errors": {
+        "action": "क्रिया पूरी नहीं हो सकी। {error}",
+        "list": "इंस्टॉल किए गए मॉड लोड नहीं हो सके। {error}"
+      },
+      "installSuccess": "\"{id}\" इंस्टॉल हो गया",
+      "restartToApply": "बदलाव लागू करने के लिए पुनः आरंभ करें",
+      "source": {
+        "dev": "Dev",
+        "registry": "रजिस्ट्री",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "अक्षम",
+        "errored": "त्रुटि",
+        "loaded": "लोडेड"
+      },
+      "tabs": {
+        "browse": "ब्राउज़ करें",
+        "installed": "इंस्टॉल किए गए"
+      },
+      "title": "मॉड्स",
+      "updateSuccess": "\"{id}\" अपडेट हो गया",
+      "removeConfirm": {
+        "inUse": "अभी भी इनके द्वारा उपयोग में: {characters}",
+        "willUninstall": "हटाने पर यह मॉड उन पात्रों से अनइंस्टॉल हो जाएगा।"
+      }
+    },
+    "theme": {
+      "dark": "डार्क",
+      "defaultSkin": "डिफ़ॉल्ट",
+      "light": "लाइट",
+      "system": "सिस्टम",
+      "title": "थीम"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Mod Store से \"{module}\" इंस्टॉल करें",
+      "notInstalled": "\"{module}\" इंस्टॉल नहीं है",
+      "openModStore": "Mod Store खोलें"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "चरित्र"
+    },
+    "roll-dice": {
+      "title": "पासा फेंको"
+    },
+    "settings": {
+      "title": "सेटिंग्स"
+    }
+  }
 }

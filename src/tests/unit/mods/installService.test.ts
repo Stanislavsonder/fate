@@ -15,8 +15,11 @@ const { loadExternalMod, safeManifest } = vi.hoisted(() => ({
 }))
 vi.mock('@/mods/loader', () => ({ loadExternalMod, safeManifest }))
 
-const { getCharacters } = vi.hoisted(() => ({ getCharacters: vi.fn().mockResolvedValue([]) }))
-vi.mock('@/service/character.service', () => ({ default: { getCharacters } }))
+const { getCharacters, updateCharacter } = vi.hoisted(() => ({
+	getCharacters: vi.fn().mockResolvedValue([]),
+	updateCharacter: vi.fn().mockResolvedValue(1)
+}))
+vi.mock('@/service/character.service', () => ({ default: { getCharacters, updateCharacter } }))
 
 const { getIndex, isEntryPublished } = vi.hoisted(() => ({
 	getIndex: vi.fn(),
@@ -28,7 +31,17 @@ const { getRegistryBase } = vi.hoisted(() => ({ getRegistryBase: vi.fn(() => 'ht
 vi.mock('@/composables/useRegistryBase', () => ({ default: () => ({ getRegistryBase }) }))
 
 import { ModRegistry } from '@/mods/modRegistry'
-import { installFromUrl, update, remove, setEnabled, installFromRegistry, updateFromRegistry, checkForUpdates, isEntryPublished } from '@/mods/installService'
+import {
+	installFromUrl,
+	update,
+	remove,
+	getCharactersUsingMod,
+	setEnabled,
+	installFromRegistry,
+	updateFromRegistry,
+	checkForUpdates,
+	isEntryPublished
+} from '@/mods/installService'
 import type { StoredMod } from '@/db/tables/mods'
 import type { RegistryIndex, RegistryModEntry } from '@/mods/registryClient'
 
@@ -60,6 +73,7 @@ function baseStoredRow(overrides: Partial<StoredMod> = {}): StoredMod {
 beforeEach(() => {
 	vi.clearAllMocks()
 	getCharacters.mockResolvedValue([])
+	updateCharacter.mockResolvedValue(1)
 	putMod.mockResolvedValue(undefined)
 	deleteMod.mockResolvedValue(undefined)
 	setEnabledMod.mockResolvedValue(undefined)
@@ -204,16 +218,38 @@ describe('update', () => {
 })
 
 describe('remove', () => {
-	it('blocks removal when a character still references the mod', async () => {
+	it('strips the module from affected characters, then deletes', async () => {
+		const onUninstall = vi.fn()
 		getCharacters.mockResolvedValue([
 			{ id: 1, name: 'Hero', avatar: '', _modules: { 'author@mod': { version: '1.0.0' } } },
 			{ id: 2, name: 'Other', avatar: '', _modules: {} }
 		])
+		ModRegistry.register({
+			manifest: { id: 'author@mod', version: '1.0.0', onUninstall } as never,
+			source: 'url',
+			status: 'loaded'
+		})
 
 		const result = await remove('author@mod')
 
-		expect(result).toEqual({ ok: false, reason: 'blocked', characterNames: ['Hero'] })
+		expect(result).toEqual({ ok: true })
+		expect(onUninstall).toHaveBeenCalledTimes(1)
+		expect(updateCharacter).toHaveBeenCalledTimes(1)
+		expect(updateCharacter).toHaveBeenCalledWith(expect.objectContaining({ id: 1, _modules: {} }))
+		expect(deleteMod).toHaveBeenCalledWith('author@mod')
+		expect(ModRegistry.get('author@mod')).toBeUndefined()
+	})
+
+	it('does not delete the mod when updating a character fails', async () => {
+		getCharacters.mockResolvedValue([{ id: 1, name: 'Hero', avatar: '', _modules: { 'author@mod': { version: '1.0.0' } } }])
+		updateCharacter.mockRejectedValue(new Error('DB down'))
+		ModRegistry.register({ manifest: { id: 'author@mod', version: '1.0.0' } as never, source: 'url', status: 'loaded' })
+
+		const result = await remove('author@mod')
+
+		expect(result).toEqual({ ok: false, reason: 'error', error: 'DB down' })
 		expect(deleteMod).not.toHaveBeenCalled()
+		expect(ModRegistry.get('author@mod')).toBeDefined()
 	})
 
 	it('removes the mod when no character references it', async () => {
@@ -222,8 +258,20 @@ describe('remove', () => {
 		const result = await remove('removable@mod')
 
 		expect(result).toEqual({ ok: true })
+		expect(updateCharacter).not.toHaveBeenCalled()
 		expect(deleteMod).toHaveBeenCalledWith('removable@mod')
 		expect(ModRegistry.get('removable@mod')).toBeUndefined()
+	})
+})
+
+describe('getCharactersUsingMod', () => {
+	it('returns id and name for characters that still reference the mod', async () => {
+		getCharacters.mockResolvedValue([
+			{ id: 1, name: 'Hero', avatar: '', _modules: { 'author@mod': { version: '1.0.0' } } },
+			{ id: 2, name: 'Other', avatar: '', _modules: {} }
+		])
+
+		await expect(getCharactersUsingMod('author@mod')).resolves.toEqual([{ id: 1, name: 'Hero' }])
 	})
 })
 

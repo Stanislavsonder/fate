@@ -249,6 +249,7 @@
 				"disable": "Disable",
 				"enable": "Enable",
 				"remove": "Remove",
+				"removeAnyway": "Remove anyway",
 				"retry": "Retry",
 				"update": "Update"
 			},
@@ -282,7 +283,10 @@
 				"list": "Could not load installed mods. {error}"
 			},
 			"installSuccess": "\"{id}\" installed",
-			"removeBlocked": "Still used by: {characters}",
+			"removeConfirm": {
+				"inUse": "Used by: {characters}",
+				"willUninstall": "Removing it will uninstall this mod from those characters."
+			},
 			"restartToApply": "Restart to apply changes",
 			"source": {
 				"dev": "Dev",

@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "deskripsi",
-		"name": "nama",
-		"quantity": "kuantitas",
-		"validation-error": "Kesalahan validasi"
-	},
-	"character": {
-		"configure": "Konfigurasi",
-		"create": "Buat karakter",
-		"export": "Ekspor karakter",
-		"exportSuccess": "Karakter berhasil diekspor!",
-		"import": {
-			"error": {
-				"extension": "Tidak dapat mengimpor karakter. Ekstensi file harus .fchar",
-				"validation": "Tidak dapat mengimpor karakter. File tidak valid.",
-				"version": "Tidak dapat mengimpor karakter. Versi karakter sudah usang."
-			},
-			"success": "Karakter berhasil diimpor!",
-			"title": "Impor karakter dari file"
-		},
-		"messages": {
-			"remove": "Apakah Anda yakin ingin menghapus {value}?",
-			"update": "Versi karakter sudah usang. Apakah Anda ingin memperbaruinya?"
-		},
-		"name": "Nama karakter",
-		"new-character": "Karakter Baru",
-		"no-characters": "Belum ada karakter yang dibuat. Buat yang baru atau impor dari file.",
-		"not-selected": "Karakter belum dipilih. Pilih satu atau buat yang baru!",
-		"remove-message": "Apakah Anda yakin ingin menghapus karakter ini?",
-		"save": "Simpan karakter",
-		"share": "Bagikan karakter",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Versi karakter sudah usang. Apakah Anda ingin memperbaruinya?",
-		"updated": "Karakter berhasil diperbarui dari v{from} ke v{to}!",
-		"your-characters": "Karakter Anda"
-	},
-	"common": {
-		"actions": {
-			"add": "Tambah",
-			"back": "Kembali",
-			"cancel": "Batal",
-			"close": "Tutup",
-			"confirm": "Konfirmasi",
-			"create": "Buat",
-			"decrease": "Kurangi",
-			"delete": "Hapus",
-			"edit": "Edit",
-			"finish": "Selesai",
-			"go": "Pergi",
-			"increase": "Tingkatkan",
-			"next": "Lanjut",
-			"remove": "Hapus",
-			"reset": "Atur Ulang",
-			"save": "Simpan",
-			"select": "Pilih",
-			"update": "Perbarui",
-			"upload": "Unggah",
-			"use": "Gunakan"
-		},
-		"messages": {
-			"emptyList": "Belum ada elemen yang ditambahkan",
-			"remove": "Apakah Anda yakin ingin menghapusnya?",
-			"remove-named": "Apakah Anda yakin ingin menghapus \"{value}\"?"
-		},
-		"or": "atau",
-		"state": {
-			"disabled": "Dinonaktifkan",
-			"enabled": "Diaktifkan"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Tambahkan karakter uji"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Aplikasi mengalami masalah dan tidak dapat melanjutkan dengan aman. Memuat ulang seharusnya dapat memperbaikinya.",
-			"reload": "Muat Ulang",
-			"title": "Ada yang salah"
-		},
-		"character": {
-			"create": "Tidak dapat membuat karakter. {error}",
-			"export": "Tidak dapat mengekspor karakter. {error}",
-			"list": "Tidak dapat memuat daftar karakter. {error}",
-			"load": "Tidak dapat memuat karakter. {error}",
-			"remove": "Tidak dapat menghapus karakter. {error}",
-			"save": "Tidak dapat menyimpan karakter. Perubahan mungkin tidak tersimpan. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Membutuhkan versi aplikasi \"{requiredVersion}\" tetapi yang saat ini adalah \"{appVersion}\"",
-			"incompatible": "Tidak kompatibel dengan \"{anotherModule}\"",
-			"missingDependencies": "Ketergantungan yang hilang: {modules}",
-			"notFound": "Modul tidak ditemukan: \"{module}\"",
-			"otherDependsOn": "Modul lain bergantung padanya: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Modul '{module}' memerlukan versi aplikasi '{requiredAppVersion}', tetapi versi saat ini adalah '{currentAppVersion}'.",
-			"dependencyCycle": "Siklus ketergantungan terdeteksi yang melibatkan: {modules}.",
-			"genericError": "Terjadi kesalahan tidak diketahui selama penyelesaian modul.",
-			"incompatibleModules": "Modul '{module}' tidak kompatibel dengan: {incompatible}.",
-			"missingDependency": "Modul '{module}' kehilangan ketergantungan '{dependency}'.",
-			"versionMismatch": "Modul '{module}' memerlukan versi '{requiredVersion}' dari '{dependency}', tetapi versi yang ditemukan adalah '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Tidak dapat mengekspor modul. {error}"
-		},
-		"outdatedBrowser": "Peramban sistem Anda sudah usang. Aplikasi mungkin tidak berfungsi sebagaimana mestinya. Silakan perbarui.",
-		"unexpected": "Sesuatu yang tidak terduga terjadi. Beberapa bagian aplikasi mungkin tidak berfungsi seperti yang diharapkan."
-	},
-	"forms": {
-		"description": "Deskripsi",
-		"name": "Nama",
-		"price": "Harga",
-		"quantity": "Jumlah",
-		"skill": "Keterampilan",
-		"type": "Jenis"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Penulis",
-			"dependencies": "Ketergantungan",
-			"description": "Deskripsi",
-			"id": "ID",
-			"label": "Konfigurasi Kustom",
-			"languages": "Bahasa",
-			"mainSettings": "Pengaturan Utama",
-			"name": "Nama",
-			"version": "Versi"
-		},
-		"export": "Ekspor konfigurasi modul",
-		"exportSuccess": "Modul berhasil diekspor!",
-		"external": "Eksternal",
-		"import": {
-			"error": {
-				"extension": "Tidak dapat mengimpor modul. Ekstensi file harus .fmod",
-				"validation": "Tidak dapat mengimpor modul. File tidak valid.",
-				"version": "Tidak dapat mengimpor modul. Versi modul sudah usang."
-			},
-			"success": "Modul berhasil diimpor!",
-			"title": "Impor modul dari file"
-		},
-		"installed": "Modul yang terpasang ({value}):",
-		"save": "Simpan konfigurasi modul",
-		"selected": "Modul yang Dipilih",
-		"share": "Bagikan konfigurasi modul",
-		"updated": "Modul {module} diperbarui ke v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Bahan dadu",
-				"title": "Opsi dadu",
-				"type": "Jenis dadu"
-			},
-			"force": "Gaya",
-			"general": {
-				"haptic": "Umpan balik haptic",
-				"shake": "Kocok untuk melempar",
-				"show-result": "Tampilkan hasil di layar",
-				"title": "Pengaturan umum"
-			},
-			"gravity": "Gravitasi",
-			"haptic": "Umpan balik haptik",
-			"number": "Jumlah dadu",
-			"physics": {
-				"force": "Gaya",
-				"gravity": "Gravitasi",
-				"number": "Jumlah dadu",
-				"size": "Ukuran dadu",
-				"title": "Pengaturan fisika"
-			},
-			"reset": "Atur ulang konfigurasi",
-			"resetPhysics": "Setel ulang pengaturan fisika",
-			"shake": "Goyangkan untuk melempar",
-			"size": "Ukuran dadu",
-			"title": "Konfigurasi lemparan dadu"
-		},
-		"result": "Hasil lemparan adalah {value}",
-		"rolling": "Melempar...",
-		"throw": "Lempar {value} dadu"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Penulis",
-			"legal": {
-				"title": "Informasi hukum dan atribusi"
-			},
-			"license": "Lisensi",
-			"privacy-policy": {
-				"accept-policy": "Saya telah membaca dan menerima kebijakan privasi",
-				"acceptance-date": "Tanggal penerimaan: {value}",
-				"not-accepted": "Kebijakan privasi belum diterima. Buka pengaturan, baca, dan terima. Jika tidak, Anda tidak dapat menggunakan aplikasi.",
-				"title": "Kebijakan Privasi",
-				"updated": "Selamat datang kembali! Kami telah memperbarui beberapa ketentuan, jadi kami perlu Anda mengonfirmasinya sekali lagi."
-			},
-			"source-code": "Kode Sumber",
-			"title": "Tentang Aplikasi",
-			"version": "Versi"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Tampilkan informasi debug",
-				"toggleDescription": "Menampilkan alat debug ekstra di aplikasi — debugger fisika dadu dan halaman pengembang tersembunyi."
-			},
-			"devMod": {
-				"connect": "Hubungkan",
-				"connected": "Terhubung ke \"{id}\"",
-				"disconnect": "Putuskan",
-				"error": "Tidak dapat terhubung ke mod pengembangan. {error}",
-				"title": "Hubungkan mod pengembangan",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Anda memasang \"{id}\" dari luar registri yang ditinjau. Mod ini akan berjalan dengan akses penuh ke aplikasi dan data karakter Anda. Ketik \"{id}\" atau \"install\" untuk mengonfirmasi.",
-				"confirmPlaceholder": "Ketik untuk mengonfirmasi",
-				"confirmTitle": "Pasang kode eksternal?",
-				"error": "Tidak dapat memasang mod. {error}",
-				"install": "Pasang",
-				"success": "\"{id}\" dipasang",
-				"title": "Pasang dari URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Arahkan Mod Store ke registri staging, bukan yang asli. Biarkan kosong untuk memakai bawaan.",
-				"save": "Simpan",
-				"title": "Ganti URL dasar registri"
-			},
-			"title": "Pengembang",
-			"toggle": "Mode Pengembang",
-			"toggleDescription": "Mengaktifkan pemasangan mod dari URL. Hanya untuk penulis dan penguji — mod berjalan dengan akses penuh ke aplikasi."
-		},
-		"language": "Bahasa",
-		"mods": {
-			"actions": {
-				"disable": "Nonaktifkan",
-				"enable": "Aktifkan",
-				"remove": "Hapus",
-				"retry": "Coba lagi",
-				"update": "Perbarui"
-			},
-			"blocked": "\"{id}\" dinonaktifkan — versinya ditandai tidak aman. Periksa Mod Store untuk pembaruan.",
-			"browse": {
-				"compatibleOnly": "Hanya yang kompatibel dengan aplikasi ini",
-				"empty": "Tidak ada mod ditemukan",
-				"incompatible": "Tidak kompatibel dengan versi aplikasi ini",
-				"loadError": "Tidak dapat memuat Mod Store. {error}",
-				"offline": "Tidak dapat menyegarkan — menampilkan hasil tersimpan",
-				"searchPlaceholder": "Cari mod",
-				"stale": "Menampilkan hasil tersimpan — tarik untuk menyegarkan"
-			},
-			"detail": {
-				"author": "Oleh {name}",
-				"blocked": "Versi ini diblokir",
-				"config": "Opsi konfigurasi",
-				"downgrade": "Turunkan versi",
-				"install": "Pasang",
-				"installed": "Terpasang",
-				"latest": "terbaru",
-				"readme": "Tentang",
-				"remove": "Hapus",
-				"update": "Perbarui",
-				"updateAvailable": "Pembaruan tersedia",
-				"versions": "Versi"
-			},
-			"empty": "Tidak ada mod terpasang",
-			"errors": {
-				"action": "Tidak dapat menyelesaikan tindakan. {error}",
-				"list": "Tidak dapat memuat mod terpasang. {error}"
-			},
-			"installSuccess": "\"{id}\" dipasang",
-			"removeBlocked": "Masih digunakan oleh: {characters}",
-			"restartToApply": "Mulai ulang untuk menerapkan perubahan",
-			"source": {
-				"dev": "Dev",
-				"registry": "Registri",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Nonaktif",
-				"errored": "Kesalahan",
-				"loaded": "Dimuat"
-			},
-			"tabs": {
-				"browse": "Jelajahi",
-				"installed": "Terpasang"
-			},
-			"title": "Mod",
-			"updateSuccess": "\"{id}\" diperbarui"
-		},
-		"theme": {
-			"dark": "Gelap",
-			"defaultSkin": "Default",
-			"light": "Terang",
-			"system": "Sistem",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Pasang \"{module}\" dari Mod Store",
-			"notInstalled": "\"{module}\" belum terpasang",
-			"openModStore": "Buka Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Karakter"
-		},
-		"roll-dice": {
-			"title": "Lempar Dadu"
-		},
-		"settings": {
-			"title": "Pengaturan"
-		}
-	}
+  "a11y": {
+    "description": "deskripsi",
+    "name": "nama",
+    "quantity": "kuantitas",
+    "validation-error": "Kesalahan validasi"
+  },
+  "character": {
+    "configure": "Konfigurasi",
+    "create": "Buat karakter",
+    "export": "Ekspor karakter",
+    "exportSuccess": "Karakter berhasil diekspor!",
+    "import": {
+      "error": {
+        "extension": "Tidak dapat mengimpor karakter. Ekstensi file harus .fchar",
+        "validation": "Tidak dapat mengimpor karakter. File tidak valid.",
+        "version": "Tidak dapat mengimpor karakter. Versi karakter sudah usang."
+      },
+      "success": "Karakter berhasil diimpor!",
+      "title": "Impor karakter dari file"
+    },
+    "messages": {
+      "remove": "Apakah Anda yakin ingin menghapus {value}?",
+      "update": "Versi karakter sudah usang. Apakah Anda ingin memperbaruinya?"
+    },
+    "name": "Nama karakter",
+    "new-character": "Karakter Baru",
+    "no-characters": "Belum ada karakter yang dibuat. Buat yang baru atau impor dari file.",
+    "not-selected": "Karakter belum dipilih. Pilih satu atau buat yang baru!",
+    "remove-message": "Apakah Anda yakin ingin menghapus karakter ini?",
+    "save": "Simpan karakter",
+    "share": "Bagikan karakter",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Versi karakter sudah usang. Apakah Anda ingin memperbaruinya?",
+    "updated": "Karakter berhasil diperbarui dari v{from} ke v{to}!",
+    "your-characters": "Karakter Anda"
+  },
+  "common": {
+    "actions": {
+      "add": "Tambah",
+      "back": "Kembali",
+      "cancel": "Batal",
+      "close": "Tutup",
+      "confirm": "Konfirmasi",
+      "create": "Buat",
+      "decrease": "Kurangi",
+      "delete": "Hapus",
+      "edit": "Edit",
+      "finish": "Selesai",
+      "go": "Pergi",
+      "increase": "Tingkatkan",
+      "next": "Lanjut",
+      "remove": "Hapus",
+      "reset": "Atur Ulang",
+      "save": "Simpan",
+      "select": "Pilih",
+      "update": "Perbarui",
+      "upload": "Unggah",
+      "use": "Gunakan"
+    },
+    "messages": {
+      "emptyList": "Belum ada elemen yang ditambahkan",
+      "remove": "Apakah Anda yakin ingin menghapusnya?",
+      "remove-named": "Apakah Anda yakin ingin menghapus \"{value}\"?"
+    },
+    "or": "atau",
+    "state": {
+      "disabled": "Dinonaktifkan",
+      "enabled": "Diaktifkan"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Tambahkan karakter uji"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Aplikasi mengalami masalah dan tidak dapat melanjutkan dengan aman. Memuat ulang seharusnya dapat memperbaikinya.",
+      "reload": "Muat Ulang",
+      "title": "Ada yang salah"
+    },
+    "character": {
+      "create": "Tidak dapat membuat karakter. {error}",
+      "export": "Tidak dapat mengekspor karakter. {error}",
+      "list": "Tidak dapat memuat daftar karakter. {error}",
+      "load": "Tidak dapat memuat karakter. {error}",
+      "remove": "Tidak dapat menghapus karakter. {error}",
+      "save": "Tidak dapat menyimpan karakter. Perubahan mungkin tidak tersimpan. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Membutuhkan versi aplikasi \"{requiredVersion}\" tetapi yang saat ini adalah \"{appVersion}\"",
+      "incompatible": "Tidak kompatibel dengan \"{anotherModule}\"",
+      "missingDependencies": "Ketergantungan yang hilang: {modules}",
+      "notFound": "Modul tidak ditemukan: \"{module}\"",
+      "otherDependsOn": "Modul lain bergantung padanya: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Modul '{module}' memerlukan versi aplikasi '{requiredAppVersion}', tetapi versi saat ini adalah '{currentAppVersion}'.",
+      "dependencyCycle": "Siklus ketergantungan terdeteksi yang melibatkan: {modules}.",
+      "genericError": "Terjadi kesalahan tidak diketahui selama penyelesaian modul.",
+      "incompatibleModules": "Modul '{module}' tidak kompatibel dengan: {incompatible}.",
+      "missingDependency": "Modul '{module}' kehilangan ketergantungan '{dependency}'.",
+      "versionMismatch": "Modul '{module}' memerlukan versi '{requiredVersion}' dari '{dependency}', tetapi versi yang ditemukan adalah '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Tidak dapat mengekspor modul. {error}"
+    },
+    "outdatedBrowser": "Peramban sistem Anda sudah usang. Aplikasi mungkin tidak berfungsi sebagaimana mestinya. Silakan perbarui.",
+    "unexpected": "Sesuatu yang tidak terduga terjadi. Beberapa bagian aplikasi mungkin tidak berfungsi seperti yang diharapkan."
+  },
+  "forms": {
+    "description": "Deskripsi",
+    "name": "Nama",
+    "price": "Harga",
+    "quantity": "Jumlah",
+    "skill": "Keterampilan",
+    "type": "Jenis"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Penulis",
+      "dependencies": "Ketergantungan",
+      "description": "Deskripsi",
+      "id": "ID",
+      "label": "Konfigurasi Kustom",
+      "languages": "Bahasa",
+      "mainSettings": "Pengaturan Utama",
+      "name": "Nama",
+      "version": "Versi"
+    },
+    "export": "Ekspor konfigurasi modul",
+    "exportSuccess": "Modul berhasil diekspor!",
+    "external": "Eksternal",
+    "import": {
+      "error": {
+        "extension": "Tidak dapat mengimpor modul. Ekstensi file harus .fmod",
+        "validation": "Tidak dapat mengimpor modul. File tidak valid.",
+        "version": "Tidak dapat mengimpor modul. Versi modul sudah usang."
+      },
+      "success": "Modul berhasil diimpor!",
+      "title": "Impor modul dari file"
+    },
+    "installed": "Modul yang terpasang ({value}):",
+    "save": "Simpan konfigurasi modul",
+    "selected": "Modul yang Dipilih",
+    "share": "Bagikan konfigurasi modul",
+    "updated": "Modul {module} diperbarui ke v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Bahan dadu",
+        "title": "Opsi dadu",
+        "type": "Jenis dadu"
+      },
+      "force": "Gaya",
+      "general": {
+        "haptic": "Umpan balik haptic",
+        "shake": "Kocok untuk melempar",
+        "show-result": "Tampilkan hasil di layar",
+        "title": "Pengaturan umum"
+      },
+      "gravity": "Gravitasi",
+      "haptic": "Umpan balik haptik",
+      "number": "Jumlah dadu",
+      "physics": {
+        "force": "Gaya",
+        "gravity": "Gravitasi",
+        "number": "Jumlah dadu",
+        "size": "Ukuran dadu",
+        "title": "Pengaturan fisika"
+      },
+      "reset": "Atur ulang konfigurasi",
+      "resetPhysics": "Setel ulang pengaturan fisika",
+      "shake": "Goyangkan untuk melempar",
+      "size": "Ukuran dadu",
+      "title": "Konfigurasi lemparan dadu"
+    },
+    "result": "Hasil lemparan adalah {value}",
+    "rolling": "Melempar...",
+    "throw": "Lempar {value} dadu"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Penulis",
+      "legal": {
+        "title": "Informasi hukum dan atribusi"
+      },
+      "license": "Lisensi",
+      "privacy-policy": {
+        "accept-policy": "Saya telah membaca dan menerima kebijakan privasi",
+        "acceptance-date": "Tanggal penerimaan: {value}",
+        "not-accepted": "Kebijakan privasi belum diterima. Buka pengaturan, baca, dan terima. Jika tidak, Anda tidak dapat menggunakan aplikasi.",
+        "title": "Kebijakan Privasi",
+        "updated": "Selamat datang kembali! Kami telah memperbarui beberapa ketentuan, jadi kami perlu Anda mengonfirmasinya sekali lagi."
+      },
+      "source-code": "Kode Sumber",
+      "title": "Tentang Aplikasi",
+      "version": "Versi"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Tampilkan informasi debug",
+        "toggleDescription": "Menampilkan alat debug ekstra di aplikasi — debugger fisika dadu dan halaman pengembang tersembunyi."
+      },
+      "devMod": {
+        "connect": "Hubungkan",
+        "connected": "Terhubung ke \"{id}\"",
+        "disconnect": "Putuskan",
+        "error": "Tidak dapat terhubung ke mod pengembangan. {error}",
+        "title": "Hubungkan mod pengembangan",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Anda memasang \"{id}\" dari luar registri yang ditinjau. Mod ini akan berjalan dengan akses penuh ke aplikasi dan data karakter Anda. Ketik \"{id}\" atau \"install\" untuk mengonfirmasi.",
+        "confirmPlaceholder": "Ketik untuk mengonfirmasi",
+        "confirmTitle": "Pasang kode eksternal?",
+        "error": "Tidak dapat memasang mod. {error}",
+        "install": "Pasang",
+        "success": "\"{id}\" dipasang",
+        "title": "Pasang dari URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Arahkan Mod Store ke registri staging, bukan yang asli. Biarkan kosong untuk memakai bawaan.",
+        "save": "Simpan",
+        "title": "Ganti URL dasar registri"
+      },
+      "title": "Pengembang",
+      "toggle": "Mode Pengembang",
+      "toggleDescription": "Mengaktifkan pemasangan mod dari URL. Hanya untuk penulis dan penguji — mod berjalan dengan akses penuh ke aplikasi."
+    },
+    "language": "Bahasa",
+    "mods": {
+      "actions": {
+        "disable": "Nonaktifkan",
+        "enable": "Aktifkan",
+        "remove": "Hapus",
+        "retry": "Coba lagi",
+        "update": "Perbarui",
+        "removeAnyway": "Hapus saja"
+      },
+      "blocked": "\"{id}\" dinonaktifkan — versinya ditandai tidak aman. Periksa Mod Store untuk pembaruan.",
+      "browse": {
+        "compatibleOnly": "Hanya yang kompatibel dengan aplikasi ini",
+        "empty": "Tidak ada mod ditemukan",
+        "incompatible": "Tidak kompatibel dengan versi aplikasi ini",
+        "loadError": "Tidak dapat memuat Mod Store. {error}",
+        "offline": "Tidak dapat menyegarkan — menampilkan hasil tersimpan",
+        "searchPlaceholder": "Cari mod",
+        "stale": "Menampilkan hasil tersimpan — tarik untuk menyegarkan"
+      },
+      "detail": {
+        "author": "Oleh {name}",
+        "blocked": "Versi ini diblokir",
+        "config": "Opsi konfigurasi",
+        "downgrade": "Turunkan versi",
+        "install": "Pasang",
+        "installed": "Terpasang",
+        "latest": "terbaru",
+        "readme": "Tentang",
+        "remove": "Hapus",
+        "update": "Perbarui",
+        "updateAvailable": "Pembaruan tersedia",
+        "versions": "Versi"
+      },
+      "empty": "Tidak ada mod terpasang",
+      "errors": {
+        "action": "Tidak dapat menyelesaikan tindakan. {error}",
+        "list": "Tidak dapat memuat mod terpasang. {error}"
+      },
+      "installSuccess": "\"{id}\" dipasang",
+      "restartToApply": "Mulai ulang untuk menerapkan perubahan",
+      "source": {
+        "dev": "Dev",
+        "registry": "Registri",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Nonaktif",
+        "errored": "Kesalahan",
+        "loaded": "Dimuat"
+      },
+      "tabs": {
+        "browse": "Jelajahi",
+        "installed": "Terpasang"
+      },
+      "title": "Mod",
+      "updateSuccess": "\"{id}\" diperbarui",
+      "removeConfirm": {
+        "inUse": "Masih digunakan oleh: {characters}",
+        "willUninstall": "Menghapusnya akan mencopot mod ini dari karakter tersebut."
+      }
+    },
+    "theme": {
+      "dark": "Gelap",
+      "defaultSkin": "Default",
+      "light": "Terang",
+      "system": "Sistem",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Pasang \"{module}\" dari Mod Store",
+      "notInstalled": "\"{module}\" belum terpasang",
+      "openModStore": "Buka Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Karakter"
+    },
+    "roll-dice": {
+      "title": "Lempar Dadu"
+    },
+    "settings": {
+      "title": "Pengaturan"
+    }
+  }
 }

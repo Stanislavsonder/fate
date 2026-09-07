@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import type { Character } from '@/types'
-import { useId } from 'vue'
+import { computed, useId } from 'vue'
 import CharacterPlaceholder from '@/assets/character-placeholder.jpg'
 import { downloadOutline, ellipsisVertical, settings, shareOutline } from 'ionicons/icons'
 import { IonIcon, IonPopover, IonButton, IonContent, IonList, IonItem, IonLabel } from '@ionic/vue'
 import { confirmRemove } from '@/utils/helpers/dialog'
 import CharacterService from '@/service/character.service'
 import { ROUTES } from '@/router'
+import { getSheetModules } from '@/mods/getSheetModules'
+import { useModReloadRequired } from '@/mods/reloadState'
 
 const { character } = defineProps<{
 	character: Character
@@ -20,6 +22,12 @@ const emit = defineEmits<{
 
 const popoverId = useId()
 const canShare = CharacterService.canShare
+const reloadRequired = useModReloadRequired()
+const visibleModules = computed(() => {
+	void reloadRequired.value
+	const loaded = getSheetModules()
+	return Object.entries(character._modules).filter(([id]) => loaded.has(id))
+})
 
 async function remove() {
 	if (await confirmRemove(character.name)) {
@@ -39,12 +47,12 @@ async function remove() {
 			<h3 class="font-bold mb-2 pe-8">{{ character.name }}</h3>
 
 			<h4 class="text-xs mb-2 opacity-70">
-				{{ $t('modules.installed', { value: Object.keys(character._modules).length }) }}
+				{{ $t('modules.installed', { value: visibleModules.length }) }}
 			</h4>
 
 			<ul class="grid gap-1">
 				<li
-					v-for="m in Object.entries(character._modules)"
+					v-for="m in visibleModules"
 					:key="m[0]"
 					class="flex text-xs p-1 px-2 bg-background-3 text-light justify-between rounded"
 				>

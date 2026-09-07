@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "popis",
-		"name": "jméno",
-		"quantity": "množství",
-		"validation-error": "Chyba validace"
-	},
-	"character": {
-		"configure": "Konfigurovat",
-		"create": "Vytvořit postavu",
-		"export": "Exportovat postavu",
-		"exportSuccess": "Postava byla úspěšně exportována!",
-		"import": {
-			"error": {
-				"extension": "Nelze importovat postavu. Přípona souboru musí být .fchar",
-				"validation": "Nelze importovat postavu. Soubor je neplatný.",
-				"version": "Nelze importovat postavu. Verze postavy je zastaralá."
-			},
-			"success": "Postava úspěšně importována!",
-			"title": "Importovat postavu ze souboru"
-		},
-		"messages": {
-			"remove": "Opravdu chcete odstranit {value}?",
-			"update": "Verze postavy je zastaralá. Chcete ji aktualizovat?"
-		},
-		"name": "Jméno postavy",
-		"new-character": "Nová postava",
-		"no-characters": "Zatím nebyly vytvořeny žádné postavy. Vytvořte novou nebo importujte ze souboru.",
-		"not-selected": "Postava není vybrána. Vyberte ji nebo vytvořte novou!",
-		"remove-message": "Opravdu chcete tuto postavu odstranit?",
-		"save": "Uložit postavu",
-		"share": "Sdílet postavu",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Verze postavy je zastaralá. Chcete ji aktualizovat?",
-		"updated": "Postava byla úspěšně aktualizována z v{from} na v{to}!",
-		"your-characters": "Vaše postavy"
-	},
-	"common": {
-		"actions": {
-			"add": "Přidat",
-			"back": "Zpět",
-			"cancel": "Zrušit",
-			"close": "Zavřít",
-			"confirm": "Potvrdit",
-			"create": "Vytvořit",
-			"decrease": "Snížit",
-			"delete": "Smazat",
-			"edit": "Upravit",
-			"finish": "Dokončit",
-			"go": "Jít",
-			"increase": "Zvýšit",
-			"next": "Další",
-			"remove": "Odstranit",
-			"reset": "Resetovat",
-			"save": "Uložit",
-			"select": "Vybrat",
-			"update": "Aktualizovat",
-			"upload": "Nahrát",
-			"use": "Použít"
-		},
-		"messages": {
-			"emptyList": "Zatím nebyly přidány žádné prvky",
-			"remove": "Jste si jisti, že to chcete odstranit?",
-			"remove-named": "Jste si jisti, že chcete odstranit \"{value}\"?"
-		},
-		"or": "nebo",
-		"state": {
-			"disabled": "Deaktivováno",
-			"enabled": "Aktivováno"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Přidat testovací postavu"
-	},
-	"errors": {
-		"boundary": {
-			"description": "V aplikaci došlo k problémům a nelze bezpečně pokračovat. Načtení stránky by to mělo vyřešit.",
-			"reload": "Obnovit",
-			"title": "Něco se pokazilo"
-		},
-		"character": {
-			"create": "Postavu se nepodařilo vytvořit. {error}",
-			"export": "Postavu se nepodařilo exportovat. {error}",
-			"list": "Seznam postav se nepodařilo načíst. {error}",
-			"load": "Postavu se nepodařilo načíst. {error}",
-			"remove": "Postavu se nepodařilo odstranit. {error}",
-			"save": "Postavu se nepodařilo uložit. Změny nemusí být uloženy. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Vyžaduje verzi aplikace \"{requiredVersion}\", ale aktuální je \"{appVersion}\"",
-			"incompatible": "Nekompatibilní s \"{anotherModule}\"",
-			"missingDependencies": "Chybějící závislosti: {modules}",
-			"notFound": "Modul nenalezen: \"{module}\"",
-			"otherDependsOn": "Jiné moduly na něm závisí: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Modul '{module}' vyžaduje verzi aplikace '{requiredAppVersion}', ale aktuální verze je '{currentAppVersion}'.",
-			"dependencyCycle": "Byl zjištěn cyklus závislostí zahrnující: {modules}.",
-			"genericError": "Při řešení modulu došlo k neznámé chybě.",
-			"incompatibleModules": "Modul '{module}' není kompatibilní s: {incompatible}.",
-			"missingDependency": "Modulu '{module}' chybí závislost '{dependency}'.",
-			"versionMismatch": "Modul '{module}' vyžaduje verzi '{requiredVersion}' závislosti '{dependency}', ale nalezená verze je '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Nepodařilo se exportovat moduly. {error}"
-		},
-		"outdatedBrowser": "Váš systémový prohlížeč je zastaralý. Aplikace nemusí fungovat podle očekávání. Aktualizujte jej.",
-		"unexpected": "Došlo k neočekávané chybě. Některé části aplikace nemusí fungovat podle očekávání."
-	},
-	"forms": {
-		"description": "Popis",
-		"name": "Název",
-		"price": "Cena",
-		"quantity": "Množství",
-		"skill": "Dovednost",
-		"type": "Typ"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Autor",
-			"dependencies": "Závislosti",
-			"description": "Popis",
-			"id": "ID",
-			"label": "Vlastní konfigurace",
-			"languages": "Jazyky",
-			"mainSettings": "Hlavní nastavení",
-			"name": "Název",
-			"version": "Verze"
-		},
-		"export": "Exportovat konfiguraci modulů",
-		"exportSuccess": "Moduly byly úspěšně exportovány!",
-		"external": "Externí",
-		"import": {
-			"error": {
-				"extension": "Nelze importovat moduly. Přípona souboru musí být .fmod",
-				"validation": "Nelze importovat moduly. Soubor je neplatný.",
-				"version": "Nelze importovat moduly. Verze modulů je zastaralá."
-			},
-			"success": "Moduly úspěšně importovány!",
-			"title": "Importovat moduly ze souboru"
-		},
-		"installed": "Nainstalované moduly ({value}):",
-		"save": "Uložit konfiguraci modulů",
-		"selected": "Vybrané moduly",
-		"share": "Sdílet konfiguraci modulů",
-		"updated": "Modul {module} byl aktualizován na v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Materiál kostek",
-				"title": "Možnosti kostek",
-				"type": "Typ kostek"
-			},
-			"force": "Síla",
-			"general": {
-				"haptic": "Haptická odezva",
-				"shake": "Protřepat k hodu",
-				"show-result": "Zobrazit výsledek na obrazovce",
-				"title": "Obecná nastavení"
-			},
-			"gravity": "Gravitace",
-			"haptic": "Haptická zpětná vazba",
-			"number": "Počet kostek",
-			"physics": {
-				"force": "Síla",
-				"gravity": "Gravitace",
-				"number": "Počet kostek",
-				"size": "Velikost kostek",
-				"title": "Nastavení fyziky"
-			},
-			"reset": "Obnovit konfiguraci",
-			"resetPhysics": "Resetovat nastavení fyziky",
-			"shake": "Zatřeste pro hod",
-			"size": "Velikost kostky",
-			"title": "Konfigurace hodu kostkami"
-		},
-		"result": "Výsledek hodu je {value}",
-		"rolling": "Házíme...",
-		"throw": "Hoď {value} kostek"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Autor",
-			"legal": {
-				"title": "Právní informace a uvedení autorů"
-			},
-			"license": "Licence",
-			"privacy-policy": {
-				"accept-policy": "Přečetl(a) jsem si a přijímám zásady ochrany osobních údajů",
-				"acceptance-date": "Datum přijetí: {value}",
-				"not-accepted": "Zásady ochrany osobních údajů nebyly přijaty. Přejděte do nastavení, přečtěte si je a přijměte. Jinak nemůžete aplikaci používat.",
-				"title": "Zásady ochrany osobních údajů",
-				"updated": "Vítejte zpět! Trochu jsme aktualizovali podmínky, proto je potřeba je znovu potvrdit."
-			},
-			"source-code": "Zdrojový kód",
-			"title": "O aplikaci",
-			"version": "Verze"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Zobrazit ladicí informace",
-				"toggleDescription": "Zobrazí další ladicí nástroje v aplikaci — debugger fyziky kostek a skryté vývojářské stránky."
-			},
-			"devMod": {
-				"connect": "Připojit",
-				"connected": "Připojeno k „{id}“",
-				"disconnect": "Odpojit",
-				"error": "Nepodařilo se připojit k vývojářskému modu. {error}",
-				"title": "Připojit vývojářský mod",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Instalujete „{id}“ mimo ověřený registr. Bude mít plný přístup k aplikaci a datům postav. Pro potvrzení zadejte „{id}“ nebo „install“.",
-				"confirmPlaceholder": "Zadejte pro potvrzení",
-				"confirmTitle": "Nainstalovat externí kód?",
-				"error": "Mod se nepodařilo nainstalovat. {error}",
-				"install": "Nainstalovat",
-				"success": "„{id}“ nainstalován",
-				"title": "Nainstalovat z URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Nasměrujte Mod Store na staging registr místo ostrého. Nechte prázdné pro výchozí.",
-				"save": "Uložit",
-				"title": "Přepsat základní URL registru"
-			},
-			"title": "Vývojář",
-			"toggle": "Vývojářský režim",
-			"toggleDescription": "Umožňuje instalovat mody z URL. Pouze pro autory a testery — mody mají plný přístup k aplikaci."
-		},
-		"language": "Jazyk",
-		"mods": {
-			"actions": {
-				"disable": "Deaktivovat",
-				"enable": "Aktivovat",
-				"remove": "Odebrat",
-				"retry": "Zkusit znovu",
-				"update": "Aktualizovat"
-			},
-			"blocked": "„{id}“ byl deaktivován — tato verze byla označena jako nebezpečná. Zkontrolujte aktualizaci v Mod Store.",
-			"browse": {
-				"compatibleOnly": "Pouze kompatibilní s touto aplikací",
-				"empty": "Žádné mody nenalezeny",
-				"incompatible": "Nekompatibilní s touto verzí aplikace",
-				"loadError": "Nepodařilo se načíst Mod Store. {error}",
-				"offline": "Obnovení selhalo — zobrazují se výsledky z mezipaměti",
-				"searchPlaceholder": "Hledat mody",
-				"stale": "Výsledky z mezipaměti — potáhněte pro obnovení"
-			},
-			"detail": {
-				"author": "Autor: {name}",
-				"blocked": "Tato verze je zablokovaná",
-				"config": "Možnosti konfigurace",
-				"downgrade": "Přejít na starší verzi",
-				"install": "Nainstalovat",
-				"installed": "Nainstalováno",
-				"latest": "nejnovější",
-				"readme": "O modu",
-				"remove": "Odebrat",
-				"update": "Aktualizovat",
-				"updateAvailable": "Dostupná aktualizace",
-				"versions": "Verze"
-			},
-			"empty": "Žádné nainstalované mody",
-			"errors": {
-				"action": "Akci se nepodařilo dokončit. {error}",
-				"list": "Nepodařilo se načíst nainstalované mody. {error}"
-			},
-			"installSuccess": "„{id}“ nainstalován",
-			"removeBlocked": "Stále používáno: {characters}",
-			"restartToApply": "Restartovat a použít změny",
-			"source": {
-				"dev": "Dev",
-				"registry": "Registr",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Deaktivováno",
-				"errored": "Chyba",
-				"loaded": "Načteno"
-			},
-			"tabs": {
-				"browse": "Procházet",
-				"installed": "Nainstalované"
-			},
-			"title": "Mody",
-			"updateSuccess": "„{id}“ aktualizován"
-		},
-		"theme": {
-			"dark": "Tmavé",
-			"defaultSkin": "Výchozí",
-			"light": "Světlé",
-			"system": "Systém",
-			"title": "Téma"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Nainstalovat „{module}“ z Mod Store",
-			"notInstalled": "„{module}“ není nainstalován",
-			"openModStore": "Otevřít Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Postava"
-		},
-		"roll-dice": {
-			"title": "Hod kostkami"
-		},
-		"settings": {
-			"title": "Nastavení"
-		}
-	}
+  "a11y": {
+    "description": "popis",
+    "name": "jméno",
+    "quantity": "množství",
+    "validation-error": "Chyba validace"
+  },
+  "character": {
+    "configure": "Konfigurovat",
+    "create": "Vytvořit postavu",
+    "export": "Exportovat postavu",
+    "exportSuccess": "Postava byla úspěšně exportována!",
+    "import": {
+      "error": {
+        "extension": "Nelze importovat postavu. Přípona souboru musí být .fchar",
+        "validation": "Nelze importovat postavu. Soubor je neplatný.",
+        "version": "Nelze importovat postavu. Verze postavy je zastaralá."
+      },
+      "success": "Postava úspěšně importována!",
+      "title": "Importovat postavu ze souboru"
+    },
+    "messages": {
+      "remove": "Opravdu chcete odstranit {value}?",
+      "update": "Verze postavy je zastaralá. Chcete ji aktualizovat?"
+    },
+    "name": "Jméno postavy",
+    "new-character": "Nová postava",
+    "no-characters": "Zatím nebyly vytvořeny žádné postavy. Vytvořte novou nebo importujte ze souboru.",
+    "not-selected": "Postava není vybrána. Vyberte ji nebo vytvořte novou!",
+    "remove-message": "Opravdu chcete tuto postavu odstranit?",
+    "save": "Uložit postavu",
+    "share": "Sdílet postavu",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Verze postavy je zastaralá. Chcete ji aktualizovat?",
+    "updated": "Postava byla úspěšně aktualizována z v{from} na v{to}!",
+    "your-characters": "Vaše postavy"
+  },
+  "common": {
+    "actions": {
+      "add": "Přidat",
+      "back": "Zpět",
+      "cancel": "Zrušit",
+      "close": "Zavřít",
+      "confirm": "Potvrdit",
+      "create": "Vytvořit",
+      "decrease": "Snížit",
+      "delete": "Smazat",
+      "edit": "Upravit",
+      "finish": "Dokončit",
+      "go": "Jít",
+      "increase": "Zvýšit",
+      "next": "Další",
+      "remove": "Odstranit",
+      "reset": "Resetovat",
+      "save": "Uložit",
+      "select": "Vybrat",
+      "update": "Aktualizovat",
+      "upload": "Nahrát",
+      "use": "Použít"
+    },
+    "messages": {
+      "emptyList": "Zatím nebyly přidány žádné prvky",
+      "remove": "Jste si jisti, že to chcete odstranit?",
+      "remove-named": "Jste si jisti, že chcete odstranit \"{value}\"?"
+    },
+    "or": "nebo",
+    "state": {
+      "disabled": "Deaktivováno",
+      "enabled": "Aktivováno"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Přidat testovací postavu"
+  },
+  "errors": {
+    "boundary": {
+      "description": "V aplikaci došlo k problémům a nelze bezpečně pokračovat. Načtení stránky by to mělo vyřešit.",
+      "reload": "Obnovit",
+      "title": "Něco se pokazilo"
+    },
+    "character": {
+      "create": "Postavu se nepodařilo vytvořit. {error}",
+      "export": "Postavu se nepodařilo exportovat. {error}",
+      "list": "Seznam postav se nepodařilo načíst. {error}",
+      "load": "Postavu se nepodařilo načíst. {error}",
+      "remove": "Postavu se nepodařilo odstranit. {error}",
+      "save": "Postavu se nepodařilo uložit. Změny nemusí být uloženy. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Vyžaduje verzi aplikace \"{requiredVersion}\", ale aktuální je \"{appVersion}\"",
+      "incompatible": "Nekompatibilní s \"{anotherModule}\"",
+      "missingDependencies": "Chybějící závislosti: {modules}",
+      "notFound": "Modul nenalezen: \"{module}\"",
+      "otherDependsOn": "Jiné moduly na něm závisí: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Modul '{module}' vyžaduje verzi aplikace '{requiredAppVersion}', ale aktuální verze je '{currentAppVersion}'.",
+      "dependencyCycle": "Byl zjištěn cyklus závislostí zahrnující: {modules}.",
+      "genericError": "Při řešení modulu došlo k neznámé chybě.",
+      "incompatibleModules": "Modul '{module}' není kompatibilní s: {incompatible}.",
+      "missingDependency": "Modulu '{module}' chybí závislost '{dependency}'.",
+      "versionMismatch": "Modul '{module}' vyžaduje verzi '{requiredVersion}' závislosti '{dependency}', ale nalezená verze je '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Nepodařilo se exportovat moduly. {error}"
+    },
+    "outdatedBrowser": "Váš systémový prohlížeč je zastaralý. Aplikace nemusí fungovat podle očekávání. Aktualizujte jej.",
+    "unexpected": "Došlo k neočekávané chybě. Některé části aplikace nemusí fungovat podle očekávání."
+  },
+  "forms": {
+    "description": "Popis",
+    "name": "Název",
+    "price": "Cena",
+    "quantity": "Množství",
+    "skill": "Dovednost",
+    "type": "Typ"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Autor",
+      "dependencies": "Závislosti",
+      "description": "Popis",
+      "id": "ID",
+      "label": "Vlastní konfigurace",
+      "languages": "Jazyky",
+      "mainSettings": "Hlavní nastavení",
+      "name": "Název",
+      "version": "Verze"
+    },
+    "export": "Exportovat konfiguraci modulů",
+    "exportSuccess": "Moduly byly úspěšně exportovány!",
+    "external": "Externí",
+    "import": {
+      "error": {
+        "extension": "Nelze importovat moduly. Přípona souboru musí být .fmod",
+        "validation": "Nelze importovat moduly. Soubor je neplatný.",
+        "version": "Nelze importovat moduly. Verze modulů je zastaralá."
+      },
+      "success": "Moduly úspěšně importovány!",
+      "title": "Importovat moduly ze souboru"
+    },
+    "installed": "Nainstalované moduly ({value}):",
+    "save": "Uložit konfiguraci modulů",
+    "selected": "Vybrané moduly",
+    "share": "Sdílet konfiguraci modulů",
+    "updated": "Modul {module} byl aktualizován na v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Materiál kostek",
+        "title": "Možnosti kostek",
+        "type": "Typ kostek"
+      },
+      "force": "Síla",
+      "general": {
+        "haptic": "Haptická odezva",
+        "shake": "Protřepat k hodu",
+        "show-result": "Zobrazit výsledek na obrazovce",
+        "title": "Obecná nastavení"
+      },
+      "gravity": "Gravitace",
+      "haptic": "Haptická zpětná vazba",
+      "number": "Počet kostek",
+      "physics": {
+        "force": "Síla",
+        "gravity": "Gravitace",
+        "number": "Počet kostek",
+        "size": "Velikost kostek",
+        "title": "Nastavení fyziky"
+      },
+      "reset": "Obnovit konfiguraci",
+      "resetPhysics": "Resetovat nastavení fyziky",
+      "shake": "Zatřeste pro hod",
+      "size": "Velikost kostky",
+      "title": "Konfigurace hodu kostkami"
+    },
+    "result": "Výsledek hodu je {value}",
+    "rolling": "Házíme...",
+    "throw": "Hoď {value} kostek"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Autor",
+      "legal": {
+        "title": "Právní informace a uvedení autorů"
+      },
+      "license": "Licence",
+      "privacy-policy": {
+        "accept-policy": "Přečetl(a) jsem si a přijímám zásady ochrany osobních údajů",
+        "acceptance-date": "Datum přijetí: {value}",
+        "not-accepted": "Zásady ochrany osobních údajů nebyly přijaty. Přejděte do nastavení, přečtěte si je a přijměte. Jinak nemůžete aplikaci používat.",
+        "title": "Zásady ochrany osobních údajů",
+        "updated": "Vítejte zpět! Trochu jsme aktualizovali podmínky, proto je potřeba je znovu potvrdit."
+      },
+      "source-code": "Zdrojový kód",
+      "title": "O aplikaci",
+      "version": "Verze"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Zobrazit ladicí informace",
+        "toggleDescription": "Zobrazí další ladicí nástroje v aplikaci — debugger fyziky kostek a skryté vývojářské stránky."
+      },
+      "devMod": {
+        "connect": "Připojit",
+        "connected": "Připojeno k „{id}“",
+        "disconnect": "Odpojit",
+        "error": "Nepodařilo se připojit k vývojářskému modu. {error}",
+        "title": "Připojit vývojářský mod",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Instalujete „{id}“ mimo ověřený registr. Bude mít plný přístup k aplikaci a datům postav. Pro potvrzení zadejte „{id}“ nebo „install“.",
+        "confirmPlaceholder": "Zadejte pro potvrzení",
+        "confirmTitle": "Nainstalovat externí kód?",
+        "error": "Mod se nepodařilo nainstalovat. {error}",
+        "install": "Nainstalovat",
+        "success": "„{id}“ nainstalován",
+        "title": "Nainstalovat z URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Nasměrujte Mod Store na staging registr místo ostrého. Nechte prázdné pro výchozí.",
+        "save": "Uložit",
+        "title": "Přepsat základní URL registru"
+      },
+      "title": "Vývojář",
+      "toggle": "Vývojářský režim",
+      "toggleDescription": "Umožňuje instalovat mody z URL. Pouze pro autory a testery — mody mají plný přístup k aplikaci."
+    },
+    "language": "Jazyk",
+    "mods": {
+      "actions": {
+        "disable": "Deaktivovat",
+        "enable": "Aktivovat",
+        "remove": "Odebrat",
+        "retry": "Zkusit znovu",
+        "update": "Aktualizovat",
+        "removeAnyway": "Přesto odebrat"
+      },
+      "blocked": "„{id}“ byl deaktivován — tato verze byla označena jako nebezpečná. Zkontrolujte aktualizaci v Mod Store.",
+      "browse": {
+        "compatibleOnly": "Pouze kompatibilní s touto aplikací",
+        "empty": "Žádné mody nenalezeny",
+        "incompatible": "Nekompatibilní s touto verzí aplikace",
+        "loadError": "Nepodařilo se načíst Mod Store. {error}",
+        "offline": "Obnovení selhalo — zobrazují se výsledky z mezipaměti",
+        "searchPlaceholder": "Hledat mody",
+        "stale": "Výsledky z mezipaměti — potáhněte pro obnovení"
+      },
+      "detail": {
+        "author": "Autor: {name}",
+        "blocked": "Tato verze je zablokovaná",
+        "config": "Možnosti konfigurace",
+        "downgrade": "Přejít na starší verzi",
+        "install": "Nainstalovat",
+        "installed": "Nainstalováno",
+        "latest": "nejnovější",
+        "readme": "O modu",
+        "remove": "Odebrat",
+        "update": "Aktualizovat",
+        "updateAvailable": "Dostupná aktualizace",
+        "versions": "Verze"
+      },
+      "empty": "Žádné nainstalované mody",
+      "errors": {
+        "action": "Akci se nepodařilo dokončit. {error}",
+        "list": "Nepodařilo se načíst nainstalované mody. {error}"
+      },
+      "installSuccess": "„{id}“ nainstalován",
+      "restartToApply": "Restartovat a použít změny",
+      "source": {
+        "dev": "Dev",
+        "registry": "Registr",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Deaktivováno",
+        "errored": "Chyba",
+        "loaded": "Načteno"
+      },
+      "tabs": {
+        "browse": "Procházet",
+        "installed": "Nainstalované"
+      },
+      "title": "Mody",
+      "updateSuccess": "„{id}“ aktualizován",
+      "removeConfirm": {
+        "inUse": "Stále používáno: {characters}",
+        "willUninstall": "Odebráním se tento mod odinstaluje z těchto postav."
+      }
+    },
+    "theme": {
+      "dark": "Tmavé",
+      "defaultSkin": "Výchozí",
+      "light": "Světlé",
+      "system": "Systém",
+      "title": "Téma"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Nainstalovat „{module}“ z Mod Store",
+      "notInstalled": "„{module}“ není nainstalován",
+      "openModStore": "Otevřít Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Postava"
+    },
+    "roll-dice": {
+      "title": "Hod kostkami"
+    },
+    "settings": {
+      "title": "Nastavení"
+    }
+  }
 }

@@ -1,8 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type * as SdkModule from '@/mods/sdk'
 
-const { getAllEnabled, deleteMod } = vi.hoisted(() => ({ getAllEnabled: vi.fn(), deleteMod: vi.fn().mockResolvedValue(undefined) }))
-vi.mock('@/db/tables/mods', () => ({ modsService: { getAllEnabled, delete: deleteMod } }))
+const { getAll, deleteMod } = vi.hoisted(() => ({ getAll: vi.fn(), deleteMod: vi.fn().mockResolvedValue(undefined) }))
+vi.mock('@/db/tables/mods', () => ({ modsService: { getAll, delete: deleteMod } }))
 
 const { registerBuiltinMods } = vi.hoisted(() => ({ registerBuiltinMods: vi.fn() }))
 vi.mock('@/mods/builtins', () => ({ registerBuiltinMods }))
@@ -144,7 +144,7 @@ describe('initMods', () => {
 			manifestJson: JSON.stringify({ id: 'bad@mod', version: '1.0.0', capabilities: ['sheetComponents'] }),
 			sha256: 'wrong'
 		})
-		getAllEnabled.mockResolvedValue([row])
+		getAll.mockResolvedValue([row])
 
 		await expect(initMods()).resolves.toBeUndefined()
 
@@ -157,7 +157,7 @@ describe('initMods', () => {
 	it('registers a successfully loaded external mod as loaded', async () => {
 		const row = baseRow({ id: 'good@mod', manifestJson: JSON.stringify({ id: 'good@mod', version: '1.0.0' }) })
 		row.sha256 = await sha256(row.bundleCode)
-		getAllEnabled.mockResolvedValue([row])
+		getAll.mockResolvedValue([row])
 		importBlobModule.mockResolvedValue({})
 
 		await initMods()
@@ -173,12 +173,30 @@ describe('initMods', () => {
 			source: 'dev',
 			manifestJson: JSON.stringify({ id: 'stale-dev@mod', version: '1.0.0' })
 		})
-		getAllEnabled.mockResolvedValue([row])
+		getAll.mockResolvedValue([row])
 		importBlobModule.mockRejectedValue(new Error('dev server unreachable'))
 
 		await initMods()
 
 		expect(ModRegistry.get('stale-dev@mod')).toBeUndefined()
 		expect(deleteMod).toHaveBeenCalledWith('stale-dev@mod')
+	})
+
+	it('registers a disabled stored mod as a stub without importing its bundle', async () => {
+		const row = baseRow({
+			id: 'off@mod',
+			enabled: false,
+			manifestJson: JSON.stringify({ id: 'off@mod', version: '1.0.0' }),
+			translationsJson: JSON.stringify({ en: { name: 'Off' } })
+		})
+		getAll.mockResolvedValue([row])
+
+		await initMods()
+
+		expect(importBlobModule).not.toHaveBeenCalled()
+		expect(registerModTranslations).toHaveBeenCalledWith('off@mod', { en: { name: 'Off' } })
+		const record = ModRegistry.get('off@mod')
+		expect(record?.status).toBe('disabled')
+		expect(record?.manifest.id).toBe('off@mod')
 	})
 })

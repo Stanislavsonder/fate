@@ -41,6 +41,23 @@ const testModuleRecords = vi.hoisted(
 					source: 'builtin',
 					status: 'loaded'
 				}
+			],
+			[
+				'off@mod',
+				{
+					manifest: { id: 'off@mod', name: 'Off', version: '2.0.0' },
+					source: 'url',
+					status: 'disabled'
+				}
+			],
+			[
+				'broken@mod',
+				{
+					manifest: { id: 'broken@mod', name: 'Broken', version: '2.0.0' },
+					source: 'url',
+					status: 'errored',
+					error: 'load failed'
+				}
 			]
 		])
 )
@@ -142,6 +159,33 @@ describe('updateModule', () => {
 			version: '2.0.0'
 		})
 		expect(mocks.showSuccessToast).not.toHaveBeenCalled()
+	})
+
+	it('skips quietly when the module is installed but disabled', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'off@mod': { version: '1.0.0', config: { keep: true } } }
+		})
+
+		const result = await updateModule(context, character, 'off@mod', character._modules['off@mod'])
+
+		expect(result).toBe(true)
+		expect(character._modules['off@mod']).toEqual({ version: '1.0.0', config: { keep: true } })
+		expect(mocks.showErrorToast).not.toHaveBeenCalled()
+		expect(mocks.patchAction).not.toHaveBeenCalled()
+	})
+
+	it('skips quietly when the module is registered but errored', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'broken@mod': { version: '1.0.0' } }
+		})
+
+		const result = await updateModule(context, character, 'broken@mod', character._modules['broken@mod'])
+
+		expect(result).toBe(true)
+		expect(character._modules['broken@mod']).toEqual({ version: '1.0.0' })
+		expect(mocks.showErrorToast).not.toHaveBeenCalled()
 	})
 })
 

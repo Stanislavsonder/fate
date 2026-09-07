@@ -8,11 +8,25 @@ import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
 import appVersion from '@/utils/helpers/appVersion'
 import { markModReloadRequired } from '@/mods/reloadState'
+import { uninstallModule } from '@/modules/utils/uninstallModules'
+import { clone } from '@/utils/helpers/clone'
+import { constants, templates } from '@/utils/config'
+import type { Character, FateContext } from '@/types'
 import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
 export type SimpleOutcome = { ok: true } | { ok: false; error: string }
-export type RemoveOutcome = { ok: true } | { ok: false; reason: 'blocked'; characterNames: string[] } | { ok: false; reason: 'error'; error: string }
+export type RemoveOutcome = { ok: true } | { ok: false; reason: 'error'; error: string }
+
+function emptyFateContext(): FateContext {
+	return {
+		modules: {},
+		constants: clone(constants),
+		components: [],
+		templates: clone(templates),
+		shared: {}
+	}
+}
 
 function errorMessage(e: unknown): string {
 	return e instanceof Error ? e.message : String(e)
@@ -198,18 +212,33 @@ export async function update(id: string, baseUrl?: string): Promise<InstallOutco
 	}
 }
 
+export async function getCharactersUsingMod(id: string): Promise<{ id: number; name: string }[]> {
+	const characters = await characterService.getCharacters()
+	return characters.filter(character => id in character._modules).map(character => ({ id: character.id, name: character.name }))
+}
+
+async function uninstallModFromCharacter(id: string, character: Character, manifest: FateModuleManifest | undefined): Promise<void> {
+	const next = clone(character)
+	delete next._modules[id]
+	if (typeof manifest?.onUninstall === 'function') {
+		await uninstallModule(manifest, emptyFateContext(), next)
+	}
+	await characterService.updateCharacter(next)
+}
+
 /**
- * Removes an installed mod. Guarded: refuses if any character still
- * references it, listing the affected character names, so the user
- * uninstalls it per-character (the existing changeCharacterModules flow)
- * before the mod itself can be removed.
+ * Removes an installed mod. Uninstalls it from every character that still
+ * references it (running onUninstall when a manifest is registered), then
+ * deletes the stored mod.
  */
 export async function remove(id: string): Promise<RemoveOutcome> {
 	try {
 		const characters = await characterService.getCharacters()
-		const affected = characters.filter(character => id in character._modules).map(character => character.name)
-		if (affected.length > 0) {
-			return { ok: false, reason: 'blocked', characterNames: affected }
+		const manifest = ModRegistry.get(id)?.manifest
+
+		for (const character of characters) {
+			if (!(id in character._modules)) continue
+			await uninstallModFromCharacter(id, character, manifest)
 		}
 
 		await modsService.delete(id)
@@ -225,7 +254,7 @@ export async function remove(id: string): Promise<RemoveOutcome> {
  * Enables/disables an installed mod. Disabling takes effect immediately in
  * the current session (flips the in-memory ModRegistry status so
  * getLoadedManifests()/getSheetModules() stop seeing it right away) as well
- * as on next launch (modsService.getAllEnabled() skips it). Enabling reloads
+ * as on next launch (initMods registers it as a disabled stub). Enabling reloads
  * the bundle if it wasn't already registered this session.
  */
 export async function setEnabled(id: string, enabled: boolean): Promise<SimpleOutcome> {

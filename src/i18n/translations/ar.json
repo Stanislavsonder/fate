@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "الوصف",
-		"name": "الاسم",
-		"quantity": "الكمية",
-		"validation-error": "خطأ في التحقق"
-	},
-	"character": {
-		"configure": "تكوين",
-		"create": "إنشاء شخصية",
-		"export": "تصدير الشخصية",
-		"exportSuccess": "تم تصدير الشخصية بنجاح!",
-		"import": {
-			"error": {
-				"extension": "تعذر استيراد الشخصية. يجب أن يكون امتداد الملف .fchar",
-				"validation": "تعذر استيراد الشخصية. الملف غير صالح.",
-				"version": "تعذر استيراد الشخصية. إصدار الشخصية قديم."
-			},
-			"success": "تم استيراد الشخصية بنجاح!",
-			"title": "استيراد شخصية من ملف"
-		},
-		"messages": {
-			"remove": "هل أنت متأكد أنك تريد إزالة {value}؟",
-			"update": "إصدار الشخصية قديم. هل تريد تحديثه؟"
-		},
-		"name": "اسم الشخصية",
-		"new-character": "شخصية جديدة",
-		"no-characters": "لم يتم إنشاء شخصيات بعد. أنشئ واحدة جديدة أو استوردها من ملف.",
-		"not-selected": "لم يتم تحديد شخصية بعد. اختر واحدة أو أنشئ واحدة جديدة!",
-		"remove-message": "هل أنت متأكد أنك تريد حذف هذه الشخصية؟",
-		"save": "حفظ الشخصية",
-		"share": "مشاركة الشخصية",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "إصدار الشخصية قديم. هل تريد تحديثه؟",
-		"updated": "تم تحديث الشخصية بنجاح من الإصدار v{from} إلى v{to}!",
-		"your-characters": "شخصياتك"
-	},
-	"common": {
-		"actions": {
-			"add": "إضافة",
-			"back": "رجوع",
-			"cancel": "إلغاء",
-			"close": "إغلاق",
-			"confirm": "تأكيد",
-			"create": "إنشاء",
-			"decrease": "خفض",
-			"delete": "حذف",
-			"edit": "تعديل",
-			"finish": "إنهاء",
-			"go": "اذهب",
-			"increase": "زيادة",
-			"next": "التالي",
-			"remove": "حذف",
-			"reset": "إعادة تعيين",
-			"save": "حفظ",
-			"select": "تحديد",
-			"update": "تحديث",
-			"upload": "رفع",
-			"use": "استخدام"
-		},
-		"messages": {
-			"emptyList": "لم يتم إضافة أي عناصر بعد",
-			"remove": "هل أنت متأكد أنك تريد إزالته؟",
-			"remove-named": "هل أنت متأكد أنك تريد إزالة \"{value}\"؟"
-		},
-		"or": "أو",
-		"state": {
-			"disabled": "معطل",
-			"enabled": "ممكّن"
-		}
-	},
-	"debug": {
-		"add-mock-character": "إضافة شخصية اختبارية"
-	},
-	"errors": {
-		"boundary": {
-			"description": "واجه التطبيق مشكلة ولا يمكنه الاستمرار بأمان. من المفترض أن يؤدي إعادة التحميل إلى إصلاح المشكلة.",
-			"reload": "إعادة تحميل",
-			"title": "حدث خطأ ما"
-		},
-		"character": {
-			"create": "تعذر إنشاء الشخصية. {error}",
-			"export": "تعذر تصدير الشخصية. {error}",
-			"list": "تعذر تحميل قائمة الشخصيات. {error}",
-			"load": "تعذر تحميل الشخصية. {error}",
-			"remove": "تعذر إزالة الشخصية. {error}",
-			"save": "تعذر حفظ الشخصية. قد لا يتم حفظ التغييرات. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "يتطلب إصدار التطبيق \"{requiredVersion}\" لكن الإصدار الحالي هو \"{appVersion}\"",
-			"incompatible": "غير متوافق مع \"{anotherModule}\"",
-			"missingDependencies": "التبعيات المفقودة: {modules}",
-			"notFound": "الوحدة غير موجودة: \"{module}\"",
-			"otherDependsOn": "تعتمد عليه وحدات أخرى: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "الوحدة '{module}' تتطلب إصدار التطبيق '{requiredAppVersion}'، ولكن الإصدار الحالي هو '{currentAppVersion}'.",
-			"dependencyCycle": "تم اكتشاف دورة تبعية تتضمن: {modules}.",
-			"genericError": "حدث خطأ غير معروف أثناء حل الوحدة.",
-			"incompatibleModules": "الوحدة '{module}' غير متوافقة مع: {incompatible}.",
-			"missingDependency": "الوحدة '{module}' تفتقد إلى التبعية '{dependency}'.",
-			"versionMismatch": "الوحدة '{module}' تتطلب الإصدار '{requiredVersion}' من '{dependency}'، ولكن تم العثور على الإصدار '{actualVersion}'."
-		},
-		"modules": {
-			"export": "تعذر تصدير الوحدات. {error}"
-		},
-		"outdatedBrowser": "المتصفح الخاص بنظامك قديم. قد لا يعمل التطبيق كما هو متوقع. يرجى تحديثه.",
-		"unexpected": "حدث شيء غير متوقع. قد لا تعمل بعض أجزاء التطبيق كما هو متوقع."
-	},
-	"forms": {
-		"description": "الوصف",
-		"name": "اسم",
-		"price": "السعر",
-		"quantity": "الكمية",
-		"skill": "المهارة",
-		"type": "النوع"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "المؤلف",
-			"dependencies": "التبعيات",
-			"description": "الوصف",
-			"id": "ID",
-			"label": "إعداد مخصص",
-			"languages": "اللغات",
-			"mainSettings": "الإعدادات الرئيسية",
-			"name": "الاسم",
-			"version": "الإصدار"
-		},
-		"export": "تصدير تكوين الوحدات",
-		"exportSuccess": "تم تصدير الوحدات بنجاح!",
-		"external": "خارجي",
-		"import": {
-			"error": {
-				"extension": "تعذر استيراد الوحدات. يجب أن يكون امتداد الملف .fmod",
-				"validation": "تعذر استيراد الوحدات. الملف غير صالح.",
-				"version": "تعذر استيراد الوحدات. إصدار الوحدات قديم."
-			},
-			"success": "تم استيراد الوحدات بنجاح!",
-			"title": "استيراد الوحدات من ملف"
-		},
-		"installed": "الوحدات المثبتة ({value}):",
-		"save": "حفظ تكوين الوحدات",
-		"selected": "الوحدات المختارة",
-		"share": "مشاركة تكوين الوحدات",
-		"updated": "تم تحديث الوحدة {module} إلى الإصدار v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "مادة النرد",
-				"title": "خيارات النرد",
-				"type": "نوع النرد"
-			},
-			"force": "القوة",
-			"general": {
-				"haptic": "ردود فعل لمسية",
-				"shake": "اهتز لرمي النرد",
-				"show-result": "عرض النتيجة على الشاشة",
-				"title": "الإعدادات العامة"
-			},
-			"gravity": "الجاذبية",
-			"haptic": "ردود فعل لمسية",
-			"number": "عدد النرد",
-			"physics": {
-				"force": "القوة",
-				"gravity": "الجاذبية",
-				"number": "عدد النرد",
-				"size": "حجم النرد",
-				"title": "إعدادات الفيزياء"
-			},
-			"reset": "إعادة ضبط الإعدادات",
-			"resetPhysics": "إعادة تعيين إعدادات الفيزياء",
-			"shake": "اهتز للرمي",
-			"size": "حجم النرد",
-			"title": "إعدادات رمي النرد"
-		},
-		"result": "نتيجة الرمية هي {value}",
-		"rolling": "جارٍ الرمي...",
-		"throw": "ارمِ {value} نرد"
-	},
-	"settings": {
-		"about-app": {
-			"author": "المؤلف",
-			"legal": {
-				"title": "معلومات قانونية وإسناد"
-			},
-			"license": "الرخصة",
-			"privacy-policy": {
-				"accept-policy": "لقد قرأت وأقبل سياسة الخصوصية",
-				"acceptance-date": "تاريخ القبول: {value}",
-				"not-accepted": "لم يتم قبول سياسة الخصوصية. انتقل إلى الإعدادات، اقرأها واقبلها. وإلا فلن تتمكن من استخدام التطبيق.",
-				"title": "سياسة الخصوصية",
-				"updated": "مرحبًا بعودتك! أجرينا بعض التحديثات على شروطنا، لذا نحتاج منك تأكيدها مرة أخرى."
-			},
-			"source-code": "كود المصدر",
-			"title": "حول التطبيق",
-			"version": "الإصدار"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "إظهار معلومات التصحيح",
-				"toggleDescription": "يعرض أدوات تصحيح إضافية في التطبيق — مصحح فيزياء النرد وصفحات المطوّر المخفية."
-			},
-			"devMod": {
-				"connect": "اتصال",
-				"connected": "متصل بـ \"{id}\"",
-				"disconnect": "قطع الاتصال",
-				"error": "تعذّر الاتصال بمود التطوير. {error}",
-				"title": "الاتصال بمود التطوير",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "أنت تثبّت \"{id}\" من خارج السجل المُراجع. سيعمل بصلاحية كاملة على التطبيق وبيانات شخصياتك. اكتب \"{id}\" أو \"install\" للتأكيد.",
-				"confirmPlaceholder": "اكتب للتأكيد",
-				"confirmTitle": "تثبيت شيفرة خارجية؟",
-				"error": "تعذّر تثبيت المود. {error}",
-				"install": "تثبيت",
-				"success": "تم تثبيت \"{id}\"",
-				"title": "تثبيت من رابط",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "وجّه متجر المودات إلى سجل تجريبي بدل الحقيقي. اتركه فارغًا لاستخدام الافتراضي.",
-				"save": "حفظ",
-				"title": "تجاوز عنوان أساس السجل"
-			},
-			"title": "المطوّر",
-			"toggle": "وضع المطوّر",
-			"toggleDescription": "يتيح تثبيت المودات من رابط. للمؤلّفين والمختبرين فقط — تعمل المودات بصلاحية كاملة على التطبيق."
-		},
-		"language": "اللغة",
-		"mods": {
-			"actions": {
-				"disable": "تعطيل",
-				"enable": "تفعيل",
-				"remove": "إزالة",
-				"retry": "إعادة المحاولة",
-				"update": "تحديث"
-			},
-			"blocked": "تم تعطيل \"{id}\" — أُشير إلى هذا الإصدار بأنه غير آمن. تحقّق من متجر المودات بحثًا عن تحديث.",
-			"browse": {
-				"compatibleOnly": "المتوافق مع هذا التطبيق فقط",
-				"empty": "لم يُعثر على مودات",
-				"incompatible": "غير متوافق مع إصدار هذا التطبيق",
-				"loadError": "تعذّر تحميل متجر المودات. {error}",
-				"offline": "تعذّر التحديث — تُعرض النتائج المخزّنة",
-				"searchPlaceholder": "البحث عن مودات",
-				"stale": "تُعرض النتائج المخزّنة — اسحب للتحديث"
-			},
-			"detail": {
-				"author": "بواسطة {name}",
-				"blocked": "هذا الإصدار محظور",
-				"config": "خيارات الإعداد",
-				"downgrade": "الرجوع إلى إصدار أقدم",
-				"install": "تثبيت",
-				"installed": "مثبّت",
-				"latest": "الأحدث",
-				"readme": "حول",
-				"remove": "إزالة",
-				"update": "تحديث",
-				"updateAvailable": "يتوفر تحديث",
-				"versions": "الإصدارات"
-			},
-			"empty": "لا توجد مودات مثبّتة",
-			"errors": {
-				"action": "تعذّر إكمال الإجراء. {error}",
-				"list": "تعذّر تحميل المودات المثبّتة. {error}"
-			},
-			"installSuccess": "تم تثبيت \"{id}\"",
-			"removeBlocked": "ما زال مستخدمًا بواسطة: {characters}",
-			"restartToApply": "أعد التشغيل لتطبيق التغييرات",
-			"source": {
-				"dev": "Dev",
-				"registry": "السجل",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "معطّل",
-				"errored": "خطأ",
-				"loaded": "محمّل"
-			},
-			"tabs": {
-				"browse": "تصفّح",
-				"installed": "مثبّت"
-			},
-			"title": "المودات",
-			"updateSuccess": "تم تحديث \"{id}\""
-		},
-		"theme": {
-			"dark": "داكن",
-			"defaultSkin": "افتراضي",
-			"light": "فاتح",
-			"system": "النظام",
-			"title": "السمة"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "تثبيت \"{module}\" من متجر المودات",
-			"notInstalled": "\"{module}\" غير مثبّت",
-			"openModStore": "فتح متجر المودات"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "الشخصية"
-		},
-		"roll-dice": {
-			"title": "ارمِ النرد"
-		},
-		"settings": {
-			"title": "الإعدادات"
-		}
-	}
+  "a11y": {
+    "description": "الوصف",
+    "name": "الاسم",
+    "quantity": "الكمية",
+    "validation-error": "خطأ في التحقق"
+  },
+  "character": {
+    "configure": "تكوين",
+    "create": "إنشاء شخصية",
+    "export": "تصدير الشخصية",
+    "exportSuccess": "تم تصدير الشخصية بنجاح!",
+    "import": {
+      "error": {
+        "extension": "تعذر استيراد الشخصية. يجب أن يكون امتداد الملف .fchar",
+        "validation": "تعذر استيراد الشخصية. الملف غير صالح.",
+        "version": "تعذر استيراد الشخصية. إصدار الشخصية قديم."
+      },
+      "success": "تم استيراد الشخصية بنجاح!",
+      "title": "استيراد شخصية من ملف"
+    },
+    "messages": {
+      "remove": "هل أنت متأكد أنك تريد إزالة {value}؟",
+      "update": "إصدار الشخصية قديم. هل تريد تحديثه؟"
+    },
+    "name": "اسم الشخصية",
+    "new-character": "شخصية جديدة",
+    "no-characters": "لم يتم إنشاء شخصيات بعد. أنشئ واحدة جديدة أو استوردها من ملف.",
+    "not-selected": "لم يتم تحديد شخصية بعد. اختر واحدة أو أنشئ واحدة جديدة!",
+    "remove-message": "هل أنت متأكد أنك تريد حذف هذه الشخصية؟",
+    "save": "حفظ الشخصية",
+    "share": "مشاركة الشخصية",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "إصدار الشخصية قديم. هل تريد تحديثه؟",
+    "updated": "تم تحديث الشخصية بنجاح من الإصدار v{from} إلى v{to}!",
+    "your-characters": "شخصياتك"
+  },
+  "common": {
+    "actions": {
+      "add": "إضافة",
+      "back": "رجوع",
+      "cancel": "إلغاء",
+      "close": "إغلاق",
+      "confirm": "تأكيد",
+      "create": "إنشاء",
+      "decrease": "خفض",
+      "delete": "حذف",
+      "edit": "تعديل",
+      "finish": "إنهاء",
+      "go": "اذهب",
+      "increase": "زيادة",
+      "next": "التالي",
+      "remove": "حذف",
+      "reset": "إعادة تعيين",
+      "save": "حفظ",
+      "select": "تحديد",
+      "update": "تحديث",
+      "upload": "رفع",
+      "use": "استخدام"
+    },
+    "messages": {
+      "emptyList": "لم يتم إضافة أي عناصر بعد",
+      "remove": "هل أنت متأكد أنك تريد إزالته؟",
+      "remove-named": "هل أنت متأكد أنك تريد إزالة \"{value}\"؟"
+    },
+    "or": "أو",
+    "state": {
+      "disabled": "معطل",
+      "enabled": "ممكّن"
+    }
+  },
+  "debug": {
+    "add-mock-character": "إضافة شخصية اختبارية"
+  },
+  "errors": {
+    "boundary": {
+      "description": "واجه التطبيق مشكلة ولا يمكنه الاستمرار بأمان. من المفترض أن يؤدي إعادة التحميل إلى إصلاح المشكلة.",
+      "reload": "إعادة تحميل",
+      "title": "حدث خطأ ما"
+    },
+    "character": {
+      "create": "تعذر إنشاء الشخصية. {error}",
+      "export": "تعذر تصدير الشخصية. {error}",
+      "list": "تعذر تحميل قائمة الشخصيات. {error}",
+      "load": "تعذر تحميل الشخصية. {error}",
+      "remove": "تعذر إزالة الشخصية. {error}",
+      "save": "تعذر حفظ الشخصية. قد لا يتم حفظ التغييرات. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "يتطلب إصدار التطبيق \"{requiredVersion}\" لكن الإصدار الحالي هو \"{appVersion}\"",
+      "incompatible": "غير متوافق مع \"{anotherModule}\"",
+      "missingDependencies": "التبعيات المفقودة: {modules}",
+      "notFound": "الوحدة غير موجودة: \"{module}\"",
+      "otherDependsOn": "تعتمد عليه وحدات أخرى: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "الوحدة '{module}' تتطلب إصدار التطبيق '{requiredAppVersion}'، ولكن الإصدار الحالي هو '{currentAppVersion}'.",
+      "dependencyCycle": "تم اكتشاف دورة تبعية تتضمن: {modules}.",
+      "genericError": "حدث خطأ غير معروف أثناء حل الوحدة.",
+      "incompatibleModules": "الوحدة '{module}' غير متوافقة مع: {incompatible}.",
+      "missingDependency": "الوحدة '{module}' تفتقد إلى التبعية '{dependency}'.",
+      "versionMismatch": "الوحدة '{module}' تتطلب الإصدار '{requiredVersion}' من '{dependency}'، ولكن تم العثور على الإصدار '{actualVersion}'."
+    },
+    "modules": {
+      "export": "تعذر تصدير الوحدات. {error}"
+    },
+    "outdatedBrowser": "المتصفح الخاص بنظامك قديم. قد لا يعمل التطبيق كما هو متوقع. يرجى تحديثه.",
+    "unexpected": "حدث شيء غير متوقع. قد لا تعمل بعض أجزاء التطبيق كما هو متوقع."
+  },
+  "forms": {
+    "description": "الوصف",
+    "name": "اسم",
+    "price": "السعر",
+    "quantity": "الكمية",
+    "skill": "المهارة",
+    "type": "النوع"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "المؤلف",
+      "dependencies": "التبعيات",
+      "description": "الوصف",
+      "id": "ID",
+      "label": "إعداد مخصص",
+      "languages": "اللغات",
+      "mainSettings": "الإعدادات الرئيسية",
+      "name": "الاسم",
+      "version": "الإصدار"
+    },
+    "export": "تصدير تكوين الوحدات",
+    "exportSuccess": "تم تصدير الوحدات بنجاح!",
+    "external": "خارجي",
+    "import": {
+      "error": {
+        "extension": "تعذر استيراد الوحدات. يجب أن يكون امتداد الملف .fmod",
+        "validation": "تعذر استيراد الوحدات. الملف غير صالح.",
+        "version": "تعذر استيراد الوحدات. إصدار الوحدات قديم."
+      },
+      "success": "تم استيراد الوحدات بنجاح!",
+      "title": "استيراد الوحدات من ملف"
+    },
+    "installed": "الوحدات المثبتة ({value}):",
+    "save": "حفظ تكوين الوحدات",
+    "selected": "الوحدات المختارة",
+    "share": "مشاركة تكوين الوحدات",
+    "updated": "تم تحديث الوحدة {module} إلى الإصدار v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "مادة النرد",
+        "title": "خيارات النرد",
+        "type": "نوع النرد"
+      },
+      "force": "القوة",
+      "general": {
+        "haptic": "ردود فعل لمسية",
+        "shake": "اهتز لرمي النرد",
+        "show-result": "عرض النتيجة على الشاشة",
+        "title": "الإعدادات العامة"
+      },
+      "gravity": "الجاذبية",
+      "haptic": "ردود فعل لمسية",
+      "number": "عدد النرد",
+      "physics": {
+        "force": "القوة",
+        "gravity": "الجاذبية",
+        "number": "عدد النرد",
+        "size": "حجم النرد",
+        "title": "إعدادات الفيزياء"
+      },
+      "reset": "إعادة ضبط الإعدادات",
+      "resetPhysics": "إعادة تعيين إعدادات الفيزياء",
+      "shake": "اهتز للرمي",
+      "size": "حجم النرد",
+      "title": "إعدادات رمي النرد"
+    },
+    "result": "نتيجة الرمية هي {value}",
+    "rolling": "جارٍ الرمي...",
+    "throw": "ارمِ {value} نرد"
+  },
+  "settings": {
+    "about-app": {
+      "author": "المؤلف",
+      "legal": {
+        "title": "معلومات قانونية وإسناد"
+      },
+      "license": "الرخصة",
+      "privacy-policy": {
+        "accept-policy": "لقد قرأت وأقبل سياسة الخصوصية",
+        "acceptance-date": "تاريخ القبول: {value}",
+        "not-accepted": "لم يتم قبول سياسة الخصوصية. انتقل إلى الإعدادات، اقرأها واقبلها. وإلا فلن تتمكن من استخدام التطبيق.",
+        "title": "سياسة الخصوصية",
+        "updated": "مرحبًا بعودتك! أجرينا بعض التحديثات على شروطنا، لذا نحتاج منك تأكيدها مرة أخرى."
+      },
+      "source-code": "كود المصدر",
+      "title": "حول التطبيق",
+      "version": "الإصدار"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "إظهار معلومات التصحيح",
+        "toggleDescription": "يعرض أدوات تصحيح إضافية في التطبيق — مصحح فيزياء النرد وصفحات المطوّر المخفية."
+      },
+      "devMod": {
+        "connect": "اتصال",
+        "connected": "متصل بـ \"{id}\"",
+        "disconnect": "قطع الاتصال",
+        "error": "تعذّر الاتصال بمود التطوير. {error}",
+        "title": "الاتصال بمود التطوير",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "أنت تثبّت \"{id}\" من خارج السجل المُراجع. سيعمل بصلاحية كاملة على التطبيق وبيانات شخصياتك. اكتب \"{id}\" أو \"install\" للتأكيد.",
+        "confirmPlaceholder": "اكتب للتأكيد",
+        "confirmTitle": "تثبيت شيفرة خارجية؟",
+        "error": "تعذّر تثبيت المود. {error}",
+        "install": "تثبيت",
+        "success": "تم تثبيت \"{id}\"",
+        "title": "تثبيت من رابط",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "وجّه متجر المودات إلى سجل تجريبي بدل الحقيقي. اتركه فارغًا لاستخدام الافتراضي.",
+        "save": "حفظ",
+        "title": "تجاوز عنوان أساس السجل"
+      },
+      "title": "المطوّر",
+      "toggle": "وضع المطوّر",
+      "toggleDescription": "يتيح تثبيت المودات من رابط. للمؤلّفين والمختبرين فقط — تعمل المودات بصلاحية كاملة على التطبيق."
+    },
+    "language": "اللغة",
+    "mods": {
+      "actions": {
+        "disable": "تعطيل",
+        "enable": "تفعيل",
+        "remove": "إزالة",
+        "retry": "إعادة المحاولة",
+        "update": "تحديث",
+        "removeAnyway": "إزالة على أي حال"
+      },
+      "blocked": "تم تعطيل \"{id}\" — أُشير إلى هذا الإصدار بأنه غير آمن. تحقّق من متجر المودات بحثًا عن تحديث.",
+      "browse": {
+        "compatibleOnly": "المتوافق مع هذا التطبيق فقط",
+        "empty": "لم يُعثر على مودات",
+        "incompatible": "غير متوافق مع إصدار هذا التطبيق",
+        "loadError": "تعذّر تحميل متجر المودات. {error}",
+        "offline": "تعذّر التحديث — تُعرض النتائج المخزّنة",
+        "searchPlaceholder": "البحث عن مودات",
+        "stale": "تُعرض النتائج المخزّنة — اسحب للتحديث"
+      },
+      "detail": {
+        "author": "بواسطة {name}",
+        "blocked": "هذا الإصدار محظور",
+        "config": "خيارات الإعداد",
+        "downgrade": "الرجوع إلى إصدار أقدم",
+        "install": "تثبيت",
+        "installed": "مثبّت",
+        "latest": "الأحدث",
+        "readme": "حول",
+        "remove": "إزالة",
+        "update": "تحديث",
+        "updateAvailable": "يتوفر تحديث",
+        "versions": "الإصدارات"
+      },
+      "empty": "لا توجد مودات مثبّتة",
+      "errors": {
+        "action": "تعذّر إكمال الإجراء. {error}",
+        "list": "تعذّر تحميل المودات المثبّتة. {error}"
+      },
+      "installSuccess": "تم تثبيت \"{id}\"",
+      "restartToApply": "أعد التشغيل لتطبيق التغييرات",
+      "source": {
+        "dev": "Dev",
+        "registry": "السجل",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "معطّل",
+        "errored": "خطأ",
+        "loaded": "محمّل"
+      },
+      "tabs": {
+        "browse": "تصفّح",
+        "installed": "مثبّت"
+      },
+      "title": "المودات",
+      "updateSuccess": "تم تحديث \"{id}\"",
+      "removeConfirm": {
+        "inUse": "ما زال مستخدمًا بواسطة: {characters}",
+        "willUninstall": "ستؤدي الإزالة إلى إلغاء تثبيته من تلك الشخصيات."
+      }
+    },
+    "theme": {
+      "dark": "داكن",
+      "defaultSkin": "افتراضي",
+      "light": "فاتح",
+      "system": "النظام",
+      "title": "السمة"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "تثبيت \"{module}\" من متجر المودات",
+      "notInstalled": "\"{module}\" غير مثبّت",
+      "openModStore": "فتح متجر المودات"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "الشخصية"
+    },
+    "roll-dice": {
+      "title": "ارمِ النرد"
+    },
+    "settings": {
+      "title": "الإعدادات"
+    }
+  }
 }

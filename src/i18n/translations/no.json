@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "beskrivelse",
-		"name": "navn",
-		"quantity": "mengde",
-		"validation-error": "Valideringsfeil"
-	},
-	"character": {
-		"configure": "Konfigurer",
-		"create": "Opprett karakter",
-		"export": "Eksporter karakter",
-		"exportSuccess": "Karakter eksportert vellykket!",
-		"import": {
-			"error": {
-				"extension": "Kunne ikke importere karakter. Filtypen må være .fchar",
-				"validation": "Kunne ikke importere karakter. Filen er ugyldig.",
-				"version": "Kunne ikke importere karakter. Karakterens versjon er utdatert."
-			},
-			"success": "Karakter importert med suksess!",
-			"title": "Importer karakter fra fil"
-		},
-		"messages": {
-			"remove": "Er du sikker på at du vil fjerne {value}?",
-			"update": "Karakterversjonen er utdatert. Vil du oppdatere den?"
-		},
-		"name": "Karakterens navn",
-		"new-character": "Ny karakter",
-		"no-characters": "Ingen karakterer opprettet ennå. Opprett en ny eller importer fra en fil.",
-		"not-selected": "Ingen karakter valgt ennå. Velg en eller opprett en ny!",
-		"remove-message": "Er du sikker på at du vil fjerne denne karakteren?",
-		"save": "Lagre karakter",
-		"share": "Del karakter",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Karakterversjonen er utdatert. Vil du oppdatere den?",
-		"updated": "Karakter oppdatert vellykket fra v{from} til v{to}!",
-		"your-characters": "Dine karakterer"
-	},
-	"common": {
-		"actions": {
-			"add": "Legg til",
-			"back": "Tilbake",
-			"cancel": "Avbryt",
-			"close": "Lukk",
-			"confirm": "Bekreft",
-			"create": "Opprett",
-			"decrease": "Redusere",
-			"delete": "Slett",
-			"edit": "Rediger",
-			"finish": "Fullfør",
-			"go": "Gå",
-			"increase": "Øke",
-			"next": "Neste",
-			"remove": "Fjern",
-			"reset": "Tilbakestill",
-			"save": "Lagre",
-			"select": "Velg",
-			"update": "Oppdater",
-			"upload": "Last opp",
-			"use": "Bruk"
-		},
-		"messages": {
-			"emptyList": "Ingen element er lagt til ennå",
-			"remove": "Er du sikker på at du vil fjerne den?",
-			"remove-named": "Er du sikker på at du vil fjerne \"{value}\"?"
-		},
-		"or": "eller",
-		"state": {
-			"disabled": "Deaktivert",
-			"enabled": "Aktivert"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Legg til testkarakter"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Appen støtte på et problem og kan ikke fortsette trygt. Å laste inn på nytt bør løse det.",
-			"reload": "Last inn på nytt",
-			"title": "Noe gikk galt"
-		},
-		"character": {
-			"create": "Kunne ikke opprette figuren. {error}",
-			"export": "Kunne ikke eksportere figuren. {error}",
-			"list": "Kunne ikke laste figurlisten. {error}",
-			"load": "Kunne ikke laste figuren. {error}",
-			"remove": "Kunne ikke fjerne figuren. {error}",
-			"save": "Kunne ikke lagre figuren. Endringene ble muligens ikke lagret. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Krever appversjon \"{requiredVersion}\", men den nåværende er \"{appVersion}\"",
-			"incompatible": "Inkompatibel med \"{anotherModule}\"",
-			"missingDependencies": "Mangler avhengigheter: {modules}",
-			"notFound": "Modul ikke funnet: \"{module}\"",
-			"otherDependsOn": "Andre moduler er avhengige av den: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Modulen '{module}' krever appversjon '{requiredAppVersion}', men gjeldende versjon er '{currentAppVersion}'.",
-			"dependencyCycle": "En avhengighetssyklus ble oppdaget som involverer: {modules}.",
-			"genericError": "En ukjent feil oppstod under moduloppløsningen.",
-			"incompatibleModules": "Modulen '{module}' er inkompatibel med: {incompatible}.",
-			"missingDependency": "Modulen '{module}' mangler avhengigheten '{dependency}'.",
-			"versionMismatch": "Modulen '{module}' krever versjon '{requiredVersion}' av '{dependency}', men funnet versjon er '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Kunne ikke eksportere moduler. {error}"
-		},
-		"outdatedBrowser": "Nettleseren din er utdatert. Applikasjonen kan hende ikke fungerer som forventet. Oppdater den.",
-		"unexpected": "Noe uventet skjedde. Enkelte deler av appen fungerer muligens ikke som forventet."
-	},
-	"forms": {
-		"description": "Beskrivelse",
-		"name": "Navn",
-		"price": "Pris",
-		"quantity": "Mengde",
-		"skill": "Ferdighet",
-		"type": "Type"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Forfatter",
-			"dependencies": "Avhengigheter",
-			"description": "Beskrivelse",
-			"id": "ID",
-			"label": "Egendefinert konfigurasjon",
-			"languages": "Språk",
-			"mainSettings": "Hovedinnstillinger",
-			"name": "Navn",
-			"version": "Versjon"
-		},
-		"export": "Eksporter modulkonfigurasjon",
-		"exportSuccess": "Moduler eksportert vellykket!",
-		"external": "Ekstern",
-		"import": {
-			"error": {
-				"extension": "Kunne ikke importere moduler. Filtypen må være .fmod",
-				"validation": "Kunne ikke importere moduler. Filen er ugyldig.",
-				"version": "Kunne ikke importere moduler. Modulversjonen er utdatert."
-			},
-			"success": "Moduler importert med suksess!",
-			"title": "Importer moduler fra fil"
-		},
-		"installed": "Installerte moduler ({value}):",
-		"save": "Lagre modulkonfigurasjon",
-		"selected": "Valgte moduler",
-		"share": "Del modulkonfigurasjon",
-		"updated": "Modul {module} oppdatert til v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Terningmateriale",
-				"title": "Terningvalg",
-				"type": "Terningtype"
-			},
-			"force": "Kraft",
-			"general": {
-				"haptic": "Haptisk tilbakemelding",
-				"shake": "Rist for å kaste",
-				"show-result": "Vis resultat på skjermen",
-				"title": "Generelle innstillinger"
-			},
-			"gravity": "Tyngdekraft",
-			"haptic": "Haptisk tilbakemelding",
-			"number": "Antall terninger",
-			"physics": {
-				"force": "Kraft",
-				"gravity": "Tyngdekraft",
-				"number": "Antall terninger",
-				"size": "Terningstørrelse",
-				"title": "Fysikkinnstillinger"
-			},
-			"reset": "Tilbakestill konfigurasjon",
-			"resetPhysics": "Tilbakestill fysikkinnstillinger",
-			"shake": "Rist for å kaste",
-			"size": "Terningstørrelse",
-			"title": "Konfigurasjon av terningkast"
-		},
-		"result": "Kastresultatet er {value}",
-		"rolling": "Kaster...",
-		"throw": "Kast {value} terninger"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Forfatter",
-			"legal": {
-				"title": "Juridisk informasjon og attribusjon"
-			},
-			"license": "Lisens",
-			"privacy-policy": {
-				"accept-policy": "Jeg har lest og aksepterer personvernreglene",
-				"acceptance-date": "Godkjenningsdato: {value}",
-				"not-accepted": "Personvernreglene er ikke akseptert. Gå til innstillinger, les og godkjenn dem. Ellers kan du ikke bruke appen.",
-				"title": "Personvernregler",
-				"updated": "Velkommen tilbake! Vi har gjort noen oppdateringer i vilkårene, så vi trenger at du bekrefter dem på nytt."
-			},
-			"source-code": "Kildekode",
-			"title": "Om appen",
-			"version": "Versjon"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Vis feilsøkingsinformasjon",
-				"toggleDescription": "Viser ekstra feilsøkingsverktøy i appen — terningfysikk-debuggeren og skjulte utviklersider."
-			},
-			"devMod": {
-				"connect": "Koble til",
-				"connected": "Tilkoblet \"{id}\"",
-				"disconnect": "Koble fra",
-				"error": "Kunne ikke koble til utviklermod. {error}",
-				"title": "Koble til utviklermod",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Du installerer \"{id}\" utenfor det gjennomgåtte registeret. Det får full tilgang til appen og karakterdataene dine. Skriv \"{id}\" eller \"install\" for å bekrefte.",
-				"confirmPlaceholder": "Skriv for å bekrefte",
-				"confirmTitle": "Installere ekstern kode?",
-				"error": "Kunne ikke installere mod. {error}",
-				"install": "Installer",
-				"success": "\"{id}\" installert",
-				"title": "Installer fra URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Pek Mod Store mot et staging-register i stedet for det ekte. La stå tomt for å bruke standard.",
-				"save": "Lagre",
-				"title": "Overstyr registerets base-URL"
-			},
-			"title": "Utvikler",
-			"toggle": "Utviklermodus",
-			"toggleDescription": "Tillater installasjon av mods fra en URL. Kun for forfattere og testere — mods har full tilgang til appen."
-		},
-		"language": "Språk",
-		"mods": {
-			"actions": {
-				"disable": "Deaktiver",
-				"enable": "Aktiver",
-				"remove": "Fjern",
-				"retry": "Prøv igjen",
-				"update": "Oppdater"
-			},
-			"blocked": "\"{id}\" ble deaktivert — denne versjonen er merket som usikker. Sjekk Mod Store for en oppdatering.",
-			"browse": {
-				"compatibleOnly": "Kun kompatible med denne appen",
-				"empty": "Ingen mods funnet",
-				"incompatible": "Ikke kompatibel med denne appversjonen",
-				"loadError": "Kunne ikke laste Mod Store. {error}",
-				"offline": "Kunne ikke oppdatere — viser bufrede resultater",
-				"searchPlaceholder": "Søk etter mods",
-				"stale": "Viser bufrede resultater — trekk for å oppdatere"
-			},
-			"detail": {
-				"author": "Av {name}",
-				"blocked": "Denne versjonen er blokkert",
-				"config": "Konfigurasjonsalternativer",
-				"downgrade": "Nedgrader",
-				"install": "Installer",
-				"installed": "Installert",
-				"latest": "nyeste",
-				"readme": "Om",
-				"remove": "Fjern",
-				"update": "Oppdater",
-				"updateAvailable": "Oppdatering tilgjengelig",
-				"versions": "Versjoner"
-			},
-			"empty": "Ingen mods installert",
-			"errors": {
-				"action": "Handlingen kunne ikke fullføres. {error}",
-				"list": "Kunne ikke laste installerte mods. {error}"
-			},
-			"installSuccess": "\"{id}\" installert",
-			"removeBlocked": "Fortsatt brukt av: {characters}",
-			"restartToApply": "Start på nytt for å bruke endringene",
-			"source": {
-				"dev": "Dev",
-				"registry": "Register",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Deaktivert",
-				"errored": "Feil",
-				"loaded": "Lastet"
-			},
-			"tabs": {
-				"browse": "Bla gjennom",
-				"installed": "Installert"
-			},
-			"title": "Mods",
-			"updateSuccess": "\"{id}\" oppdatert"
-		},
-		"theme": {
-			"dark": "Mørk",
-			"defaultSkin": "Standard",
-			"light": "Lys",
-			"system": "System",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installer \"{module}\" fra Mod Store",
-			"notInstalled": "\"{module}\" er ikke installert",
-			"openModStore": "Åpne Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Karakter"
-		},
-		"roll-dice": {
-			"title": "Kast terninger"
-		},
-		"settings": {
-			"title": "Innstillinger"
-		}
-	}
+  "a11y": {
+    "description": "beskrivelse",
+    "name": "navn",
+    "quantity": "mengde",
+    "validation-error": "Valideringsfeil"
+  },
+  "character": {
+    "configure": "Konfigurer",
+    "create": "Opprett karakter",
+    "export": "Eksporter karakter",
+    "exportSuccess": "Karakter eksportert vellykket!",
+    "import": {
+      "error": {
+        "extension": "Kunne ikke importere karakter. Filtypen må være .fchar",
+        "validation": "Kunne ikke importere karakter. Filen er ugyldig.",
+        "version": "Kunne ikke importere karakter. Karakterens versjon er utdatert."
+      },
+      "success": "Karakter importert med suksess!",
+      "title": "Importer karakter fra fil"
+    },
+    "messages": {
+      "remove": "Er du sikker på at du vil fjerne {value}?",
+      "update": "Karakterversjonen er utdatert. Vil du oppdatere den?"
+    },
+    "name": "Karakterens navn",
+    "new-character": "Ny karakter",
+    "no-characters": "Ingen karakterer opprettet ennå. Opprett en ny eller importer fra en fil.",
+    "not-selected": "Ingen karakter valgt ennå. Velg en eller opprett en ny!",
+    "remove-message": "Er du sikker på at du vil fjerne denne karakteren?",
+    "save": "Lagre karakter",
+    "share": "Del karakter",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Karakterversjonen er utdatert. Vil du oppdatere den?",
+    "updated": "Karakter oppdatert vellykket fra v{from} til v{to}!",
+    "your-characters": "Dine karakterer"
+  },
+  "common": {
+    "actions": {
+      "add": "Legg til",
+      "back": "Tilbake",
+      "cancel": "Avbryt",
+      "close": "Lukk",
+      "confirm": "Bekreft",
+      "create": "Opprett",
+      "decrease": "Redusere",
+      "delete": "Slett",
+      "edit": "Rediger",
+      "finish": "Fullfør",
+      "go": "Gå",
+      "increase": "Øke",
+      "next": "Neste",
+      "remove": "Fjern",
+      "reset": "Tilbakestill",
+      "save": "Lagre",
+      "select": "Velg",
+      "update": "Oppdater",
+      "upload": "Last opp",
+      "use": "Bruk"
+    },
+    "messages": {
+      "emptyList": "Ingen element er lagt til ennå",
+      "remove": "Er du sikker på at du vil fjerne den?",
+      "remove-named": "Er du sikker på at du vil fjerne \"{value}\"?"
+    },
+    "or": "eller",
+    "state": {
+      "disabled": "Deaktivert",
+      "enabled": "Aktivert"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Legg til testkarakter"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Appen støtte på et problem og kan ikke fortsette trygt. Å laste inn på nytt bør løse det.",
+      "reload": "Last inn på nytt",
+      "title": "Noe gikk galt"
+    },
+    "character": {
+      "create": "Kunne ikke opprette figuren. {error}",
+      "export": "Kunne ikke eksportere figuren. {error}",
+      "list": "Kunne ikke laste figurlisten. {error}",
+      "load": "Kunne ikke laste figuren. {error}",
+      "remove": "Kunne ikke fjerne figuren. {error}",
+      "save": "Kunne ikke lagre figuren. Endringene ble muligens ikke lagret. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Krever appversjon \"{requiredVersion}\", men den nåværende er \"{appVersion}\"",
+      "incompatible": "Inkompatibel med \"{anotherModule}\"",
+      "missingDependencies": "Mangler avhengigheter: {modules}",
+      "notFound": "Modul ikke funnet: \"{module}\"",
+      "otherDependsOn": "Andre moduler er avhengige av den: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Modulen '{module}' krever appversjon '{requiredAppVersion}', men gjeldende versjon er '{currentAppVersion}'.",
+      "dependencyCycle": "En avhengighetssyklus ble oppdaget som involverer: {modules}.",
+      "genericError": "En ukjent feil oppstod under moduloppløsningen.",
+      "incompatibleModules": "Modulen '{module}' er inkompatibel med: {incompatible}.",
+      "missingDependency": "Modulen '{module}' mangler avhengigheten '{dependency}'.",
+      "versionMismatch": "Modulen '{module}' krever versjon '{requiredVersion}' av '{dependency}', men funnet versjon er '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Kunne ikke eksportere moduler. {error}"
+    },
+    "outdatedBrowser": "Nettleseren din er utdatert. Applikasjonen kan hende ikke fungerer som forventet. Oppdater den.",
+    "unexpected": "Noe uventet skjedde. Enkelte deler av appen fungerer muligens ikke som forventet."
+  },
+  "forms": {
+    "description": "Beskrivelse",
+    "name": "Navn",
+    "price": "Pris",
+    "quantity": "Mengde",
+    "skill": "Ferdighet",
+    "type": "Type"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Forfatter",
+      "dependencies": "Avhengigheter",
+      "description": "Beskrivelse",
+      "id": "ID",
+      "label": "Egendefinert konfigurasjon",
+      "languages": "Språk",
+      "mainSettings": "Hovedinnstillinger",
+      "name": "Navn",
+      "version": "Versjon"
+    },
+    "export": "Eksporter modulkonfigurasjon",
+    "exportSuccess": "Moduler eksportert vellykket!",
+    "external": "Ekstern",
+    "import": {
+      "error": {
+        "extension": "Kunne ikke importere moduler. Filtypen må være .fmod",
+        "validation": "Kunne ikke importere moduler. Filen er ugyldig.",
+        "version": "Kunne ikke importere moduler. Modulversjonen er utdatert."
+      },
+      "success": "Moduler importert med suksess!",
+      "title": "Importer moduler fra fil"
+    },
+    "installed": "Installerte moduler ({value}):",
+    "save": "Lagre modulkonfigurasjon",
+    "selected": "Valgte moduler",
+    "share": "Del modulkonfigurasjon",
+    "updated": "Modul {module} oppdatert til v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Terningmateriale",
+        "title": "Terningvalg",
+        "type": "Terningtype"
+      },
+      "force": "Kraft",
+      "general": {
+        "haptic": "Haptisk tilbakemelding",
+        "shake": "Rist for å kaste",
+        "show-result": "Vis resultat på skjermen",
+        "title": "Generelle innstillinger"
+      },
+      "gravity": "Tyngdekraft",
+      "haptic": "Haptisk tilbakemelding",
+      "number": "Antall terninger",
+      "physics": {
+        "force": "Kraft",
+        "gravity": "Tyngdekraft",
+        "number": "Antall terninger",
+        "size": "Terningstørrelse",
+        "title": "Fysikkinnstillinger"
+      },
+      "reset": "Tilbakestill konfigurasjon",
+      "resetPhysics": "Tilbakestill fysikkinnstillinger",
+      "shake": "Rist for å kaste",
+      "size": "Terningstørrelse",
+      "title": "Konfigurasjon av terningkast"
+    },
+    "result": "Kastresultatet er {value}",
+    "rolling": "Kaster...",
+    "throw": "Kast {value} terninger"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Forfatter",
+      "legal": {
+        "title": "Juridisk informasjon og attribusjon"
+      },
+      "license": "Lisens",
+      "privacy-policy": {
+        "accept-policy": "Jeg har lest og aksepterer personvernreglene",
+        "acceptance-date": "Godkjenningsdato: {value}",
+        "not-accepted": "Personvernreglene er ikke akseptert. Gå til innstillinger, les og godkjenn dem. Ellers kan du ikke bruke appen.",
+        "title": "Personvernregler",
+        "updated": "Velkommen tilbake! Vi har gjort noen oppdateringer i vilkårene, så vi trenger at du bekrefter dem på nytt."
+      },
+      "source-code": "Kildekode",
+      "title": "Om appen",
+      "version": "Versjon"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Vis feilsøkingsinformasjon",
+        "toggleDescription": "Viser ekstra feilsøkingsverktøy i appen — terningfysikk-debuggeren og skjulte utviklersider."
+      },
+      "devMod": {
+        "connect": "Koble til",
+        "connected": "Tilkoblet \"{id}\"",
+        "disconnect": "Koble fra",
+        "error": "Kunne ikke koble til utviklermod. {error}",
+        "title": "Koble til utviklermod",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Du installerer \"{id}\" utenfor det gjennomgåtte registeret. Det får full tilgang til appen og karakterdataene dine. Skriv \"{id}\" eller \"install\" for å bekrefte.",
+        "confirmPlaceholder": "Skriv for å bekrefte",
+        "confirmTitle": "Installere ekstern kode?",
+        "error": "Kunne ikke installere mod. {error}",
+        "install": "Installer",
+        "success": "\"{id}\" installert",
+        "title": "Installer fra URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Pek Mod Store mot et staging-register i stedet for det ekte. La stå tomt for å bruke standard.",
+        "save": "Lagre",
+        "title": "Overstyr registerets base-URL"
+      },
+      "title": "Utvikler",
+      "toggle": "Utviklermodus",
+      "toggleDescription": "Tillater installasjon av mods fra en URL. Kun for forfattere og testere — mods har full tilgang til appen."
+    },
+    "language": "Språk",
+    "mods": {
+      "actions": {
+        "disable": "Deaktiver",
+        "enable": "Aktiver",
+        "remove": "Fjern",
+        "retry": "Prøv igjen",
+        "update": "Oppdater",
+        "removeAnyway": "Fjern likevel"
+      },
+      "blocked": "\"{id}\" ble deaktivert — denne versjonen er merket som usikker. Sjekk Mod Store for en oppdatering.",
+      "browse": {
+        "compatibleOnly": "Kun kompatible med denne appen",
+        "empty": "Ingen mods funnet",
+        "incompatible": "Ikke kompatibel med denne appversjonen",
+        "loadError": "Kunne ikke laste Mod Store. {error}",
+        "offline": "Kunne ikke oppdatere — viser bufrede resultater",
+        "searchPlaceholder": "Søk etter mods",
+        "stale": "Viser bufrede resultater — trekk for å oppdatere"
+      },
+      "detail": {
+        "author": "Av {name}",
+        "blocked": "Denne versjonen er blokkert",
+        "config": "Konfigurasjonsalternativer",
+        "downgrade": "Nedgrader",
+        "install": "Installer",
+        "installed": "Installert",
+        "latest": "nyeste",
+        "readme": "Om",
+        "remove": "Fjern",
+        "update": "Oppdater",
+        "updateAvailable": "Oppdatering tilgjengelig",
+        "versions": "Versjoner"
+      },
+      "empty": "Ingen mods installert",
+      "errors": {
+        "action": "Handlingen kunne ikke fullføres. {error}",
+        "list": "Kunne ikke laste installerte mods. {error}"
+      },
+      "installSuccess": "\"{id}\" installert",
+      "restartToApply": "Start på nytt for å bruke endringene",
+      "source": {
+        "dev": "Dev",
+        "registry": "Register",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Deaktivert",
+        "errored": "Feil",
+        "loaded": "Lastet"
+      },
+      "tabs": {
+        "browse": "Bla gjennom",
+        "installed": "Installert"
+      },
+      "title": "Mods",
+      "updateSuccess": "\"{id}\" oppdatert",
+      "removeConfirm": {
+        "inUse": "Fortsatt brukt av: {characters}",
+        "willUninstall": "Hvis du fjerner den, avinstalleres den fra de karakterene."
+      }
+    },
+    "theme": {
+      "dark": "Mørk",
+      "defaultSkin": "Standard",
+      "light": "Lys",
+      "system": "System",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installer \"{module}\" fra Mod Store",
+      "notInstalled": "\"{module}\" er ikke installert",
+      "openModStore": "Åpne Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Karakter"
+    },
+    "roll-dice": {
+      "title": "Kast terninger"
+    },
+    "settings": {
+      "title": "Innstillinger"
+    }
+  }
 }

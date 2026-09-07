@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "beschrijving",
-		"name": "naam",
-		"quantity": "hoeveelheid",
-		"validation-error": "Validatiefout"
-	},
-	"character": {
-		"configure": "Configureren",
-		"create": "Personage aanmaken",
-		"export": "Personage exporteren",
-		"exportSuccess": "Personage succesvol geëxporteerd!",
-		"import": {
-			"error": {
-				"extension": "Kan personage niet importeren. De bestandsextensie moet eindigen op .fchar",
-				"validation": "Kan personage niet importeren. Het bestand is ongeldig.",
-				"version": "Kan personage niet importeren. De versie van het personage is verouderd."
-			},
-			"success": "Personage succesvol geïmporteerd!",
-			"title": "Personage importeren uit bestand"
-		},
-		"messages": {
-			"remove": "Weet u zeker dat u {value} wilt verwijderen?",
-			"update": "De versie van het personage is verouderd. Wil je deze bijwerken?"
-		},
-		"name": "Naam van het personage",
-		"new-character": "Nieuw personage",
-		"no-characters": "Nog geen personages aangemaakt. Maak een nieuw personage of importeer er een uit een bestand.",
-		"not-selected": "Personage nog niet geselecteerd. Selecteer er een of maak een nieuw personage aan!",
-		"remove-message": "Weet je zeker dat je dit personage wilt verwijderen?",
-		"save": "Personage opslaan",
-		"share": "Personage delen",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "De versie van het personage is verouderd. Wil je deze bijwerken?",
-		"updated": "Personage succesvol bijgewerkt van v{from} naar v{to}!",
-		"your-characters": "Jouw personages"
-	},
-	"common": {
-		"actions": {
-			"add": "Toevoegen",
-			"back": "Terug",
-			"cancel": "Annuleren",
-			"close": "Sluiten",
-			"confirm": "Bevestigen",
-			"create": "Aanmaken",
-			"decrease": "Verlagen",
-			"delete": "Verwijderen",
-			"edit": "Bewerken",
-			"finish": "Voltooien",
-			"go": "Ga",
-			"increase": "Verhogen",
-			"next": "Volgende",
-			"remove": "Verwijderen",
-			"reset": "Resetten",
-			"save": "Opslaan",
-			"select": "Selecteren",
-			"update": "Bijwerken",
-			"upload": "Uploaden",
-			"use": "Gebruiken"
-		},
-		"messages": {
-			"emptyList": "Nog geen elementen toegevoegd",
-			"remove": "Weet je zeker dat je het wilt verwijderen?",
-			"remove-named": "Weet je zeker dat je \"{value}\" wilt verwijderen?"
-		},
-		"or": "of",
-		"state": {
-			"disabled": "Uitgeschakeld",
-			"enabled": "Ingeschakeld"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Testpersonage toevoegen"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Er is een problem opgetreden en de app kan niet veilig doorgaan. Herladen zou dit moeten oplossen.",
-			"reload": "Herladen",
-			"title": "Er is iets misgegaan"
-		},
-		"character": {
-			"create": "Kan personage niet aanmaken. {error}",
-			"export": "Kan personage niet exporteren. {error}",
-			"list": "Kan personagelijst niet laden. {error}",
-			"load": "Kan personage niet laden. {error}",
-			"remove": "Kan personage niet verwijderen. {error}",
-			"save": "Kan personage niet opslaan. Wijzigingen zijn mogelijk niet opgeslagen. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Vereist app-versie \"{requiredVersion}\" maar de huidige is \"{appVersion}\"",
-			"incompatible": "Incompatibel met \"{anotherModule}\"",
-			"missingDependencies": "Ontbrekende afhankelijkheden: {modules}",
-			"notFound": "Module niet gevonden: \"{module}\"",
-			"otherDependsOn": "Andere module(s) zijn ervan afhankelijk: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Module '{module}' vereist app-versie '{requiredAppVersion}', maar de huidige versie is '{currentAppVersion}'.",
-			"dependencyCycle": "Er is een afhankelijkheidscyclus gedetecteerd met: {modules}.",
-			"genericError": "Er is een onbekende fout opgetreden bij het oplossen van de module.",
-			"incompatibleModules": "Module '{module}' is incompatibel met: {incompatible}.",
-			"missingDependency": "Module '{module}' mist de afhankelijkheid '{dependency}'.",
-			"versionMismatch": "Module '{module}' vereist versie '{requiredVersion}' van '{dependency}', maar gevonden versie is '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Kon modules niet exporteren. {error}"
-		},
-		"outdatedBrowser": "Uw systeembrowser is verouderd. De applicatie werkt mogelijk niet zoals verwacht. Werk het alstublieft bij.",
-		"unexpected": "Er is iets onverwachts gebeurd. Sommige onderdelen van de app werken mogelijk niet zoals expected."
-	},
-	"forms": {
-		"description": "Beschrijving",
-		"name": "Naam",
-		"price": "Prijs",
-		"quantity": "Hoeveelheid",
-		"skill": "Vaardigheid",
-		"type": "Type"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Auteur",
-			"dependencies": "Afhankelijkheden",
-			"description": "Beschrijving",
-			"id": "ID",
-			"label": "Aangepaste configuratie",
-			"languages": "Talen",
-			"mainSettings": "Hoofdinstellingen",
-			"name": "Naam",
-			"version": "Versie"
-		},
-		"export": "Moduleconfiguratie exporteren",
-		"exportSuccess": "Modules succesvol geëxporteerd!",
-		"external": "Extern",
-		"import": {
-			"error": {
-				"extension": "Kan modules niet importeren. De bestandsextensie moet eindigen op .fmod",
-				"validation": "Kan modules niet importeren. Het bestand is ongeldig.",
-				"version": "Kan modules niet importeren. De versie van de modules is verouderd."
-			},
-			"success": "Modules succesvol geïmporteerd!",
-			"title": "Modules importeren uit bestand"
-		},
-		"installed": "Geïnstalleerde modules ({value}):",
-		"save": "Moduleconfiguratie opslaan",
-		"selected": "Geselecteerde modules",
-		"share": "Moduleconfiguratie delen",
-		"updated": "Module {module} bijgewerkt naar v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Dobbelsteenmateriaal",
-				"title": "Dobbelsteenopties",
-				"type": "Dobbelsteentype"
-			},
-			"force": "Kracht",
-			"general": {
-				"haptic": "Haptische feedback",
-				"shake": "Schudden om te gooien",
-				"show-result": "Resultaat op scherm tonen",
-				"title": "Algemene instellingen"
-			},
-			"gravity": "Zwaartekracht",
-			"haptic": "Haptische feedback",
-			"number": "Aantal dobbelstenen",
-			"physics": {
-				"force": "Kracht",
-				"gravity": "Zwaartekracht",
-				"number": "Aantal dobbelstenen",
-				"size": "Dobbelsteengrootte",
-				"title": "Fysica-instellingen"
-			},
-			"reset": "Configuratie resetten",
-			"resetPhysics": "Fysische instellingen resetten",
-			"shake": "Schudden om te gooien",
-			"size": "Grootte van de dobbelsteen",
-			"title": "Configuratie dobbelsteenworp"
-		},
-		"result": "Het worpresultaat is {value}",
-		"rolling": "Gooien...",
-		"throw": "Gooi {value} dobbelstenen"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Auteur",
-			"legal": {
-				"title": "Juridisch en naamsvermelding"
-			},
-			"license": "Licentie",
-			"privacy-policy": {
-				"accept-policy": "Ik heb het privacybeleid gelezen en accepteer het",
-				"acceptance-date": "Acceptatiedatum: {value}",
-				"not-accepted": "Privacybeleid niet geaccepteerd. Ga naar instellingen, lees en accepteer het. Anders kunt u de app niet gebruiken.",
-				"title": "Privacybeleid",
-				"updated": "Welkom terug! We hebben onze voorwaarden een beetje bijgewerkt, dus we vragen je ze nogmaals te bevestigen."
-			},
-			"source-code": "Broncode",
-			"title": "Over de app",
-			"version": "Versie"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Debuginformatie tonen",
-				"toggleDescription": "Toont extra debugtools in de app — de dobbelsteenfysica-debugger en verborgen ontwikkelaarspagina’s."
-			},
-			"devMod": {
-				"connect": "Verbinden",
-				"connected": "Verbonden met \"{id}\"",
-				"disconnect": "Verbreken",
-				"error": "Kon niet verbinden met de dev-mod. {error}",
-				"title": "Dev-mod verbinden",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Je installeert \"{id}\" buiten het gecontroleerde register. Het krijgt volledige toegang tot de app en je personagegegevens. Typ \"{id}\" of \"install\" om te bevestigen.",
-				"confirmPlaceholder": "Typ om te bevestigen",
-				"confirmTitle": "Externe code installeren?",
-				"error": "Kon de mod niet installeren. {error}",
-				"install": "Installeren",
-				"success": "\"{id}\" geïnstalleerd",
-				"title": "Installeren vanaf URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Wijs de Mod Store naar een staging-register in plaats van het echte. Laat leeg voor de standaard.",
-				"save": "Opslaan",
-				"title": "Registerbasis-URL overschrijven"
-			},
-			"title": "Ontwikkelaar",
-			"toggle": "Ontwikkelaarsmodus",
-			"toggleDescription": "Maakt installatie van mods via een URL mogelijk. Alleen voor auteurs en testers — mods hebben volledige toegang tot de app."
-		},
-		"language": "Taal",
-		"mods": {
-			"actions": {
-				"disable": "Uitschakelen",
-				"enable": "Inschakelen",
-				"remove": "Verwijderen",
-				"retry": "Opnieuw proberen",
-				"update": "Bijwerken"
-			},
-			"blocked": "\"{id}\" is uitgeschakeld — deze versie is als onveilig gemarkeerd. Controleer de Mod Store op een update.",
-			"browse": {
-				"compatibleOnly": "Alleen compatibel met deze app",
-				"empty": "Geen mods gevonden",
-				"incompatible": "Niet compatibel met deze appversie",
-				"loadError": "Kon de Mod Store niet laden. {error}",
-				"offline": "Vernieuwen mislukt — gecachte resultaten worden getoond",
-				"searchPlaceholder": "Mods zoeken",
-				"stale": "Gecachte resultaten — sleep om te vernieuwen"
-			},
-			"detail": {
-				"author": "Door {name}",
-				"blocked": "Deze versie is geblokkeerd",
-				"config": "Configuratieopties",
-				"downgrade": "Downgraden",
-				"install": "Installeren",
-				"installed": "Geïnstalleerd",
-				"latest": "nieuwste",
-				"readme": "Over",
-				"remove": "Verwijderen",
-				"update": "Bijwerken",
-				"updateAvailable": "Update beschikbaar",
-				"versions": "Versies"
-			},
-			"empty": "Geen mods geïnstalleerd",
-			"errors": {
-				"action": "Actie kon niet worden voltooid. {error}",
-				"list": "Kon geïnstalleerde mods niet laden. {error}"
-			},
-			"installSuccess": "\"{id}\" geïnstalleerd",
-			"removeBlocked": "Nog in gebruik door: {characters}",
-			"restartToApply": "Opnieuw starten om wijzigingen toe te passen",
-			"source": {
-				"dev": "Dev",
-				"registry": "Register",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Uitgeschakeld",
-				"errored": "Fout",
-				"loaded": "Geladen"
-			},
-			"tabs": {
-				"browse": "Bladeren",
-				"installed": "Geïnstalleerd"
-			},
-			"title": "Mods",
-			"updateSuccess": "\"{id}\" bijgewerkt"
-		},
-		"theme": {
-			"dark": "Donker",
-			"defaultSkin": "Standaard",
-			"light": "Licht",
-			"system": "Systeem",
-			"title": "Thema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installeer \"{module}\" vanuit de Mod Store",
-			"notInstalled": "\"{module}\" is niet geïnstalleerd",
-			"openModStore": "Mod Store openen"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Personage"
-		},
-		"roll-dice": {
-			"title": "Dobbelstenen rollen"
-		},
-		"settings": {
-			"title": "Instellingen"
-		}
-	}
+  "a11y": {
+    "description": "beschrijving",
+    "name": "naam",
+    "quantity": "hoeveelheid",
+    "validation-error": "Validatiefout"
+  },
+  "character": {
+    "configure": "Configureren",
+    "create": "Personage aanmaken",
+    "export": "Personage exporteren",
+    "exportSuccess": "Personage succesvol geëxporteerd!",
+    "import": {
+      "error": {
+        "extension": "Kan personage niet importeren. De bestandsextensie moet eindigen op .fchar",
+        "validation": "Kan personage niet importeren. Het bestand is ongeldig.",
+        "version": "Kan personage niet importeren. De versie van het personage is verouderd."
+      },
+      "success": "Personage succesvol geïmporteerd!",
+      "title": "Personage importeren uit bestand"
+    },
+    "messages": {
+      "remove": "Weet u zeker dat u {value} wilt verwijderen?",
+      "update": "De versie van het personage is verouderd. Wil je deze bijwerken?"
+    },
+    "name": "Naam van het personage",
+    "new-character": "Nieuw personage",
+    "no-characters": "Nog geen personages aangemaakt. Maak een nieuw personage of importeer er een uit een bestand.",
+    "not-selected": "Personage nog niet geselecteerd. Selecteer er een of maak een nieuw personage aan!",
+    "remove-message": "Weet je zeker dat je dit personage wilt verwijderen?",
+    "save": "Personage opslaan",
+    "share": "Personage delen",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "De versie van het personage is verouderd. Wil je deze bijwerken?",
+    "updated": "Personage succesvol bijgewerkt van v{from} naar v{to}!",
+    "your-characters": "Jouw personages"
+  },
+  "common": {
+    "actions": {
+      "add": "Toevoegen",
+      "back": "Terug",
+      "cancel": "Annuleren",
+      "close": "Sluiten",
+      "confirm": "Bevestigen",
+      "create": "Aanmaken",
+      "decrease": "Verlagen",
+      "delete": "Verwijderen",
+      "edit": "Bewerken",
+      "finish": "Voltooien",
+      "go": "Ga",
+      "increase": "Verhogen",
+      "next": "Volgende",
+      "remove": "Verwijderen",
+      "reset": "Resetten",
+      "save": "Opslaan",
+      "select": "Selecteren",
+      "update": "Bijwerken",
+      "upload": "Uploaden",
+      "use": "Gebruiken"
+    },
+    "messages": {
+      "emptyList": "Nog geen elementen toegevoegd",
+      "remove": "Weet je zeker dat je het wilt verwijderen?",
+      "remove-named": "Weet je zeker dat je \"{value}\" wilt verwijderen?"
+    },
+    "or": "of",
+    "state": {
+      "disabled": "Uitgeschakeld",
+      "enabled": "Ingeschakeld"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Testpersonage toevoegen"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Er is een problem opgetreden en de app kan niet veilig doorgaan. Herladen zou dit moeten oplossen.",
+      "reload": "Herladen",
+      "title": "Er is iets misgegaan"
+    },
+    "character": {
+      "create": "Kan personage niet aanmaken. {error}",
+      "export": "Kan personage niet exporteren. {error}",
+      "list": "Kan personagelijst niet laden. {error}",
+      "load": "Kan personage niet laden. {error}",
+      "remove": "Kan personage niet verwijderen. {error}",
+      "save": "Kan personage niet opslaan. Wijzigingen zijn mogelijk niet opgeslagen. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Vereist app-versie \"{requiredVersion}\" maar de huidige is \"{appVersion}\"",
+      "incompatible": "Incompatibel met \"{anotherModule}\"",
+      "missingDependencies": "Ontbrekende afhankelijkheden: {modules}",
+      "notFound": "Module niet gevonden: \"{module}\"",
+      "otherDependsOn": "Andere module(s) zijn ervan afhankelijk: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Module '{module}' vereist app-versie '{requiredAppVersion}', maar de huidige versie is '{currentAppVersion}'.",
+      "dependencyCycle": "Er is een afhankelijkheidscyclus gedetecteerd met: {modules}.",
+      "genericError": "Er is een onbekende fout opgetreden bij het oplossen van de module.",
+      "incompatibleModules": "Module '{module}' is incompatibel met: {incompatible}.",
+      "missingDependency": "Module '{module}' mist de afhankelijkheid '{dependency}'.",
+      "versionMismatch": "Module '{module}' vereist versie '{requiredVersion}' van '{dependency}', maar gevonden versie is '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Kon modules niet exporteren. {error}"
+    },
+    "outdatedBrowser": "Uw systeembrowser is verouderd. De applicatie werkt mogelijk niet zoals verwacht. Werk het alstublieft bij.",
+    "unexpected": "Er is iets onverwachts gebeurd. Sommige onderdelen van de app werken mogelijk niet zoals expected."
+  },
+  "forms": {
+    "description": "Beschrijving",
+    "name": "Naam",
+    "price": "Prijs",
+    "quantity": "Hoeveelheid",
+    "skill": "Vaardigheid",
+    "type": "Type"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Auteur",
+      "dependencies": "Afhankelijkheden",
+      "description": "Beschrijving",
+      "id": "ID",
+      "label": "Aangepaste configuratie",
+      "languages": "Talen",
+      "mainSettings": "Hoofdinstellingen",
+      "name": "Naam",
+      "version": "Versie"
+    },
+    "export": "Moduleconfiguratie exporteren",
+    "exportSuccess": "Modules succesvol geëxporteerd!",
+    "external": "Extern",
+    "import": {
+      "error": {
+        "extension": "Kan modules niet importeren. De bestandsextensie moet eindigen op .fmod",
+        "validation": "Kan modules niet importeren. Het bestand is ongeldig.",
+        "version": "Kan modules niet importeren. De versie van de modules is verouderd."
+      },
+      "success": "Modules succesvol geïmporteerd!",
+      "title": "Modules importeren uit bestand"
+    },
+    "installed": "Geïnstalleerde modules ({value}):",
+    "save": "Moduleconfiguratie opslaan",
+    "selected": "Geselecteerde modules",
+    "share": "Moduleconfiguratie delen",
+    "updated": "Module {module} bijgewerkt naar v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Dobbelsteenmateriaal",
+        "title": "Dobbelsteenopties",
+        "type": "Dobbelsteentype"
+      },
+      "force": "Kracht",
+      "general": {
+        "haptic": "Haptische feedback",
+        "shake": "Schudden om te gooien",
+        "show-result": "Resultaat op scherm tonen",
+        "title": "Algemene instellingen"
+      },
+      "gravity": "Zwaartekracht",
+      "haptic": "Haptische feedback",
+      "number": "Aantal dobbelstenen",
+      "physics": {
+        "force": "Kracht",
+        "gravity": "Zwaartekracht",
+        "number": "Aantal dobbelstenen",
+        "size": "Dobbelsteengrootte",
+        "title": "Fysica-instellingen"
+      },
+      "reset": "Configuratie resetten",
+      "resetPhysics": "Fysische instellingen resetten",
+      "shake": "Schudden om te gooien",
+      "size": "Grootte van de dobbelsteen",
+      "title": "Configuratie dobbelsteenworp"
+    },
+    "result": "Het worpresultaat is {value}",
+    "rolling": "Gooien...",
+    "throw": "Gooi {value} dobbelstenen"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Auteur",
+      "legal": {
+        "title": "Juridisch en naamsvermelding"
+      },
+      "license": "Licentie",
+      "privacy-policy": {
+        "accept-policy": "Ik heb het privacybeleid gelezen en accepteer het",
+        "acceptance-date": "Acceptatiedatum: {value}",
+        "not-accepted": "Privacybeleid niet geaccepteerd. Ga naar instellingen, lees en accepteer het. Anders kunt u de app niet gebruiken.",
+        "title": "Privacybeleid",
+        "updated": "Welkom terug! We hebben onze voorwaarden een beetje bijgewerkt, dus we vragen je ze nogmaals te bevestigen."
+      },
+      "source-code": "Broncode",
+      "title": "Over de app",
+      "version": "Versie"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Debuginformatie tonen",
+        "toggleDescription": "Toont extra debugtools in de app — de dobbelsteenfysica-debugger en verborgen ontwikkelaarspagina’s."
+      },
+      "devMod": {
+        "connect": "Verbinden",
+        "connected": "Verbonden met \"{id}\"",
+        "disconnect": "Verbreken",
+        "error": "Kon niet verbinden met de dev-mod. {error}",
+        "title": "Dev-mod verbinden",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Je installeert \"{id}\" buiten het gecontroleerde register. Het krijgt volledige toegang tot de app en je personagegegevens. Typ \"{id}\" of \"install\" om te bevestigen.",
+        "confirmPlaceholder": "Typ om te bevestigen",
+        "confirmTitle": "Externe code installeren?",
+        "error": "Kon de mod niet installeren. {error}",
+        "install": "Installeren",
+        "success": "\"{id}\" geïnstalleerd",
+        "title": "Installeren vanaf URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Wijs de Mod Store naar een staging-register in plaats van het echte. Laat leeg voor de standaard.",
+        "save": "Opslaan",
+        "title": "Registerbasis-URL overschrijven"
+      },
+      "title": "Ontwikkelaar",
+      "toggle": "Ontwikkelaarsmodus",
+      "toggleDescription": "Maakt installatie van mods via een URL mogelijk. Alleen voor auteurs en testers — mods hebben volledige toegang tot de app."
+    },
+    "language": "Taal",
+    "mods": {
+      "actions": {
+        "disable": "Uitschakelen",
+        "enable": "Inschakelen",
+        "remove": "Verwijderen",
+        "retry": "Opnieuw proberen",
+        "update": "Bijwerken",
+        "removeAnyway": "Toch verwijderen"
+      },
+      "blocked": "\"{id}\" is uitgeschakeld — deze versie is als onveilig gemarkeerd. Controleer de Mod Store op een update.",
+      "browse": {
+        "compatibleOnly": "Alleen compatibel met deze app",
+        "empty": "Geen mods gevonden",
+        "incompatible": "Niet compatibel met deze appversie",
+        "loadError": "Kon de Mod Store niet laden. {error}",
+        "offline": "Vernieuwen mislukt — gecachte resultaten worden getoond",
+        "searchPlaceholder": "Mods zoeken",
+        "stale": "Gecachte resultaten — sleep om te vernieuwen"
+      },
+      "detail": {
+        "author": "Door {name}",
+        "blocked": "Deze versie is geblokkeerd",
+        "config": "Configuratieopties",
+        "downgrade": "Downgraden",
+        "install": "Installeren",
+        "installed": "Geïnstalleerd",
+        "latest": "nieuwste",
+        "readme": "Over",
+        "remove": "Verwijderen",
+        "update": "Bijwerken",
+        "updateAvailable": "Update beschikbaar",
+        "versions": "Versies"
+      },
+      "empty": "Geen mods geïnstalleerd",
+      "errors": {
+        "action": "Actie kon niet worden voltooid. {error}",
+        "list": "Kon geïnstalleerde mods niet laden. {error}"
+      },
+      "installSuccess": "\"{id}\" geïnstalleerd",
+      "restartToApply": "Opnieuw starten om wijzigingen toe te passen",
+      "source": {
+        "dev": "Dev",
+        "registry": "Register",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Uitgeschakeld",
+        "errored": "Fout",
+        "loaded": "Geladen"
+      },
+      "tabs": {
+        "browse": "Bladeren",
+        "installed": "Geïnstalleerd"
+      },
+      "title": "Mods",
+      "updateSuccess": "\"{id}\" bijgewerkt",
+      "removeConfirm": {
+        "inUse": "Nog in gebruik door: {characters}",
+        "willUninstall": "Verwijderen deïnstalleert deze mod bij die personages."
+      }
+    },
+    "theme": {
+      "dark": "Donker",
+      "defaultSkin": "Standaard",
+      "light": "Licht",
+      "system": "Systeem",
+      "title": "Thema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installeer \"{module}\" vanuit de Mod Store",
+      "notInstalled": "\"{module}\" is niet geïnstalleerd",
+      "openModStore": "Mod Store openen"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Personage"
+    },
+    "roll-dice": {
+      "title": "Dobbelstenen rollen"
+    },
+    "settings": {
+      "title": "Instellingen"
+    }
+  }
 }

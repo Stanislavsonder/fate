@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "beskrivelse",
-		"name": "navn",
-		"quantity": "mængde",
-		"validation-error": "Valideringsfejl"
-	},
-	"character": {
-		"configure": "Konfigurer",
-		"create": "Opret karakter",
-		"export": "Eksporter karakter",
-		"exportSuccess": "Karakter eksporteret med succes!",
-		"import": {
-			"error": {
-				"extension": "Kunne ikke importere karakter. Filtypen skal være .fchar",
-				"validation": "Kunne ikke importere karakter. Filen er ugyldig.",
-				"version": "Kunne ikke importere karakter. Karakterens version er forældet."
-			},
-			"success": "Karakter importeret med succes!",
-			"title": "Importer karakter fra fil"
-		},
-		"messages": {
-			"remove": "Er du sikker på, at du vil fjerne {value}?",
-			"update": "Karakterversionen er forældet. Vil du opdatere den?"
-		},
-		"name": "Karakterens navn",
-		"new-character": "Ny karakter",
-		"no-characters": "Ingen karakterer oprettet endnu. Opret en ny eller importer fra en fil.",
-		"not-selected": "Ingen karakter valgt endnu. Vælg en eller opret en ny!",
-		"remove-message": "Er du sikker på, at du vil fjerne denne karakter?",
-		"save": "Gem karakter",
-		"share": "Del karakter",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Karakterversionen er forældet. Vil du opdatere den?",
-		"updated": "Karakter opdateret succesfuldt fra v{from} til v{to}!",
-		"your-characters": "Dine karakterer"
-	},
-	"common": {
-		"actions": {
-			"add": "Tilføj",
-			"back": "Tilbage",
-			"cancel": "Annuller",
-			"close": "Luk",
-			"confirm": "Bekræft",
-			"create": "Opret",
-			"decrease": "Formindske",
-			"delete": "Slet",
-			"edit": "Rediger",
-			"finish": "Afslut",
-			"go": "Gå",
-			"increase": "Forøge",
-			"next": "Næste",
-			"remove": "Fjern",
-			"reset": "Nulstil",
-			"save": "Gem",
-			"select": "Vælg",
-			"update": "Opdater",
-			"upload": "Upload",
-			"use": "Brug"
-		},
-		"messages": {
-			"emptyList": "Ingen elementer tilføjet endnu",
-			"remove": "Er du sikker på, at du vil fjerne det?",
-			"remove-named": "Er du sikker på, at du vil fjerne \"{value}\"?"
-		},
-		"or": "eller",
-		"state": {
-			"disabled": "Deaktiveret",
-			"enabled": "Aktiveret"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Tilføj testkarakter"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Appen stødte på et problem og kan ikke fortsætte sikkert. Genindlæsning bør løse det.",
-			"reload": "Genindlæs",
-			"title": "Noget gik galt"
-		},
-		"character": {
-			"create": "Kunne ikke oprette figuren. {error}",
-			"export": "Kunne ikke eksportere figuren. {error}",
-			"list": "Kunne ikke indlæse figurlisten. {error}",
-			"load": "Kunne ikke indlæse figuren. {error}",
-			"remove": "Kunne ikke fjerne figuren. {error}",
-			"save": "Kunne ikke gemme figuren. Ændringer er muligvis ikke gemt. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Kræver appversion \"{requiredVersion}\" men den nuværende er \"{appVersion}\"",
-			"incompatible": "Inkompatibel med \"{anotherModule}\"",
-			"missingDependencies": "Manglende afhængigheder: {modules}",
-			"notFound": "Modul ikke fundet: \"{module}\"",
-			"otherDependsOn": "Andre moduler er afhængige af denne: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Modulet '{module}' kræver appversion '{requiredAppVersion}', men den aktuelle version er '{currentAppVersion}'.",
-			"dependencyCycle": "En afhængighedscyklus blev opdaget, der involverer: {modules}.",
-			"genericError": "En ukendt fejl opstod under modulopløsning.",
-			"incompatibleModules": "Modulet '{module}' er inkompatibelt med: {incompatible}.",
-			"missingDependency": "Modulet '{module}' mangler afhængigheden '{dependency}'.",
-			"versionMismatch": "Modulet '{module}' kræver version '{requiredVersion}' af '{dependency}', men fundet version er '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Kunne ikke eksportere moduler. {error}"
-		},
-		"outdatedBrowser": "Din systembrowser er forældet. Applikationen fungerer muligvis ikke som forventet. Opdater den venligst.",
-		"unexpected": "Der skete noget uventet. Nogle dele af appen fungerer muligvis ikke som forventet."
-	},
-	"forms": {
-		"description": "Beskrivelse",
-		"name": "Navn",
-		"price": "Pris",
-		"quantity": "Mængde",
-		"skill": "Færdighed",
-		"type": "Type"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Forfatter",
-			"dependencies": "Afhængigheder",
-			"description": "Beskrivelse",
-			"id": "ID",
-			"label": "Brugerdefineret konfiguration",
-			"languages": "Sprog",
-			"mainSettings": "Hovedindstillinger",
-			"name": "Navn",
-			"version": "Version"
-		},
-		"export": "Eksporter modulkonfiguration",
-		"exportSuccess": "Moduler eksporteret med succes!",
-		"external": "Ekstern",
-		"import": {
-			"error": {
-				"extension": "Kunne ikke importere moduler. Filtypen skal være .fmod",
-				"validation": "Kunne ikke importere moduler. Filen er ugyldig.",
-				"version": "Kunne ikke importere moduler. Modulernes version er forældet."
-			},
-			"success": "Moduler importeret med succes!",
-			"title": "Importer moduler fra fil"
-		},
-		"installed": "Installerede moduler ({value}):",
-		"save": "Gem modulkonfiguration",
-		"selected": "Valgte moduler",
-		"share": "Del modulkonfiguration",
-		"updated": "Modul {module} opdateret til v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Terningemateriale",
-				"title": "Terningemuligheder",
-				"type": "Terningetype"
-			},
-			"force": "Kraft",
-			"general": {
-				"haptic": "Haptisk feedback",
-				"shake": "Ryst for at kaste",
-				"show-result": "Vis resultat på skærmen",
-				"title": "Generelle indstillinger"
-			},
-			"gravity": "Tyngdekraft",
-			"haptic": "Haptisk feedback",
-			"number": "Antal terninger",
-			"physics": {
-				"force": "Kraft",
-				"gravity": "Tyngdekraft",
-				"number": "Antal terninger",
-				"size": "Terningestørrelse",
-				"title": "Fysiske indstillinger"
-			},
-			"reset": "Nulstil konfiguration",
-			"resetPhysics": "Nulstil fysikindstillinger",
-			"shake": "Ryst for at kaste",
-			"size": "Terningstørrelse",
-			"title": "Konfiguration af terningekast"
-		},
-		"result": "Kastets resultat er {value}",
-		"rolling": "Kaster...",
-		"throw": "Kast {value} terninger"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Forfatter",
-			"legal": {
-				"title": "Juridisk information og kreditering"
-			},
-			"license": "Licens",
-			"privacy-policy": {
-				"accept-policy": "Jeg har læst og accepterer privatlivspolitikken",
-				"acceptance-date": "Acceptdato: {value}",
-				"not-accepted": "Privatlivspolitikken er ikke accepteret. Gå til indstillinger, læs og accepter den. Ellers kan du ikke bruge appen.",
-				"title": "Privatlivspolitik",
-				"updated": "Velkommen tilbage! Vi har opdateret vores vilkår en smule, så vi beder dig bekræfte dem igen."
-			},
-			"source-code": "Kildekode",
-			"title": "Om appen",
-			"version": "Version"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Vis fejlfindingsoplysninger",
-				"toggleDescription": "Viser ekstra fejlfindingsværktøjer i appen — terningefysik-debuggeren og skjulte udviklersider."
-			},
-			"devMod": {
-				"connect": "Opret forbindelse",
-				"connected": "Forbundet til \"{id}\"",
-				"disconnect": "Afbryd",
-				"error": "Kunne ikke oprette forbindelse til udviklermod. {error}",
-				"title": "Tilslut udviklermod",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Du installerer \"{id}\" uden for det gennemgåede register. Det får fuld adgang til appen og dine karakterdata. Skriv \"{id}\" eller \"install\" for at bekræfte.",
-				"confirmPlaceholder": "Skriv for at bekræfte",
-				"confirmTitle": "Installer ekstern kode?",
-				"error": "Kunne ikke installere mod. {error}",
-				"install": "Installer",
-				"success": "\"{id}\" installeret",
-				"title": "Installer fra URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Peg Mod Store mod et staging-register i stedet for det rigtige. Lad stå tomt for at bruge standarden.",
-				"save": "Gem",
-				"title": "Tilsidesæt registrets basis-URL"
-			},
-			"title": "Udvikler",
-			"toggle": "Udviklertilstand",
-			"toggleDescription": "Tillader installation af mods fra en URL. Kun for forfattere og testere — mods har fuld adgang til appen."
-		},
-		"language": "Sprog",
-		"mods": {
-			"actions": {
-				"disable": "Deaktiver",
-				"enable": "Aktiver",
-				"remove": "Fjern",
-				"retry": "Prøv igen",
-				"update": "Opdater"
-			},
-			"blocked": "\"{id}\" blev deaktiveret — denne version er markeret som usikker. Tjek Mod Store for en opdatering.",
-			"browse": {
-				"compatibleOnly": "Kun kompatible med denne app",
-				"empty": "Ingen mods fundet",
-				"incompatible": "Ikke kompatibel med denne appversion",
-				"loadError": "Kunne ikke indlæse Mod Store. {error}",
-				"offline": "Kunne ikke opdatere — viser cachelagrede resultater",
-				"searchPlaceholder": "Søg efter mods",
-				"stale": "Viser cachelagrede resultater — træk for at opdatere"
-			},
-			"detail": {
-				"author": "Af {name}",
-				"blocked": "Denne version er blokeret",
-				"config": "Konfigurationsindstillinger",
-				"downgrade": "Nedgrader",
-				"install": "Installer",
-				"installed": "Installeret",
-				"latest": "seneste",
-				"readme": "Om",
-				"remove": "Fjern",
-				"update": "Opdater",
-				"updateAvailable": "Opdatering tilgængelig",
-				"versions": "Versioner"
-			},
-			"empty": "Ingen mods installeret",
-			"errors": {
-				"action": "Handlingen kunne ikke fuldføres. {error}",
-				"list": "Kunne ikke indlæse installerede mods. {error}"
-			},
-			"installSuccess": "\"{id}\" installeret",
-			"removeBlocked": "Stadig brugt af: {characters}",
-			"restartToApply": "Genstart for at anvende ændringer",
-			"source": {
-				"dev": "Dev",
-				"registry": "Register",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Deaktiveret",
-				"errored": "Fejl",
-				"loaded": "Indlæst"
-			},
-			"tabs": {
-				"browse": "Gennemse",
-				"installed": "Installeret"
-			},
-			"title": "Mods",
-			"updateSuccess": "\"{id}\" opdateret"
-		},
-		"theme": {
-			"dark": "Mørk",
-			"defaultSkin": "Standard",
-			"light": "Lys",
-			"system": "System",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installer \"{module}\" fra Mod Store",
-			"notInstalled": "\"{module}\" er ikke installeret",
-			"openModStore": "Åbn Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Karakter"
-		},
-		"roll-dice": {
-			"title": "Kast terninger"
-		},
-		"settings": {
-			"title": "Indstillinger"
-		}
-	}
+  "a11y": {
+    "description": "beskrivelse",
+    "name": "navn",
+    "quantity": "mængde",
+    "validation-error": "Valideringsfejl"
+  },
+  "character": {
+    "configure": "Konfigurer",
+    "create": "Opret karakter",
+    "export": "Eksporter karakter",
+    "exportSuccess": "Karakter eksporteret med succes!",
+    "import": {
+      "error": {
+        "extension": "Kunne ikke importere karakter. Filtypen skal være .fchar",
+        "validation": "Kunne ikke importere karakter. Filen er ugyldig.",
+        "version": "Kunne ikke importere karakter. Karakterens version er forældet."
+      },
+      "success": "Karakter importeret med succes!",
+      "title": "Importer karakter fra fil"
+    },
+    "messages": {
+      "remove": "Er du sikker på, at du vil fjerne {value}?",
+      "update": "Karakterversionen er forældet. Vil du opdatere den?"
+    },
+    "name": "Karakterens navn",
+    "new-character": "Ny karakter",
+    "no-characters": "Ingen karakterer oprettet endnu. Opret en ny eller importer fra en fil.",
+    "not-selected": "Ingen karakter valgt endnu. Vælg en eller opret en ny!",
+    "remove-message": "Er du sikker på, at du vil fjerne denne karakter?",
+    "save": "Gem karakter",
+    "share": "Del karakter",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Karakterversionen er forældet. Vil du opdatere den?",
+    "updated": "Karakter opdateret succesfuldt fra v{from} til v{to}!",
+    "your-characters": "Dine karakterer"
+  },
+  "common": {
+    "actions": {
+      "add": "Tilføj",
+      "back": "Tilbage",
+      "cancel": "Annuller",
+      "close": "Luk",
+      "confirm": "Bekræft",
+      "create": "Opret",
+      "decrease": "Formindske",
+      "delete": "Slet",
+      "edit": "Rediger",
+      "finish": "Afslut",
+      "go": "Gå",
+      "increase": "Forøge",
+      "next": "Næste",
+      "remove": "Fjern",
+      "reset": "Nulstil",
+      "save": "Gem",
+      "select": "Vælg",
+      "update": "Opdater",
+      "upload": "Upload",
+      "use": "Brug"
+    },
+    "messages": {
+      "emptyList": "Ingen elementer tilføjet endnu",
+      "remove": "Er du sikker på, at du vil fjerne det?",
+      "remove-named": "Er du sikker på, at du vil fjerne \"{value}\"?"
+    },
+    "or": "eller",
+    "state": {
+      "disabled": "Deaktiveret",
+      "enabled": "Aktiveret"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Tilføj testkarakter"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Appen stødte på et problem og kan ikke fortsætte sikkert. Genindlæsning bør løse det.",
+      "reload": "Genindlæs",
+      "title": "Noget gik galt"
+    },
+    "character": {
+      "create": "Kunne ikke oprette figuren. {error}",
+      "export": "Kunne ikke eksportere figuren. {error}",
+      "list": "Kunne ikke indlæse figurlisten. {error}",
+      "load": "Kunne ikke indlæse figuren. {error}",
+      "remove": "Kunne ikke fjerne figuren. {error}",
+      "save": "Kunne ikke gemme figuren. Ændringer er muligvis ikke gemt. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Kræver appversion \"{requiredVersion}\" men den nuværende er \"{appVersion}\"",
+      "incompatible": "Inkompatibel med \"{anotherModule}\"",
+      "missingDependencies": "Manglende afhængigheder: {modules}",
+      "notFound": "Modul ikke fundet: \"{module}\"",
+      "otherDependsOn": "Andre moduler er afhængige af denne: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Modulet '{module}' kræver appversion '{requiredAppVersion}', men den aktuelle version er '{currentAppVersion}'.",
+      "dependencyCycle": "En afhængighedscyklus blev opdaget, der involverer: {modules}.",
+      "genericError": "En ukendt fejl opstod under modulopløsning.",
+      "incompatibleModules": "Modulet '{module}' er inkompatibelt med: {incompatible}.",
+      "missingDependency": "Modulet '{module}' mangler afhængigheden '{dependency}'.",
+      "versionMismatch": "Modulet '{module}' kræver version '{requiredVersion}' af '{dependency}', men fundet version er '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Kunne ikke eksportere moduler. {error}"
+    },
+    "outdatedBrowser": "Din systembrowser er forældet. Applikationen fungerer muligvis ikke som forventet. Opdater den venligst.",
+    "unexpected": "Der skete noget uventet. Nogle dele af appen fungerer muligvis ikke som forventet."
+  },
+  "forms": {
+    "description": "Beskrivelse",
+    "name": "Navn",
+    "price": "Pris",
+    "quantity": "Mængde",
+    "skill": "Færdighed",
+    "type": "Type"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Forfatter",
+      "dependencies": "Afhængigheder",
+      "description": "Beskrivelse",
+      "id": "ID",
+      "label": "Brugerdefineret konfiguration",
+      "languages": "Sprog",
+      "mainSettings": "Hovedindstillinger",
+      "name": "Navn",
+      "version": "Version"
+    },
+    "export": "Eksporter modulkonfiguration",
+    "exportSuccess": "Moduler eksporteret med succes!",
+    "external": "Ekstern",
+    "import": {
+      "error": {
+        "extension": "Kunne ikke importere moduler. Filtypen skal være .fmod",
+        "validation": "Kunne ikke importere moduler. Filen er ugyldig.",
+        "version": "Kunne ikke importere moduler. Modulernes version er forældet."
+      },
+      "success": "Moduler importeret med succes!",
+      "title": "Importer moduler fra fil"
+    },
+    "installed": "Installerede moduler ({value}):",
+    "save": "Gem modulkonfiguration",
+    "selected": "Valgte moduler",
+    "share": "Del modulkonfiguration",
+    "updated": "Modul {module} opdateret til v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Terningemateriale",
+        "title": "Terningemuligheder",
+        "type": "Terningetype"
+      },
+      "force": "Kraft",
+      "general": {
+        "haptic": "Haptisk feedback",
+        "shake": "Ryst for at kaste",
+        "show-result": "Vis resultat på skærmen",
+        "title": "Generelle indstillinger"
+      },
+      "gravity": "Tyngdekraft",
+      "haptic": "Haptisk feedback",
+      "number": "Antal terninger",
+      "physics": {
+        "force": "Kraft",
+        "gravity": "Tyngdekraft",
+        "number": "Antal terninger",
+        "size": "Terningestørrelse",
+        "title": "Fysiske indstillinger"
+      },
+      "reset": "Nulstil konfiguration",
+      "resetPhysics": "Nulstil fysikindstillinger",
+      "shake": "Ryst for at kaste",
+      "size": "Terningstørrelse",
+      "title": "Konfiguration af terningekast"
+    },
+    "result": "Kastets resultat er {value}",
+    "rolling": "Kaster...",
+    "throw": "Kast {value} terninger"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Forfatter",
+      "legal": {
+        "title": "Juridisk information og kreditering"
+      },
+      "license": "Licens",
+      "privacy-policy": {
+        "accept-policy": "Jeg har læst og accepterer privatlivspolitikken",
+        "acceptance-date": "Acceptdato: {value}",
+        "not-accepted": "Privatlivspolitikken er ikke accepteret. Gå til indstillinger, læs og accepter den. Ellers kan du ikke bruge appen.",
+        "title": "Privatlivspolitik",
+        "updated": "Velkommen tilbage! Vi har opdateret vores vilkår en smule, så vi beder dig bekræfte dem igen."
+      },
+      "source-code": "Kildekode",
+      "title": "Om appen",
+      "version": "Version"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Vis fejlfindingsoplysninger",
+        "toggleDescription": "Viser ekstra fejlfindingsværktøjer i appen — terningefysik-debuggeren og skjulte udviklersider."
+      },
+      "devMod": {
+        "connect": "Opret forbindelse",
+        "connected": "Forbundet til \"{id}\"",
+        "disconnect": "Afbryd",
+        "error": "Kunne ikke oprette forbindelse til udviklermod. {error}",
+        "title": "Tilslut udviklermod",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Du installerer \"{id}\" uden for det gennemgåede register. Det får fuld adgang til appen og dine karakterdata. Skriv \"{id}\" eller \"install\" for at bekræfte.",
+        "confirmPlaceholder": "Skriv for at bekræfte",
+        "confirmTitle": "Installer ekstern kode?",
+        "error": "Kunne ikke installere mod. {error}",
+        "install": "Installer",
+        "success": "\"{id}\" installeret",
+        "title": "Installer fra URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Peg Mod Store mod et staging-register i stedet for det rigtige. Lad stå tomt for at bruge standarden.",
+        "save": "Gem",
+        "title": "Tilsidesæt registrets basis-URL"
+      },
+      "title": "Udvikler",
+      "toggle": "Udviklertilstand",
+      "toggleDescription": "Tillader installation af mods fra en URL. Kun for forfattere og testere — mods har fuld adgang til appen."
+    },
+    "language": "Sprog",
+    "mods": {
+      "actions": {
+        "disable": "Deaktiver",
+        "enable": "Aktiver",
+        "remove": "Fjern",
+        "retry": "Prøv igen",
+        "update": "Opdater",
+        "removeAnyway": "Fjern alligevel"
+      },
+      "blocked": "\"{id}\" blev deaktiveret — denne version er markeret som usikker. Tjek Mod Store for en opdatering.",
+      "browse": {
+        "compatibleOnly": "Kun kompatible med denne app",
+        "empty": "Ingen mods fundet",
+        "incompatible": "Ikke kompatibel med denne appversion",
+        "loadError": "Kunne ikke indlæse Mod Store. {error}",
+        "offline": "Kunne ikke opdatere — viser cachelagrede resultater",
+        "searchPlaceholder": "Søg efter mods",
+        "stale": "Viser cachelagrede resultater — træk for at opdatere"
+      },
+      "detail": {
+        "author": "Af {name}",
+        "blocked": "Denne version er blokeret",
+        "config": "Konfigurationsindstillinger",
+        "downgrade": "Nedgrader",
+        "install": "Installer",
+        "installed": "Installeret",
+        "latest": "seneste",
+        "readme": "Om",
+        "remove": "Fjern",
+        "update": "Opdater",
+        "updateAvailable": "Opdatering tilgængelig",
+        "versions": "Versioner"
+      },
+      "empty": "Ingen mods installeret",
+      "errors": {
+        "action": "Handlingen kunne ikke fuldføres. {error}",
+        "list": "Kunne ikke indlæse installerede mods. {error}"
+      },
+      "installSuccess": "\"{id}\" installeret",
+      "restartToApply": "Genstart for at anvende ændringer",
+      "source": {
+        "dev": "Dev",
+        "registry": "Register",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Deaktiveret",
+        "errored": "Fejl",
+        "loaded": "Indlæst"
+      },
+      "tabs": {
+        "browse": "Gennemse",
+        "installed": "Installeret"
+      },
+      "title": "Mods",
+      "updateSuccess": "\"{id}\" opdateret",
+      "removeConfirm": {
+        "inUse": "Stadig brugt af: {characters}",
+        "willUninstall": "Hvis du fjerner den, afinstalleres den fra de karakterer."
+      }
+    },
+    "theme": {
+      "dark": "Mørk",
+      "defaultSkin": "Standard",
+      "light": "Lys",
+      "system": "System",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installer \"{module}\" fra Mod Store",
+      "notInstalled": "\"{module}\" er ikke installeret",
+      "openModStore": "Åbn Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Karakter"
+    },
+    "roll-dice": {
+      "title": "Kast terninger"
+    },
+    "settings": {
+      "title": "Indstillinger"
+    }
+  }
 }

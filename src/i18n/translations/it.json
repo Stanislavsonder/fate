@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "descrizione",
-		"name": "nome",
-		"quantity": "quantità",
-		"validation-error": "Errore di validazione"
-	},
-	"character": {
-		"configure": "Configura",
-		"create": "Crea personaggio",
-		"export": "Esporta personaggio",
-		"exportSuccess": "Personaggio esportato con successo!",
-		"import": {
-			"error": {
-				"extension": "Impossibile importare il personaggio. L'estensione del file deve essere .fchar",
-				"validation": "Impossibile importare il personaggio. Il file non è valido.",
-				"version": "Impossibile importare il personaggio. La versione del personaggio è obsoleta."
-			},
-			"success": "Personaggio importato con successo!",
-			"title": "Importa personaggio da file"
-		},
-		"messages": {
-			"remove": "Sei sicuro di voler rimuovere {value}?",
-			"update": "La versione del personaggio è obsoleta. Vuoi aggiornarla?"
-		},
-		"name": "Nome del personaggio",
-		"new-character": "Nuovo personaggio",
-		"no-characters": "Nessun personaggio creato. Creane uno nuovo o importalo da un file.",
-		"not-selected": "Personaggio non selezionato. Selezionane uno o creane uno nuovo!",
-		"remove-message": "Sei sicuro di voler rimuovere questo personaggio?",
-		"save": "Salva personaggio",
-		"share": "Condividi personaggio",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "La versione del personaggio è obsoleta. Vuoi aggiornarla?",
-		"updated": "Personaggio aggiornato con successo dalla v{from} alla v{to}!",
-		"your-characters": "I tuoi personaggi"
-	},
-	"common": {
-		"actions": {
-			"add": "Aggiungi",
-			"back": "Indietro",
-			"cancel": "Annulla",
-			"close": "Chiudi",
-			"confirm": "Conferma",
-			"create": "Crea",
-			"decrease": "Diminuire",
-			"delete": "Elimina",
-			"edit": "Modifica",
-			"finish": "Fine",
-			"go": "Vai",
-			"increase": "Aumentare",
-			"next": "Avanti",
-			"remove": "Rimuovi",
-			"reset": "Reimposta",
-			"save": "Salva",
-			"select": "Seleziona",
-			"update": "Aggiornare",
-			"upload": "Carica",
-			"use": "Usa"
-		},
-		"messages": {
-			"emptyList": "Nessun elemento aggiunto ancora",
-			"remove": "Sei sicuro di volerlo rimuovere?",
-			"remove-named": "Sei sicuro di voler rimuovere \"{value}\"?"
-		},
-		"or": "o",
-		"state": {
-			"disabled": "Disabilitato",
-			"enabled": "Abilitato"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Aggiungi personaggio di prova"
-	},
-	"errors": {
-		"boundary": {
-			"description": "L'app ha riscontrato un problema e non può continuare in sicurezza. Ricaricare la pagina dovrebbe risolvere il problema.",
-			"reload": "Ricarica",
-			"title": "Si è verificato un errore"
-		},
-		"character": {
-			"create": "Impossibile creare il personaggio. {error}",
-			"export": "Impossibile esportare il personaggio. {error}",
-			"list": "Impossibile caricare l'elenco dei personaggi. {error}",
-			"load": "Impossibile caricare il personaggio. {error}",
-			"remove": "Impossibile rimuovere il personaggio. {error}",
-			"save": "Impossibile salvare il personaggio. Le modifiche potrebbero non essere salvate. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Richiede la versione dell'app \"{requiredVersion}\" ma quella attuale è \"{appVersion}\"",
-			"incompatible": "Incompatibile con \"{anotherModule}\"",
-			"missingDependencies": "Dipendenze mancanti: {modules}",
-			"notFound": "Modulo non trovato: \"{module}\"",
-			"otherDependsOn": "Altri moduli dipendono da esso: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Il modulo '{module}' richiede la versione '{requiredAppVersion}' dell'app, ma la versione attuale è '{currentAppVersion}'.",
-			"dependencyCycle": "È stato rilevato un ciclo di dipendenze che coinvolge: {modules}.",
-			"genericError": "Si è verificato un errore sconosciuto durante la risoluzione del modulo.",
-			"incompatibleModules": "Il modulo '{module}' è incompatibile con: {incompatible}.",
-			"missingDependency": "Il modulo '{module}' manca della dipendenza '{dependency}'.",
-			"versionMismatch": "Il modulo '{module}' richiede la versione '{requiredVersion}' di '{dependency}', ma è stata trovata la versione '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Impossibile esportare i moduli. {error}"
-		},
-		"outdatedBrowser": "Il browser di sistema è obsoleto. L'applicazione potrebbe non funzionare correttamente. Si prega di aggiornarlo.",
-		"unexpected": "Si è verificato un evento imprevisto. Alcune parti dell'app potrebbero non funzionare come previsto."
-	},
-	"forms": {
-		"description": "Descrizione",
-		"name": "Nome",
-		"price": "Prezzo",
-		"quantity": "Quantità",
-		"skill": "Abilità",
-		"type": "Tipo"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Autore",
-			"dependencies": "Dipendenze",
-			"description": "Descrizione",
-			"id": "ID",
-			"label": "Configurazione personalizzata",
-			"languages": "Lingue",
-			"mainSettings": "Impostazioni principali",
-			"name": "Nome",
-			"version": "Versione"
-		},
-		"export": "Esporta configurazione moduli",
-		"exportSuccess": "Moduli esportati con successo!",
-		"external": "Esterno",
-		"import": {
-			"error": {
-				"extension": "Impossibile importare i moduli. L'estensione del file deve essere .fmod",
-				"validation": "Impossibile importare i moduli. Il file non è valido.",
-				"version": "Impossibile importare i moduli. La versione dei moduli è obsoleta."
-			},
-			"success": "Moduli importati con successo!",
-			"title": "Importa moduli da file"
-		},
-		"installed": "Moduli installati ({value}):",
-		"save": "Salva configurazione moduli",
-		"selected": "Moduli selezionati",
-		"share": "Condividi configurazione moduli",
-		"updated": "Modulo {module} aggiornato alla v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Materiale dei dadi",
-				"title": "Opzioni dei dadi",
-				"type": "Tipo di dadi"
-			},
-			"force": "Forza",
-			"general": {
-				"haptic": "Feedback aptico",
-				"shake": "Scuoti per lanciare",
-				"show-result": "Mostra il risultato sullo schermo",
-				"title": "Impostazioni generali"
-			},
-			"gravity": "Gravità",
-			"haptic": "Feedback aptico",
-			"number": "Numero di dadi",
-			"physics": {
-				"force": "Forza",
-				"gravity": "Gravità",
-				"number": "Numero di dadi",
-				"size": "Dimensione dei dadi",
-				"title": "Impostazioni fisiche"
-			},
-			"reset": "Ripristina configurazione",
-			"resetPhysics": "Reimposta impostazioni fisiche",
-			"shake": "Scuotere per lanciare",
-			"size": "Dimensione del dado",
-			"title": "Configurazione del lancio dei dadi"
-		},
-		"result": "Il risultato del lancio è {value}",
-		"rolling": "Lanciando...",
-		"throw": "Lancia {value} dadi"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Autore",
-			"legal": {
-				"title": "Note legali e attribuzioni"
-			},
-			"license": "Licenza",
-			"privacy-policy": {
-				"accept-policy": "Ho letto e accetto la politica sulla privacy",
-				"acceptance-date": "Data di accettazione: {value}",
-				"not-accepted": "Politica sulla privacy non accettata. Vai alle impostazioni, leggila e accettala. Altrimenti non puoi usare l'app.",
-				"title": "Politica sulla privacy",
-				"updated": "Bentornato! Abbiamo aggiornato un po' i nostri termini, quindi dobbiamo chiederti di confermarli di nuovo."
-			},
-			"source-code": "Codice sorgente",
-			"title": "Informazioni sull'app",
-			"version": "Versione"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Mostra informazioni di debug",
-				"toggleDescription": "Mostra strumenti di debug aggiuntivi nell’app: il debugger della fisica dei dadi e le pagine sviluppatore nascoste."
-			},
-			"devMod": {
-				"connect": "Connetti",
-				"connected": "Connesso a \"{id}\"",
-				"disconnect": "Disconnetti",
-				"error": "Impossibile connettersi al mod di sviluppo. {error}",
-				"title": "Connetti mod di sviluppo",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Stai installando \"{id}\" fuori dal registro verificato. Avrà accesso completo all’app e ai dati dei personaggi. Digita \"{id}\" o \"install\" per confermare.",
-				"confirmPlaceholder": "Digita per confermare",
-				"confirmTitle": "Installare codice esterno?",
-				"error": "Impossibile installare il mod. {error}",
-				"install": "Installa",
-				"success": "\"{id}\" installato",
-				"title": "Installa da URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Punta la Mod Store a un registro di staging invece di quello reale. Lascia vuoto per usare il predefinito.",
-				"save": "Salva",
-				"title": "Sostituisci URL di base del registro"
-			},
-			"title": "Sviluppatore",
-			"toggle": "Modalità sviluppatore",
-			"toggleDescription": "Consente di installare mod da un URL. Solo per autori e tester: i mod hanno accesso completo all’app."
-		},
-		"language": "Lingua",
-		"mods": {
-			"actions": {
-				"disable": "Disattiva",
-				"enable": "Attiva",
-				"remove": "Rimuovi",
-				"retry": "Riprova",
-				"update": "Aggiorna"
-			},
-			"blocked": "\"{id}\" è stato disattivato: questa versione è stata segnalata come non sicura. Controlla la Mod Store per un aggiornamento.",
-			"browse": {
-				"compatibleOnly": "Solo compatibili con questa app",
-				"empty": "Nessun mod trovato",
-				"incompatible": "Non compatibile con questa versione dell’app",
-				"loadError": "Impossibile caricare la Mod Store. {error}",
-				"offline": "Aggiornamento non riuscito: mostro i risultati in cache",
-				"searchPlaceholder": "Cerca mod",
-				"stale": "Risultati in cache: scorri per aggiornare"
-			},
-			"detail": {
-				"author": "Di {name}",
-				"blocked": "Questa versione è bloccata",
-				"config": "Opzioni di configurazione",
-				"downgrade": "Esegui downgrade",
-				"install": "Installa",
-				"installed": "Installato",
-				"latest": "più recente",
-				"readme": "Informazioni",
-				"remove": "Rimuovi",
-				"update": "Aggiorna",
-				"updateAvailable": "Aggiornamento disponibile",
-				"versions": "Versioni"
-			},
-			"empty": "Nessun mod installato",
-			"errors": {
-				"action": "Impossibile completare l’azione. {error}",
-				"list": "Impossibile caricare i mod installati. {error}"
-			},
-			"installSuccess": "\"{id}\" installato",
-			"removeBlocked": "Ancora usato da: {characters}",
-			"restartToApply": "Riavvia per applicare le modifiche",
-			"source": {
-				"dev": "Dev",
-				"registry": "Registro",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Disattivato",
-				"errored": "Errore",
-				"loaded": "Caricato"
-			},
-			"tabs": {
-				"browse": "Sfoglia",
-				"installed": "Installati"
-			},
-			"title": "Mod",
-			"updateSuccess": "\"{id}\" aggiornato"
-		},
-		"theme": {
-			"dark": "Scuro",
-			"defaultSkin": "Predefinito",
-			"light": "Chiaro",
-			"system": "Sistema",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installa \"{module}\" dalla Mod Store",
-			"notInstalled": "\"{module}\" non è installato",
-			"openModStore": "Apri Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Personaggio"
-		},
-		"roll-dice": {
-			"title": "Lancia i dadi"
-		},
-		"settings": {
-			"title": "Impostazioni"
-		}
-	}
+  "a11y": {
+    "description": "descrizione",
+    "name": "nome",
+    "quantity": "quantità",
+    "validation-error": "Errore di validazione"
+  },
+  "character": {
+    "configure": "Configura",
+    "create": "Crea personaggio",
+    "export": "Esporta personaggio",
+    "exportSuccess": "Personaggio esportato con successo!",
+    "import": {
+      "error": {
+        "extension": "Impossibile importare il personaggio. L'estensione del file deve essere .fchar",
+        "validation": "Impossibile importare il personaggio. Il file non è valido.",
+        "version": "Impossibile importare il personaggio. La versione del personaggio è obsoleta."
+      },
+      "success": "Personaggio importato con successo!",
+      "title": "Importa personaggio da file"
+    },
+    "messages": {
+      "remove": "Sei sicuro di voler rimuovere {value}?",
+      "update": "La versione del personaggio è obsoleta. Vuoi aggiornarla?"
+    },
+    "name": "Nome del personaggio",
+    "new-character": "Nuovo personaggio",
+    "no-characters": "Nessun personaggio creato. Creane uno nuovo o importalo da un file.",
+    "not-selected": "Personaggio non selezionato. Selezionane uno o creane uno nuovo!",
+    "remove-message": "Sei sicuro di voler rimuovere questo personaggio?",
+    "save": "Salva personaggio",
+    "share": "Condividi personaggio",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "La versione del personaggio è obsoleta. Vuoi aggiornarla?",
+    "updated": "Personaggio aggiornato con successo dalla v{from} alla v{to}!",
+    "your-characters": "I tuoi personaggi"
+  },
+  "common": {
+    "actions": {
+      "add": "Aggiungi",
+      "back": "Indietro",
+      "cancel": "Annulla",
+      "close": "Chiudi",
+      "confirm": "Conferma",
+      "create": "Crea",
+      "decrease": "Diminuire",
+      "delete": "Elimina",
+      "edit": "Modifica",
+      "finish": "Fine",
+      "go": "Vai",
+      "increase": "Aumentare",
+      "next": "Avanti",
+      "remove": "Rimuovi",
+      "reset": "Reimposta",
+      "save": "Salva",
+      "select": "Seleziona",
+      "update": "Aggiornare",
+      "upload": "Carica",
+      "use": "Usa"
+    },
+    "messages": {
+      "emptyList": "Nessun elemento aggiunto ancora",
+      "remove": "Sei sicuro di volerlo rimuovere?",
+      "remove-named": "Sei sicuro di voler rimuovere \"{value}\"?"
+    },
+    "or": "o",
+    "state": {
+      "disabled": "Disabilitato",
+      "enabled": "Abilitato"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Aggiungi personaggio di prova"
+  },
+  "errors": {
+    "boundary": {
+      "description": "L'app ha riscontrato un problema e non può continuare in sicurezza. Ricaricare la pagina dovrebbe risolvere il problema.",
+      "reload": "Ricarica",
+      "title": "Si è verificato un errore"
+    },
+    "character": {
+      "create": "Impossibile creare il personaggio. {error}",
+      "export": "Impossibile esportare il personaggio. {error}",
+      "list": "Impossibile caricare l'elenco dei personaggi. {error}",
+      "load": "Impossibile caricare il personaggio. {error}",
+      "remove": "Impossibile rimuovere il personaggio. {error}",
+      "save": "Impossibile salvare il personaggio. Le modifiche potrebbero non essere salvate. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Richiede la versione dell'app \"{requiredVersion}\" ma quella attuale è \"{appVersion}\"",
+      "incompatible": "Incompatibile con \"{anotherModule}\"",
+      "missingDependencies": "Dipendenze mancanti: {modules}",
+      "notFound": "Modulo non trovato: \"{module}\"",
+      "otherDependsOn": "Altri moduli dipendono da esso: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Il modulo '{module}' richiede la versione '{requiredAppVersion}' dell'app, ma la versione attuale è '{currentAppVersion}'.",
+      "dependencyCycle": "È stato rilevato un ciclo di dipendenze che coinvolge: {modules}.",
+      "genericError": "Si è verificato un errore sconosciuto durante la risoluzione del modulo.",
+      "incompatibleModules": "Il modulo '{module}' è incompatibile con: {incompatible}.",
+      "missingDependency": "Il modulo '{module}' manca della dipendenza '{dependency}'.",
+      "versionMismatch": "Il modulo '{module}' richiede la versione '{requiredVersion}' di '{dependency}', ma è stata trovata la versione '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Impossibile esportare i moduli. {error}"
+    },
+    "outdatedBrowser": "Il browser di sistema è obsoleto. L'applicazione potrebbe non funzionare correttamente. Si prega di aggiornarlo.",
+    "unexpected": "Si è verificato un evento imprevisto. Alcune parti dell'app potrebbero non funzionare come previsto."
+  },
+  "forms": {
+    "description": "Descrizione",
+    "name": "Nome",
+    "price": "Prezzo",
+    "quantity": "Quantità",
+    "skill": "Abilità",
+    "type": "Tipo"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Autore",
+      "dependencies": "Dipendenze",
+      "description": "Descrizione",
+      "id": "ID",
+      "label": "Configurazione personalizzata",
+      "languages": "Lingue",
+      "mainSettings": "Impostazioni principali",
+      "name": "Nome",
+      "version": "Versione"
+    },
+    "export": "Esporta configurazione moduli",
+    "exportSuccess": "Moduli esportati con successo!",
+    "external": "Esterno",
+    "import": {
+      "error": {
+        "extension": "Impossibile importare i moduli. L'estensione del file deve essere .fmod",
+        "validation": "Impossibile importare i moduli. Il file non è valido.",
+        "version": "Impossibile importare i moduli. La versione dei moduli è obsoleta."
+      },
+      "success": "Moduli importati con successo!",
+      "title": "Importa moduli da file"
+    },
+    "installed": "Moduli installati ({value}):",
+    "save": "Salva configurazione moduli",
+    "selected": "Moduli selezionati",
+    "share": "Condividi configurazione moduli",
+    "updated": "Modulo {module} aggiornato alla v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Materiale dei dadi",
+        "title": "Opzioni dei dadi",
+        "type": "Tipo di dadi"
+      },
+      "force": "Forza",
+      "general": {
+        "haptic": "Feedback aptico",
+        "shake": "Scuoti per lanciare",
+        "show-result": "Mostra il risultato sullo schermo",
+        "title": "Impostazioni generali"
+      },
+      "gravity": "Gravità",
+      "haptic": "Feedback aptico",
+      "number": "Numero di dadi",
+      "physics": {
+        "force": "Forza",
+        "gravity": "Gravità",
+        "number": "Numero di dadi",
+        "size": "Dimensione dei dadi",
+        "title": "Impostazioni fisiche"
+      },
+      "reset": "Ripristina configurazione",
+      "resetPhysics": "Reimposta impostazioni fisiche",
+      "shake": "Scuotere per lanciare",
+      "size": "Dimensione del dado",
+      "title": "Configurazione del lancio dei dadi"
+    },
+    "result": "Il risultato del lancio è {value}",
+    "rolling": "Lanciando...",
+    "throw": "Lancia {value} dadi"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Autore",
+      "legal": {
+        "title": "Note legali e attribuzioni"
+      },
+      "license": "Licenza",
+      "privacy-policy": {
+        "accept-policy": "Ho letto e accetto la politica sulla privacy",
+        "acceptance-date": "Data di accettazione: {value}",
+        "not-accepted": "Politica sulla privacy non accettata. Vai alle impostazioni, leggila e accettala. Altrimenti non puoi usare l'app.",
+        "title": "Politica sulla privacy",
+        "updated": "Bentornato! Abbiamo aggiornato un po' i nostri termini, quindi dobbiamo chiederti di confermarli di nuovo."
+      },
+      "source-code": "Codice sorgente",
+      "title": "Informazioni sull'app",
+      "version": "Versione"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Mostra informazioni di debug",
+        "toggleDescription": "Mostra strumenti di debug aggiuntivi nell’app: il debugger della fisica dei dadi e le pagine sviluppatore nascoste."
+      },
+      "devMod": {
+        "connect": "Connetti",
+        "connected": "Connesso a \"{id}\"",
+        "disconnect": "Disconnetti",
+        "error": "Impossibile connettersi al mod di sviluppo. {error}",
+        "title": "Connetti mod di sviluppo",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Stai installando \"{id}\" fuori dal registro verificato. Avrà accesso completo all’app e ai dati dei personaggi. Digita \"{id}\" o \"install\" per confermare.",
+        "confirmPlaceholder": "Digita per confermare",
+        "confirmTitle": "Installare codice esterno?",
+        "error": "Impossibile installare il mod. {error}",
+        "install": "Installa",
+        "success": "\"{id}\" installato",
+        "title": "Installa da URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Punta la Mod Store a un registro di staging invece di quello reale. Lascia vuoto per usare il predefinito.",
+        "save": "Salva",
+        "title": "Sostituisci URL di base del registro"
+      },
+      "title": "Sviluppatore",
+      "toggle": "Modalità sviluppatore",
+      "toggleDescription": "Consente di installare mod da un URL. Solo per autori e tester: i mod hanno accesso completo all’app."
+    },
+    "language": "Lingua",
+    "mods": {
+      "actions": {
+        "disable": "Disattiva",
+        "enable": "Attiva",
+        "remove": "Rimuovi",
+        "retry": "Riprova",
+        "update": "Aggiorna",
+        "removeAnyway": "Rimuovi comunque"
+      },
+      "blocked": "\"{id}\" è stato disattivato: questa versione è stata segnalata come non sicura. Controlla la Mod Store per un aggiornamento.",
+      "browse": {
+        "compatibleOnly": "Solo compatibili con questa app",
+        "empty": "Nessun mod trovato",
+        "incompatible": "Non compatibile con questa versione dell’app",
+        "loadError": "Impossibile caricare la Mod Store. {error}",
+        "offline": "Aggiornamento non riuscito: mostro i risultati in cache",
+        "searchPlaceholder": "Cerca mod",
+        "stale": "Risultati in cache: scorri per aggiornare"
+      },
+      "detail": {
+        "author": "Di {name}",
+        "blocked": "Questa versione è bloccata",
+        "config": "Opzioni di configurazione",
+        "downgrade": "Esegui downgrade",
+        "install": "Installa",
+        "installed": "Installato",
+        "latest": "più recente",
+        "readme": "Informazioni",
+        "remove": "Rimuovi",
+        "update": "Aggiorna",
+        "updateAvailable": "Aggiornamento disponibile",
+        "versions": "Versioni"
+      },
+      "empty": "Nessun mod installato",
+      "errors": {
+        "action": "Impossibile completare l’azione. {error}",
+        "list": "Impossibile caricare i mod installati. {error}"
+      },
+      "installSuccess": "\"{id}\" installato",
+      "restartToApply": "Riavvia per applicare le modifiche",
+      "source": {
+        "dev": "Dev",
+        "registry": "Registro",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Disattivato",
+        "errored": "Errore",
+        "loaded": "Caricato"
+      },
+      "tabs": {
+        "browse": "Sfoglia",
+        "installed": "Installati"
+      },
+      "title": "Mod",
+      "updateSuccess": "\"{id}\" aggiornato",
+      "removeConfirm": {
+        "inUse": "Ancora usato da: {characters}",
+        "willUninstall": "Rimuoverlo lo disinstallerà da quei personaggi."
+      }
+    },
+    "theme": {
+      "dark": "Scuro",
+      "defaultSkin": "Predefinito",
+      "light": "Chiaro",
+      "system": "Sistema",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installa \"{module}\" dalla Mod Store",
+      "notInstalled": "\"{module}\" non è installato",
+      "openModStore": "Apri Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Personaggio"
+    },
+    "roll-dice": {
+      "title": "Lancia i dadi"
+    },
+    "settings": {
+      "title": "Impostazioni"
+    }
+  }
 }

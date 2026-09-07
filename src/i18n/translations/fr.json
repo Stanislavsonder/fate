@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "description",
-		"name": "nom",
-		"quantity": "quantité",
-		"validation-error": "Erreur de validation"
-	},
-	"character": {
-		"configure": "Configurer",
-		"create": "Créer un personnage",
-		"export": "Exporter le personnage",
-		"exportSuccess": "Personnage exporté avec succès !",
-		"import": {
-			"error": {
-				"extension": "Impossible d'importer le personnage. L'extension du fichier doit être .fchar",
-				"validation": "Impossible d'importer le personnage. Le fichier est invalide.",
-				"version": "Impossible d'importer le personnage. La version du personnage est obsolète."
-			},
-			"success": "Personnage importé avec succès !",
-			"title": "Importer un personnage depuis un fichier"
-		},
-		"messages": {
-			"remove": "Êtes-vous sûr de vouloir supprimer {value} ?",
-			"update": "La version du personnage est obsolète. Mettre à jour ?"
-		},
-		"name": "Nom du personnage",
-		"new-character": "Nouveau personnage",
-		"no-characters": "Aucun personnage créé pour le moment. Créez-en un nouveau ou importez-en un depuis un fichier.",
-		"not-selected": "Personnage non sélectionné. Sélectionnez-en un ou créez-en un nouveau !",
-		"remove-message": "Êtes-vous sûr de vouloir supprimer ce personnage ?",
-		"save": "Enregistrer le personnage",
-		"share": "Partager le personnage",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "La version du personnage est obsolète. Mettre à jour ?",
-		"updated": "Personnage mis à jour avec succès de la v{from} à la v{to} !",
-		"your-characters": "Vos personnages"
-	},
-	"common": {
-		"actions": {
-			"add": "Ajouter",
-			"back": "Retour",
-			"cancel": "Annuler",
-			"close": "Fermer",
-			"confirm": "Confirmer",
-			"create": "Créer",
-			"decrease": "Diminuer",
-			"delete": "Supprimer",
-			"edit": "Modifier",
-			"finish": "Terminer",
-			"go": "Aller",
-			"increase": "Augmenter",
-			"next": "Suivant",
-			"remove": "Supprimer",
-			"reset": "Réinitialiser",
-			"save": "Sauvegarder",
-			"select": "Sélectionner",
-			"update": "Mettre à jour",
-			"upload": "Télécharger",
-			"use": "Utiliser"
-		},
-		"messages": {
-			"emptyList": "Aucun élément ajouté pour le moment",
-			"remove": "Êtes-vous sûr de vouloir le supprimer ?",
-			"remove-named": "Êtes-vous sûr de vouloir supprimer \"{value}\" ?"
-		},
-		"or": "ou",
-		"state": {
-			"disabled": "Désactivé",
-			"enabled": "Activé"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Ajouter un personnage factice"
-	},
-	"errors": {
-		"boundary": {
-			"description": "L'application a rencontré un problème et ne peut pas continuer en toute sécurité. Le rechargement devrait résoudre le problème.",
-			"reload": "Recharger",
-			"title": "Une erreur est survenue"
-		},
-		"character": {
-			"create": "Impossible de créer le personnage. {error}",
-			"export": "Impossible d'exporter le personnage. {error}",
-			"list": "Impossible de charger la liste des personnages. {error}",
-			"load": "Impossible de charger le personnage. {error}",
-			"remove": "Impossible de supprimer le personnage. {error}",
-			"save": "Impossible d'enregistrer le personnage. Les modifications risquent de ne pas être conservées. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Nécessite la version de l'application \"{requiredVersion}\" mais l'actuelle est \"{appVersion}\"",
-			"incompatible": "Incompatible avec \"{anotherModule}\"",
-			"missingDependencies": "Dépendances manquantes : {modules}",
-			"notFound": "Module introuvable : \"{module}\"",
-			"otherDependsOn": "D'autres modules en dépendent : {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Le module '{module}' nécessite la version '{requiredAppVersion}' de l'application, mais la version actuelle est '{currentAppVersion}'.",
-			"dependencyCycle": "Un cycle de dépendances a été détecté impliquant : {modules}.",
-			"genericError": "Une erreur inconnue est survenue lors de la résolution du module.",
-			"incompatibleModules": "Le module '{module}' est incompatible avec : {incompatible}.",
-			"missingDependency": "Le module '{module}' manque de la dépendance '{dependency}'.",
-			"versionMismatch": "Le module '{module}' nécessite la version '{requiredVersion}' de '{dependency}', mais la version trouvée est '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Impossible d'exporter les modules. {error}"
-		},
-		"outdatedBrowser": "Votre navigateur système est obsolète. L'application peut ne pas fonctionner comme prévu. Veuillez le mettre à jour.",
-		"unexpected": "Un problème inattendu est survenu. Certaines parties de l'application risquent de ne pas fonctionner comme prévu."
-	},
-	"forms": {
-		"description": "Description",
-		"name": "Nom",
-		"price": "Prix",
-		"quantity": "Quantité",
-		"skill": "Compétence",
-		"type": "Type"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Auteur",
-			"dependencies": "Dépendances",
-			"description": "Description",
-			"id": "ID",
-			"label": "Configuration personnalisée",
-			"languages": "Langues",
-			"mainSettings": "Paramètres principaux",
-			"name": "Nom",
-			"version": "Version"
-		},
-		"export": "Exporter la configuration des modules",
-		"exportSuccess": "Modules exportés avec succès !",
-		"external": "Externe",
-		"import": {
-			"error": {
-				"extension": "Impossible d'importer les modules. L'extension du fichier doit être .fmod",
-				"validation": "Impossible d'importer les modules. Le fichier est invalide.",
-				"version": "Impossible d'importer les modules. La version des modules est obsolète."
-			},
-			"success": "Modules importés avec succès !",
-			"title": "Importer des modules depuis un fichier"
-		},
-		"installed": "Modules installés ({value}) :",
-		"save": "Enregistrer la configuration des modules",
-		"selected": "Modules sélectionnés",
-		"share": "Partager la configuration des modules",
-		"updated": "Module {module} mis à jour en v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Matériau des dés",
-				"title": "Options des dés",
-				"type": "Type de dés"
-			},
-			"force": "Force",
-			"general": {
-				"haptic": "Retour haptique",
-				"shake": "Secouer pour lancer",
-				"show-result": "Afficher le résultat à l'écran",
-				"title": "Paramètres généraux"
-			},
-			"gravity": "Gravité",
-			"haptic": "Retour haptique",
-			"number": "Nombre de dés",
-			"physics": {
-				"force": "Force",
-				"gravity": "Gravité",
-				"number": "Nombre de dés",
-				"size": "Taille des dés",
-				"title": "Paramètres physiques"
-			},
-			"reset": "Réinitialiser la configuration",
-			"resetPhysics": "Réinitialiser les paramètres physiques",
-			"shake": "Secouer pour lancer",
-			"size": "Taille des dés",
-			"title": "Configuration du lancer de dés"
-		},
-		"result": "Le résultat du lancer est {value}",
-		"rolling": "Lancer en cours...",
-		"throw": "Lancer {value} dés"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Auteur",
-			"legal": {
-				"title": "Mentions légales et attributions"
-			},
-			"license": "Licence",
-			"privacy-policy": {
-				"accept-policy": "J'ai lu et j'accepte la politique de confidentialité",
-				"acceptance-date": "Date d'acceptation : {value}",
-				"not-accepted": "Politique de confidentialité non acceptée. Allez dans les paramètres, lisez et acceptez-la. Sinon, vous ne pouvez pas utiliser l'application.",
-				"title": "Politique de confidentialité",
-				"updated": "Bon retour ! Nous avons légèrement mis à jour nos conditions et avons besoin que vous les confirmiez à nouveau."
-			},
-			"source-code": "Code source",
-			"title": "À propos de l'application",
-			"version": "Version"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Afficher les informations de débogage",
-				"toggleDescription": "Affiche des outils de débogage supplémentaires dans l’app — le débogueur de physique des dés et les pages développeur masquées."
-			},
-			"devMod": {
-				"connect": "Connecter",
-				"connected": "Connecté à « {id} »",
-				"disconnect": "Déconnecter",
-				"error": "Impossible de se connecter au mod de développement. {error}",
-				"title": "Connecter un mod de développement",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Vous installez « {id} » hors du registre vérifié. Il s’exécutera avec un accès complet à l’app et à vos données de personnage. Tapez « {id} » ou « install » pour confirmer.",
-				"confirmPlaceholder": "Tapez pour confirmer",
-				"confirmTitle": "Installer du code externe ?",
-				"error": "Impossible d’installer le mod. {error}",
-				"install": "Installer",
-				"success": "« {id} » installé",
-				"title": "Installer depuis une URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Pointez la Mod Store vers un registre de staging au lieu du vrai. Laissez vide pour utiliser la valeur par défaut.",
-				"save": "Enregistrer",
-				"title": "Remplacer l’URL de base du registre"
-			},
-			"title": "Développeur",
-			"toggle": "Mode développeur",
-			"toggleDescription": "Permet d’installer des mods depuis une URL. Réservé aux auteurs et testeurs — les mods ont un accès complet à l’app."
-		},
-		"language": "Langue",
-		"mods": {
-			"actions": {
-				"disable": "Désactiver",
-				"enable": "Activer",
-				"remove": "Supprimer",
-				"retry": "Réessayer",
-				"update": "Mettre à jour"
-			},
-			"blocked": "« {id} » a été désactivé — cette version a été signalée comme dangereuse. Vérifiez la Mod Store pour une mise à jour.",
-			"browse": {
-				"compatibleOnly": "Compatibles avec cette app uniquement",
-				"empty": "Aucun mod trouvé",
-				"incompatible": "Incompatible avec cette version de l’app",
-				"loadError": "Impossible de charger la Mod Store. {error}",
-				"offline": "Actualisation impossible — résultats en cache affichés",
-				"searchPlaceholder": "Rechercher des mods",
-				"stale": "Résultats en cache — tirez pour actualiser"
-			},
-			"detail": {
-				"author": "Par {name}",
-				"blocked": "Cette version est bloquée",
-				"config": "Options de configuration",
-				"downgrade": "Rétrograder",
-				"install": "Installer",
-				"installed": "Installé",
-				"latest": "dernière",
-				"readme": "À propos",
-				"remove": "Supprimer",
-				"update": "Mettre à jour",
-				"updateAvailable": "Mise à jour disponible",
-				"versions": "Versions"
-			},
-			"empty": "Aucun mod installé",
-			"errors": {
-				"action": "Impossible de terminer l’action. {error}",
-				"list": "Impossible de charger les mods installés. {error}"
-			},
-			"installSuccess": "« {id} » installé",
-			"removeBlocked": "Encore utilisé par : {characters}",
-			"restartToApply": "Redémarrer pour appliquer les modifications",
-			"source": {
-				"dev": "Dev",
-				"registry": "Registre",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Désactivé",
-				"errored": "Erreur",
-				"loaded": "Chargé"
-			},
-			"tabs": {
-				"browse": "Parcourir",
-				"installed": "Installés"
-			},
-			"title": "Mods",
-			"updateSuccess": "« {id} » mis à jour"
-		},
-		"theme": {
-			"dark": "Sombre",
-			"defaultSkin": "Par défaut",
-			"light": "Clair",
-			"system": "Système",
-			"title": "Thème"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installer « {module} » depuis la Mod Store",
-			"notInstalled": "« {module} » n’est pas installé",
-			"openModStore": "Ouvrir la Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Personnage"
-		},
-		"roll-dice": {
-			"title": "Lancer les dés"
-		},
-		"settings": {
-			"title": "Paramètres"
-		}
-	}
+  "a11y": {
+    "description": "description",
+    "name": "nom",
+    "quantity": "quantité",
+    "validation-error": "Erreur de validation"
+  },
+  "character": {
+    "configure": "Configurer",
+    "create": "Créer un personnage",
+    "export": "Exporter le personnage",
+    "exportSuccess": "Personnage exporté avec succès !",
+    "import": {
+      "error": {
+        "extension": "Impossible d'importer le personnage. L'extension du fichier doit être .fchar",
+        "validation": "Impossible d'importer le personnage. Le fichier est invalide.",
+        "version": "Impossible d'importer le personnage. La version du personnage est obsolète."
+      },
+      "success": "Personnage importé avec succès !",
+      "title": "Importer un personnage depuis un fichier"
+    },
+    "messages": {
+      "remove": "Êtes-vous sûr de vouloir supprimer {value} ?",
+      "update": "La version du personnage est obsolète. Mettre à jour ?"
+    },
+    "name": "Nom du personnage",
+    "new-character": "Nouveau personnage",
+    "no-characters": "Aucun personnage créé pour le moment. Créez-en un nouveau ou importez-en un depuis un fichier.",
+    "not-selected": "Personnage non sélectionné. Sélectionnez-en un ou créez-en un nouveau !",
+    "remove-message": "Êtes-vous sûr de vouloir supprimer ce personnage ?",
+    "save": "Enregistrer le personnage",
+    "share": "Partager le personnage",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "La version du personnage est obsolète. Mettre à jour ?",
+    "updated": "Personnage mis à jour avec succès de la v{from} à la v{to} !",
+    "your-characters": "Vos personnages"
+  },
+  "common": {
+    "actions": {
+      "add": "Ajouter",
+      "back": "Retour",
+      "cancel": "Annuler",
+      "close": "Fermer",
+      "confirm": "Confirmer",
+      "create": "Créer",
+      "decrease": "Diminuer",
+      "delete": "Supprimer",
+      "edit": "Modifier",
+      "finish": "Terminer",
+      "go": "Aller",
+      "increase": "Augmenter",
+      "next": "Suivant",
+      "remove": "Supprimer",
+      "reset": "Réinitialiser",
+      "save": "Sauvegarder",
+      "select": "Sélectionner",
+      "update": "Mettre à jour",
+      "upload": "Télécharger",
+      "use": "Utiliser"
+    },
+    "messages": {
+      "emptyList": "Aucun élément ajouté pour le moment",
+      "remove": "Êtes-vous sûr de vouloir le supprimer ?",
+      "remove-named": "Êtes-vous sûr de vouloir supprimer \"{value}\" ?"
+    },
+    "or": "ou",
+    "state": {
+      "disabled": "Désactivé",
+      "enabled": "Activé"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Ajouter un personnage factice"
+  },
+  "errors": {
+    "boundary": {
+      "description": "L'application a rencontré un problème et ne peut pas continuer en toute sécurité. Le rechargement devrait résoudre le problème.",
+      "reload": "Recharger",
+      "title": "Une erreur est survenue"
+    },
+    "character": {
+      "create": "Impossible de créer le personnage. {error}",
+      "export": "Impossible d'exporter le personnage. {error}",
+      "list": "Impossible de charger la liste des personnages. {error}",
+      "load": "Impossible de charger le personnage. {error}",
+      "remove": "Impossible de supprimer le personnage. {error}",
+      "save": "Impossible d'enregistrer le personnage. Les modifications risquent de ne pas être conservées. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Nécessite la version de l'application \"{requiredVersion}\" mais l'actuelle est \"{appVersion}\"",
+      "incompatible": "Incompatible avec \"{anotherModule}\"",
+      "missingDependencies": "Dépendances manquantes : {modules}",
+      "notFound": "Module introuvable : \"{module}\"",
+      "otherDependsOn": "D'autres modules en dépendent : {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Le module '{module}' nécessite la version '{requiredAppVersion}' de l'application, mais la version actuelle est '{currentAppVersion}'.",
+      "dependencyCycle": "Un cycle de dépendances a été détecté impliquant : {modules}.",
+      "genericError": "Une erreur inconnue est survenue lors de la résolution du module.",
+      "incompatibleModules": "Le module '{module}' est incompatible avec : {incompatible}.",
+      "missingDependency": "Le module '{module}' manque de la dépendance '{dependency}'.",
+      "versionMismatch": "Le module '{module}' nécessite la version '{requiredVersion}' de '{dependency}', mais la version trouvée est '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Impossible d'exporter les modules. {error}"
+    },
+    "outdatedBrowser": "Votre navigateur système est obsolète. L'application peut ne pas fonctionner comme prévu. Veuillez le mettre à jour.",
+    "unexpected": "Un problème inattendu est survenu. Certaines parties de l'application risquent de ne pas fonctionner comme prévu."
+  },
+  "forms": {
+    "description": "Description",
+    "name": "Nom",
+    "price": "Prix",
+    "quantity": "Quantité",
+    "skill": "Compétence",
+    "type": "Type"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Auteur",
+      "dependencies": "Dépendances",
+      "description": "Description",
+      "id": "ID",
+      "label": "Configuration personnalisée",
+      "languages": "Langues",
+      "mainSettings": "Paramètres principaux",
+      "name": "Nom",
+      "version": "Version"
+    },
+    "export": "Exporter la configuration des modules",
+    "exportSuccess": "Modules exportés avec succès !",
+    "external": "Externe",
+    "import": {
+      "error": {
+        "extension": "Impossible d'importer les modules. L'extension du fichier doit être .fmod",
+        "validation": "Impossible d'importer les modules. Le fichier est invalide.",
+        "version": "Impossible d'importer les modules. La version des modules est obsolète."
+      },
+      "success": "Modules importés avec succès !",
+      "title": "Importer des modules depuis un fichier"
+    },
+    "installed": "Modules installés ({value}) :",
+    "save": "Enregistrer la configuration des modules",
+    "selected": "Modules sélectionnés",
+    "share": "Partager la configuration des modules",
+    "updated": "Module {module} mis à jour en v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Matériau des dés",
+        "title": "Options des dés",
+        "type": "Type de dés"
+      },
+      "force": "Force",
+      "general": {
+        "haptic": "Retour haptique",
+        "shake": "Secouer pour lancer",
+        "show-result": "Afficher le résultat à l'écran",
+        "title": "Paramètres généraux"
+      },
+      "gravity": "Gravité",
+      "haptic": "Retour haptique",
+      "number": "Nombre de dés",
+      "physics": {
+        "force": "Force",
+        "gravity": "Gravité",
+        "number": "Nombre de dés",
+        "size": "Taille des dés",
+        "title": "Paramètres physiques"
+      },
+      "reset": "Réinitialiser la configuration",
+      "resetPhysics": "Réinitialiser les paramètres physiques",
+      "shake": "Secouer pour lancer",
+      "size": "Taille des dés",
+      "title": "Configuration du lancer de dés"
+    },
+    "result": "Le résultat du lancer est {value}",
+    "rolling": "Lancer en cours...",
+    "throw": "Lancer {value} dés"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Auteur",
+      "legal": {
+        "title": "Mentions légales et attributions"
+      },
+      "license": "Licence",
+      "privacy-policy": {
+        "accept-policy": "J'ai lu et j'accepte la politique de confidentialité",
+        "acceptance-date": "Date d'acceptation : {value}",
+        "not-accepted": "Politique de confidentialité non acceptée. Allez dans les paramètres, lisez et acceptez-la. Sinon, vous ne pouvez pas utiliser l'application.",
+        "title": "Politique de confidentialité",
+        "updated": "Bon retour ! Nous avons légèrement mis à jour nos conditions et avons besoin que vous les confirmiez à nouveau."
+      },
+      "source-code": "Code source",
+      "title": "À propos de l'application",
+      "version": "Version"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Afficher les informations de débogage",
+        "toggleDescription": "Affiche des outils de débogage supplémentaires dans l’app — le débogueur de physique des dés et les pages développeur masquées."
+      },
+      "devMod": {
+        "connect": "Connecter",
+        "connected": "Connecté à « {id} »",
+        "disconnect": "Déconnecter",
+        "error": "Impossible de se connecter au mod de développement. {error}",
+        "title": "Connecter un mod de développement",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Vous installez « {id} » hors du registre vérifié. Il s’exécutera avec un accès complet à l’app et à vos données de personnage. Tapez « {id} » ou « install » pour confirmer.",
+        "confirmPlaceholder": "Tapez pour confirmer",
+        "confirmTitle": "Installer du code externe ?",
+        "error": "Impossible d’installer le mod. {error}",
+        "install": "Installer",
+        "success": "« {id} » installé",
+        "title": "Installer depuis une URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Pointez la Mod Store vers un registre de staging au lieu du vrai. Laissez vide pour utiliser la valeur par défaut.",
+        "save": "Enregistrer",
+        "title": "Remplacer l’URL de base du registre"
+      },
+      "title": "Développeur",
+      "toggle": "Mode développeur",
+      "toggleDescription": "Permet d’installer des mods depuis une URL. Réservé aux auteurs et testeurs — les mods ont un accès complet à l’app."
+    },
+    "language": "Langue",
+    "mods": {
+      "actions": {
+        "disable": "Désactiver",
+        "enable": "Activer",
+        "remove": "Supprimer",
+        "retry": "Réessayer",
+        "update": "Mettre à jour",
+        "removeAnyway": "Supprimer quand même"
+      },
+      "blocked": "« {id} » a été désactivé — cette version a été signalée comme dangereuse. Vérifiez la Mod Store pour une mise à jour.",
+      "browse": {
+        "compatibleOnly": "Compatibles avec cette app uniquement",
+        "empty": "Aucun mod trouvé",
+        "incompatible": "Incompatible avec cette version de l’app",
+        "loadError": "Impossible de charger la Mod Store. {error}",
+        "offline": "Actualisation impossible — résultats en cache affichés",
+        "searchPlaceholder": "Rechercher des mods",
+        "stale": "Résultats en cache — tirez pour actualiser"
+      },
+      "detail": {
+        "author": "Par {name}",
+        "blocked": "Cette version est bloquée",
+        "config": "Options de configuration",
+        "downgrade": "Rétrograder",
+        "install": "Installer",
+        "installed": "Installé",
+        "latest": "dernière",
+        "readme": "À propos",
+        "remove": "Supprimer",
+        "update": "Mettre à jour",
+        "updateAvailable": "Mise à jour disponible",
+        "versions": "Versions"
+      },
+      "empty": "Aucun mod installé",
+      "errors": {
+        "action": "Impossible de terminer l’action. {error}",
+        "list": "Impossible de charger les mods installés. {error}"
+      },
+      "installSuccess": "« {id} » installé",
+      "restartToApply": "Redémarrer pour appliquer les modifications",
+      "source": {
+        "dev": "Dev",
+        "registry": "Registre",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Désactivé",
+        "errored": "Erreur",
+        "loaded": "Chargé"
+      },
+      "tabs": {
+        "browse": "Parcourir",
+        "installed": "Installés"
+      },
+      "title": "Mods",
+      "updateSuccess": "« {id} » mis à jour",
+      "removeConfirm": {
+        "inUse": "Encore utilisé par : {characters}",
+        "willUninstall": "Le retirer le désinstallera de ces personnages."
+      }
+    },
+    "theme": {
+      "dark": "Sombre",
+      "defaultSkin": "Par défaut",
+      "light": "Clair",
+      "system": "Système",
+      "title": "Thème"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installer « {module} » depuis la Mod Store",
+      "notInstalled": "« {module} » n’est pas installé",
+      "openModStore": "Ouvrir la Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Personnage"
+    },
+    "roll-dice": {
+      "title": "Lancer les dés"
+    },
+    "settings": {
+      "title": "Paramètres"
+    }
+  }
 }

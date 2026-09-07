@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "คำอธิบาย",
-		"name": "ชื่อ",
-		"quantity": "ปริมาณ",
-		"validation-error": "ข้อผิดพลาดในการตรวจสอบ"
-	},
-	"character": {
-		"configure": "กำหนดค่า",
-		"create": "สร้างตัวละคร",
-		"export": "ส่งออกตัวละคร",
-		"exportSuccess": "ตัวละครถูกส่งออกเรียบร้อยแล้ว!",
-		"import": {
-			"error": {
-				"extension": "ไม่สามารถนำเข้าตัวละครได้ ส่วนขยายไฟล์ต้องเป็น .fchar",
-				"validation": "ไม่สามารถนำเข้าตัวละครได้ ไฟล์ไม่ถูกต้อง",
-				"version": "ไม่สามารถนำเข้าตัวละครได้ เวอร์ชันของตัวละครล้าสมัย"
-			},
-			"success": "นำเข้าตัวละครสำเร็จ!",
-			"title": "นำเข้าตัวละครจากไฟล์"
-		},
-		"messages": {
-			"remove": "คุณแน่ใจหรือไม่ว่าต้องการลบ {value}?",
-			"update": "เวอร์ชันของตัวละครล้าสมัย อัปเดตเลยหรือไม่?"
-		},
-		"name": "ชื่อตัวละคร",
-		"new-character": "ตัวละครใหม่",
-		"no-characters": "ยังไม่มีการสร้างตัวละคร สร้างตัวละครใหม่หรือนำเข้าจากไฟล์",
-		"not-selected": "ยังไม่ได้เลือกตัวละคร เลือกตัวละครหรือลองสร้างใหม่!",
-		"remove-message": "คุณแน่ใจหรือว่าต้องการลบตัวละครนี้?",
-		"save": "บันทึกตัวละคร",
-		"share": "แชร์ตัวละคร",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "เวอร์ชันของตัวละครล้าสมัย คุณต้องการอัปเดตหรือไม่?",
-		"updated": "ตัวละครอัปเดตสำเร็จจาก v{from} เป็น v{to}!",
-		"your-characters": "ตัวละครของคุณ"
-	},
-	"common": {
-		"actions": {
-			"add": "เพิ่ม",
-			"back": "ย้อนกลับ",
-			"cancel": "ยกเลิก",
-			"close": "ปิด",
-			"confirm": "ยืนยัน",
-			"create": "สร้าง",
-			"decrease": "ลด",
-			"delete": "ลบ",
-			"edit": "แก้ไข",
-			"finish": "เสร็จสิ้น",
-			"go": "ไป",
-			"increase": "เพิ่ม",
-			"next": "ถัดไป",
-			"remove": "ลบ",
-			"reset": "รีเซ็ต",
-			"save": "บันทึก",
-			"select": "เลือก",
-			"update": "อัปเดต",
-			"upload": "อัปโหลด",
-			"use": "ใช้"
-		},
-		"messages": {
-			"emptyList": "ยังไม่มีองค์ประกอบที่เพิ่มเข้ามา",
-			"remove": "คุณแน่ใจหรือว่าต้องการลบ?",
-			"remove-named": "คุณแน่ใจหรือว่าต้องการลบ \"{value}\"?"
-		},
-		"or": "หรือ",
-		"state": {
-			"disabled": "ปิดการใช้งาน",
-			"enabled": "เปิดใช้งาน"
-		}
-	},
-	"debug": {
-		"add-mock-character": "เพิ่มตัวละครทดสอบ"
-	},
-	"errors": {
-		"boundary": {
-			"description": "แอปพบปัญหาและไม่สามารถดำเนินการต่อได้อย่างปลอดภัย การโหลดซ้ำน่าจะช่วยแก้ไขได้",
-			"reload": "โหลดซ้ำ",
-			"title": "เกิดข้อผิดพลาดบางอย่าง"
-		},
-		"character": {
-			"create": "ไม่สามารถสร้างตัวละครได้ {error}",
-			"export": "ไม่สามารถส่งออกตัวละครได้ {error}",
-			"list": "ไม่สามารถโหลดรายการตัวละครได้ {error}",
-			"load": "ไม่สามารถโหลดตัวละครได้ {error}",
-			"remove": "ไม่สามารถลบตัวละครได้ {error}",
-			"save": "ไม่สามารถบันทึกตัวละครได้ การเปลี่ยนแปลงอาจไม่ถูกจัดเก็บ {error}"
-		},
-		"module": {
-			"appVersionMismatch": "ต้องใช้เวอร์ชันแอป \"{requiredVersion}\" แต่ปัจจุบันคือ \"{appVersion}\"",
-			"incompatible": "เข้ากันไม่ได้กับ \"{anotherModule}\"",
-			"missingDependencies": "การพึ่งพาที่ขาดหายไป: {modules}",
-			"notFound": "ไม่พบโมดูล: \"{module}\"",
-			"otherDependsOn": "มีโมดูลอื่นที่ขึ้นอยู่กับโมดูลนี้: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "โมดูล '{module}' ต้องใช้เวอร์ชันแอป '{requiredAppVersion}' แต่เวอร์ชันปัจจุบันคือ '{currentAppVersion}'",
-			"dependencyCycle": "พบวงจรการพึ่งพาที่เกี่ยวข้องกับ: {modules}",
-			"genericError": "เกิดข้อผิดพลาดที่ไม่รู้จักระหว่างการแก้ไขโมดูล",
-			"incompatibleModules": "โมดูล '{module}' ไม่สามารถใช้งานร่วมกับ: {incompatible}",
-			"missingDependency": "โมดูล '{module}' ขาดการพึ่งพา '{dependency}'",
-			"versionMismatch": "โมดูล '{module}' ต้องใช้เวอร์ชัน '{requiredVersion}' ของ '{dependency}' แต่พบเวอร์ชัน '{actualVersion}'"
-		},
-		"modules": {
-			"export": "ไม่สามารถส่งออกโมดูลได้ {error}"
-		},
-		"outdatedBrowser": "เบราว์เซอร์ของระบบคุณล้าสมัยแล้ว แอปพลิเคชันอาจทำงานไม่เป็นไปตามที่คาดหวัง โปรดอัปเดต",
-		"unexpected": "เกิดสิ่งไม่คาดคิดขึ้น บางส่วนของแอปอาจทำงานได้ไม่ตรงตามที่คาดหวัง"
-	},
-	"forms": {
-		"description": "คำอธิบาย",
-		"name": "ชื่อ",
-		"price": "ราคา",
-		"quantity": "จำนวน",
-		"skill": "ทักษะ",
-		"type": "ประเภท"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "ผู้เขียน",
-			"dependencies": "การพึ่งพา",
-			"description": "คำอธิบาย",
-			"id": "ID",
-			"label": "การกำหนดค่าแบบกำหนดเอง",
-			"languages": "ภาษา",
-			"mainSettings": "การตั้งค่าหลัก",
-			"name": "ชื่อ",
-			"version": "เวอร์ชัน"
-		},
-		"export": "ส่งออกการตั้งค่าโมดูล",
-		"exportSuccess": "โมดูลถูกส่งออกเรียบร้อยแล้ว!",
-		"external": "ภายนอก",
-		"import": {
-			"error": {
-				"extension": "ไม่สามารถนำเข้าโมดูลได้ ส่วนขยายไฟล์ต้องเป็น .fmod",
-				"validation": "ไม่สามารถนำเข้าโมดูลได้ ไฟล์ไม่ถูกต้อง",
-				"version": "ไม่สามารถนำเข้าโมดูลได้ เวอร์ชันของโมดูลล้าสมัย"
-			},
-			"success": "นำเข้าโมดูลสำเร็จ!",
-			"title": "นำเข้าโมดูลจากไฟล์"
-		},
-		"installed": "โมดูลที่ติดตั้ง ({value}):",
-		"save": "บันทึกการกำหนดค่าโมดูล",
-		"selected": "โมดูลที่เลือก",
-		"share": "แชร์การกำหนดค่าโมดูล",
-		"updated": "โมดูล {module} อัปเดตเป็น v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "วัสดุลูกเต๋า",
-				"title": "ตัวเลือกลูกเต๋า",
-				"type": "ประเภทลูกเต๋า"
-			},
-			"force": "แรง",
-			"general": {
-				"haptic": "การตอบสนองแบบสัมผัส",
-				"shake": "เขย่าเพื่อทอย",
-				"show-result": "แสดงผลลัพธ์บนหน้าจอ",
-				"title": "การตั้งค่าทั่วไป"
-			},
-			"gravity": "แรงโน้มถ่วง",
-			"haptic": "การตอบสนองการสัมผัส",
-			"number": "จำนวนลูกเต๋า",
-			"physics": {
-				"force": "แรง",
-				"gravity": "แรงโน้มถ่วง",
-				"number": "จำนวนลูกเต๋า",
-				"size": "ขนาดลูกเต๋า",
-				"title": "การตั้งค่าฟิสิกส์"
-			},
-			"reset": "รีเซ็ตการตั้งค่า",
-			"resetPhysics": "รีเซ็ตการตั้งค่าฟิสิกส์",
-			"shake": "เขย่าเพื่อทอย",
-			"size": "ขนาดลูกเต๋า",
-			"title": "การตั้งค่าการทอยลูกเต๋า"
-		},
-		"result": "ผลการทอยคือ {value}",
-		"rolling": "กำลังทอย...",
-		"throw": "ทอยลูกเต๋า {value} ลูก"
-	},
-	"settings": {
-		"about-app": {
-			"author": "ผู้เขียน",
-			"legal": {
-				"title": "ข้อมูลทางกฎหมายและการระบุแหล่งที่มา"
-			},
-			"license": "ใบอนุญาต",
-			"privacy-policy": {
-				"accept-policy": "ฉันได้อ่านและยอมรับนโยบายความเป็นส่วนตัวแล้ว",
-				"acceptance-date": "วันที่ยอมรับ: {value}",
-				"not-accepted": "นโยบายความเป็นส่วนตัวยังไม่ได้รับการยอมรับ ไปที่การตั้งค่า อ่านและยอมรับ มิฉะนั้นคุณจะไม่สามารถใช้แอปได้",
-				"title": "นโยบายความเป็นส่วนตัว",
-				"updated": "ยินดีต้อนรับกลับ! เราได้อัปเดตข้อกำหนดเล็กน้อย จึงขอให้คุณยืนยันอีกครั้ง"
-			},
-			"source-code": "ซอร์สโค้ด",
-			"title": "เกี่ยวกับแอป",
-			"version": "เวอร์ชัน"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "แสดงข้อมูลดีบัก",
-				"toggleDescription": "แสดงเครื่องมือดีบักเพิ่มเติมในแอป — ดีบักเกอร์ฟิสิกส์ลูกเต๋าและหน้านักพัฒนาที่ซ่อนอยู่"
-			},
-			"devMod": {
-				"connect": "เชื่อมต่อ",
-				"connected": "เชื่อมต่อกับ \"{id}\" แล้ว",
-				"disconnect": "ตัดการเชื่อมต่อ",
-				"error": "เชื่อมต่อกับม็อดสำหรับนักพัฒนาไม่ได้ {error}",
-				"title": "เชื่อมต่อม็อดสำหรับนักพัฒนา",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "คุณกำลังติดตั้ง \"{id}\" จากนอกทะเบียนที่ผ่านการตรวจสอบ มันจะทำงานด้วยสิทธิ์เข้าถึงแอปและข้อมูลตัวละครเต็มรูปแบบ พิมพ์ \"{id}\" หรือ \"install\" เพื่อยืนยัน",
-				"confirmPlaceholder": "พิมพ์เพื่อยืนยัน",
-				"confirmTitle": "ติดตั้งโค้ดภายนอก?",
-				"error": "ติดตั้งม็อดไม่ได้ {error}",
-				"install": "ติดตั้ง",
-				"success": "ติดตั้ง \"{id}\" แล้ว",
-				"title": "ติดตั้งจาก URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "ชี้ Mod Store ไปยังทะเบียน staging แทนของจริง เว้นว่างเพื่อใช้ค่าเริ่มต้น",
-				"save": "บันทึก",
-				"title": "แทนที่ URL ฐานของทะเบียน"
-			},
-			"title": "นักพัฒนา",
-			"toggle": "โหมดนักพัฒนา",
-			"toggleDescription": "เปิดให้ติดตั้งม็อดจาก URL สำหรับผู้เขียนและผู้ทดสอบเท่านั้น — ม็อดทำงานด้วยสิทธิ์เข้าถึงแอปเต็มรูปแบบ"
-		},
-		"language": "ภาษา",
-		"mods": {
-			"actions": {
-				"disable": "ปิดใช้งาน",
-				"enable": "เปิดใช้งาน",
-				"remove": "ลบ",
-				"retry": "ลองอีกครั้ง",
-				"update": "อัปเดต"
-			},
-			"blocked": "\"{id}\" ถูกปิดใช้งาน — เวอร์ชันนี้ถูกทำเครื่องหมายว่าไม่ปลอดภัย ตรวจสอบการอัปเดตใน Mod Store",
-			"browse": {
-				"compatibleOnly": "เฉพาะที่เข้ากันกับแอปนี้",
-				"empty": "ไม่พบม็อด",
-				"incompatible": "ไม่เข้ากันกับเวอร์ชันแอปนี้",
-				"loadError": "โหลด Mod Store ไม่ได้ {error}",
-				"offline": "รีเฟรชไม่ได้ — กำลังแสดงผลลัพธ์ที่แคชไว้",
-				"searchPlaceholder": "ค้นหาม็อด",
-				"stale": "กำลังแสดงผลลัพธ์ที่แคชไว้ — ดึงลงเพื่อรีเฟรช"
-			},
-			"detail": {
-				"author": "โดย {name}",
-				"blocked": "เวอร์ชันนี้ถูกบล็อก",
-				"config": "ตัวเลือกการตั้งค่า",
-				"downgrade": "ดาวน์เกรด",
-				"install": "ติดตั้ง",
-				"installed": "ติดตั้งแล้ว",
-				"latest": "ล่าสุด",
-				"readme": "เกี่ยวกับ",
-				"remove": "ลบ",
-				"update": "อัปเดต",
-				"updateAvailable": "มีอัปเดต",
-				"versions": "เวอร์ชัน"
-			},
-			"empty": "ไม่มีม็อดที่ติดตั้ง",
-			"errors": {
-				"action": "ดำเนินการไม่สำเร็จ {error}",
-				"list": "โหลดม็อดที่ติดตั้งไม่ได้ {error}"
-			},
-			"installSuccess": "ติดตั้ง \"{id}\" แล้ว",
-			"removeBlocked": "ยังถูกใช้โดย: {characters}",
-			"restartToApply": "เริ่มใหม่เพื่อใช้การเปลี่ยนแปลง",
-			"source": {
-				"dev": "Dev",
-				"registry": "ทะเบียน",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "ปิดใช้งาน",
-				"errored": "ข้อผิดพลาด",
-				"loaded": "โหลดแล้ว"
-			},
-			"tabs": {
-				"browse": "เรียกดู",
-				"installed": "ติดตั้งแล้ว"
-			},
-			"title": "ม็อด",
-			"updateSuccess": "อัปเดต \"{id}\" แล้ว"
-		},
-		"theme": {
-			"dark": "มืด",
-			"defaultSkin": "ค่าเริ่มต้น",
-			"light": "สว่าง",
-			"system": "ระบบ",
-			"title": "ธีม"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "ติดตั้ง \"{module}\" จาก Mod Store",
-			"notInstalled": "ยังไม่ได้ติดตั้ง \"{module}\"",
-			"openModStore": "เปิด Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "ตัวละคร"
-		},
-		"roll-dice": {
-			"title": "ทอยลูกเต๋า"
-		},
-		"settings": {
-			"title": "การตั้งค่า"
-		}
-	}
+  "a11y": {
+    "description": "คำอธิบาย",
+    "name": "ชื่อ",
+    "quantity": "ปริมาณ",
+    "validation-error": "ข้อผิดพลาดในการตรวจสอบ"
+  },
+  "character": {
+    "configure": "กำหนดค่า",
+    "create": "สร้างตัวละคร",
+    "export": "ส่งออกตัวละคร",
+    "exportSuccess": "ตัวละครถูกส่งออกเรียบร้อยแล้ว!",
+    "import": {
+      "error": {
+        "extension": "ไม่สามารถนำเข้าตัวละครได้ ส่วนขยายไฟล์ต้องเป็น .fchar",
+        "validation": "ไม่สามารถนำเข้าตัวละครได้ ไฟล์ไม่ถูกต้อง",
+        "version": "ไม่สามารถนำเข้าตัวละครได้ เวอร์ชันของตัวละครล้าสมัย"
+      },
+      "success": "นำเข้าตัวละครสำเร็จ!",
+      "title": "นำเข้าตัวละครจากไฟล์"
+    },
+    "messages": {
+      "remove": "คุณแน่ใจหรือไม่ว่าต้องการลบ {value}?",
+      "update": "เวอร์ชันของตัวละครล้าสมัย อัปเดตเลยหรือไม่?"
+    },
+    "name": "ชื่อตัวละคร",
+    "new-character": "ตัวละครใหม่",
+    "no-characters": "ยังไม่มีการสร้างตัวละคร สร้างตัวละครใหม่หรือนำเข้าจากไฟล์",
+    "not-selected": "ยังไม่ได้เลือกตัวละคร เลือกตัวละครหรือลองสร้างใหม่!",
+    "remove-message": "คุณแน่ใจหรือว่าต้องการลบตัวละครนี้?",
+    "save": "บันทึกตัวละคร",
+    "share": "แชร์ตัวละคร",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "เวอร์ชันของตัวละครล้าสมัย คุณต้องการอัปเดตหรือไม่?",
+    "updated": "ตัวละครอัปเดตสำเร็จจาก v{from} เป็น v{to}!",
+    "your-characters": "ตัวละครของคุณ"
+  },
+  "common": {
+    "actions": {
+      "add": "เพิ่ม",
+      "back": "ย้อนกลับ",
+      "cancel": "ยกเลิก",
+      "close": "ปิด",
+      "confirm": "ยืนยัน",
+      "create": "สร้าง",
+      "decrease": "ลด",
+      "delete": "ลบ",
+      "edit": "แก้ไข",
+      "finish": "เสร็จสิ้น",
+      "go": "ไป",
+      "increase": "เพิ่ม",
+      "next": "ถัดไป",
+      "remove": "ลบ",
+      "reset": "รีเซ็ต",
+      "save": "บันทึก",
+      "select": "เลือก",
+      "update": "อัปเดต",
+      "upload": "อัปโหลด",
+      "use": "ใช้"
+    },
+    "messages": {
+      "emptyList": "ยังไม่มีองค์ประกอบที่เพิ่มเข้ามา",
+      "remove": "คุณแน่ใจหรือว่าต้องการลบ?",
+      "remove-named": "คุณแน่ใจหรือว่าต้องการลบ \"{value}\"?"
+    },
+    "or": "หรือ",
+    "state": {
+      "disabled": "ปิดการใช้งาน",
+      "enabled": "เปิดใช้งาน"
+    }
+  },
+  "debug": {
+    "add-mock-character": "เพิ่มตัวละครทดสอบ"
+  },
+  "errors": {
+    "boundary": {
+      "description": "แอปพบปัญหาและไม่สามารถดำเนินการต่อได้อย่างปลอดภัย การโหลดซ้ำน่าจะช่วยแก้ไขได้",
+      "reload": "โหลดซ้ำ",
+      "title": "เกิดข้อผิดพลาดบางอย่าง"
+    },
+    "character": {
+      "create": "ไม่สามารถสร้างตัวละครได้ {error}",
+      "export": "ไม่สามารถส่งออกตัวละครได้ {error}",
+      "list": "ไม่สามารถโหลดรายการตัวละครได้ {error}",
+      "load": "ไม่สามารถโหลดตัวละครได้ {error}",
+      "remove": "ไม่สามารถลบตัวละครได้ {error}",
+      "save": "ไม่สามารถบันทึกตัวละครได้ การเปลี่ยนแปลงอาจไม่ถูกจัดเก็บ {error}"
+    },
+    "module": {
+      "appVersionMismatch": "ต้องใช้เวอร์ชันแอป \"{requiredVersion}\" แต่ปัจจุบันคือ \"{appVersion}\"",
+      "incompatible": "เข้ากันไม่ได้กับ \"{anotherModule}\"",
+      "missingDependencies": "การพึ่งพาที่ขาดหายไป: {modules}",
+      "notFound": "ไม่พบโมดูล: \"{module}\"",
+      "otherDependsOn": "มีโมดูลอื่นที่ขึ้นอยู่กับโมดูลนี้: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "โมดูล '{module}' ต้องใช้เวอร์ชันแอป '{requiredAppVersion}' แต่เวอร์ชันปัจจุบันคือ '{currentAppVersion}'",
+      "dependencyCycle": "พบวงจรการพึ่งพาที่เกี่ยวข้องกับ: {modules}",
+      "genericError": "เกิดข้อผิดพลาดที่ไม่รู้จักระหว่างการแก้ไขโมดูล",
+      "incompatibleModules": "โมดูล '{module}' ไม่สามารถใช้งานร่วมกับ: {incompatible}",
+      "missingDependency": "โมดูล '{module}' ขาดการพึ่งพา '{dependency}'",
+      "versionMismatch": "โมดูล '{module}' ต้องใช้เวอร์ชัน '{requiredVersion}' ของ '{dependency}' แต่พบเวอร์ชัน '{actualVersion}'"
+    },
+    "modules": {
+      "export": "ไม่สามารถส่งออกโมดูลได้ {error}"
+    },
+    "outdatedBrowser": "เบราว์เซอร์ของระบบคุณล้าสมัยแล้ว แอปพลิเคชันอาจทำงานไม่เป็นไปตามที่คาดหวัง โปรดอัปเดต",
+    "unexpected": "เกิดสิ่งไม่คาดคิดขึ้น บางส่วนของแอปอาจทำงานได้ไม่ตรงตามที่คาดหวัง"
+  },
+  "forms": {
+    "description": "คำอธิบาย",
+    "name": "ชื่อ",
+    "price": "ราคา",
+    "quantity": "จำนวน",
+    "skill": "ทักษะ",
+    "type": "ประเภท"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "ผู้เขียน",
+      "dependencies": "การพึ่งพา",
+      "description": "คำอธิบาย",
+      "id": "ID",
+      "label": "การกำหนดค่าแบบกำหนดเอง",
+      "languages": "ภาษา",
+      "mainSettings": "การตั้งค่าหลัก",
+      "name": "ชื่อ",
+      "version": "เวอร์ชัน"
+    },
+    "export": "ส่งออกการตั้งค่าโมดูล",
+    "exportSuccess": "โมดูลถูกส่งออกเรียบร้อยแล้ว!",
+    "external": "ภายนอก",
+    "import": {
+      "error": {
+        "extension": "ไม่สามารถนำเข้าโมดูลได้ ส่วนขยายไฟล์ต้องเป็น .fmod",
+        "validation": "ไม่สามารถนำเข้าโมดูลได้ ไฟล์ไม่ถูกต้อง",
+        "version": "ไม่สามารถนำเข้าโมดูลได้ เวอร์ชันของโมดูลล้าสมัย"
+      },
+      "success": "นำเข้าโมดูลสำเร็จ!",
+      "title": "นำเข้าโมดูลจากไฟล์"
+    },
+    "installed": "โมดูลที่ติดตั้ง ({value}):",
+    "save": "บันทึกการกำหนดค่าโมดูล",
+    "selected": "โมดูลที่เลือก",
+    "share": "แชร์การกำหนดค่าโมดูล",
+    "updated": "โมดูล {module} อัปเดตเป็น v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "วัสดุลูกเต๋า",
+        "title": "ตัวเลือกลูกเต๋า",
+        "type": "ประเภทลูกเต๋า"
+      },
+      "force": "แรง",
+      "general": {
+        "haptic": "การตอบสนองแบบสัมผัส",
+        "shake": "เขย่าเพื่อทอย",
+        "show-result": "แสดงผลลัพธ์บนหน้าจอ",
+        "title": "การตั้งค่าทั่วไป"
+      },
+      "gravity": "แรงโน้มถ่วง",
+      "haptic": "การตอบสนองการสัมผัส",
+      "number": "จำนวนลูกเต๋า",
+      "physics": {
+        "force": "แรง",
+        "gravity": "แรงโน้มถ่วง",
+        "number": "จำนวนลูกเต๋า",
+        "size": "ขนาดลูกเต๋า",
+        "title": "การตั้งค่าฟิสิกส์"
+      },
+      "reset": "รีเซ็ตการตั้งค่า",
+      "resetPhysics": "รีเซ็ตการตั้งค่าฟิสิกส์",
+      "shake": "เขย่าเพื่อทอย",
+      "size": "ขนาดลูกเต๋า",
+      "title": "การตั้งค่าการทอยลูกเต๋า"
+    },
+    "result": "ผลการทอยคือ {value}",
+    "rolling": "กำลังทอย...",
+    "throw": "ทอยลูกเต๋า {value} ลูก"
+  },
+  "settings": {
+    "about-app": {
+      "author": "ผู้เขียน",
+      "legal": {
+        "title": "ข้อมูลทางกฎหมายและการระบุแหล่งที่มา"
+      },
+      "license": "ใบอนุญาต",
+      "privacy-policy": {
+        "accept-policy": "ฉันได้อ่านและยอมรับนโยบายความเป็นส่วนตัวแล้ว",
+        "acceptance-date": "วันที่ยอมรับ: {value}",
+        "not-accepted": "นโยบายความเป็นส่วนตัวยังไม่ได้รับการยอมรับ ไปที่การตั้งค่า อ่านและยอมรับ มิฉะนั้นคุณจะไม่สามารถใช้แอปได้",
+        "title": "นโยบายความเป็นส่วนตัว",
+        "updated": "ยินดีต้อนรับกลับ! เราได้อัปเดตข้อกำหนดเล็กน้อย จึงขอให้คุณยืนยันอีกครั้ง"
+      },
+      "source-code": "ซอร์สโค้ด",
+      "title": "เกี่ยวกับแอป",
+      "version": "เวอร์ชัน"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "แสดงข้อมูลดีบัก",
+        "toggleDescription": "แสดงเครื่องมือดีบักเพิ่มเติมในแอป — ดีบักเกอร์ฟิสิกส์ลูกเต๋าและหน้านักพัฒนาที่ซ่อนอยู่"
+      },
+      "devMod": {
+        "connect": "เชื่อมต่อ",
+        "connected": "เชื่อมต่อกับ \"{id}\" แล้ว",
+        "disconnect": "ตัดการเชื่อมต่อ",
+        "error": "เชื่อมต่อกับม็อดสำหรับนักพัฒนาไม่ได้ {error}",
+        "title": "เชื่อมต่อม็อดสำหรับนักพัฒนา",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "คุณกำลังติดตั้ง \"{id}\" จากนอกทะเบียนที่ผ่านการตรวจสอบ มันจะทำงานด้วยสิทธิ์เข้าถึงแอปและข้อมูลตัวละครเต็มรูปแบบ พิมพ์ \"{id}\" หรือ \"install\" เพื่อยืนยัน",
+        "confirmPlaceholder": "พิมพ์เพื่อยืนยัน",
+        "confirmTitle": "ติดตั้งโค้ดภายนอก?",
+        "error": "ติดตั้งม็อดไม่ได้ {error}",
+        "install": "ติดตั้ง",
+        "success": "ติดตั้ง \"{id}\" แล้ว",
+        "title": "ติดตั้งจาก URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "ชี้ Mod Store ไปยังทะเบียน staging แทนของจริง เว้นว่างเพื่อใช้ค่าเริ่มต้น",
+        "save": "บันทึก",
+        "title": "แทนที่ URL ฐานของทะเบียน"
+      },
+      "title": "นักพัฒนา",
+      "toggle": "โหมดนักพัฒนา",
+      "toggleDescription": "เปิดให้ติดตั้งม็อดจาก URL สำหรับผู้เขียนและผู้ทดสอบเท่านั้น — ม็อดทำงานด้วยสิทธิ์เข้าถึงแอปเต็มรูปแบบ"
+    },
+    "language": "ภาษา",
+    "mods": {
+      "actions": {
+        "disable": "ปิดใช้งาน",
+        "enable": "เปิดใช้งาน",
+        "remove": "ลบ",
+        "retry": "ลองอีกครั้ง",
+        "update": "อัปเดต",
+        "removeAnyway": "ลบอยู่ดี"
+      },
+      "blocked": "\"{id}\" ถูกปิดใช้งาน — เวอร์ชันนี้ถูกทำเครื่องหมายว่าไม่ปลอดภัย ตรวจสอบการอัปเดตใน Mod Store",
+      "browse": {
+        "compatibleOnly": "เฉพาะที่เข้ากันกับแอปนี้",
+        "empty": "ไม่พบม็อด",
+        "incompatible": "ไม่เข้ากันกับเวอร์ชันแอปนี้",
+        "loadError": "โหลด Mod Store ไม่ได้ {error}",
+        "offline": "รีเฟรชไม่ได้ — กำลังแสดงผลลัพธ์ที่แคชไว้",
+        "searchPlaceholder": "ค้นหาม็อด",
+        "stale": "กำลังแสดงผลลัพธ์ที่แคชไว้ — ดึงลงเพื่อรีเฟรช"
+      },
+      "detail": {
+        "author": "โดย {name}",
+        "blocked": "เวอร์ชันนี้ถูกบล็อก",
+        "config": "ตัวเลือกการตั้งค่า",
+        "downgrade": "ดาวน์เกรด",
+        "install": "ติดตั้ง",
+        "installed": "ติดตั้งแล้ว",
+        "latest": "ล่าสุด",
+        "readme": "เกี่ยวกับ",
+        "remove": "ลบ",
+        "update": "อัปเดต",
+        "updateAvailable": "มีอัปเดต",
+        "versions": "เวอร์ชัน"
+      },
+      "empty": "ไม่มีม็อดที่ติดตั้ง",
+      "errors": {
+        "action": "ดำเนินการไม่สำเร็จ {error}",
+        "list": "โหลดม็อดที่ติดตั้งไม่ได้ {error}"
+      },
+      "installSuccess": "ติดตั้ง \"{id}\" แล้ว",
+      "restartToApply": "เริ่มใหม่เพื่อใช้การเปลี่ยนแปลง",
+      "source": {
+        "dev": "Dev",
+        "registry": "ทะเบียน",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "ปิดใช้งาน",
+        "errored": "ข้อผิดพลาด",
+        "loaded": "โหลดแล้ว"
+      },
+      "tabs": {
+        "browse": "เรียกดู",
+        "installed": "ติดตั้งแล้ว"
+      },
+      "title": "ม็อด",
+      "updateSuccess": "อัปเดต \"{id}\" แล้ว",
+      "removeConfirm": {
+        "inUse": "ยังถูกใช้โดย: {characters}",
+        "willUninstall": "การลบจะถอนม็อดนี้ออกจากตัวละครเหล่านั้น"
+      }
+    },
+    "theme": {
+      "dark": "มืด",
+      "defaultSkin": "ค่าเริ่มต้น",
+      "light": "สว่าง",
+      "system": "ระบบ",
+      "title": "ธีม"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "ติดตั้ง \"{module}\" จาก Mod Store",
+      "notInstalled": "ยังไม่ได้ติดตั้ง \"{module}\"",
+      "openModStore": "เปิด Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "ตัวละคร"
+    },
+    "roll-dice": {
+      "title": "ทอยลูกเต๋า"
+    },
+    "settings": {
+      "title": "การตั้งค่า"
+    }
+  }
 }

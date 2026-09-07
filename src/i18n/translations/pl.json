@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "opis",
-		"name": "nazwa",
-		"quantity": "ilość",
-		"validation-error": "Błąd walidacji"
-	},
-	"character": {
-		"configure": "Konfiguruj",
-		"create": "Utwórz postać",
-		"export": "Eksportuj postać",
-		"exportSuccess": "Postać została pomyślnie wyeksportowana!",
-		"import": {
-			"error": {
-				"extension": "Nie można zaimportować postaci. Rozszerzenie pliku musi być .fchar",
-				"validation": "Nie można zaimportować postaci. Plik jest nieprawidłowy.",
-				"version": "Nie można zaimportować postaci. Wersja postaci jest przestarzała."
-			},
-			"success": "Postać została pomyślnie zaimportowana!",
-			"title": "Importuj postać z pliku"
-		},
-		"messages": {
-			"remove": "Czy na pewno chcesz usunąć {value}?",
-			"update": "Wersja postaci jest nieaktualna. Czy chcesz ją zaktualizować?"
-		},
-		"name": "Imię postaci",
-		"new-character": "Nowa postać",
-		"no-characters": "Nie utworzono jeszcze żadnych postaci. Utwórz nową lub zaimportuj z pliku.",
-		"not-selected": "Postać nie została wybrana. Wybierz lub utwórz nową!",
-		"remove-message": "Czy na pewno chcesz usunąć tę postać?",
-		"save": "Zapisz postać",
-		"share": "Udostępnij postać",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Wersja postaci jest nieaktualna. Czy chcesz ją zaktualizować?",
-		"updated": "Postać pomyślnie zaktualizowana z v{from} do v{to}!",
-		"your-characters": "Twoje postacie"
-	},
-	"common": {
-		"actions": {
-			"add": "Dodaj",
-			"back": "Wstecz",
-			"cancel": "Anuluj",
-			"close": "Zamknij",
-			"confirm": "Potwierdź",
-			"create": "Utwórz",
-			"decrease": "Zmniejszyć",
-			"delete": "Usuń",
-			"edit": "Edytuj",
-			"finish": "Zakończ",
-			"go": "Przejdź",
-			"increase": "Zwiększyć",
-			"next": "Dalej",
-			"remove": "Usuń",
-			"reset": "Zresetuj",
-			"save": "Zapisz",
-			"select": "Wybierz",
-			"update": "Aktualizuj",
-			"upload": "Prześlij",
-			"use": "Użyj"
-		},
-		"messages": {
-			"emptyList": "Nie dodano jeszcze żadnych elementów",
-			"remove": "Czy na pewno chcesz to usunąć?",
-			"remove-named": "Czy na pewno chcesz usunąć \"{value}\"?"
-		},
-		"or": "lub",
-		"state": {
-			"disabled": "Wyłączone",
-			"enabled": "Włączone"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Dodaj testową postać"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Aplikacja napotkała problem i nie może bezpiecznie kontynuować. Odświeżenie powinno pomóc.",
-			"reload": "Odśwież",
-			"title": "Coś poszło nie tak"
-		},
-		"character": {
-			"create": "Nie można utworzyć postaci. {error}",
-			"export": "Nie można wyeksportować postaci. {error}",
-			"list": "Nie można wczytać listy postaci. {error}",
-			"load": "Nie można wczytać postaci. {error}",
-			"remove": "Nie można usunąć postaci. {error}",
-			"save": "Nie można zapisać postaci. Zmiany mogą nie zostać zapisane. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Wymagana wersja aplikacji \"{requiredVersion}\", ale obecna to \"{appVersion}\"",
-			"incompatible": "Niekompatybilny z \"{anotherModule}\"",
-			"missingDependencies": "Brakujące zależności: {modules}",
-			"notFound": "Nie znaleziono modułu: \"{module}\"",
-			"otherDependsOn": "Inne moduły są od niego zależne: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Moduł '{module}' wymaga wersji aplikacji '{requiredAppVersion}', ale obecna wersja to '{currentAppVersion}'.",
-			"dependencyCycle": "Wykryto cykl zależności obejmujący: {modules}.",
-			"genericError": "Wystąpił nieznany błąd podczas rozwiązywania modułu.",
-			"incompatibleModules": "Moduł '{module}' jest niekompatybilny z: {incompatible}.",
-			"missingDependency": "Modułowi '{module}' brakuje zależności '{dependency}'.",
-			"versionMismatch": "Moduł '{module}' wymaga wersji '{requiredVersion}' zależności '{dependency}', ale znaleziona wersja to '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Nie udało się wyeksportować modułów. {error}"
-		},
-		"outdatedBrowser": "Twoja przeglądarka systemowa jest przestarzała. Aplikacja może nie działać prawidłowo. Zaktualizuj ją.",
-		"unexpected": "Wystąpił nieoczekiwany błąd. Niektóre części aplikacji mogą nie działać prawidłowo."
-	},
-	"forms": {
-		"description": "Opis",
-		"name": "Nazwa",
-		"price": "Cena",
-		"quantity": "Ilość",
-		"skill": "Umiejętność",
-		"type": "Typ"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Autor",
-			"dependencies": "Zależności",
-			"description": "Opis",
-			"id": "ID",
-			"label": "Niestandardowa konfiguracja",
-			"languages": "Języki",
-			"mainSettings": "Ustawienia główne",
-			"name": "Nazwa",
-			"version": "Wersja"
-		},
-		"export": "Eksportuj konfigurację modułów",
-		"exportSuccess": "Moduły zostały pomyślnie wyeksportowane!",
-		"external": "Zewnętrzne",
-		"import": {
-			"error": {
-				"extension": "Nie można zaimportować modułów. Rozszerzenie pliku musi być .fmod",
-				"validation": "Nie można zaimportować modułów. Plik jest nieprawidłowy.",
-				"version": "Nie można zaimportować modułów. Wersja modułów jest przestarzała."
-			},
-			"success": "Moduły zostały pomyślnie zaimportowane!",
-			"title": "Importuj moduły z pliku"
-		},
-		"installed": "Zainstalowane moduły ({value}):",
-		"save": "Zapisz konfigurację modułów",
-		"selected": "Wybrane moduły",
-		"share": "Udostępnij konfigurację modułów",
-		"updated": "Moduł {module} zaktualizowany do v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Materiał kostek",
-				"title": "Opcje kostek",
-				"type": "Typ kostek"
-			},
-			"force": "Siła",
-			"general": {
-				"haptic": "Sprzężenie zwrotne dotykowe",
-				"shake": "Potrząśnij, aby rzucić",
-				"show-result": "Pokaż wynik na ekranie",
-				"title": "Ustawienia ogólne"
-			},
-			"gravity": "Grawitacja",
-			"haptic": "Informacja zwrotna dotykowa",
-			"number": "Liczba kostek",
-			"physics": {
-				"force": "Siła",
-				"gravity": "Grawitacja",
-				"number": "Liczba kostek",
-				"size": "Rozmiar kostek",
-				"title": "Ustawienia fizyki"
-			},
-			"reset": "Zresetuj konfigurację",
-			"resetPhysics": "Zresetuj ustawienia fizyki",
-			"shake": "Potrząśnij, aby rzucić",
-			"size": "Rozmiar kości",
-			"title": "Konfiguracja rzutu kostkami"
-		},
-		"result": "Wynik rzutu to {value}",
-		"rolling": "Rzucanie...",
-		"throw": "Rzuć {value} kostek"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Autor",
-			"legal": {
-				"title": "Informacje prawne i atrybucja"
-			},
-			"license": "Licencja",
-			"privacy-policy": {
-				"accept-policy": "Przeczytałem i akceptuję politykę prywatności",
-				"acceptance-date": "Data akceptacji: {value}",
-				"not-accepted": "Polityka prywatności nie została zaakceptowana. Przejdź do ustawień, przeczytaj i zaakceptuj ją. W przeciwnym razie nie możesz korzystać z aplikacji.",
-				"title": "Polityka prywatności",
-				"updated": "Witaj ponownie! Wprowadziliśmy kilka zmian w regulaminie, więc prosimy o ponowne potwierdzenie."
-			},
-			"source-code": "Kod źródłowy",
-			"title": "O aplikacji",
-			"version": "Wersja"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Pokaż informacje debugowania",
-				"toggleDescription": "Pokazuje dodatkowe narzędzia debugowania w aplikacji — debugger fizyki kości i ukryte strony deweloperskie."
-			},
-			"devMod": {
-				"connect": "Połącz",
-				"connected": "Połączono z „{id}”",
-				"disconnect": "Rozłącz",
-				"error": "Nie udało się połączyć z modem deweloperskim. {error}",
-				"title": "Połącz mod deweloperski",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Instalujesz „{id}” spoza sprawdzonego rejestru. Będzie miał pełny dostęp do aplikacji i danych postaci. Wpisz „{id}” lub „install”, aby potwierdzić.",
-				"confirmPlaceholder": "Wpisz, aby potwierdzić",
-				"confirmTitle": "Zainstalować zewnętrzny kod?",
-				"error": "Nie udało się zainstalować moda. {error}",
-				"install": "Zainstaluj",
-				"success": "Zainstalowano „{id}”",
-				"title": "Zainstaluj z URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Skieruj Mod Store na rejestr staging zamiast produkcyjnego. Pozostaw puste, aby użyć domyślnego.",
-				"save": "Zapisz",
-				"title": "Nadpisz bazowy URL rejestru"
-			},
-			"title": "Deweloper",
-			"toggle": "Tryb deweloperski",
-			"toggleDescription": "Umożliwia instalację modów z URL. Tylko dla autorów i testerów — mody mają pełny dostęp do aplikacji."
-		},
-		"language": "Język",
-		"mods": {
-			"actions": {
-				"disable": "Wyłącz",
-				"enable": "Włącz",
-				"remove": "Usuń",
-				"retry": "Ponów",
-				"update": "Aktualizuj"
-			},
-			"blocked": "„{id}” został wyłączony — ta wersja została oznaczona jako niebezpieczna. Sprawdź aktualizację w Mod Store.",
-			"browse": {
-				"compatibleOnly": "Tylko zgodne z tą aplikacją",
-				"empty": "Nie znaleziono modów",
-				"incompatible": "Niezgodne z tą wersją aplikacji",
-				"loadError": "Nie udało się wczytać Mod Store. {error}",
-				"offline": "Nie udało się odświeżyć — wyświetlane są wyniki z pamięci podręcznej",
-				"searchPlaceholder": "Szukaj modów",
-				"stale": "Wyniki z pamięci podręcznej — przeciągnij, aby odświeżyć"
-			},
-			"detail": {
-				"author": "Autor: {name}",
-				"blocked": "Ta wersja jest zablokowana",
-				"config": "Opcje konfiguracji",
-				"downgrade": "Obniż wersję",
-				"install": "Zainstaluj",
-				"installed": "Zainstalowano",
-				"latest": "najnowsza",
-				"readme": "O modzie",
-				"remove": "Usuń",
-				"update": "Aktualizuj",
-				"updateAvailable": "Dostępna aktualizacja",
-				"versions": "Wersje"
-			},
-			"empty": "Brak zainstalowanych modów",
-			"errors": {
-				"action": "Nie udało się wykonać akcji. {error}",
-				"list": "Nie udało się wczytać zainstalowanych modów. {error}"
-			},
-			"installSuccess": "Zainstalowano „{id}”",
-			"removeBlocked": "Nadal używany przez: {characters}",
-			"restartToApply": "Uruchom ponownie, aby zastosować zmiany",
-			"source": {
-				"dev": "Dev",
-				"registry": "Rejestr",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Wyłączony",
-				"errored": "Błąd",
-				"loaded": "Załadowany"
-			},
-			"tabs": {
-				"browse": "Przeglądaj",
-				"installed": "Zainstalowane"
-			},
-			"title": "Mody",
-			"updateSuccess": "Zaktualizowano „{id}”"
-		},
-		"theme": {
-			"dark": "Ciemny",
-			"defaultSkin": "Domyślny",
-			"light": "Jasny",
-			"system": "System",
-			"title": "Motyw"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Zainstaluj „{module}” z Mod Store",
-			"notInstalled": "„{module}” nie jest zainstalowany",
-			"openModStore": "Otwórz Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Postać"
-		},
-		"roll-dice": {
-			"title": "Rzucanie kośćmi"
-		},
-		"settings": {
-			"title": "Ustawienia"
-		}
-	}
+  "a11y": {
+    "description": "opis",
+    "name": "nazwa",
+    "quantity": "ilość",
+    "validation-error": "Błąd walidacji"
+  },
+  "character": {
+    "configure": "Konfiguruj",
+    "create": "Utwórz postać",
+    "export": "Eksportuj postać",
+    "exportSuccess": "Postać została pomyślnie wyeksportowana!",
+    "import": {
+      "error": {
+        "extension": "Nie można zaimportować postaci. Rozszerzenie pliku musi być .fchar",
+        "validation": "Nie można zaimportować postaci. Plik jest nieprawidłowy.",
+        "version": "Nie można zaimportować postaci. Wersja postaci jest przestarzała."
+      },
+      "success": "Postać została pomyślnie zaimportowana!",
+      "title": "Importuj postać z pliku"
+    },
+    "messages": {
+      "remove": "Czy na pewno chcesz usunąć {value}?",
+      "update": "Wersja postaci jest nieaktualna. Czy chcesz ją zaktualizować?"
+    },
+    "name": "Imię postaci",
+    "new-character": "Nowa postać",
+    "no-characters": "Nie utworzono jeszcze żadnych postaci. Utwórz nową lub zaimportuj z pliku.",
+    "not-selected": "Postać nie została wybrana. Wybierz lub utwórz nową!",
+    "remove-message": "Czy na pewno chcesz usunąć tę postać?",
+    "save": "Zapisz postać",
+    "share": "Udostępnij postać",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Wersja postaci jest nieaktualna. Czy chcesz ją zaktualizować?",
+    "updated": "Postać pomyślnie zaktualizowana z v{from} do v{to}!",
+    "your-characters": "Twoje postacie"
+  },
+  "common": {
+    "actions": {
+      "add": "Dodaj",
+      "back": "Wstecz",
+      "cancel": "Anuluj",
+      "close": "Zamknij",
+      "confirm": "Potwierdź",
+      "create": "Utwórz",
+      "decrease": "Zmniejszyć",
+      "delete": "Usuń",
+      "edit": "Edytuj",
+      "finish": "Zakończ",
+      "go": "Przejdź",
+      "increase": "Zwiększyć",
+      "next": "Dalej",
+      "remove": "Usuń",
+      "reset": "Zresetuj",
+      "save": "Zapisz",
+      "select": "Wybierz",
+      "update": "Aktualizuj",
+      "upload": "Prześlij",
+      "use": "Użyj"
+    },
+    "messages": {
+      "emptyList": "Nie dodano jeszcze żadnych elementów",
+      "remove": "Czy na pewno chcesz to usunąć?",
+      "remove-named": "Czy na pewno chcesz usunąć \"{value}\"?"
+    },
+    "or": "lub",
+    "state": {
+      "disabled": "Wyłączone",
+      "enabled": "Włączone"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Dodaj testową postać"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Aplikacja napotkała problem i nie może bezpiecznie kontynuować. Odświeżenie powinno pomóc.",
+      "reload": "Odśwież",
+      "title": "Coś poszło nie tak"
+    },
+    "character": {
+      "create": "Nie można utworzyć postaci. {error}",
+      "export": "Nie można wyeksportować postaci. {error}",
+      "list": "Nie można wczytać listy postaci. {error}",
+      "load": "Nie można wczytać postaci. {error}",
+      "remove": "Nie można usunąć postaci. {error}",
+      "save": "Nie można zapisać postaci. Zmiany mogą nie zostać zapisane. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Wymagana wersja aplikacji \"{requiredVersion}\", ale obecna to \"{appVersion}\"",
+      "incompatible": "Niekompatybilny z \"{anotherModule}\"",
+      "missingDependencies": "Brakujące zależności: {modules}",
+      "notFound": "Nie znaleziono modułu: \"{module}\"",
+      "otherDependsOn": "Inne moduły są od niego zależne: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Moduł '{module}' wymaga wersji aplikacji '{requiredAppVersion}', ale obecna wersja to '{currentAppVersion}'.",
+      "dependencyCycle": "Wykryto cykl zależności obejmujący: {modules}.",
+      "genericError": "Wystąpił nieznany błąd podczas rozwiązywania modułu.",
+      "incompatibleModules": "Moduł '{module}' jest niekompatybilny z: {incompatible}.",
+      "missingDependency": "Modułowi '{module}' brakuje zależności '{dependency}'.",
+      "versionMismatch": "Moduł '{module}' wymaga wersji '{requiredVersion}' zależności '{dependency}', ale znaleziona wersja to '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Nie udało się wyeksportować modułów. {error}"
+    },
+    "outdatedBrowser": "Twoja przeglądarka systemowa jest przestarzała. Aplikacja może nie działać prawidłowo. Zaktualizuj ją.",
+    "unexpected": "Wystąpił nieoczekiwany błąd. Niektóre części aplikacji mogą nie działać prawidłowo."
+  },
+  "forms": {
+    "description": "Opis",
+    "name": "Nazwa",
+    "price": "Cena",
+    "quantity": "Ilość",
+    "skill": "Umiejętność",
+    "type": "Typ"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Autor",
+      "dependencies": "Zależności",
+      "description": "Opis",
+      "id": "ID",
+      "label": "Niestandardowa konfiguracja",
+      "languages": "Języki",
+      "mainSettings": "Ustawienia główne",
+      "name": "Nazwa",
+      "version": "Wersja"
+    },
+    "export": "Eksportuj konfigurację modułów",
+    "exportSuccess": "Moduły zostały pomyślnie wyeksportowane!",
+    "external": "Zewnętrzne",
+    "import": {
+      "error": {
+        "extension": "Nie można zaimportować modułów. Rozszerzenie pliku musi być .fmod",
+        "validation": "Nie można zaimportować modułów. Plik jest nieprawidłowy.",
+        "version": "Nie można zaimportować modułów. Wersja modułów jest przestarzała."
+      },
+      "success": "Moduły zostały pomyślnie zaimportowane!",
+      "title": "Importuj moduły z pliku"
+    },
+    "installed": "Zainstalowane moduły ({value}):",
+    "save": "Zapisz konfigurację modułów",
+    "selected": "Wybrane moduły",
+    "share": "Udostępnij konfigurację modułów",
+    "updated": "Moduł {module} zaktualizowany do v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Materiał kostek",
+        "title": "Opcje kostek",
+        "type": "Typ kostek"
+      },
+      "force": "Siła",
+      "general": {
+        "haptic": "Sprzężenie zwrotne dotykowe",
+        "shake": "Potrząśnij, aby rzucić",
+        "show-result": "Pokaż wynik na ekranie",
+        "title": "Ustawienia ogólne"
+      },
+      "gravity": "Grawitacja",
+      "haptic": "Informacja zwrotna dotykowa",
+      "number": "Liczba kostek",
+      "physics": {
+        "force": "Siła",
+        "gravity": "Grawitacja",
+        "number": "Liczba kostek",
+        "size": "Rozmiar kostek",
+        "title": "Ustawienia fizyki"
+      },
+      "reset": "Zresetuj konfigurację",
+      "resetPhysics": "Zresetuj ustawienia fizyki",
+      "shake": "Potrząśnij, aby rzucić",
+      "size": "Rozmiar kości",
+      "title": "Konfiguracja rzutu kostkami"
+    },
+    "result": "Wynik rzutu to {value}",
+    "rolling": "Rzucanie...",
+    "throw": "Rzuć {value} kostek"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Autor",
+      "legal": {
+        "title": "Informacje prawne i atrybucja"
+      },
+      "license": "Licencja",
+      "privacy-policy": {
+        "accept-policy": "Przeczytałem i akceptuję politykę prywatności",
+        "acceptance-date": "Data akceptacji: {value}",
+        "not-accepted": "Polityka prywatności nie została zaakceptowana. Przejdź do ustawień, przeczytaj i zaakceptuj ją. W przeciwnym razie nie możesz korzystać z aplikacji.",
+        "title": "Polityka prywatności",
+        "updated": "Witaj ponownie! Wprowadziliśmy kilka zmian w regulaminie, więc prosimy o ponowne potwierdzenie."
+      },
+      "source-code": "Kod źródłowy",
+      "title": "O aplikacji",
+      "version": "Wersja"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Pokaż informacje debugowania",
+        "toggleDescription": "Pokazuje dodatkowe narzędzia debugowania w aplikacji — debugger fizyki kości i ukryte strony deweloperskie."
+      },
+      "devMod": {
+        "connect": "Połącz",
+        "connected": "Połączono z „{id}”",
+        "disconnect": "Rozłącz",
+        "error": "Nie udało się połączyć z modem deweloperskim. {error}",
+        "title": "Połącz mod deweloperski",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Instalujesz „{id}” spoza sprawdzonego rejestru. Będzie miał pełny dostęp do aplikacji i danych postaci. Wpisz „{id}” lub „install”, aby potwierdzić.",
+        "confirmPlaceholder": "Wpisz, aby potwierdzić",
+        "confirmTitle": "Zainstalować zewnętrzny kod?",
+        "error": "Nie udało się zainstalować moda. {error}",
+        "install": "Zainstaluj",
+        "success": "Zainstalowano „{id}”",
+        "title": "Zainstaluj z URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Skieruj Mod Store na rejestr staging zamiast produkcyjnego. Pozostaw puste, aby użyć domyślnego.",
+        "save": "Zapisz",
+        "title": "Nadpisz bazowy URL rejestru"
+      },
+      "title": "Deweloper",
+      "toggle": "Tryb deweloperski",
+      "toggleDescription": "Umożliwia instalację modów z URL. Tylko dla autorów i testerów — mody mają pełny dostęp do aplikacji."
+    },
+    "language": "Język",
+    "mods": {
+      "actions": {
+        "disable": "Wyłącz",
+        "enable": "Włącz",
+        "remove": "Usuń",
+        "retry": "Ponów",
+        "update": "Aktualizuj",
+        "removeAnyway": "Usuń mimo to"
+      },
+      "blocked": "„{id}” został wyłączony — ta wersja została oznaczona jako niebezpieczna. Sprawdź aktualizację w Mod Store.",
+      "browse": {
+        "compatibleOnly": "Tylko zgodne z tą aplikacją",
+        "empty": "Nie znaleziono modów",
+        "incompatible": "Niezgodne z tą wersją aplikacji",
+        "loadError": "Nie udało się wczytać Mod Store. {error}",
+        "offline": "Nie udało się odświeżyć — wyświetlane są wyniki z pamięci podręcznej",
+        "searchPlaceholder": "Szukaj modów",
+        "stale": "Wyniki z pamięci podręcznej — przeciągnij, aby odświeżyć"
+      },
+      "detail": {
+        "author": "Autor: {name}",
+        "blocked": "Ta wersja jest zablokowana",
+        "config": "Opcje konfiguracji",
+        "downgrade": "Obniż wersję",
+        "install": "Zainstaluj",
+        "installed": "Zainstalowano",
+        "latest": "najnowsza",
+        "readme": "O modzie",
+        "remove": "Usuń",
+        "update": "Aktualizuj",
+        "updateAvailable": "Dostępna aktualizacja",
+        "versions": "Wersje"
+      },
+      "empty": "Brak zainstalowanych modów",
+      "errors": {
+        "action": "Nie udało się wykonać akcji. {error}",
+        "list": "Nie udało się wczytać zainstalowanych modów. {error}"
+      },
+      "installSuccess": "Zainstalowano „{id}”",
+      "restartToApply": "Uruchom ponownie, aby zastosować zmiany",
+      "source": {
+        "dev": "Dev",
+        "registry": "Rejestr",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Wyłączony",
+        "errored": "Błąd",
+        "loaded": "Załadowany"
+      },
+      "tabs": {
+        "browse": "Przeglądaj",
+        "installed": "Zainstalowane"
+      },
+      "title": "Mody",
+      "updateSuccess": "Zaktualizowano „{id}”",
+      "removeConfirm": {
+        "inUse": "Nadal używany przez: {characters}",
+        "willUninstall": "Usunięcie odinstaluje ten mod z tych postaci."
+      }
+    },
+    "theme": {
+      "dark": "Ciemny",
+      "defaultSkin": "Domyślny",
+      "light": "Jasny",
+      "system": "System",
+      "title": "Motyw"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Zainstaluj „{module}” z Mod Store",
+      "notInstalled": "„{module}” nie jest zainstalowany",
+      "openModStore": "Otwórz Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Postać"
+    },
+    "roll-dice": {
+      "title": "Rzucanie kośćmi"
+    },
+    "settings": {
+      "title": "Ustawienia"
+    }
+  }
 }

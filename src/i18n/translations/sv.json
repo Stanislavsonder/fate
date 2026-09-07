@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "beskrivning",
-		"name": "namn",
-		"quantity": "kvantitet",
-		"validation-error": "Valideringsfel"
-	},
-	"character": {
-		"configure": "Konfigurera",
-		"create": "Skapa karaktär",
-		"export": "Exportera karaktär",
-		"exportSuccess": "Karaktär exporterades framgångsrikt!",
-		"import": {
-			"error": {
-				"extension": "Kunde inte importera karaktär. Filändelsen måste vara .fchar",
-				"validation": "Kunde inte importera karaktär. Filen är ogiltig.",
-				"version": "Kunde inte importera karaktär. Karaktärens version är föråldrad."
-			},
-			"success": "Karaktär importerad framgångsrikt!",
-			"title": "Importera karaktär från fil"
-		},
-		"messages": {
-			"remove": "Är du säker på att du vill ta bort {value}?",
-			"update": "Karaktärens version är föråldrad. Vill du uppdatera den?"
-		},
-		"name": "Karaktärens namn",
-		"new-character": "Ny karaktär",
-		"no-characters": "Inga karaktärer skapade än. Skapa en ny eller importera från en fil.",
-		"not-selected": "Ingen karaktär vald ännu. Välj en eller skapa en ny!",
-		"remove-message": "Är du säker på att du vill ta bort denna karaktär?",
-		"save": "Spara karaktär",
-		"share": "Dela karaktär",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Karaktärens version är föråldrad. Vill du uppdatera den?",
-		"updated": "Karaktär uppdaterad framgångsrikt från v{from} till v{to}!",
-		"your-characters": "Dina karaktärer"
-	},
-	"common": {
-		"actions": {
-			"add": "Lägg till",
-			"back": "Tillbaka",
-			"cancel": "Avbryt",
-			"close": "Stäng",
-			"confirm": "Bekräfta",
-			"create": "Skapa",
-			"decrease": "Minska",
-			"delete": "Ta bort",
-			"edit": "Redigera",
-			"finish": "Avsluta",
-			"go": "Gå",
-			"increase": "Öka",
-			"next": "Nästa",
-			"remove": "Ta bort",
-			"reset": "Återställ",
-			"save": "Spara",
-			"select": "Välj",
-			"update": "Uppdatera",
-			"upload": "Ladda upp",
-			"use": "Använd"
-		},
-		"messages": {
-			"emptyList": "Inga element har lagts till än",
-			"remove": "Är du säker på att du vill ta bort det?",
-			"remove-named": "Är du säker på att du vill ta bort \"{value}\"?"
-		},
-		"or": "eller",
-		"state": {
-			"disabled": "Inaktiverad",
-			"enabled": "Aktiverad"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Lägg till testkaraktär"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Appen stötte på ett problem och kan inte fortsätta säkert. En omladdning bör lösa det.",
-			"reload": "Ladda om",
-			"title": "Något gick fel"
-		},
-		"character": {
-			"create": "Det gick inte att skapa karaktären. {error}",
-			"export": "Det gick inte att exportera karaktären. {error}",
-			"list": "Det gick inte att ladda karaktärslistan. {error}",
-			"load": "Det gick inte att ladda karaktären. {error}",
-			"remove": "Det gick inte att ta bort karaktären. {error}",
-			"save": "Det gick inte att spara karaktären. Ändringar kanske inte sparas. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Kräver appversion \"{requiredVersion}\" men den nuvarande är \"{appVersion}\"",
-			"incompatible": "Inkompatibel med \"{anotherModule}\"",
-			"missingDependencies": "Saknade beroenden: {modules}",
-			"notFound": "Modul hittades inte: \"{module}\"",
-			"otherDependsOn": "Andra moduler är beroende av denna: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Modulen '{module}' kräver appversion '{requiredAppVersion}', men nuvarande version är '{currentAppVersion}'.",
-			"dependencyCycle": "En beroendecykel upptäcktes som involverar: {modules}.",
-			"genericError": "Ett okänt fel uppstod vid modulupplösning.",
-			"incompatibleModules": "Modulen '{module}' är inkompatibel med: {incompatible}.",
-			"missingDependency": "Modulen '{module}' saknar beroendet '{dependency}'.",
-			"versionMismatch": "Modulen '{module}' kräver version '{requiredVersion}' av '{dependency}', men hittad version är '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Kunde inte exportera moduler. {error}"
-		},
-		"outdatedBrowser": "Din systemwebbläsare är föråldrad. Applikationen kanske inte fungerar som förväntat. Uppdatera den.",
-		"unexpected": "Något oväntat hände. Vissa delar av appen fungerar kanske inte som förväntat."
-	},
-	"forms": {
-		"description": "Beskrivning",
-		"name": "Namn",
-		"price": "Pris",
-		"quantity": "Kvantitet",
-		"skill": "Färdighet",
-		"type": "Typ"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Författare",
-			"dependencies": "Beroenden",
-			"description": "Beskrivning",
-			"id": "ID",
-			"label": "Anpassad konfiguration",
-			"languages": "Språk",
-			"mainSettings": "Huvudinställningar",
-			"name": "Namn",
-			"version": "Version"
-		},
-		"export": "Exportera modulkonfiguration",
-		"exportSuccess": "Moduler exporterades framgångsrikt!",
-		"external": "Extern",
-		"import": {
-			"error": {
-				"extension": "Kunde inte importera moduler. Filändelsen måste vara .fmod",
-				"validation": "Kunde inte importera moduler. Filen är ogiltig.",
-				"version": "Kunde inte importera moduler. Modulversionen är föråldrad."
-			},
-			"success": "Moduler importerade framgångsrikt!",
-			"title": "Importera moduler från fil"
-		},
-		"installed": "Installerade moduler ({value}):",
-		"save": "Spara modulkonfiguration",
-		"selected": "Valda moduler",
-		"share": "Dela modulkonfiguration",
-		"updated": "Modul {module} uppdaterad till v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Tärningsmaterial",
-				"title": "Tärningsalternativ",
-				"type": "Tärningstyp"
-			},
-			"force": "Kraft",
-			"general": {
-				"haptic": "Haptisk feedback",
-				"shake": "Skaka för att kasta",
-				"show-result": "Visa resultat på skärmen",
-				"title": "Allmänna inställningar"
-			},
-			"gravity": "Gravitation",
-			"haptic": "Haptisk feedback",
-			"number": "Antal tärningar",
-			"physics": {
-				"force": "Kraft",
-				"gravity": "Gravitation",
-				"number": "Antal tärningar",
-				"size": "Tärningsstorlek",
-				"title": "Fysikinställningar"
-			},
-			"reset": "Återställ konfiguration",
-			"resetPhysics": "Återställ fysikinställningar",
-			"shake": "Skaka för att kasta",
-			"size": "Tärningens storlek",
-			"title": "Konfiguration av tärningskast"
-		},
-		"result": "Kastresultatet är {value}",
-		"rolling": "Kastar...",
-		"throw": "Kasta {value} tärningar"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Författare",
-			"legal": {
-				"title": "Juridisk information och attribution"
-			},
-			"license": "Licens",
-			"privacy-policy": {
-				"accept-policy": "Jag har läst och accepterar sekretesspolicyn",
-				"acceptance-date": "Godkännandedatum: {value}",
-				"not-accepted": "Sekretesspolicyn har inte godkänts. Gå till inställningar, läs och acceptera den. Annars kan du inte använda appen.",
-				"title": "Sekretesspolicy",
-				"updated": "Välkommen tillbaka! Vi har gjort några uppdateringar i villkoren, så vi behöver att du bekräftar dem igen."
-			},
-			"source-code": "Källkod",
-			"title": "Om appen",
-			"version": "Version"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Visa felsökningsinformation",
-				"toggleDescription": "Visar extra felsökningsverktyg i appen — tärningsfysik-debuggern och dolda utvecklarssidor."
-			},
-			"devMod": {
-				"connect": "Anslut",
-				"connected": "Ansluten till \"{id}\"",
-				"disconnect": "Koppla från",
-				"error": "Kunde inte ansluta till utvecklingsmod. {error}",
-				"title": "Anslut utvecklingsmod",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Du installerar \"{id}\" utanför det granskade registret. Den får full åtkomst till appen och dina karaktärsdata. Skriv \"{id}\" eller \"install\" för att bekräfta.",
-				"confirmPlaceholder": "Skriv för att bekräfta",
-				"confirmTitle": "Installera extern kod?",
-				"error": "Kunde inte installera mod. {error}",
-				"install": "Installera",
-				"success": "\"{id}\" installerad",
-				"title": "Installera från URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Peka Mod Store mot ett staging-register i stället för det riktiga. Lämna tomt för att använda standard.",
-				"save": "Spara",
-				"title": "Åsidosätt registrets bas-URL"
-			},
-			"title": "Utvecklare",
-			"toggle": "Utvecklarläge",
-			"toggleDescription": "Tillåter installation av mods från en URL. Endast för författare och testare — mods har full åtkomst till appen."
-		},
-		"language": "Språk",
-		"mods": {
-			"actions": {
-				"disable": "Inaktivera",
-				"enable": "Aktivera",
-				"remove": "Ta bort",
-				"retry": "Försök igen",
-				"update": "Uppdatera"
-			},
-			"blocked": "\"{id}\" inaktiverades — den här versionen flaggades som osäker. Kolla Mod Store efter en uppdatering.",
-			"browse": {
-				"compatibleOnly": "Endast kompatibla med den här appen",
-				"empty": "Inga mods hittades",
-				"incompatible": "Inte kompatibel med den här appversionen",
-				"loadError": "Kunde inte läsa in Mod Store. {error}",
-				"offline": "Kunde inte uppdatera — visar cachade resultat",
-				"searchPlaceholder": "Sök mods",
-				"stale": "Visar cachade resultat — dra för att uppdatera"
-			},
-			"detail": {
-				"author": "Av {name}",
-				"blocked": "Den här versionen är blockerad",
-				"config": "Konfigurationsalternativ",
-				"downgrade": "Nedgradera",
-				"install": "Installera",
-				"installed": "Installerad",
-				"latest": "senaste",
-				"readme": "Om",
-				"remove": "Ta bort",
-				"update": "Uppdatera",
-				"updateAvailable": "Uppdatering tillgänglig",
-				"versions": "Versioner"
-			},
-			"empty": "Inga mods installerade",
-			"errors": {
-				"action": "Åtgärden kunde inte slutföras. {error}",
-				"list": "Kunde inte läsa in installerade mods. {error}"
-			},
-			"installSuccess": "\"{id}\" installerad",
-			"removeBlocked": "Används fortfarande av: {characters}",
-			"restartToApply": "Starta om för att tillämpa ändringar",
-			"source": {
-				"dev": "Dev",
-				"registry": "Register",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Inaktiverad",
-				"errored": "Fel",
-				"loaded": "Inläst"
-			},
-			"tabs": {
-				"browse": "Bläddra",
-				"installed": "Installerade"
-			},
-			"title": "Mods",
-			"updateSuccess": "\"{id}\" uppdaterad"
-		},
-		"theme": {
-			"dark": "Mörkt",
-			"defaultSkin": "Standard",
-			"light": "Ljust",
-			"system": "System",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Installera \"{module}\" från Mod Store",
-			"notInstalled": "\"{module}\" är inte installerad",
-			"openModStore": "Öppna Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Karaktär"
-		},
-		"roll-dice": {
-			"title": "Kasta tärningar"
-		},
-		"settings": {
-			"title": "Inställningar"
-		}
-	}
+  "a11y": {
+    "description": "beskrivning",
+    "name": "namn",
+    "quantity": "kvantitet",
+    "validation-error": "Valideringsfel"
+  },
+  "character": {
+    "configure": "Konfigurera",
+    "create": "Skapa karaktär",
+    "export": "Exportera karaktär",
+    "exportSuccess": "Karaktär exporterades framgångsrikt!",
+    "import": {
+      "error": {
+        "extension": "Kunde inte importera karaktär. Filändelsen måste vara .fchar",
+        "validation": "Kunde inte importera karaktär. Filen är ogiltig.",
+        "version": "Kunde inte importera karaktär. Karaktärens version är föråldrad."
+      },
+      "success": "Karaktär importerad framgångsrikt!",
+      "title": "Importera karaktär från fil"
+    },
+    "messages": {
+      "remove": "Är du säker på att du vill ta bort {value}?",
+      "update": "Karaktärens version är föråldrad. Vill du uppdatera den?"
+    },
+    "name": "Karaktärens namn",
+    "new-character": "Ny karaktär",
+    "no-characters": "Inga karaktärer skapade än. Skapa en ny eller importera från en fil.",
+    "not-selected": "Ingen karaktär vald ännu. Välj en eller skapa en ny!",
+    "remove-message": "Är du säker på att du vill ta bort denna karaktär?",
+    "save": "Spara karaktär",
+    "share": "Dela karaktär",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Karaktärens version är föråldrad. Vill du uppdatera den?",
+    "updated": "Karaktär uppdaterad framgångsrikt från v{from} till v{to}!",
+    "your-characters": "Dina karaktärer"
+  },
+  "common": {
+    "actions": {
+      "add": "Lägg till",
+      "back": "Tillbaka",
+      "cancel": "Avbryt",
+      "close": "Stäng",
+      "confirm": "Bekräfta",
+      "create": "Skapa",
+      "decrease": "Minska",
+      "delete": "Ta bort",
+      "edit": "Redigera",
+      "finish": "Avsluta",
+      "go": "Gå",
+      "increase": "Öka",
+      "next": "Nästa",
+      "remove": "Ta bort",
+      "reset": "Återställ",
+      "save": "Spara",
+      "select": "Välj",
+      "update": "Uppdatera",
+      "upload": "Ladda upp",
+      "use": "Använd"
+    },
+    "messages": {
+      "emptyList": "Inga element har lagts till än",
+      "remove": "Är du säker på att du vill ta bort det?",
+      "remove-named": "Är du säker på att du vill ta bort \"{value}\"?"
+    },
+    "or": "eller",
+    "state": {
+      "disabled": "Inaktiverad",
+      "enabled": "Aktiverad"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Lägg till testkaraktär"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Appen stötte på ett problem och kan inte fortsätta säkert. En omladdning bör lösa det.",
+      "reload": "Ladda om",
+      "title": "Något gick fel"
+    },
+    "character": {
+      "create": "Det gick inte att skapa karaktären. {error}",
+      "export": "Det gick inte att exportera karaktären. {error}",
+      "list": "Det gick inte att ladda karaktärslistan. {error}",
+      "load": "Det gick inte att ladda karaktären. {error}",
+      "remove": "Det gick inte att ta bort karaktären. {error}",
+      "save": "Det gick inte att spara karaktären. Ändringar kanske inte sparas. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Kräver appversion \"{requiredVersion}\" men den nuvarande är \"{appVersion}\"",
+      "incompatible": "Inkompatibel med \"{anotherModule}\"",
+      "missingDependencies": "Saknade beroenden: {modules}",
+      "notFound": "Modul hittades inte: \"{module}\"",
+      "otherDependsOn": "Andra moduler är beroende av denna: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Modulen '{module}' kräver appversion '{requiredAppVersion}', men nuvarande version är '{currentAppVersion}'.",
+      "dependencyCycle": "En beroendecykel upptäcktes som involverar: {modules}.",
+      "genericError": "Ett okänt fel uppstod vid modulupplösning.",
+      "incompatibleModules": "Modulen '{module}' är inkompatibel med: {incompatible}.",
+      "missingDependency": "Modulen '{module}' saknar beroendet '{dependency}'.",
+      "versionMismatch": "Modulen '{module}' kräver version '{requiredVersion}' av '{dependency}', men hittad version är '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Kunde inte exportera moduler. {error}"
+    },
+    "outdatedBrowser": "Din systemwebbläsare är föråldrad. Applikationen kanske inte fungerar som förväntat. Uppdatera den.",
+    "unexpected": "Något oväntat hände. Vissa delar av appen fungerar kanske inte som förväntat."
+  },
+  "forms": {
+    "description": "Beskrivning",
+    "name": "Namn",
+    "price": "Pris",
+    "quantity": "Kvantitet",
+    "skill": "Färdighet",
+    "type": "Typ"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Författare",
+      "dependencies": "Beroenden",
+      "description": "Beskrivning",
+      "id": "ID",
+      "label": "Anpassad konfiguration",
+      "languages": "Språk",
+      "mainSettings": "Huvudinställningar",
+      "name": "Namn",
+      "version": "Version"
+    },
+    "export": "Exportera modulkonfiguration",
+    "exportSuccess": "Moduler exporterades framgångsrikt!",
+    "external": "Extern",
+    "import": {
+      "error": {
+        "extension": "Kunde inte importera moduler. Filändelsen måste vara .fmod",
+        "validation": "Kunde inte importera moduler. Filen är ogiltig.",
+        "version": "Kunde inte importera moduler. Modulversionen är föråldrad."
+      },
+      "success": "Moduler importerade framgångsrikt!",
+      "title": "Importera moduler från fil"
+    },
+    "installed": "Installerade moduler ({value}):",
+    "save": "Spara modulkonfiguration",
+    "selected": "Valda moduler",
+    "share": "Dela modulkonfiguration",
+    "updated": "Modul {module} uppdaterad till v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Tärningsmaterial",
+        "title": "Tärningsalternativ",
+        "type": "Tärningstyp"
+      },
+      "force": "Kraft",
+      "general": {
+        "haptic": "Haptisk feedback",
+        "shake": "Skaka för att kasta",
+        "show-result": "Visa resultat på skärmen",
+        "title": "Allmänna inställningar"
+      },
+      "gravity": "Gravitation",
+      "haptic": "Haptisk feedback",
+      "number": "Antal tärningar",
+      "physics": {
+        "force": "Kraft",
+        "gravity": "Gravitation",
+        "number": "Antal tärningar",
+        "size": "Tärningsstorlek",
+        "title": "Fysikinställningar"
+      },
+      "reset": "Återställ konfiguration",
+      "resetPhysics": "Återställ fysikinställningar",
+      "shake": "Skaka för att kasta",
+      "size": "Tärningens storlek",
+      "title": "Konfiguration av tärningskast"
+    },
+    "result": "Kastresultatet är {value}",
+    "rolling": "Kastar...",
+    "throw": "Kasta {value} tärningar"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Författare",
+      "legal": {
+        "title": "Juridisk information och attribution"
+      },
+      "license": "Licens",
+      "privacy-policy": {
+        "accept-policy": "Jag har läst och accepterar sekretesspolicyn",
+        "acceptance-date": "Godkännandedatum: {value}",
+        "not-accepted": "Sekretesspolicyn har inte godkänts. Gå till inställningar, läs och acceptera den. Annars kan du inte använda appen.",
+        "title": "Sekretesspolicy",
+        "updated": "Välkommen tillbaka! Vi har gjort några uppdateringar i villkoren, så vi behöver att du bekräftar dem igen."
+      },
+      "source-code": "Källkod",
+      "title": "Om appen",
+      "version": "Version"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Visa felsökningsinformation",
+        "toggleDescription": "Visar extra felsökningsverktyg i appen — tärningsfysik-debuggern och dolda utvecklarssidor."
+      },
+      "devMod": {
+        "connect": "Anslut",
+        "connected": "Ansluten till \"{id}\"",
+        "disconnect": "Koppla från",
+        "error": "Kunde inte ansluta till utvecklingsmod. {error}",
+        "title": "Anslut utvecklingsmod",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Du installerar \"{id}\" utanför det granskade registret. Den får full åtkomst till appen och dina karaktärsdata. Skriv \"{id}\" eller \"install\" för att bekräfta.",
+        "confirmPlaceholder": "Skriv för att bekräfta",
+        "confirmTitle": "Installera extern kod?",
+        "error": "Kunde inte installera mod. {error}",
+        "install": "Installera",
+        "success": "\"{id}\" installerad",
+        "title": "Installera från URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Peka Mod Store mot ett staging-register i stället för det riktiga. Lämna tomt för att använda standard.",
+        "save": "Spara",
+        "title": "Åsidosätt registrets bas-URL"
+      },
+      "title": "Utvecklare",
+      "toggle": "Utvecklarläge",
+      "toggleDescription": "Tillåter installation av mods från en URL. Endast för författare och testare — mods har full åtkomst till appen."
+    },
+    "language": "Språk",
+    "mods": {
+      "actions": {
+        "disable": "Inaktivera",
+        "enable": "Aktivera",
+        "remove": "Ta bort",
+        "retry": "Försök igen",
+        "update": "Uppdatera",
+        "removeAnyway": "Ta bort ändå"
+      },
+      "blocked": "\"{id}\" inaktiverades — den här versionen flaggades som osäker. Kolla Mod Store efter en uppdatering.",
+      "browse": {
+        "compatibleOnly": "Endast kompatibla med den här appen",
+        "empty": "Inga mods hittades",
+        "incompatible": "Inte kompatibel med den här appversionen",
+        "loadError": "Kunde inte läsa in Mod Store. {error}",
+        "offline": "Kunde inte uppdatera — visar cachade resultat",
+        "searchPlaceholder": "Sök mods",
+        "stale": "Visar cachade resultat — dra för att uppdatera"
+      },
+      "detail": {
+        "author": "Av {name}",
+        "blocked": "Den här versionen är blockerad",
+        "config": "Konfigurationsalternativ",
+        "downgrade": "Nedgradera",
+        "install": "Installera",
+        "installed": "Installerad",
+        "latest": "senaste",
+        "readme": "Om",
+        "remove": "Ta bort",
+        "update": "Uppdatera",
+        "updateAvailable": "Uppdatering tillgänglig",
+        "versions": "Versioner"
+      },
+      "empty": "Inga mods installerade",
+      "errors": {
+        "action": "Åtgärden kunde inte slutföras. {error}",
+        "list": "Kunde inte läsa in installerade mods. {error}"
+      },
+      "installSuccess": "\"{id}\" installerad",
+      "restartToApply": "Starta om för att tillämpa ändringar",
+      "source": {
+        "dev": "Dev",
+        "registry": "Register",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Inaktiverad",
+        "errored": "Fel",
+        "loaded": "Inläst"
+      },
+      "tabs": {
+        "browse": "Bläddra",
+        "installed": "Installerade"
+      },
+      "title": "Mods",
+      "updateSuccess": "\"{id}\" uppdaterad",
+      "removeConfirm": {
+        "inUse": "Används fortfarande av: {characters}",
+        "willUninstall": "Om du tar bort den avinstalleras den från de karaktärerna."
+      }
+    },
+    "theme": {
+      "dark": "Mörkt",
+      "defaultSkin": "Standard",
+      "light": "Ljust",
+      "system": "System",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Installera \"{module}\" från Mod Store",
+      "notInstalled": "\"{module}\" är inte installerad",
+      "openModStore": "Öppna Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Karaktär"
+    },
+    "roll-dice": {
+      "title": "Kasta tärningar"
+    },
+    "settings": {
+      "title": "Inställningar"
+    }
+  }
 }

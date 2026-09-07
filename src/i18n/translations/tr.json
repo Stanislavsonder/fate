@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "açıklama",
-		"name": "isim",
-		"quantity": "miktar",
-		"validation-error": "Doğrulama hatası"
-	},
-	"character": {
-		"configure": "Yapılandır",
-		"create": "Karakter oluştur",
-		"export": "Karakteri dışa aktar",
-		"exportSuccess": "Karakter başarıyla dışa aktarıldı!",
-		"import": {
-			"error": {
-				"extension": "Karakter içe aktarılamadı. Dosya uzantısı .fchar olmalıdır",
-				"validation": "Karakter içe aktarılamadı. Dosya geçersiz.",
-				"version": "Karakter içe aktarılamadı. Karakterin sürümü eski."
-			},
-			"success": "Karakter başarıyla içe aktarıldı!",
-			"title": "Dosyadan karakter içe aktar"
-		},
-		"messages": {
-			"remove": "{value} öğesini silmek istediğinizden emin misiniz?",
-			"update": "Karakter sürümü güncel değil. Güncellemek ister misiniz?"
-		},
-		"name": "Karakterin adı",
-		"new-character": "Yeni Karakter",
-		"no-characters": "Henüz karakter oluşturulmadı. Yeni bir tane oluşturun veya dosyadan içe aktarın.",
-		"not-selected": "Karakter seçilmedi. Birini seçin veya yeni bir tane oluşturun!",
-		"remove-message": "Bu karakteri silmek istediğinizden emin misiniz?",
-		"save": "Karakteri kaydet",
-		"share": "Karakteri paylaş",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Karakter sürümü güncel değil. Güncellemek ister misiniz?",
-		"updated": "Karakter başarıyla v{from} sürümünden v{to} sürümüne güncellendi!",
-		"your-characters": "Karakterleriniz"
-	},
-	"common": {
-		"actions": {
-			"add": "Ekle",
-			"back": "Geri",
-			"cancel": "İptal",
-			"close": "Kapat",
-			"confirm": "Onayla",
-			"create": "Oluştur",
-			"decrease": "Azalt",
-			"delete": "Sil",
-			"edit": "Düzenle",
-			"finish": "Bitir",
-			"go": "Git",
-			"increase": "Artır",
-			"next": "İleri",
-			"remove": "Kaldır",
-			"reset": "Sıfırla",
-			"save": "Kaydet",
-			"select": "Seç",
-			"update": "Güncelle",
-			"upload": "Yükle",
-			"use": "Kullan"
-		},
-		"messages": {
-			"emptyList": "Henüz öğe eklenmedi",
-			"remove": "Bunu kaldırmak istediğinizden emin misiniz?",
-			"remove-named": "\"{value}\" adlı öğeyi kaldırmak istediğinizden emin misiniz?"
-		},
-		"or": "veya",
-		"state": {
-			"disabled": "Devre Dışı",
-			"enabled": "Etkin"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Test karakteri ekle"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Uygulama bir sorunla karşılaştı ve güvenli bir şekilde devam edemiyor. Yeniden yüklemek sorunu düzeltecektir.",
-			"reload": "Yeniden Yükle",
-			"title": "Bir şeyler yanlış gitti"
-		},
-		"character": {
-			"create": "Karakter oluşturulamadı. {error}",
-			"export": "Karakter dışa aktarılamadı. {error}",
-			"list": "Karakter listesi yüklenemedi. {error}",
-			"load": "Karakter yüklenemedi. {error}",
-			"remove": "Karakter silinemedi. {error}",
-			"save": "Karakter kaydedilemedi. Değişiklikler saklanamayabilir. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Gerekli uygulama sürümü \"{requiredVersion}\", ancak mevcut sürüm \"{appVersion}\"",
-			"incompatible": "\"{anotherModule}\" ile uyumsuz",
-			"missingDependencies": "Eksik bağımlılıklar: {modules}",
-			"notFound": "Modül bulunamadı: \"{module}\"",
-			"otherDependsOn": "Diğer modüller buna bağlı: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "'{module}' modülü, uygulama sürümü '{requiredAppVersion}' gerektiriyor, ancak mevcut sürüm '{currentAppVersion}'.",
-			"dependencyCycle": "{modules} içeren bir bağımlılık döngüsü tespit edildi.",
-			"genericError": "Modül çözümleme sırasında bilinmeyen bir hata oluştu.",
-			"incompatibleModules": "'{module}' modülü şu modüllerle uyumsuz: {incompatible}.",
-			"missingDependency": "'{module}' modülünde '{dependency}' bağımlılığı eksik.",
-			"versionMismatch": "'{module}' modülü, '{dependency}' için '{requiredVersion}' sürümünü gerektiriyor, ancak bulunan sürüm '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Modüller dışa aktarılamadı. {error}"
-		},
-		"outdatedBrowser": "Sistem tarayıcınız güncel değil. Uygulama beklenildiği gibi çalışmayabilir. Lütfen güncelleyin.",
-		"unexpected": "Beklenmeyen bir şey oluştu. Uygulamanın bazı kısımları beklendiği gibi çalışmayabilir."
-	},
-	"forms": {
-		"description": "Açıklama",
-		"name": "Ad",
-		"price": "Fiyat",
-		"quantity": "Miktar",
-		"skill": "Beceri",
-		"type": "Tür"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Yazar",
-			"dependencies": "Bağımlılıklar",
-			"description": "Açıklama",
-			"id": "ID",
-			"label": "Özel yapılandırma",
-			"languages": "Diller",
-			"mainSettings": "Ana Ayarlar",
-			"name": "Ad",
-			"version": "Sürüm"
-		},
-		"export": "Modül yapılandırmasını dışa aktar",
-		"exportSuccess": "Modüller başarıyla dışa aktarıldı!",
-		"external": "Harici",
-		"import": {
-			"error": {
-				"extension": "Modüller içe aktarılamadı. Dosya uzantısı .fmod olmalıdır",
-				"validation": "Modüller içe aktarılamadı. Dosya geçersiz.",
-				"version": "Modüller içe aktarılamadı. Modüllerin sürümü eski."
-			},
-			"success": "Modüller başarıyla içe aktarıldı!",
-			"title": "Dosyadan modüller içe aktar"
-		},
-		"installed": "Yüklenen modüller ({value}):",
-		"save": "Modül yapılandırmasını kaydet",
-		"selected": "Seçilen modüller",
-		"share": "Modül yapılandırmasını paylaş",
-		"updated": "{module} modülü v{version} sürümüne güncellendi"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Zar malzemesi",
-				"title": "Zar seçenekleri",
-				"type": "Zar türü"
-			},
-			"force": "Kuvvet",
-			"general": {
-				"haptic": "Dokunsal geri bildirim",
-				"shake": "Atmak için salla",
-				"show-result": "Sonucu ekranda göster",
-				"title": "Genel ayarlar"
-			},
-			"gravity": "Yerçekimi",
-			"haptic": "Dokunsal geri bildirim",
-			"number": "Zar sayısı",
-			"physics": {
-				"force": "Kuvvet",
-				"gravity": "Yerçekimi",
-				"number": "Zar sayısı",
-				"size": "Zar boyutu",
-				"title": "Fizik ayarları"
-			},
-			"reset": "Ayarları sıfırla",
-			"resetPhysics": "Fizik ayarlarını sıfırla",
-			"shake": "Atmak için sallayın",
-			"size": "Zar boyutu",
-			"title": "Zar atma yapılandırması"
-		},
-		"result": "Atış sonucu {value}",
-		"rolling": "Atılıyor...",
-		"throw": "{value} zar at"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Yazar",
-			"legal": {
-				"title": "Yasal bilgiler ve atıf"
-			},
-			"license": "Lisans",
-			"privacy-policy": {
-				"accept-policy": "Gizlilik politikasını okudum ve kabul ediyorum",
-				"acceptance-date": "Kabul tarihi: {value}",
-				"not-accepted": "Gizlilik politikası kabul edilmedi. Ayarlara gidin, okuyun ve kabul edin. Aksi takdirde uygulamayı kullanamazsınız.",
-				"title": "Gizlilik Politikası",
-				"updated": "Tekrar hoş geldiniz! Koşullarımızı biraz güncelledik, bu yüzden bir kez daha onaylamanızı istiyoruz."
-			},
-			"source-code": "Kaynak Kod",
-			"title": "Uygulama Hakkında",
-			"version": "Sürüm"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Hata ayıklama bilgisini göster",
-				"toggleDescription": "Uygulama genelinde ekstra hata ayıklama araçlarını gösterir — zar fiziği hata ayıklayıcısı ve gizli geliştirici sayfaları."
-			},
-			"devMod": {
-				"connect": "Bağlan",
-				"connected": "\"{id}\" öğesine bağlandı",
-				"disconnect": "Bağlantıyı kes",
-				"error": "Geliştirme moduna bağlanılamadı. {error}",
-				"title": "Geliştirme moduna bağlan",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "İncelenmiş kayıt defterinin dışından \"{id}\" kuruyorsunuz. Uygulamaya ve karakter verilerinize tam erişimle çalışacak. Onaylamak için \"{id}\" veya \"install\" yazın.",
-				"confirmPlaceholder": "Onaylamak için yazın",
-				"confirmTitle": "Harici kod kurulsun mu?",
-				"error": "Mod kurulamadı. {error}",
-				"install": "Kur",
-				"success": "\"{id}\" kuruldu",
-				"title": "URL’den kur",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Mod Store’u gerçek yerine bir staging kayıt defterine yönlendirin. Varsayılanı kullanmak için boş bırakın.",
-				"save": "Kaydet",
-				"title": "Kayıt defteri temel URL’sini geçersiz kıl"
-			},
-			"title": "Geliştirici",
-			"toggle": "Geliştirici Modu",
-			"toggleDescription": "URL’den mod kurulumunu etkinleştirir. Yalnızca yazarlar ve test edenler için — modlar uygulamaya tam erişimle çalışır."
-		},
-		"language": "Dil",
-		"mods": {
-			"actions": {
-				"disable": "Devre dışı bırak",
-				"enable": "Etkinleştir",
-				"remove": "Kaldır",
-				"retry": "Yeniden dene",
-				"update": "Güncelle"
-			},
-			"blocked": "\"{id}\" devre dışı bırakıldı — bu sürüm güvensiz olarak işaretlendi. Güncelleme için Mod Store’u kontrol edin.",
-			"browse": {
-				"compatibleOnly": "Yalnızca bu uygulamayla uyumlu",
-				"empty": "Mod bulunamadı",
-				"incompatible": "Bu uygulama sürümüyle uyumlu değil",
-				"loadError": "Mod Store yüklenemedi. {error}",
-				"offline": "Yenilenemedi — önbellekteki sonuçlar gösteriliyor",
-				"searchPlaceholder": "Mod ara",
-				"stale": "Önbellekteki sonuçlar gösteriliyor — yenilemek için çekin"
-			},
-			"detail": {
-				"author": "{name} tarafından",
-				"blocked": "Bu sürüm engellendi",
-				"config": "Yapılandırma seçenekleri",
-				"downgrade": "Sürümü düşür",
-				"install": "Kur",
-				"installed": "Kurulu",
-				"latest": "en yeni",
-				"readme": "Hakkında",
-				"remove": "Kaldır",
-				"update": "Güncelle",
-				"updateAvailable": "Güncelleme mevcut",
-				"versions": "Sürümler"
-			},
-			"empty": "Kurulu mod yok",
-			"errors": {
-				"action": "İşlem tamamlanamadı. {error}",
-				"list": "Kurulu modlar yüklenemedi. {error}"
-			},
-			"installSuccess": "\"{id}\" kuruldu",
-			"removeBlocked": "Hâlâ kullananlar: {characters}",
-			"restartToApply": "Değişiklikleri uygulamak için yeniden başlat",
-			"source": {
-				"dev": "Dev",
-				"registry": "Kayıt defteri",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Devre dışı",
-				"errored": "Hata",
-				"loaded": "Yüklendi"
-			},
-			"tabs": {
-				"browse": "Göz at",
-				"installed": "Kurulu"
-			},
-			"title": "Modlar",
-			"updateSuccess": "\"{id}\" güncellendi"
-		},
-		"theme": {
-			"dark": "Koyu",
-			"defaultSkin": "Varsayılan",
-			"light": "Açık",
-			"system": "Sistem",
-			"title": "Tema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Mod Store’dan \"{module}\" kur",
-			"notInstalled": "\"{module}\" kurulu değil",
-			"openModStore": "Mod Store’u aç"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Karakter"
-		},
-		"roll-dice": {
-			"title": "Zar At"
-		},
-		"settings": {
-			"title": "Ayarlar"
-		}
-	}
+  "a11y": {
+    "description": "açıklama",
+    "name": "isim",
+    "quantity": "miktar",
+    "validation-error": "Doğrulama hatası"
+  },
+  "character": {
+    "configure": "Yapılandır",
+    "create": "Karakter oluştur",
+    "export": "Karakteri dışa aktar",
+    "exportSuccess": "Karakter başarıyla dışa aktarıldı!",
+    "import": {
+      "error": {
+        "extension": "Karakter içe aktarılamadı. Dosya uzantısı .fchar olmalıdır",
+        "validation": "Karakter içe aktarılamadı. Dosya geçersiz.",
+        "version": "Karakter içe aktarılamadı. Karakterin sürümü eski."
+      },
+      "success": "Karakter başarıyla içe aktarıldı!",
+      "title": "Dosyadan karakter içe aktar"
+    },
+    "messages": {
+      "remove": "{value} öğesini silmek istediğinizden emin misiniz?",
+      "update": "Karakter sürümü güncel değil. Güncellemek ister misiniz?"
+    },
+    "name": "Karakterin adı",
+    "new-character": "Yeni Karakter",
+    "no-characters": "Henüz karakter oluşturulmadı. Yeni bir tane oluşturun veya dosyadan içe aktarın.",
+    "not-selected": "Karakter seçilmedi. Birini seçin veya yeni bir tane oluşturun!",
+    "remove-message": "Bu karakteri silmek istediğinizden emin misiniz?",
+    "save": "Karakteri kaydet",
+    "share": "Karakteri paylaş",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Karakter sürümü güncel değil. Güncellemek ister misiniz?",
+    "updated": "Karakter başarıyla v{from} sürümünden v{to} sürümüne güncellendi!",
+    "your-characters": "Karakterleriniz"
+  },
+  "common": {
+    "actions": {
+      "add": "Ekle",
+      "back": "Geri",
+      "cancel": "İptal",
+      "close": "Kapat",
+      "confirm": "Onayla",
+      "create": "Oluştur",
+      "decrease": "Azalt",
+      "delete": "Sil",
+      "edit": "Düzenle",
+      "finish": "Bitir",
+      "go": "Git",
+      "increase": "Artır",
+      "next": "İleri",
+      "remove": "Kaldır",
+      "reset": "Sıfırla",
+      "save": "Kaydet",
+      "select": "Seç",
+      "update": "Güncelle",
+      "upload": "Yükle",
+      "use": "Kullan"
+    },
+    "messages": {
+      "emptyList": "Henüz öğe eklenmedi",
+      "remove": "Bunu kaldırmak istediğinizden emin misiniz?",
+      "remove-named": "\"{value}\" adlı öğeyi kaldırmak istediğinizden emin misiniz?"
+    },
+    "or": "veya",
+    "state": {
+      "disabled": "Devre Dışı",
+      "enabled": "Etkin"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Test karakteri ekle"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Uygulama bir sorunla karşılaştı ve güvenli bir şekilde devam edemiyor. Yeniden yüklemek sorunu düzeltecektir.",
+      "reload": "Yeniden Yükle",
+      "title": "Bir şeyler yanlış gitti"
+    },
+    "character": {
+      "create": "Karakter oluşturulamadı. {error}",
+      "export": "Karakter dışa aktarılamadı. {error}",
+      "list": "Karakter listesi yüklenemedi. {error}",
+      "load": "Karakter yüklenemedi. {error}",
+      "remove": "Karakter silinemedi. {error}",
+      "save": "Karakter kaydedilemedi. Değişiklikler saklanamayabilir. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Gerekli uygulama sürümü \"{requiredVersion}\", ancak mevcut sürüm \"{appVersion}\"",
+      "incompatible": "\"{anotherModule}\" ile uyumsuz",
+      "missingDependencies": "Eksik bağımlılıklar: {modules}",
+      "notFound": "Modül bulunamadı: \"{module}\"",
+      "otherDependsOn": "Diğer modüller buna bağlı: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "'{module}' modülü, uygulama sürümü '{requiredAppVersion}' gerektiriyor, ancak mevcut sürüm '{currentAppVersion}'.",
+      "dependencyCycle": "{modules} içeren bir bağımlılık döngüsü tespit edildi.",
+      "genericError": "Modül çözümleme sırasında bilinmeyen bir hata oluştu.",
+      "incompatibleModules": "'{module}' modülü şu modüllerle uyumsuz: {incompatible}.",
+      "missingDependency": "'{module}' modülünde '{dependency}' bağımlılığı eksik.",
+      "versionMismatch": "'{module}' modülü, '{dependency}' için '{requiredVersion}' sürümünü gerektiriyor, ancak bulunan sürüm '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Modüller dışa aktarılamadı. {error}"
+    },
+    "outdatedBrowser": "Sistem tarayıcınız güncel değil. Uygulama beklenildiği gibi çalışmayabilir. Lütfen güncelleyin.",
+    "unexpected": "Beklenmeyen bir şey oluştu. Uygulamanın bazı kısımları beklendiği gibi çalışmayabilir."
+  },
+  "forms": {
+    "description": "Açıklama",
+    "name": "Ad",
+    "price": "Fiyat",
+    "quantity": "Miktar",
+    "skill": "Beceri",
+    "type": "Tür"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Yazar",
+      "dependencies": "Bağımlılıklar",
+      "description": "Açıklama",
+      "id": "ID",
+      "label": "Özel yapılandırma",
+      "languages": "Diller",
+      "mainSettings": "Ana Ayarlar",
+      "name": "Ad",
+      "version": "Sürüm"
+    },
+    "export": "Modül yapılandırmasını dışa aktar",
+    "exportSuccess": "Modüller başarıyla dışa aktarıldı!",
+    "external": "Harici",
+    "import": {
+      "error": {
+        "extension": "Modüller içe aktarılamadı. Dosya uzantısı .fmod olmalıdır",
+        "validation": "Modüller içe aktarılamadı. Dosya geçersiz.",
+        "version": "Modüller içe aktarılamadı. Modüllerin sürümü eski."
+      },
+      "success": "Modüller başarıyla içe aktarıldı!",
+      "title": "Dosyadan modüller içe aktar"
+    },
+    "installed": "Yüklenen modüller ({value}):",
+    "save": "Modül yapılandırmasını kaydet",
+    "selected": "Seçilen modüller",
+    "share": "Modül yapılandırmasını paylaş",
+    "updated": "{module} modülü v{version} sürümüne güncellendi"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Zar malzemesi",
+        "title": "Zar seçenekleri",
+        "type": "Zar türü"
+      },
+      "force": "Kuvvet",
+      "general": {
+        "haptic": "Dokunsal geri bildirim",
+        "shake": "Atmak için salla",
+        "show-result": "Sonucu ekranda göster",
+        "title": "Genel ayarlar"
+      },
+      "gravity": "Yerçekimi",
+      "haptic": "Dokunsal geri bildirim",
+      "number": "Zar sayısı",
+      "physics": {
+        "force": "Kuvvet",
+        "gravity": "Yerçekimi",
+        "number": "Zar sayısı",
+        "size": "Zar boyutu",
+        "title": "Fizik ayarları"
+      },
+      "reset": "Ayarları sıfırla",
+      "resetPhysics": "Fizik ayarlarını sıfırla",
+      "shake": "Atmak için sallayın",
+      "size": "Zar boyutu",
+      "title": "Zar atma yapılandırması"
+    },
+    "result": "Atış sonucu {value}",
+    "rolling": "Atılıyor...",
+    "throw": "{value} zar at"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Yazar",
+      "legal": {
+        "title": "Yasal bilgiler ve atıf"
+      },
+      "license": "Lisans",
+      "privacy-policy": {
+        "accept-policy": "Gizlilik politikasını okudum ve kabul ediyorum",
+        "acceptance-date": "Kabul tarihi: {value}",
+        "not-accepted": "Gizlilik politikası kabul edilmedi. Ayarlara gidin, okuyun ve kabul edin. Aksi takdirde uygulamayı kullanamazsınız.",
+        "title": "Gizlilik Politikası",
+        "updated": "Tekrar hoş geldiniz! Koşullarımızı biraz güncelledik, bu yüzden bir kez daha onaylamanızı istiyoruz."
+      },
+      "source-code": "Kaynak Kod",
+      "title": "Uygulama Hakkında",
+      "version": "Sürüm"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Hata ayıklama bilgisini göster",
+        "toggleDescription": "Uygulama genelinde ekstra hata ayıklama araçlarını gösterir — zar fiziği hata ayıklayıcısı ve gizli geliştirici sayfaları."
+      },
+      "devMod": {
+        "connect": "Bağlan",
+        "connected": "\"{id}\" öğesine bağlandı",
+        "disconnect": "Bağlantıyı kes",
+        "error": "Geliştirme moduna bağlanılamadı. {error}",
+        "title": "Geliştirme moduna bağlan",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "İncelenmiş kayıt defterinin dışından \"{id}\" kuruyorsunuz. Uygulamaya ve karakter verilerinize tam erişimle çalışacak. Onaylamak için \"{id}\" veya \"install\" yazın.",
+        "confirmPlaceholder": "Onaylamak için yazın",
+        "confirmTitle": "Harici kod kurulsun mu?",
+        "error": "Mod kurulamadı. {error}",
+        "install": "Kur",
+        "success": "\"{id}\" kuruldu",
+        "title": "URL’den kur",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Mod Store’u gerçek yerine bir staging kayıt defterine yönlendirin. Varsayılanı kullanmak için boş bırakın.",
+        "save": "Kaydet",
+        "title": "Kayıt defteri temel URL’sini geçersiz kıl"
+      },
+      "title": "Geliştirici",
+      "toggle": "Geliştirici Modu",
+      "toggleDescription": "URL’den mod kurulumunu etkinleştirir. Yalnızca yazarlar ve test edenler için — modlar uygulamaya tam erişimle çalışır."
+    },
+    "language": "Dil",
+    "mods": {
+      "actions": {
+        "disable": "Devre dışı bırak",
+        "enable": "Etkinleştir",
+        "remove": "Kaldır",
+        "retry": "Yeniden dene",
+        "update": "Güncelle",
+        "removeAnyway": "Yine de kaldır"
+      },
+      "blocked": "\"{id}\" devre dışı bırakıldı — bu sürüm güvensiz olarak işaretlendi. Güncelleme için Mod Store’u kontrol edin.",
+      "browse": {
+        "compatibleOnly": "Yalnızca bu uygulamayla uyumlu",
+        "empty": "Mod bulunamadı",
+        "incompatible": "Bu uygulama sürümüyle uyumlu değil",
+        "loadError": "Mod Store yüklenemedi. {error}",
+        "offline": "Yenilenemedi — önbellekteki sonuçlar gösteriliyor",
+        "searchPlaceholder": "Mod ara",
+        "stale": "Önbellekteki sonuçlar gösteriliyor — yenilemek için çekin"
+      },
+      "detail": {
+        "author": "{name} tarafından",
+        "blocked": "Bu sürüm engellendi",
+        "config": "Yapılandırma seçenekleri",
+        "downgrade": "Sürümü düşür",
+        "install": "Kur",
+        "installed": "Kurulu",
+        "latest": "en yeni",
+        "readme": "Hakkında",
+        "remove": "Kaldır",
+        "update": "Güncelle",
+        "updateAvailable": "Güncelleme mevcut",
+        "versions": "Sürümler"
+      },
+      "empty": "Kurulu mod yok",
+      "errors": {
+        "action": "İşlem tamamlanamadı. {error}",
+        "list": "Kurulu modlar yüklenemedi. {error}"
+      },
+      "installSuccess": "\"{id}\" kuruldu",
+      "restartToApply": "Değişiklikleri uygulamak için yeniden başlat",
+      "source": {
+        "dev": "Dev",
+        "registry": "Kayıt defteri",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Devre dışı",
+        "errored": "Hata",
+        "loaded": "Yüklendi"
+      },
+      "tabs": {
+        "browse": "Göz at",
+        "installed": "Kurulu"
+      },
+      "title": "Modlar",
+      "updateSuccess": "\"{id}\" güncellendi",
+      "removeConfirm": {
+        "inUse": "Hâlâ kullananlar: {characters}",
+        "willUninstall": "Kaldırmak bu modu o karakterlerden kaldırır."
+      }
+    },
+    "theme": {
+      "dark": "Koyu",
+      "defaultSkin": "Varsayılan",
+      "light": "Açık",
+      "system": "Sistem",
+      "title": "Tema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Mod Store’dan \"{module}\" kur",
+      "notInstalled": "\"{module}\" kurulu değil",
+      "openModStore": "Mod Store’u aç"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Karakter"
+    },
+    "roll-dice": {
+      "title": "Zar At"
+    },
+    "settings": {
+      "title": "Ayarlar"
+    }
+  }
 }

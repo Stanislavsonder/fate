@@ -14,11 +14,13 @@ import {
 	installFromRegistry,
 	isRegistryReleaseCompatible,
 	isRegistryVersionBlocked,
+	getCharactersUsingMod,
 	remove
 } from '@/mods/installService'
 import { getIndex, type RegistryModEntry } from '@/mods/registryClient'
-import { confirmRemove } from '@/utils/helpers/dialog'
-import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
+import { confirmRemoveMod } from '@/utils/helpers/dialog'
+import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
+import useCharacter from '@/store/useCharacter'
 
 const { entry } = defineProps<{ entry: RegistryModEntry }>()
 const emit = defineEmits<{ changed: [] }>()
@@ -27,6 +29,7 @@ const isOpen = defineModel<boolean>({ default: false })
 const { locale } = useI18n()
 const { t } = i18n.global
 const { getRegistryBase } = useRegistryBase()
+const characterStore = useCharacter()
 
 const busy = ref(false)
 const installedVersion = ref<string | null>(null)
@@ -108,17 +111,25 @@ async function selectVersion(version: string) {
 }
 
 async function performRemove() {
-	if (!(await confirmRemove(strings.value.name))) {
+	const usedBy = await getCharactersUsingMod(entry.id)
+	if (
+		!(await confirmRemoveMod(
+			strings.value.name,
+			usedBy.map(character => character.name)
+		))
+	) {
 		return
 	}
 	busy.value = true
 	try {
 		const result = await remove(entry.id)
 		if (result.ok) {
+			const currentId = characterStore.character?.id
+			if (currentId != null && usedBy.some(character => character.id === currentId)) {
+				await characterStore.loadCharacter(currentId)
+			}
 			await refreshState()
 			emit('changed')
-		} else if (result.reason === 'blocked') {
-			await showWarningToast('settings.mods.removeBlocked', { characters: result.characterNames.join(', ') })
 		} else {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
 		}

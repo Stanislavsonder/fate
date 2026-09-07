@@ -63,6 +63,7 @@ declare global {
 			 * used to trigger the mod-not-installed flow without driving the real
 			 * .fchar file-picker (see notInstalled.cy.ts for why). */
 			addCharacterModuleReference(characterName: string, moduleId: string, version: string): Chainable<void>
+			getStoredCharacter(characterName: string): Chainable<StoredCharacterRow>
 			/** ion-toast renders its message/buttons inside a shadow root, not as
 			 * slotted light-DOM content — plain `cy.get('ion-toast').should('contain.text', ...)`
 			 * always sees empty text because .text() doesn't cross the shadow
@@ -258,5 +259,16 @@ Cypress.Commands.add('addCharacterModuleReference', (characterName: string, modu
 		}
 		character._modules = { ...character._modules, [moduleId]: { version } }
 		await putRecord(win, 'characters', character)
+	})
+})
+
+Cypress.Commands.add('getStoredCharacter', (characterName: string) => {
+	cy.window().then(async win => {
+		const characters = await getAllRecords<StoredCharacterRow>(win, 'characters')
+		const character = characters.find(c => c.name === characterName)
+		if (!character) {
+			throw new Error(`No character named "${characterName}" found in IndexedDB`)
+		}
+		return character
 	})
 })

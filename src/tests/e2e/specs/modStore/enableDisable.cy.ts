@@ -28,6 +28,7 @@ describe('Installed mods - enable/disable', () => {
 		cy.contains('ion-tab-button', 'Character').click({ force: true })
 		cy.url().should('include', '/tabs/character')
 		cy.get('.example-section').should('not.exist')
+		cy.get('ion-toast').should('not.exist')
 
 		// Re-enable loads it back in-session (this boot started with it disabled,
 		// so setEnabled(true) must live-load the bundle, not rely on a reboot)

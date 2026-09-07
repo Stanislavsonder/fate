@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "kuvaus",
-		"name": "nimi",
-		"quantity": "määrä",
-		"validation-error": "Vahvistusvirhe"
-	},
-	"character": {
-		"configure": "Määritä",
-		"create": "Luo hahmo",
-		"export": "Vie hahmo",
-		"exportSuccess": "Hahmo vietiin onnistuneesti!",
-		"import": {
-			"error": {
-				"extension": "Hahmon tuonti epäonnistui. Tiedostopäätteen tulee olla .fchar",
-				"validation": "Hahmon tuonti epäonnistui. Tiedosto on virheellinen.",
-				"version": "Hahmon tuonti epäonnistui. Hahmon versio on vanhentunut."
-			},
-			"success": "Hahmo tuotu onnistuneesti!",
-			"title": "Tuo hahmo tiedostosta"
-		},
-		"messages": {
-			"remove": "Haluatko varmasti poistaa kohteen {value}?",
-			"update": "Hahmon versio on vanhentunut. Haluatko päivittää sen?"
-		},
-		"name": "Hahmon nimi",
-		"new-character": "Uusi hahmo",
-		"no-characters": "Ei vielä luotu hahmoja. Luo uusi tai tuo tiedostosta.",
-		"not-selected": "Hahmoa ei ole valittu. Valitse yksi tai luo uusi!",
-		"remove-message": "Oletko varma, että haluat poistaa tämän hahmon?",
-		"save": "Tallenna hahmo",
-		"share": "Jaa hahmo",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Hahmon versio on vanhentunut. Haluatko päivittää sen?",
-		"updated": "Hahmo päivitetty onnistuneesti versiosta v{from} versioon v{to}!",
-		"your-characters": "Hahmosi"
-	},
-	"common": {
-		"actions": {
-			"add": "Lisää",
-			"back": "Takaisin",
-			"cancel": "Peruuta",
-			"close": "Sulje",
-			"confirm": "Vahvista",
-			"create": "Luo",
-			"decrease": "Vähentää",
-			"delete": "Poista",
-			"edit": "Muokkaa",
-			"finish": "Valmis",
-			"go": "Mene",
-			"increase": "Lisätä",
-			"next": "Seuraava",
-			"remove": "Poista",
-			"reset": "Palauta",
-			"save": "Tallenna",
-			"select": "Valitse",
-			"update": "Päivitä",
-			"upload": "Lataa",
-			"use": "Käytä"
-		},
-		"messages": {
-			"emptyList": "Ei vielä lisättyjä elementtejä",
-			"remove": "Oletko varma, että haluat poistaa sen?",
-			"remove-named": "Oletko varma, että haluat poistaa \"{value}\"?"
-		},
-		"or": "tai",
-		"state": {
-			"disabled": "Pois käytöstä",
-			"enabled": "Käytössä"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Lisää testihahmo"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Sovelluksessa ilmeni ongelma, eikä se voi jatkaa turvallisesti. Sivun päivittäminen saattaa korjata ongelman.",
-			"reload": "Päivitä",
-			"title": "Jokin meni pieleen"
-		},
-		"character": {
-			"create": "Hahmoa ei voitu luoda. {error}",
-			"export": "Hahmoa ei voitu viedä. {error}",
-			"list": "Hahmoluetteloa ei voitu ladata. {error}",
-			"load": "Hahmoa ei voitu ladata. {error}",
-			"remove": "Hahmoa ei voitu poistaa. {error}",
-			"save": "Hahmoa ei voitu tallentaa. Muutokset eivät välttämättä tallennu. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Vaatii sovellusversion \"{requiredVersion}\", mutta nykyinen on \"{appVersion}\"",
-			"incompatible": "Yhteensopimaton moduulin \"{anotherModule}\" kanssa",
-			"missingDependencies": "Puuttuvat riippuvuudet: {modules}",
-			"notFound": "Moduulia ei löytynyt: \"{module}\"",
-			"otherDependsOn": "Muut moduulit ovat siitä riippuvaisia: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Moduuli '{module}' vaatii sovellusversion '{requiredAppVersion}', mutta nykyinen versio on '{currentAppVersion}'.",
-			"dependencyCycle": "Riippuvuussilmukka havaittu, johon liittyy: {modules}.",
-			"genericError": "Tuntematon virhe tapahtui moduulin ratkaisussa.",
-			"incompatibleModules": "Moduuli '{module}' on yhteensopimaton seuraavien kanssa: {incompatible}.",
-			"missingDependency": "Moduulista '{module}' puuttuu riippuvuus '{dependency}'.",
-			"versionMismatch": "Moduuli '{module}' vaatii version '{requiredVersion}' riippuvuudesta '{dependency}', mutta löydetty versio on '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Moduuleja ei voitu viedä. {error}"
-		},
-		"outdatedBrowser": "Järjestelmäsi selain on vanhentunut. Sovellus ei välttämättä toimi odotetulla tavalla. Päivitä se.",
-		"unexpected": "Tapahtui jotain odottamatonta. Jotkin sovelluksen osat eivät välttämättä toimi odotetulla tavalla."
-	},
-	"forms": {
-		"description": "Kuvaus",
-		"name": "Nimi",
-		"price": "Hinta",
-		"quantity": "Määrä",
-		"skill": "Taito",
-		"type": "Tyyppi"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Tekijä",
-			"dependencies": "Riippuvuudet",
-			"description": "Kuvaus",
-			"id": "ID",
-			"label": "Mukautettu kokoonpano",
-			"languages": "Kielet",
-			"mainSettings": "Pääasetukset",
-			"name": "Nimi",
-			"version": "Versio"
-		},
-		"export": "Vie moduulikonfiguraatio",
-		"exportSuccess": "Moduulit vietiin onnistuneesti!",
-		"external": "Ulkoinen",
-		"import": {
-			"error": {
-				"extension": "Moduulien tuonti epäonnistui. Tiedostopäätteen tulee olla .fmod",
-				"validation": "Moduulien tuonti epäonnistui. Tiedosto on virheellinen.",
-				"version": "Moduulien tuonti epäonnistui. Moduulien versio on vanhentunut."
-			},
-			"success": "Moduulit tuotu onnistuneesti!",
-			"title": "Tuo moduulit tiedostosta"
-		},
-		"installed": "Asennetut moduulit ({value}):",
-		"save": "Tallenna moduulien määritys",
-		"selected": "Valitut moduulit",
-		"share": "Jaa moduulien määritys",
-		"updated": "Moduuli {module} päivitetty versioon v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Nopan materiaali",
-				"title": "Noppa-asetukset",
-				"type": "Nopan tyyppi"
-			},
-			"force": "Voima",
-			"general": {
-				"haptic": "Haptinen palaute",
-				"shake": "Ravista heittääksesi",
-				"show-result": "Näytä tulos näytöllä",
-				"title": "Yleiset asetukset"
-			},
-			"gravity": "Painovoima",
-			"haptic": "Haptinen palaute",
-			"number": "Noppien määrä",
-			"physics": {
-				"force": "Voima",
-				"gravity": "Painovoima",
-				"number": "Noppien määrä",
-				"size": "Nopan koko",
-				"title": "Fysiikka-asetukset"
-			},
-			"reset": "Palauta asetukset",
-			"resetPhysics": "Palauta fysiikka-asetukset",
-			"shake": "Ravista heittääksesi",
-			"size": "Nopan koko",
-			"title": "Nopanheiton asetukset"
-		},
-		"result": "Heittotulos on {value}",
-		"rolling": "Heitetään...",
-		"throw": "Heitä {value} noppaa"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Tekijä",
-			"legal": {
-				"title": "Oikeudelliset tiedot ja lähdemerkinnät"
-			},
-			"license": "Lisenssi",
-			"privacy-policy": {
-				"accept-policy": "Olen lukenut ja hyväksyn tietosuojakäytännön",
-				"acceptance-date": "Hyväksymispäivämäärä: {value}",
-				"not-accepted": "Tietosuojakäytäntöä ei ole hyväksytty. Siirry asetuksiin, lue ja hyväksy se. Muuten et voi käyttää sovellusta.",
-				"title": "Tietosuojakäytäntö",
-				"updated": "Tervetuloa takaisin! Olemme päivittäneet ehtojamme hieman, joten tarvitsemme vahvistuksesi uudelleen."
-			},
-			"source-code": "Lähdekoodi",
-			"title": "Tietoa sovelluksesta",
-			"version": "Versio"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Näytä virheenkorjaustiedot",
-				"toggleDescription": "Näyttää lisävirheenkorjaustyökaluja sovelluksessa — noppfysiikan debuggerin ja piilotetut kehittäjäsivut."
-			},
-			"devMod": {
-				"connect": "Yhdistä",
-				"connected": "Yhdistetty: \"{id}\"",
-				"disconnect": "Katkaise yhteys",
-				"error": "Yhteyttä kehitysmodiin ei voitu muodostaa. {error}",
-				"title": "Yhdistä kehitysmodi",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Asennat \"{id}\" tarkistetun rekisterin ulkopuolelta. Se saa täyden pääsyn sovellukseen ja hahmotietoihin. Vahvista kirjoittamalla \"{id}\" tai \"install\".",
-				"confirmPlaceholder": "Kirjoita vahvistaaksesi",
-				"confirmTitle": "Asennetaanko ulkoinen koodi?",
-				"error": "Modia ei voitu asentaa. {error}",
-				"install": "Asenna",
-				"success": "\"{id}\" asennettu",
-				"title": "Asenna URL-osoitteesta",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Osoita Mod Store staging-rekisteriin oikean sijaan. Jätä tyhjäksi käyttääksesi oletusta.",
-				"save": "Tallenna",
-				"title": "Korvaa rekisterin perus-URL"
-			},
-			"title": "Kehittäjä",
-			"toggle": "Kehittäjätila",
-			"toggleDescription": "Mahdollistaa modejen asennuksen URL-osoitteesta. Vain tekijöille ja testaajille — modit saavat täyden pääsyn sovellukseen."
-		},
-		"language": "Kieli",
-		"mods": {
-			"actions": {
-				"disable": "Poista käytöstä",
-				"enable": "Ota käyttöön",
-				"remove": "Poista",
-				"retry": "Yritä uudelleen",
-				"update": "Päivitä"
-			},
-			"blocked": "\"{id}\" poistettiin käytöstä — tämä versio merkittiin turvattomaksi. Tarkista päivitys Mod Storesta.",
-			"browse": {
-				"compatibleOnly": "Vain tämän sovelluksen kanssa yhteensopivat",
-				"empty": "Modeja ei löytynyt",
-				"incompatible": "Ei yhteensopiva tämän sovellusversion kanssa",
-				"loadError": "Mod Storea ei voitu ladata. {error}",
-				"offline": "Päivitys epäonnistui — näytetään välimuistin tulokset",
-				"searchPlaceholder": "Etsi modeja",
-				"stale": "Välimuistin tulokset — vedä päivittääksesi"
-			},
-			"detail": {
-				"author": "Tekijä: {name}",
-				"blocked": "Tämä versio on estetty",
-				"config": "Asetusvaihtoehdot",
-				"downgrade": "Vaihda vanhempaan versioon",
-				"install": "Asenna",
-				"installed": "Asennettu",
-				"latest": "uusin",
-				"readme": "Tietoja",
-				"remove": "Poista",
-				"update": "Päivitä",
-				"updateAvailable": "Päivitys saatavilla",
-				"versions": "Versiot"
-			},
-			"empty": "Ei asennettuja modeja",
-			"errors": {
-				"action": "Toimintoa ei voitu suorittaa. {error}",
-				"list": "Asennettuja modeja ei voitu ladata. {error}"
-			},
-			"installSuccess": "\"{id}\" asennettu",
-			"removeBlocked": "Vielä käytössä: {characters}",
-			"restartToApply": "Käynnistä uudelleen ottaaksesi muutokset käyttöön",
-			"source": {
-				"dev": "Dev",
-				"registry": "Rekisteri",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Pois käytöstä",
-				"errored": "Virhe",
-				"loaded": "Ladattu"
-			},
-			"tabs": {
-				"browse": "Selaa",
-				"installed": "Asennetut"
-			},
-			"title": "Modit",
-			"updateSuccess": "\"{id}\" päivitetty"
-		},
-		"theme": {
-			"dark": "Tumma",
-			"defaultSkin": "Oletus",
-			"light": "Vaalea",
-			"system": "Järjestelmä",
-			"title": "Teema"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Asenna \"{module}\" Mod Storesta",
-			"notInstalled": "\"{module}\" ei ole asennettu",
-			"openModStore": "Avaa Mod Store"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Hahmo"
-		},
-		"roll-dice": {
-			"title": "Heitä noppia"
-		},
-		"settings": {
-			"title": "Asetukset"
-		}
-	}
+  "a11y": {
+    "description": "kuvaus",
+    "name": "nimi",
+    "quantity": "määrä",
+    "validation-error": "Vahvistusvirhe"
+  },
+  "character": {
+    "configure": "Määritä",
+    "create": "Luo hahmo",
+    "export": "Vie hahmo",
+    "exportSuccess": "Hahmo vietiin onnistuneesti!",
+    "import": {
+      "error": {
+        "extension": "Hahmon tuonti epäonnistui. Tiedostopäätteen tulee olla .fchar",
+        "validation": "Hahmon tuonti epäonnistui. Tiedosto on virheellinen.",
+        "version": "Hahmon tuonti epäonnistui. Hahmon versio on vanhentunut."
+      },
+      "success": "Hahmo tuotu onnistuneesti!",
+      "title": "Tuo hahmo tiedostosta"
+    },
+    "messages": {
+      "remove": "Haluatko varmasti poistaa kohteen {value}?",
+      "update": "Hahmon versio on vanhentunut. Haluatko päivittää sen?"
+    },
+    "name": "Hahmon nimi",
+    "new-character": "Uusi hahmo",
+    "no-characters": "Ei vielä luotu hahmoja. Luo uusi tai tuo tiedostosta.",
+    "not-selected": "Hahmoa ei ole valittu. Valitse yksi tai luo uusi!",
+    "remove-message": "Oletko varma, että haluat poistaa tämän hahmon?",
+    "save": "Tallenna hahmo",
+    "share": "Jaa hahmo",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Hahmon versio on vanhentunut. Haluatko päivittää sen?",
+    "updated": "Hahmo päivitetty onnistuneesti versiosta v{from} versioon v{to}!",
+    "your-characters": "Hahmosi"
+  },
+  "common": {
+    "actions": {
+      "add": "Lisää",
+      "back": "Takaisin",
+      "cancel": "Peruuta",
+      "close": "Sulje",
+      "confirm": "Vahvista",
+      "create": "Luo",
+      "decrease": "Vähentää",
+      "delete": "Poista",
+      "edit": "Muokkaa",
+      "finish": "Valmis",
+      "go": "Mene",
+      "increase": "Lisätä",
+      "next": "Seuraava",
+      "remove": "Poista",
+      "reset": "Palauta",
+      "save": "Tallenna",
+      "select": "Valitse",
+      "update": "Päivitä",
+      "upload": "Lataa",
+      "use": "Käytä"
+    },
+    "messages": {
+      "emptyList": "Ei vielä lisättyjä elementtejä",
+      "remove": "Oletko varma, että haluat poistaa sen?",
+      "remove-named": "Oletko varma, että haluat poistaa \"{value}\"?"
+    },
+    "or": "tai",
+    "state": {
+      "disabled": "Pois käytöstä",
+      "enabled": "Käytössä"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Lisää testihahmo"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Sovelluksessa ilmeni ongelma, eikä se voi jatkaa turvallisesti. Sivun päivittäminen saattaa korjata ongelman.",
+      "reload": "Päivitä",
+      "title": "Jokin meni pieleen"
+    },
+    "character": {
+      "create": "Hahmoa ei voitu luoda. {error}",
+      "export": "Hahmoa ei voitu viedä. {error}",
+      "list": "Hahmoluetteloa ei voitu ladata. {error}",
+      "load": "Hahmoa ei voitu ladata. {error}",
+      "remove": "Hahmoa ei voitu poistaa. {error}",
+      "save": "Hahmoa ei voitu tallentaa. Muutokset eivät välttämättä tallennu. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Vaatii sovellusversion \"{requiredVersion}\", mutta nykyinen on \"{appVersion}\"",
+      "incompatible": "Yhteensopimaton moduulin \"{anotherModule}\" kanssa",
+      "missingDependencies": "Puuttuvat riippuvuudet: {modules}",
+      "notFound": "Moduulia ei löytynyt: \"{module}\"",
+      "otherDependsOn": "Muut moduulit ovat siitä riippuvaisia: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Moduuli '{module}' vaatii sovellusversion '{requiredAppVersion}', mutta nykyinen versio on '{currentAppVersion}'.",
+      "dependencyCycle": "Riippuvuussilmukka havaittu, johon liittyy: {modules}.",
+      "genericError": "Tuntematon virhe tapahtui moduulin ratkaisussa.",
+      "incompatibleModules": "Moduuli '{module}' on yhteensopimaton seuraavien kanssa: {incompatible}.",
+      "missingDependency": "Moduulista '{module}' puuttuu riippuvuus '{dependency}'.",
+      "versionMismatch": "Moduuli '{module}' vaatii version '{requiredVersion}' riippuvuudesta '{dependency}', mutta löydetty versio on '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Moduuleja ei voitu viedä. {error}"
+    },
+    "outdatedBrowser": "Järjestelmäsi selain on vanhentunut. Sovellus ei välttämättä toimi odotetulla tavalla. Päivitä se.",
+    "unexpected": "Tapahtui jotain odottamatonta. Jotkin sovelluksen osat eivät välttämättä toimi odotetulla tavalla."
+  },
+  "forms": {
+    "description": "Kuvaus",
+    "name": "Nimi",
+    "price": "Hinta",
+    "quantity": "Määrä",
+    "skill": "Taito",
+    "type": "Tyyppi"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Tekijä",
+      "dependencies": "Riippuvuudet",
+      "description": "Kuvaus",
+      "id": "ID",
+      "label": "Mukautettu kokoonpano",
+      "languages": "Kielet",
+      "mainSettings": "Pääasetukset",
+      "name": "Nimi",
+      "version": "Versio"
+    },
+    "export": "Vie moduulikonfiguraatio",
+    "exportSuccess": "Moduulit vietiin onnistuneesti!",
+    "external": "Ulkoinen",
+    "import": {
+      "error": {
+        "extension": "Moduulien tuonti epäonnistui. Tiedostopäätteen tulee olla .fmod",
+        "validation": "Moduulien tuonti epäonnistui. Tiedosto on virheellinen.",
+        "version": "Moduulien tuonti epäonnistui. Moduulien versio on vanhentunut."
+      },
+      "success": "Moduulit tuotu onnistuneesti!",
+      "title": "Tuo moduulit tiedostosta"
+    },
+    "installed": "Asennetut moduulit ({value}):",
+    "save": "Tallenna moduulien määritys",
+    "selected": "Valitut moduulit",
+    "share": "Jaa moduulien määritys",
+    "updated": "Moduuli {module} päivitetty versioon v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Nopan materiaali",
+        "title": "Noppa-asetukset",
+        "type": "Nopan tyyppi"
+      },
+      "force": "Voima",
+      "general": {
+        "haptic": "Haptinen palaute",
+        "shake": "Ravista heittääksesi",
+        "show-result": "Näytä tulos näytöllä",
+        "title": "Yleiset asetukset"
+      },
+      "gravity": "Painovoima",
+      "haptic": "Haptinen palaute",
+      "number": "Noppien määrä",
+      "physics": {
+        "force": "Voima",
+        "gravity": "Painovoima",
+        "number": "Noppien määrä",
+        "size": "Nopan koko",
+        "title": "Fysiikka-asetukset"
+      },
+      "reset": "Palauta asetukset",
+      "resetPhysics": "Palauta fysiikka-asetukset",
+      "shake": "Ravista heittääksesi",
+      "size": "Nopan koko",
+      "title": "Nopanheiton asetukset"
+    },
+    "result": "Heittotulos on {value}",
+    "rolling": "Heitetään...",
+    "throw": "Heitä {value} noppaa"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Tekijä",
+      "legal": {
+        "title": "Oikeudelliset tiedot ja lähdemerkinnät"
+      },
+      "license": "Lisenssi",
+      "privacy-policy": {
+        "accept-policy": "Olen lukenut ja hyväksyn tietosuojakäytännön",
+        "acceptance-date": "Hyväksymispäivämäärä: {value}",
+        "not-accepted": "Tietosuojakäytäntöä ei ole hyväksytty. Siirry asetuksiin, lue ja hyväksy se. Muuten et voi käyttää sovellusta.",
+        "title": "Tietosuojakäytäntö",
+        "updated": "Tervetuloa takaisin! Olemme päivittäneet ehtojamme hieman, joten tarvitsemme vahvistuksesi uudelleen."
+      },
+      "source-code": "Lähdekoodi",
+      "title": "Tietoa sovelluksesta",
+      "version": "Versio"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Näytä virheenkorjaustiedot",
+        "toggleDescription": "Näyttää lisävirheenkorjaustyökaluja sovelluksessa — noppfysiikan debuggerin ja piilotetut kehittäjäsivut."
+      },
+      "devMod": {
+        "connect": "Yhdistä",
+        "connected": "Yhdistetty: \"{id}\"",
+        "disconnect": "Katkaise yhteys",
+        "error": "Yhteyttä kehitysmodiin ei voitu muodostaa. {error}",
+        "title": "Yhdistä kehitysmodi",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Asennat \"{id}\" tarkistetun rekisterin ulkopuolelta. Se saa täyden pääsyn sovellukseen ja hahmotietoihin. Vahvista kirjoittamalla \"{id}\" tai \"install\".",
+        "confirmPlaceholder": "Kirjoita vahvistaaksesi",
+        "confirmTitle": "Asennetaanko ulkoinen koodi?",
+        "error": "Modia ei voitu asentaa. {error}",
+        "install": "Asenna",
+        "success": "\"{id}\" asennettu",
+        "title": "Asenna URL-osoitteesta",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Osoita Mod Store staging-rekisteriin oikean sijaan. Jätä tyhjäksi käyttääksesi oletusta.",
+        "save": "Tallenna",
+        "title": "Korvaa rekisterin perus-URL"
+      },
+      "title": "Kehittäjä",
+      "toggle": "Kehittäjätila",
+      "toggleDescription": "Mahdollistaa modejen asennuksen URL-osoitteesta. Vain tekijöille ja testaajille — modit saavat täyden pääsyn sovellukseen."
+    },
+    "language": "Kieli",
+    "mods": {
+      "actions": {
+        "disable": "Poista käytöstä",
+        "enable": "Ota käyttöön",
+        "remove": "Poista",
+        "retry": "Yritä uudelleen",
+        "update": "Päivitä",
+        "removeAnyway": "Poista silti"
+      },
+      "blocked": "\"{id}\" poistettiin käytöstä — tämä versio merkittiin turvattomaksi. Tarkista päivitys Mod Storesta.",
+      "browse": {
+        "compatibleOnly": "Vain tämän sovelluksen kanssa yhteensopivat",
+        "empty": "Modeja ei löytynyt",
+        "incompatible": "Ei yhteensopiva tämän sovellusversion kanssa",
+        "loadError": "Mod Storea ei voitu ladata. {error}",
+        "offline": "Päivitys epäonnistui — näytetään välimuistin tulokset",
+        "searchPlaceholder": "Etsi modeja",
+        "stale": "Välimuistin tulokset — vedä päivittääksesi"
+      },
+      "detail": {
+        "author": "Tekijä: {name}",
+        "blocked": "Tämä versio on estetty",
+        "config": "Asetusvaihtoehdot",
+        "downgrade": "Vaihda vanhempaan versioon",
+        "install": "Asenna",
+        "installed": "Asennettu",
+        "latest": "uusin",
+        "readme": "Tietoja",
+        "remove": "Poista",
+        "update": "Päivitä",
+        "updateAvailable": "Päivitys saatavilla",
+        "versions": "Versiot"
+      },
+      "empty": "Ei asennettuja modeja",
+      "errors": {
+        "action": "Toimintoa ei voitu suorittaa. {error}",
+        "list": "Asennettuja modeja ei voitu ladata. {error}"
+      },
+      "installSuccess": "\"{id}\" asennettu",
+      "restartToApply": "Käynnistä uudelleen ottaaksesi muutokset käyttöön",
+      "source": {
+        "dev": "Dev",
+        "registry": "Rekisteri",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Pois käytöstä",
+        "errored": "Virhe",
+        "loaded": "Ladattu"
+      },
+      "tabs": {
+        "browse": "Selaa",
+        "installed": "Asennetut"
+      },
+      "title": "Modit",
+      "updateSuccess": "\"{id}\" päivitetty",
+      "removeConfirm": {
+        "inUse": "Vielä käytössä: {characters}",
+        "willUninstall": "Poistaminen poistaa tämän modin niiltä hahmoilta."
+      }
+    },
+    "theme": {
+      "dark": "Tumma",
+      "defaultSkin": "Oletus",
+      "light": "Vaalea",
+      "system": "Järjestelmä",
+      "title": "Teema"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Asenna \"{module}\" Mod Storesta",
+      "notInstalled": "\"{module}\" ei ole asennettu",
+      "openModStore": "Avaa Mod Store"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Hahmo"
+    },
+    "roll-dice": {
+      "title": "Heitä noppia"
+    },
+    "settings": {
+      "title": "Asetukset"
+    }
+  }
 }

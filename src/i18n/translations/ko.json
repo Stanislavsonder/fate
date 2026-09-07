@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "설명",
-		"name": "이름",
-		"quantity": "수량",
-		"validation-error": "유효성 검사 오류"
-	},
-	"character": {
-		"configure": "구성",
-		"create": "캐릭터 생성",
-		"export": "캐릭터 내보내기",
-		"exportSuccess": "캐릭터가 성공적으로 내보내졌습니다!",
-		"import": {
-			"error": {
-				"extension": "캐릭터를 가져올 수 없습니다. 파일 확장자는 .fchar이어야 합니다",
-				"validation": "캐릭터를 가져올 수 없습니다. 파일이 잘못되었습니다.",
-				"version": "캐릭터를 가져올 수 없습니다. 캐릭터 버전이 오래되었습니다."
-			},
-			"success": "캐릭터가 성공적으로 가져와졌습니다!",
-			"title": "파일에서 캐릭터 가져오기"
-		},
-		"messages": {
-			"remove": "{value}을(를) 삭제하시겠습니까?",
-			"update": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?"
-		},
-		"name": "캐릭터 이름",
-		"new-character": "새 캐릭터",
-		"no-characters": "아직 생성된 캐릭터가 없습니다. 새 캐릭터를 만들거나 파일에서 가져오세요.",
-		"not-selected": "캐릭터가 선택되지 않았습니다. 선택하거나 새로 만드세요!",
-		"remove-message": "이 캐릭터를 삭제하시겠습니까?",
-		"save": "캐릭터 저장",
-		"share": "캐릭터 공유",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?",
-		"updated": "캐릭터가 v{from}에서 v{to}로 성공적으로 업데이트되었습니다!",
-		"your-characters": "당신의 캐릭터"
-	},
-	"common": {
-		"actions": {
-			"add": "추가",
-			"back": "뒤로",
-			"cancel": "취소",
-			"close": "닫기",
-			"confirm": "확인",
-			"create": "생성",
-			"decrease": "감소",
-			"delete": "삭제",
-			"edit": "편집",
-			"finish": "완료",
-			"go": "가다",
-			"increase": "증가",
-			"next": "다음",
-			"remove": "삭제",
-			"reset": "재설정",
-			"save": "저장",
-			"select": "선택",
-			"update": "업데이트",
-			"upload": "업로드",
-			"use": "사용"
-		},
-		"messages": {
-			"emptyList": "아직 요소가 추가되지 않았습니다",
-			"remove": "정말로 제거하시겠습니까?",
-			"remove-named": "\"{value}\"을(를) 제거하시겠습니까?"
-		},
-		"or": "또는",
-		"state": {
-			"disabled": "비활성화됨",
-			"enabled": "활성화됨"
-		}
-	},
-	"debug": {
-		"add-mock-character": "테스트 캐릭터 추가"
-	},
-	"errors": {
-		"boundary": {
-			"description": "앱에 문제가 발생하여 안전하게 계속할 수 없습니다. 새로 고침하면 해결될 수 있습니다.",
-			"reload": "새로 고침",
-			"title": "문제가 발생했습니다"
-		},
-		"character": {
-			"create": "캐릭터를 생성할 수 없습니다. {error}",
-			"export": "캐릭터를 내보낼 수 없습니다. {error}",
-			"list": "캐릭터 목록을 불러올 수 없습니다. {error}",
-			"load": "캐릭터를 불러올 수 없습니다. {error}",
-			"remove": "캐릭터를 삭제할 수 없습니다. {error}",
-			"save": "캐릭터를 저장할 수 없습니다. 변경 사항이 저장되지 않을 수 있습니다. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "앱 버전 \"{requiredVersion}\"이 필요하지만 현재 버전은 \"{appVersion}\"입니다",
-			"incompatible": "\"{anotherModule}\"과(와) 호환되지 않음",
-			"missingDependencies": "누락된 종속성: {modules}",
-			"notFound": "모듈을 찾을 수 없음: \"{module}\"",
-			"otherDependsOn": "다른 모듈이 이에 의존함: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "모듈 '{module}'은(는) 앱 버전 '{requiredAppVersion}'이 필요하지만, 현재 버전은 '{currentAppVersion}'입니다.",
-			"dependencyCycle": "{modules}을(를) 포함하는 종속성 순환이 감지되었습니다.",
-			"genericError": "모듈 해결 중 알 수 없는 오류가 발생했습니다.",
-			"incompatibleModules": "모듈 '{module}'은(는) 다음과 호환되지 않습니다: {incompatible}.",
-			"missingDependency": "모듈 '{module}'에 종속성 '{dependency}'이(가) 없습니다.",
-			"versionMismatch": "모듈 '{module}'은(는) '{dependency}'의 버전 '{requiredVersion}'이 필요하지만, 발견된 버전은 '{actualVersion}'입니다."
-		},
-		"modules": {
-			"export": "모듈을 내보낼 수 없습니다. {error}"
-		},
-		"outdatedBrowser": "시스템 브라우저가 오래되었습니다. 애플리케이션이 예상대로 작동하지 않을 수 있습니다. 업데이트해 주세요.",
-		"unexpected": "예기치 않은 일이 발생했습니다. 앱의 일부 기능이 예상대로 작동하지 않을 수 있습니다."
-	},
-	"forms": {
-		"description": "설명",
-		"name": "이름",
-		"price": "가격",
-		"quantity": "수량",
-		"skill": "기술",
-		"type": "유형"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "저자",
-			"dependencies": "종속성",
-			"description": "설명",
-			"id": "ID",
-			"label": "사용자 지정 구성",
-			"languages": "언어",
-			"mainSettings": "기본 설정",
-			"name": "이름",
-			"version": "버전"
-		},
-		"export": "모듈 설정 내보내기",
-		"exportSuccess": "모듈이 성공적으로 내보내졌습니다!",
-		"external": "외부",
-		"import": {
-			"error": {
-				"extension": "모듈을 가져올 수 없습니다. 파일 확장자는 .fmod이어야 합니다",
-				"validation": "모듈을 가져올 수 없습니다. 파일이 잘못되었습니다.",
-				"version": "모듈을 가져올 수 없습니다. 모듈 버전이 오래되었습니다."
-			},
-			"success": "모듈이 성공적으로 가져와졌습니다!",
-			"title": "파일에서 모듈 가져오기"
-		},
-		"installed": "설치된 모듈 ({value}):",
-		"save": "모듈 구성 저장",
-		"selected": "선택된 모듈",
-		"share": "모듈 구성 공유",
-		"updated": "모듈 {module}이(가) v{version}으로 업데이트되었습니다"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "주사위 재질",
-				"title": "주사위 옵션",
-				"type": "주사위 종류"
-			},
-			"force": "힘",
-			"general": {
-				"haptic": "햅틱 피드백",
-				"shake": "흔들어서 던지기",
-				"show-result": "화면에 결과 표시",
-				"title": "일반 설정"
-			},
-			"gravity": "중력",
-			"haptic": "촉각 피드백",
-			"number": "주사위 개수",
-			"physics": {
-				"force": "힘",
-				"gravity": "중력",
-				"number": "주사위 개수",
-				"size": "주사위 크기",
-				"title": "물리 설정"
-			},
-			"reset": "설정 초기화",
-			"resetPhysics": "물리 설정 초기화",
-			"shake": "흔들어 던지기",
-			"size": "주사위 크기",
-			"title": "주사위 던지기 설정"
-		},
-		"result": "던진 결과는 {value} 입니다",
-		"rolling": "던지는 중...",
-		"throw": "{value}개의 주사위를 던지기"
-	},
-	"settings": {
-		"about-app": {
-			"author": "작성자",
-			"legal": {
-				"title": "법적 고지 및 저작자 표시"
-			},
-			"license": "라이선스",
-			"privacy-policy": {
-				"accept-policy": "개인정보 보호정책을 읽고 동의합니다",
-				"acceptance-date": "동의 날짜: {value}",
-				"not-accepted": "개인정보 보호정책에 동의하지 않았습니다. 설정으로 이동하여 읽고 동의하세요. 그렇지 않으면 앱을 사용할 수 없습니다.",
-				"title": "개인정보 보호정책",
-				"updated": "다시 오신 것을 환영합니다! 약관을 조금 업데이트했으니 한 번 더 확인해 주세요."
-			},
-			"source-code": "소스 코드",
-			"title": "앱 정보",
-			"version": "버전"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "디버그 정보 표시",
-				"toggleDescription": "앱 전체에 추가 디버그 도구를 표시합니다 — 주사위 물리 디버거와 숨겨진 개발자 페이지."
-			},
-			"devMod": {
-				"connect": "연결",
-				"connected": "\"{id}\"에 연결됨",
-				"disconnect": "연결 해제",
-				"error": "개발 모드에 연결할 수 없습니다. {error}",
-				"title": "개발 모드 연결",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "검토된 레지스트리 외부에서 \"{id}\"를 설치합니다. 앱과 캐릭터 데이터에 대한 전체 접근 권한으로 실행됩니다. 확인하려면 \"{id}\" 또는 \"install\"을 입력하세요.",
-				"confirmPlaceholder": "확인하려면 입력",
-				"confirmTitle": "외부 코드를 설치할까요?",
-				"error": "모드를 설치할 수 없습니다. {error}",
-				"install": "설치",
-				"success": "\"{id}\" 설치됨",
-				"title": "URL에서 설치",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Mod Store를 실제 대신 스테이징 레지스트리로 지정합니다. 기본값을 쓰려면 비워 두세요.",
-				"save": "저장",
-				"title": "레지스트리 기본 URL 재정의"
-			},
-			"title": "개발자",
-			"toggle": "개발자 모드",
-			"toggleDescription": "URL에서 모드를 설치할 수 있게 합니다. 작성자와 테스터 전용 — 모드는 앱에 대한 전체 접근 권한으로 실행됩니다."
-		},
-		"language": "언어",
-		"mods": {
-			"actions": {
-				"disable": "비활성화",
-				"enable": "활성화",
-				"remove": "제거",
-				"retry": "다시 시도",
-				"update": "업데이트"
-			},
-			"blocked": "\"{id}\"가 비활성화되었습니다 — 이 버전이 안전하지 않은 것으로 표시되었습니다. Mod Store에서 업데이트를 확인하세요.",
-			"browse": {
-				"compatibleOnly": "이 앱과 호환되는 항목만",
-				"empty": "모드를 찾을 수 없음",
-				"incompatible": "이 앱 버전과 호환되지 않음",
-				"loadError": "Mod Store를 불러올 수 없습니다. {error}",
-				"offline": "새로고침할 수 없음 — 캐시된 결과 표시 중",
-				"searchPlaceholder": "모드 검색",
-				"stale": "캐시된 결과 표시 중 — 당겨서 새로고침"
-			},
-			"detail": {
-				"author": "{name}",
-				"blocked": "이 버전은 차단되었습니다",
-				"config": "구성 옵션",
-				"downgrade": "다운그레이드",
-				"install": "설치",
-				"installed": "설치됨",
-				"latest": "최신",
-				"readme": "정보",
-				"remove": "제거",
-				"update": "업데이트",
-				"updateAvailable": "업데이트 가능",
-				"versions": "버전"
-			},
-			"empty": "설치된 모드 없음",
-			"errors": {
-				"action": "작업을 완료할 수 없습니다. {error}",
-				"list": "설치된 모드를 불러올 수 없습니다. {error}"
-			},
-			"installSuccess": "\"{id}\" 설치됨",
-			"removeBlocked": "아직 사용 중: {characters}",
-			"restartToApply": "변경 사항을 적용하려면 다시 시작",
-			"source": {
-				"dev": "Dev",
-				"registry": "레지스트리",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "비활성화됨",
-				"errored": "오류",
-				"loaded": "로드됨"
-			},
-			"tabs": {
-				"browse": "둘러보기",
-				"installed": "설치됨"
-			},
-			"title": "모드",
-			"updateSuccess": "\"{id}\" 업데이트됨"
-		},
-		"theme": {
-			"dark": "다크",
-			"defaultSkin": "기본",
-			"light": "라이트",
-			"system": "시스템",
-			"title": "테마"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Mod Store에서 \"{module}\" 설치",
-			"notInstalled": "\"{module}\"이(가) 설치되어 있지 않음",
-			"openModStore": "Mod Store 열기"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "캐릭터"
-		},
-		"roll-dice": {
-			"title": "주사위 굴리기"
-		},
-		"settings": {
-			"title": "설정"
-		}
-	}
+  "a11y": {
+    "description": "설명",
+    "name": "이름",
+    "quantity": "수량",
+    "validation-error": "유효성 검사 오류"
+  },
+  "character": {
+    "configure": "구성",
+    "create": "캐릭터 생성",
+    "export": "캐릭터 내보내기",
+    "exportSuccess": "캐릭터가 성공적으로 내보내졌습니다!",
+    "import": {
+      "error": {
+        "extension": "캐릭터를 가져올 수 없습니다. 파일 확장자는 .fchar이어야 합니다",
+        "validation": "캐릭터를 가져올 수 없습니다. 파일이 잘못되었습니다.",
+        "version": "캐릭터를 가져올 수 없습니다. 캐릭터 버전이 오래되었습니다."
+      },
+      "success": "캐릭터가 성공적으로 가져와졌습니다!",
+      "title": "파일에서 캐릭터 가져오기"
+    },
+    "messages": {
+      "remove": "{value}을(를) 삭제하시겠습니까?",
+      "update": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?"
+    },
+    "name": "캐릭터 이름",
+    "new-character": "새 캐릭터",
+    "no-characters": "아직 생성된 캐릭터가 없습니다. 새 캐릭터를 만들거나 파일에서 가져오세요.",
+    "not-selected": "캐릭터가 선택되지 않았습니다. 선택하거나 새로 만드세요!",
+    "remove-message": "이 캐릭터를 삭제하시겠습니까?",
+    "save": "캐릭터 저장",
+    "share": "캐릭터 공유",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?",
+    "updated": "캐릭터가 v{from}에서 v{to}로 성공적으로 업데이트되었습니다!",
+    "your-characters": "당신의 캐릭터"
+  },
+  "common": {
+    "actions": {
+      "add": "추가",
+      "back": "뒤로",
+      "cancel": "취소",
+      "close": "닫기",
+      "confirm": "확인",
+      "create": "생성",
+      "decrease": "감소",
+      "delete": "삭제",
+      "edit": "편집",
+      "finish": "완료",
+      "go": "가다",
+      "increase": "증가",
+      "next": "다음",
+      "remove": "삭제",
+      "reset": "재설정",
+      "save": "저장",
+      "select": "선택",
+      "update": "업데이트",
+      "upload": "업로드",
+      "use": "사용"
+    },
+    "messages": {
+      "emptyList": "아직 요소가 추가되지 않았습니다",
+      "remove": "정말로 제거하시겠습니까?",
+      "remove-named": "\"{value}\"을(를) 제거하시겠습니까?"
+    },
+    "or": "또는",
+    "state": {
+      "disabled": "비활성화됨",
+      "enabled": "활성화됨"
+    }
+  },
+  "debug": {
+    "add-mock-character": "테스트 캐릭터 추가"
+  },
+  "errors": {
+    "boundary": {
+      "description": "앱에 문제가 발생하여 안전하게 계속할 수 없습니다. 새로 고침하면 해결될 수 있습니다.",
+      "reload": "새로 고침",
+      "title": "문제가 발생했습니다"
+    },
+    "character": {
+      "create": "캐릭터를 생성할 수 없습니다. {error}",
+      "export": "캐릭터를 내보낼 수 없습니다. {error}",
+      "list": "캐릭터 목록을 불러올 수 없습니다. {error}",
+      "load": "캐릭터를 불러올 수 없습니다. {error}",
+      "remove": "캐릭터를 삭제할 수 없습니다. {error}",
+      "save": "캐릭터를 저장할 수 없습니다. 변경 사항이 저장되지 않을 수 있습니다. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "앱 버전 \"{requiredVersion}\"이 필요하지만 현재 버전은 \"{appVersion}\"입니다",
+      "incompatible": "\"{anotherModule}\"과(와) 호환되지 않음",
+      "missingDependencies": "누락된 종속성: {modules}",
+      "notFound": "모듈을 찾을 수 없음: \"{module}\"",
+      "otherDependsOn": "다른 모듈이 이에 의존함: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "모듈 '{module}'은(는) 앱 버전 '{requiredAppVersion}'이 필요하지만, 현재 버전은 '{currentAppVersion}'입니다.",
+      "dependencyCycle": "{modules}을(를) 포함하는 종속성 순환이 감지되었습니다.",
+      "genericError": "모듈 해결 중 알 수 없는 오류가 발생했습니다.",
+      "incompatibleModules": "모듈 '{module}'은(는) 다음과 호환되지 않습니다: {incompatible}.",
+      "missingDependency": "모듈 '{module}'에 종속성 '{dependency}'이(가) 없습니다.",
+      "versionMismatch": "모듈 '{module}'은(는) '{dependency}'의 버전 '{requiredVersion}'이 필요하지만, 발견된 버전은 '{actualVersion}'입니다."
+    },
+    "modules": {
+      "export": "모듈을 내보낼 수 없습니다. {error}"
+    },
+    "outdatedBrowser": "시스템 브라우저가 오래되었습니다. 애플리케이션이 예상대로 작동하지 않을 수 있습니다. 업데이트해 주세요.",
+    "unexpected": "예기치 않은 일이 발생했습니다. 앱의 일부 기능이 예상대로 작동하지 않을 수 있습니다."
+  },
+  "forms": {
+    "description": "설명",
+    "name": "이름",
+    "price": "가격",
+    "quantity": "수량",
+    "skill": "기술",
+    "type": "유형"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "저자",
+      "dependencies": "종속성",
+      "description": "설명",
+      "id": "ID",
+      "label": "사용자 지정 구성",
+      "languages": "언어",
+      "mainSettings": "기본 설정",
+      "name": "이름",
+      "version": "버전"
+    },
+    "export": "모듈 설정 내보내기",
+    "exportSuccess": "모듈이 성공적으로 내보내졌습니다!",
+    "external": "외부",
+    "import": {
+      "error": {
+        "extension": "모듈을 가져올 수 없습니다. 파일 확장자는 .fmod이어야 합니다",
+        "validation": "모듈을 가져올 수 없습니다. 파일이 잘못되었습니다.",
+        "version": "모듈을 가져올 수 없습니다. 모듈 버전이 오래되었습니다."
+      },
+      "success": "모듈이 성공적으로 가져와졌습니다!",
+      "title": "파일에서 모듈 가져오기"
+    },
+    "installed": "설치된 모듈 ({value}):",
+    "save": "모듈 구성 저장",
+    "selected": "선택된 모듈",
+    "share": "모듈 구성 공유",
+    "updated": "모듈 {module}이(가) v{version}으로 업데이트되었습니다"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "주사위 재질",
+        "title": "주사위 옵션",
+        "type": "주사위 종류"
+      },
+      "force": "힘",
+      "general": {
+        "haptic": "햅틱 피드백",
+        "shake": "흔들어서 던지기",
+        "show-result": "화면에 결과 표시",
+        "title": "일반 설정"
+      },
+      "gravity": "중력",
+      "haptic": "촉각 피드백",
+      "number": "주사위 개수",
+      "physics": {
+        "force": "힘",
+        "gravity": "중력",
+        "number": "주사위 개수",
+        "size": "주사위 크기",
+        "title": "물리 설정"
+      },
+      "reset": "설정 초기화",
+      "resetPhysics": "물리 설정 초기화",
+      "shake": "흔들어 던지기",
+      "size": "주사위 크기",
+      "title": "주사위 던지기 설정"
+    },
+    "result": "던진 결과는 {value} 입니다",
+    "rolling": "던지는 중...",
+    "throw": "{value}개의 주사위를 던지기"
+  },
+  "settings": {
+    "about-app": {
+      "author": "작성자",
+      "legal": {
+        "title": "법적 고지 및 저작자 표시"
+      },
+      "license": "라이선스",
+      "privacy-policy": {
+        "accept-policy": "개인정보 보호정책을 읽고 동의합니다",
+        "acceptance-date": "동의 날짜: {value}",
+        "not-accepted": "개인정보 보호정책에 동의하지 않았습니다. 설정으로 이동하여 읽고 동의하세요. 그렇지 않으면 앱을 사용할 수 없습니다.",
+        "title": "개인정보 보호정책",
+        "updated": "다시 오신 것을 환영합니다! 약관을 조금 업데이트했으니 한 번 더 확인해 주세요."
+      },
+      "source-code": "소스 코드",
+      "title": "앱 정보",
+      "version": "버전"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "디버그 정보 표시",
+        "toggleDescription": "앱 전체에 추가 디버그 도구를 표시합니다 — 주사위 물리 디버거와 숨겨진 개발자 페이지."
+      },
+      "devMod": {
+        "connect": "연결",
+        "connected": "\"{id}\"에 연결됨",
+        "disconnect": "연결 해제",
+        "error": "개발 모드에 연결할 수 없습니다. {error}",
+        "title": "개발 모드 연결",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "검토된 레지스트리 외부에서 \"{id}\"를 설치합니다. 앱과 캐릭터 데이터에 대한 전체 접근 권한으로 실행됩니다. 확인하려면 \"{id}\" 또는 \"install\"을 입력하세요.",
+        "confirmPlaceholder": "확인하려면 입력",
+        "confirmTitle": "외부 코드를 설치할까요?",
+        "error": "모드를 설치할 수 없습니다. {error}",
+        "install": "설치",
+        "success": "\"{id}\" 설치됨",
+        "title": "URL에서 설치",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Mod Store를 실제 대신 스테이징 레지스트리로 지정합니다. 기본값을 쓰려면 비워 두세요.",
+        "save": "저장",
+        "title": "레지스트리 기본 URL 재정의"
+      },
+      "title": "개발자",
+      "toggle": "개발자 모드",
+      "toggleDescription": "URL에서 모드를 설치할 수 있게 합니다. 작성자와 테스터 전용 — 모드는 앱에 대한 전체 접근 권한으로 실행됩니다."
+    },
+    "language": "언어",
+    "mods": {
+      "actions": {
+        "disable": "비활성화",
+        "enable": "활성화",
+        "remove": "제거",
+        "retry": "다시 시도",
+        "update": "업데이트",
+        "removeAnyway": "그래도 제거"
+      },
+      "blocked": "\"{id}\"가 비활성화되었습니다 — 이 버전이 안전하지 않은 것으로 표시되었습니다. Mod Store에서 업데이트를 확인하세요.",
+      "browse": {
+        "compatibleOnly": "이 앱과 호환되는 항목만",
+        "empty": "모드를 찾을 수 없음",
+        "incompatible": "이 앱 버전과 호환되지 않음",
+        "loadError": "Mod Store를 불러올 수 없습니다. {error}",
+        "offline": "새로고침할 수 없음 — 캐시된 결과 표시 중",
+        "searchPlaceholder": "모드 검색",
+        "stale": "캐시된 결과 표시 중 — 당겨서 새로고침"
+      },
+      "detail": {
+        "author": "{name}",
+        "blocked": "이 버전은 차단되었습니다",
+        "config": "구성 옵션",
+        "downgrade": "다운그레이드",
+        "install": "설치",
+        "installed": "설치됨",
+        "latest": "최신",
+        "readme": "정보",
+        "remove": "제거",
+        "update": "업데이트",
+        "updateAvailable": "업데이트 가능",
+        "versions": "버전"
+      },
+      "empty": "설치된 모드 없음",
+      "errors": {
+        "action": "작업을 완료할 수 없습니다. {error}",
+        "list": "설치된 모드를 불러올 수 없습니다. {error}"
+      },
+      "installSuccess": "\"{id}\" 설치됨",
+      "restartToApply": "변경 사항을 적용하려면 다시 시작",
+      "source": {
+        "dev": "Dev",
+        "registry": "레지스트리",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "비활성화됨",
+        "errored": "오류",
+        "loaded": "로드됨"
+      },
+      "tabs": {
+        "browse": "둘러보기",
+        "installed": "설치됨"
+      },
+      "title": "모드",
+      "updateSuccess": "\"{id}\" 업데이트됨",
+      "removeConfirm": {
+        "inUse": "아직 사용 중: {characters}",
+        "willUninstall": "제거하면 해당 캐릭터에서 이 모드가 삭제됩니다."
+      }
+    },
+    "theme": {
+      "dark": "다크",
+      "defaultSkin": "기본",
+      "light": "라이트",
+      "system": "시스템",
+      "title": "테마"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Mod Store에서 \"{module}\" 설치",
+      "notInstalled": "\"{module}\"이(가) 설치되어 있지 않음",
+      "openModStore": "Mod Store 열기"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "캐릭터"
+    },
+    "roll-dice": {
+      "title": "주사위 굴리기"
+    },
+    "settings": {
+      "title": "설정"
+    }
+  }
 }

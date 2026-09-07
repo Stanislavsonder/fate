@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "maelezo",
-		"name": "jina",
-		"quantity": "idadi",
-		"validation-error": "Hitilafu ya uthibitishaji"
-	},
-	"character": {
-		"configure": "Sanidi",
-		"create": "Unda mhusika",
-		"export": "Hamisha mhusika",
-		"exportSuccess": "Mhusika amesafirishwa kwa mafanikio!",
-		"import": {
-			"error": {
-				"extension": "Haiwezekani kuingiza mhusika. Kiendelezi cha faili kinapaswa kuwa .fchar",
-				"validation": "Haiwezekani kuingiza mhusika. Faili si sahihi.",
-				"version": "Haiwezekani kuingiza mhusika. Toleo la mhusika limepitwa na wakati."
-			},
-			"success": "Mhusika ameingizwa kwa mafanikio!",
-			"title": "Ingiza mhusika kutoka faili"
-		},
-		"messages": {
-			"remove": "Je, una uhakika unataka kuondoa {value}?",
-			"update": "Toleo la mhusika limepitwa na wakati. Lisashe?"
-		},
-		"name": "Jina la mhusika",
-		"new-character": "Mhusika Mpya",
-		"no-characters": "Hakuna wahusika walioundwa bado. Unda mpya au ingiza kutoka kwa faili.",
-		"not-selected": "Mhusika hajachaguliwa bado. Chagua mmoja au unda mpya!",
-		"remove-message": "Je, una hakika unataka kuondoa mhusika huyu?",
-		"save": "Hifadhi mhusika",
-		"share": "Shiriki mhusika",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "Toleo la mhusika limepitwa na wakati. Unataka kulisasisha?",
-		"updated": "Mhusika amesasishwa kwa mafanikio kutoka v{from} hadi v{to}!",
-		"your-characters": "Wahusika Wako"
-	},
-	"common": {
-		"actions": {
-			"add": "Ongeza",
-			"back": "Rudi",
-			"cancel": "Ghairi",
-			"close": "Funga",
-			"confirm": "Thibitisha",
-			"create": "Tengeneza",
-			"decrease": "Punguza",
-			"delete": "Futa",
-			"edit": "Hariri",
-			"finish": "Maliza",
-			"go": "Nenda",
-			"increase": "Ongeza",
-			"next": "Ifuatayo",
-			"remove": "Ondoa",
-			"reset": "Weka upya",
-			"save": "Hifadhi",
-			"select": "Chagua",
-			"update": "Sasisha",
-			"upload": "Pakia",
-			"use": "Tumia"
-		},
-		"messages": {
-			"emptyList": "Hakuna vipengee vilivyoongezwa bado",
-			"remove": "Je, una uhakika unataka kuiondoa?",
-			"remove-named": "Je, una uhakika unataka kuiondoa \"{value}\"?"
-		},
-		"or": "au",
-		"state": {
-			"disabled": "Zimemalizika",
-			"enabled": "Imewashwa"
-		}
-	},
-	"debug": {
-		"add-mock-character": "Ongeza mhusika wa majaribio"
-	},
-	"errors": {
-		"boundary": {
-			"description": "Programu imekumbana na tatizo na haitoweza kuendelea kwa usalama. Kupakia upya kunapaswa kurekebisha.",
-			"reload": "Pakia Upya",
-			"title": "Kitu fulani kimeenda vibaya"
-		},
-		"character": {
-			"create": "Haikuweza kuunda mhusika. {error}",
-			"export": "Haikuweza kuhamisha mhusika. {error}",
-			"list": "Haikuweza kupakia orodha ya wahusika. {error}",
-			"load": "Haikuweza kupakia mhusika. {error}",
-			"remove": "Haikuweza kuondoa mhusika. {error}",
-			"save": "Haikuweza kuhifadhi mhusika. Mabadiliko yanaweza yasihifadhiwe. {error}"
-		},
-		"module": {
-			"appVersionMismatch": "Inahitaji toleo la programu \"{requiredVersion}\" lakini la sasa ni \"{appVersion}\"",
-			"incompatible": "Haiendani na \"{anotherModule}\"",
-			"missingDependencies": "Utegemezi unaokosekana: {modules}",
-			"notFound": "Moduli haijapatikana: \"{module}\"",
-			"otherDependsOn": "Moduli zingine zinategemea hii: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "Moduli '{module}' inahitaji toleo la programu '{requiredAppVersion}', lakini toleo la sasa ni '{currentAppVersion}'.",
-			"dependencyCycle": "Mzunguko wa utegemezi umegunduliwa ukihusisha: {modules}.",
-			"genericError": "Hitilafu isiyojulikana imetokea wakati wa kutatua moduli.",
-			"incompatibleModules": "Moduli '{module}' hailingani na: {incompatible}.",
-			"missingDependency": "Moduli '{module}' inakosa utegemezi '{dependency}'.",
-			"versionMismatch": "Moduli '{module}' inahitaji toleo '{requiredVersion}' la '{dependency}', lakini lililopatikana ni '{actualVersion}'."
-		},
-		"modules": {
-			"export": "Imeshindikana kusafirisha moduli. {error}"
-		},
-		"outdatedBrowser": "Kivinjari cha mfumo wako kimepitwa na wakati. Programu inaweza isifanye kazi ipasavyo. Tafadhali kisasisha.",
-		"unexpected": "Kitu kisichotarajiwa kimetokea. Sehemu fulani za programu zinaweza zisifanye kazi kama inavyotarajiwa."
-	},
-	"forms": {
-		"description": "Maelezo",
-		"name": "Jina",
-		"price": "Bei",
-		"quantity": "Kiasi",
-		"skill": "Ujuzi",
-		"type": "Aina"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "Mwandishi",
-			"dependencies": "Matokeo",
-			"description": "Maelezo",
-			"id": "ID",
-			"label": "Usanidi Maalum",
-			"languages": "Lugha",
-			"mainSettings": "Mipangilio Mikuu",
-			"name": "Jina",
-			"version": "Toleo"
-		},
-		"export": "Hamisha usanidi wa moduli",
-		"exportSuccess": "Moduli zimesafirishwa kwa mafanikio!",
-		"external": "Nje",
-		"import": {
-			"error": {
-				"extension": "Haiwezekani kuingiza moduli. Kiendelezi cha faili kinapaswa kuwa .fmod",
-				"validation": "Haiwezekani kuingiza moduli. Faili si sahihi.",
-				"version": "Haiwezekani kuingiza moduli. Toleo la moduli limepitwa na wakati."
-			},
-			"success": "Moduli zimeingizwa kwa mafanikio!",
-			"title": "Ingiza moduli kutoka faili"
-		},
-		"installed": "Moduli zilizosakinishwa ({value}):",
-		"save": "Hifadhi usanidi wa moduli",
-		"selected": "Moduli Zilizochaguliwa",
-		"share": "Shiriki usanidi wa moduli",
-		"updated": "Moduli {module} imesasishwa hadi v{version}"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "Nyenzo ya kete",
-				"title": "Chaguo za kete",
-				"type": "Aina ya kete"
-			},
-			"force": "Nguvu",
-			"general": {
-				"haptic": "Mwitikio wa kugusa",
-				"shake": "Tingisha ili kutupa",
-				"show-result": "Onyesha matokeo kwenye skrini",
-				"title": "Mipangilio ya jumla"
-			},
-			"gravity": "Mvuto",
-			"haptic": "Majibu ya kugusa",
-			"number": "Idadi ya kete",
-			"physics": {
-				"force": "Nguvu",
-				"gravity": "Mvutano",
-				"number": "Idadi ya kete",
-				"size": "Ukubwa wa kete",
-				"title": "Mipangilio ya fizikia"
-			},
-			"reset": "Rejesha mipangilio",
-			"resetPhysics": "Rejesha mipangilio ya fizikia",
-			"shake": "Tingisha kurusha",
-			"size": "Ukubwa wa Mbao",
-			"title": "Usanidi wa kutupa kete"
-		},
-		"result": "Matokeo ya kutupa ni {value}",
-		"rolling": "Inatupwa...",
-		"throw": "Tupa kete {value}"
-	},
-	"settings": {
-		"about-app": {
-			"author": "Mwandishi",
-			"legal": {
-				"title": "Taarifa za kisheria na utambulisho"
-			},
-			"license": "Leseni",
-			"privacy-policy": {
-				"accept-policy": "Nimesoma na nakubali sera ya faragha",
-				"acceptance-date": "Tarehe ya kukubalika: {value}",
-				"not-accepted": "Sera ya faragha haijakubaliwa. Nenda kwenye mipangilio, isome na ukubali. Vinginevyo, huwezi kutumia programu.",
-				"title": "Sera ya Faragha",
-				"updated": "Karibu tena! Tumesasisha kidogo masharti yetu, kwa hivyo tunahitaji uyathibitishe tena."
-			},
-			"source-code": "Msimbo wa Chanzo",
-			"title": "Kuhusu Programu",
-			"version": "Toleo"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "Onyesha maelezo ya urekebishaji",
-				"toggleDescription": "Inaonyesha zana za ziada za urekebishaji kwenye programu — kirekebishaji cha fizikia ya kete na kurasa za msanidi zilizofichwa."
-			},
-			"devMod": {
-				"connect": "Unganisha",
-				"connected": "Imeunganishwa kwa \"{id}\"",
-				"disconnect": "Katisha",
-				"error": "Imeshindwa kuunganisha kwa modi ya maendeleo. {error}",
-				"title": "Unganisha modi ya maendeleo",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "Unasakinisha \"{id}\" nje ya rejista iliyokaguliwa. Itaendeshwa kwa ufikiaji kamili wa programu na data ya wahusika wako. Andika \"{id}\" au \"install\" kuthibitisha.",
-				"confirmPlaceholder": "Andika kuthibitisha",
-				"confirmTitle": "Sakinisha msimbo wa nje?",
-				"error": "Imeshindwa kusakinisha modi. {error}",
-				"install": "Sakinisha",
-				"success": "\"{id}\" imesakinishwa",
-				"title": "Sakinisha kutoka URL",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Elekeza Duka la Modi kwenye rejista ya majaribio badala ya halisi. Acha tupu kutumia chaguo-msingi.",
-				"save": "Hifadhi",
-				"title": "Batilisha URL ya msingi ya rejista"
-			},
-			"title": "Msanidi",
-			"toggle": "Hali ya Msanidi",
-			"toggleDescription": "Inaruhusu kusakinisha modi kutoka URL. Kwa waandishi na wajaribu pekee — modi huendeshwa kwa ufikiaji kamili wa programu."
-		},
-		"language": "Lugha",
-		"mods": {
-			"actions": {
-				"disable": "Zima",
-				"enable": "Washa",
-				"remove": "Ondoa",
-				"retry": "Jaribu tena",
-				"update": "Sasisha"
-			},
-			"blocked": "\"{id}\" imezimwa — toleo hili limewekwa alama kuwa si salama. Angalia Duka la Modi kwa sasisho.",
-			"browse": {
-				"compatibleOnly": "Zinazolingana na programu hii pekee",
-				"empty": "Hakuna modi zilizopatikana",
-				"incompatible": "Hailingani na toleo hili la programu",
-				"loadError": "Imeshindwa kupakia Duka la Modi. {error}",
-				"offline": "Imeshindwa kuonyesha upya — matokeo yaliyohifadhiwa yanaonyeshwa",
-				"searchPlaceholder": "Tafuta modi",
-				"stale": "Matokeo yaliyohifadhiwa yanaonyeshwa — vuta kuonyesha upya"
-			},
-			"detail": {
-				"author": "Na {name}",
-				"blocked": "Toleo hili limezuiwa",
-				"config": "Chaguo za usanidi",
-				"downgrade": "Rudisha toleo la awali",
-				"install": "Sakinisha",
-				"installed": "Imesakinishwa",
-				"latest": "jipya zaidi",
-				"readme": "Kuhusu",
-				"remove": "Ondoa",
-				"update": "Sasisha",
-				"updateAvailable": "Sasisho linapatikana",
-				"versions": "Matoleo"
-			},
-			"empty": "Hakuna modi zilizosakinishwa",
-			"errors": {
-				"action": "Imeshindwa kukamilisha kitendo. {error}",
-				"list": "Imeshindwa kupakia modi zilizosakinishwa. {error}"
-			},
-			"installSuccess": "\"{id}\" imesakinishwa",
-			"removeBlocked": "Bado inatumika na: {characters}",
-			"restartToApply": "Anzisha upya ili kutumia mabadiliko",
-			"source": {
-				"dev": "Dev",
-				"registry": "Rejista",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "Imezimwa",
-				"errored": "Hitilafu",
-				"loaded": "Imepakiwa"
-			},
-			"tabs": {
-				"browse": "Vinjari",
-				"installed": "Zilizosakinishwa"
-			},
-			"title": "Modi",
-			"updateSuccess": "\"{id}\" imesasishwa"
-		},
-		"theme": {
-			"dark": "Giza",
-			"defaultSkin": "Chaguo-msingi",
-			"light": "Mwanga",
-			"system": "Mfumo",
-			"title": "Mandhari"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Sakinisha \"{module}\" kutoka Duka la Modi",
-			"notInstalled": "\"{module}\" haijasakinishwa",
-			"openModStore": "Fungua Duka la Modi"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "Mhusika"
-		},
-		"roll-dice": {
-			"title": "Piga Mbao"
-		},
-		"settings": {
-			"title": "Mipangilio"
-		}
-	}
+  "a11y": {
+    "description": "maelezo",
+    "name": "jina",
+    "quantity": "idadi",
+    "validation-error": "Hitilafu ya uthibitishaji"
+  },
+  "character": {
+    "configure": "Sanidi",
+    "create": "Unda mhusika",
+    "export": "Hamisha mhusika",
+    "exportSuccess": "Mhusika amesafirishwa kwa mafanikio!",
+    "import": {
+      "error": {
+        "extension": "Haiwezekani kuingiza mhusika. Kiendelezi cha faili kinapaswa kuwa .fchar",
+        "validation": "Haiwezekani kuingiza mhusika. Faili si sahihi.",
+        "version": "Haiwezekani kuingiza mhusika. Toleo la mhusika limepitwa na wakati."
+      },
+      "success": "Mhusika ameingizwa kwa mafanikio!",
+      "title": "Ingiza mhusika kutoka faili"
+    },
+    "messages": {
+      "remove": "Je, una uhakika unataka kuondoa {value}?",
+      "update": "Toleo la mhusika limepitwa na wakati. Lisashe?"
+    },
+    "name": "Jina la mhusika",
+    "new-character": "Mhusika Mpya",
+    "no-characters": "Hakuna wahusika walioundwa bado. Unda mpya au ingiza kutoka kwa faili.",
+    "not-selected": "Mhusika hajachaguliwa bado. Chagua mmoja au unda mpya!",
+    "remove-message": "Je, una hakika unataka kuondoa mhusika huyu?",
+    "save": "Hifadhi mhusika",
+    "share": "Shiriki mhusika",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "Toleo la mhusika limepitwa na wakati. Unataka kulisasisha?",
+    "updated": "Mhusika amesasishwa kwa mafanikio kutoka v{from} hadi v{to}!",
+    "your-characters": "Wahusika Wako"
+  },
+  "common": {
+    "actions": {
+      "add": "Ongeza",
+      "back": "Rudi",
+      "cancel": "Ghairi",
+      "close": "Funga",
+      "confirm": "Thibitisha",
+      "create": "Tengeneza",
+      "decrease": "Punguza",
+      "delete": "Futa",
+      "edit": "Hariri",
+      "finish": "Maliza",
+      "go": "Nenda",
+      "increase": "Ongeza",
+      "next": "Ifuatayo",
+      "remove": "Ondoa",
+      "reset": "Weka upya",
+      "save": "Hifadhi",
+      "select": "Chagua",
+      "update": "Sasisha",
+      "upload": "Pakia",
+      "use": "Tumia"
+    },
+    "messages": {
+      "emptyList": "Hakuna vipengee vilivyoongezwa bado",
+      "remove": "Je, una uhakika unataka kuiondoa?",
+      "remove-named": "Je, una uhakika unataka kuiondoa \"{value}\"?"
+    },
+    "or": "au",
+    "state": {
+      "disabled": "Zimemalizika",
+      "enabled": "Imewashwa"
+    }
+  },
+  "debug": {
+    "add-mock-character": "Ongeza mhusika wa majaribio"
+  },
+  "errors": {
+    "boundary": {
+      "description": "Programu imekumbana na tatizo na haitoweza kuendelea kwa usalama. Kupakia upya kunapaswa kurekebisha.",
+      "reload": "Pakia Upya",
+      "title": "Kitu fulani kimeenda vibaya"
+    },
+    "character": {
+      "create": "Haikuweza kuunda mhusika. {error}",
+      "export": "Haikuweza kuhamisha mhusika. {error}",
+      "list": "Haikuweza kupakia orodha ya wahusika. {error}",
+      "load": "Haikuweza kupakia mhusika. {error}",
+      "remove": "Haikuweza kuondoa mhusika. {error}",
+      "save": "Haikuweza kuhifadhi mhusika. Mabadiliko yanaweza yasihifadhiwe. {error}"
+    },
+    "module": {
+      "appVersionMismatch": "Inahitaji toleo la programu \"{requiredVersion}\" lakini la sasa ni \"{appVersion}\"",
+      "incompatible": "Haiendani na \"{anotherModule}\"",
+      "missingDependencies": "Utegemezi unaokosekana: {modules}",
+      "notFound": "Moduli haijapatikana: \"{module}\"",
+      "otherDependsOn": "Moduli zingine zinategemea hii: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "Moduli '{module}' inahitaji toleo la programu '{requiredAppVersion}', lakini toleo la sasa ni '{currentAppVersion}'.",
+      "dependencyCycle": "Mzunguko wa utegemezi umegunduliwa ukihusisha: {modules}.",
+      "genericError": "Hitilafu isiyojulikana imetokea wakati wa kutatua moduli.",
+      "incompatibleModules": "Moduli '{module}' hailingani na: {incompatible}.",
+      "missingDependency": "Moduli '{module}' inakosa utegemezi '{dependency}'.",
+      "versionMismatch": "Moduli '{module}' inahitaji toleo '{requiredVersion}' la '{dependency}', lakini lililopatikana ni '{actualVersion}'."
+    },
+    "modules": {
+      "export": "Imeshindikana kusafirisha moduli. {error}"
+    },
+    "outdatedBrowser": "Kivinjari cha mfumo wako kimepitwa na wakati. Programu inaweza isifanye kazi ipasavyo. Tafadhali kisasisha.",
+    "unexpected": "Kitu kisichotarajiwa kimetokea. Sehemu fulani za programu zinaweza zisifanye kazi kama inavyotarajiwa."
+  },
+  "forms": {
+    "description": "Maelezo",
+    "name": "Jina",
+    "price": "Bei",
+    "quantity": "Kiasi",
+    "skill": "Ujuzi",
+    "type": "Aina"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "Mwandishi",
+      "dependencies": "Matokeo",
+      "description": "Maelezo",
+      "id": "ID",
+      "label": "Usanidi Maalum",
+      "languages": "Lugha",
+      "mainSettings": "Mipangilio Mikuu",
+      "name": "Jina",
+      "version": "Toleo"
+    },
+    "export": "Hamisha usanidi wa moduli",
+    "exportSuccess": "Moduli zimesafirishwa kwa mafanikio!",
+    "external": "Nje",
+    "import": {
+      "error": {
+        "extension": "Haiwezekani kuingiza moduli. Kiendelezi cha faili kinapaswa kuwa .fmod",
+        "validation": "Haiwezekani kuingiza moduli. Faili si sahihi.",
+        "version": "Haiwezekani kuingiza moduli. Toleo la moduli limepitwa na wakati."
+      },
+      "success": "Moduli zimeingizwa kwa mafanikio!",
+      "title": "Ingiza moduli kutoka faili"
+    },
+    "installed": "Moduli zilizosakinishwa ({value}):",
+    "save": "Hifadhi usanidi wa moduli",
+    "selected": "Moduli Zilizochaguliwa",
+    "share": "Shiriki usanidi wa moduli",
+    "updated": "Moduli {module} imesasishwa hadi v{version}"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "Nyenzo ya kete",
+        "title": "Chaguo za kete",
+        "type": "Aina ya kete"
+      },
+      "force": "Nguvu",
+      "general": {
+        "haptic": "Mwitikio wa kugusa",
+        "shake": "Tingisha ili kutupa",
+        "show-result": "Onyesha matokeo kwenye skrini",
+        "title": "Mipangilio ya jumla"
+      },
+      "gravity": "Mvuto",
+      "haptic": "Majibu ya kugusa",
+      "number": "Idadi ya kete",
+      "physics": {
+        "force": "Nguvu",
+        "gravity": "Mvutano",
+        "number": "Idadi ya kete",
+        "size": "Ukubwa wa kete",
+        "title": "Mipangilio ya fizikia"
+      },
+      "reset": "Rejesha mipangilio",
+      "resetPhysics": "Rejesha mipangilio ya fizikia",
+      "shake": "Tingisha kurusha",
+      "size": "Ukubwa wa Mbao",
+      "title": "Usanidi wa kutupa kete"
+    },
+    "result": "Matokeo ya kutupa ni {value}",
+    "rolling": "Inatupwa...",
+    "throw": "Tupa kete {value}"
+  },
+  "settings": {
+    "about-app": {
+      "author": "Mwandishi",
+      "legal": {
+        "title": "Taarifa za kisheria na utambulisho"
+      },
+      "license": "Leseni",
+      "privacy-policy": {
+        "accept-policy": "Nimesoma na nakubali sera ya faragha",
+        "acceptance-date": "Tarehe ya kukubalika: {value}",
+        "not-accepted": "Sera ya faragha haijakubaliwa. Nenda kwenye mipangilio, isome na ukubali. Vinginevyo, huwezi kutumia programu.",
+        "title": "Sera ya Faragha",
+        "updated": "Karibu tena! Tumesasisha kidogo masharti yetu, kwa hivyo tunahitaji uyathibitishe tena."
+      },
+      "source-code": "Msimbo wa Chanzo",
+      "title": "Kuhusu Programu",
+      "version": "Toleo"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "Onyesha maelezo ya urekebishaji",
+        "toggleDescription": "Inaonyesha zana za ziada za urekebishaji kwenye programu — kirekebishaji cha fizikia ya kete na kurasa za msanidi zilizofichwa."
+      },
+      "devMod": {
+        "connect": "Unganisha",
+        "connected": "Imeunganishwa kwa \"{id}\"",
+        "disconnect": "Katisha",
+        "error": "Imeshindwa kuunganisha kwa modi ya maendeleo. {error}",
+        "title": "Unganisha modi ya maendeleo",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "Unasakinisha \"{id}\" nje ya rejista iliyokaguliwa. Itaendeshwa kwa ufikiaji kamili wa programu na data ya wahusika wako. Andika \"{id}\" au \"install\" kuthibitisha.",
+        "confirmPlaceholder": "Andika kuthibitisha",
+        "confirmTitle": "Sakinisha msimbo wa nje?",
+        "error": "Imeshindwa kusakinisha modi. {error}",
+        "install": "Sakinisha",
+        "success": "\"{id}\" imesakinishwa",
+        "title": "Sakinisha kutoka URL",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Elekeza Duka la Modi kwenye rejista ya majaribio badala ya halisi. Acha tupu kutumia chaguo-msingi.",
+        "save": "Hifadhi",
+        "title": "Batilisha URL ya msingi ya rejista"
+      },
+      "title": "Msanidi",
+      "toggle": "Hali ya Msanidi",
+      "toggleDescription": "Inaruhusu kusakinisha modi kutoka URL. Kwa waandishi na wajaribu pekee — modi huendeshwa kwa ufikiaji kamili wa programu."
+    },
+    "language": "Lugha",
+    "mods": {
+      "actions": {
+        "disable": "Zima",
+        "enable": "Washa",
+        "remove": "Ondoa",
+        "retry": "Jaribu tena",
+        "update": "Sasisha",
+        "removeAnyway": "Ondoa hata hivyo"
+      },
+      "blocked": "\"{id}\" imezimwa — toleo hili limewekwa alama kuwa si salama. Angalia Duka la Modi kwa sasisho.",
+      "browse": {
+        "compatibleOnly": "Zinazolingana na programu hii pekee",
+        "empty": "Hakuna modi zilizopatikana",
+        "incompatible": "Hailingani na toleo hili la programu",
+        "loadError": "Imeshindwa kupakia Duka la Modi. {error}",
+        "offline": "Imeshindwa kuonyesha upya — matokeo yaliyohifadhiwa yanaonyeshwa",
+        "searchPlaceholder": "Tafuta modi",
+        "stale": "Matokeo yaliyohifadhiwa yanaonyeshwa — vuta kuonyesha upya"
+      },
+      "detail": {
+        "author": "Na {name}",
+        "blocked": "Toleo hili limezuiwa",
+        "config": "Chaguo za usanidi",
+        "downgrade": "Rudisha toleo la awali",
+        "install": "Sakinisha",
+        "installed": "Imesakinishwa",
+        "latest": "jipya zaidi",
+        "readme": "Kuhusu",
+        "remove": "Ondoa",
+        "update": "Sasisha",
+        "updateAvailable": "Sasisho linapatikana",
+        "versions": "Matoleo"
+      },
+      "empty": "Hakuna modi zilizosakinishwa",
+      "errors": {
+        "action": "Imeshindwa kukamilisha kitendo. {error}",
+        "list": "Imeshindwa kupakia modi zilizosakinishwa. {error}"
+      },
+      "installSuccess": "\"{id}\" imesakinishwa",
+      "restartToApply": "Anzisha upya ili kutumia mabadiliko",
+      "source": {
+        "dev": "Dev",
+        "registry": "Rejista",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "Imezimwa",
+        "errored": "Hitilafu",
+        "loaded": "Imepakiwa"
+      },
+      "tabs": {
+        "browse": "Vinjari",
+        "installed": "Zilizosakinishwa"
+      },
+      "title": "Modi",
+      "updateSuccess": "\"{id}\" imesasishwa",
+      "removeConfirm": {
+        "inUse": "Bado inatumika na: {characters}",
+        "willUninstall": "Kuiondoa kutaiondoa kwenye wahusika hao."
+      }
+    },
+    "theme": {
+      "dark": "Giza",
+      "defaultSkin": "Chaguo-msingi",
+      "light": "Mwanga",
+      "system": "Mfumo",
+      "title": "Mandhari"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Sakinisha \"{module}\" kutoka Duka la Modi",
+      "notInstalled": "\"{module}\" haijasakinishwa",
+      "openModStore": "Fungua Duka la Modi"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "Mhusika"
+    },
+    "roll-dice": {
+      "title": "Piga Mbao"
+    },
+    "settings": {
+      "title": "Mipangilio"
+    }
+  }
 }

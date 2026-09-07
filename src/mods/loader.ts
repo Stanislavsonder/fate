@@ -9,24 +9,44 @@ import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
 import { validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
 
+function registerDisabledMod(row: StoredMod): void {
+	try {
+		registerModTranslations(row.id, JSON.parse(row.translationsJson || '{}'))
+	} catch {
+		// Malformed stored translations — name display falls back to the raw id.
+	}
+	ModRegistry.register({
+		manifest: safeManifest(row),
+		source: row.source,
+		status: 'disabled'
+	})
+}
+
 /**
- * Registers built-ins, then loads every enabled external mod from storage.
- * Never throws outward: a mod that fails any gate is quarantined
- * (status: 'errored') rather than blocking startup — see loadExternalMod.
- * Call once from main.ts, before app.mount().
+ * Registers built-ins, then every stored external mod. Enabled rows are loaded
+ * through the usual gates; disabled rows are registered as display-only stubs
+ * so character load can tell "installed but off" from "missing". Never throws
+ * outward: a mod that fails any gate is quarantined (status: 'errored') rather
+ * than blocking startup — see loadExternalMod. Call once from main.ts, before
+ * app.mount().
  */
 export async function initMods(): Promise<void> {
 	registerBuiltinMods()
 
 	let rows: StoredMod[]
 	try {
-		rows = await modsService.getAllEnabled()
+		rows = await modsService.getAll()
 	} catch (e) {
 		console.error('[mods] failed to read installed mods from storage', e)
 		return
 	}
 
 	for (const row of rows) {
+		if (!row.enabled) {
+			registerDisabledMod(row)
+			continue
+		}
+
 		try {
 			const manifest = await loadExternalMod(row)
 			ModRegistry.register({ manifest, source: row.source, status: 'loaded' })

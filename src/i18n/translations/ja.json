@@ -1,331 +1,335 @@
 {
-	"a11y": {
-		"description": "説明",
-		"name": "名前",
-		"quantity": "数量",
-		"validation-error": "検証エラー"
-	},
-	"character": {
-		"configure": "設定",
-		"create": "キャラクターを作成",
-		"export": "キャラクターをエクスポート",
-		"exportSuccess": "キャラクターのエクスポートに成功しました！",
-		"import": {
-			"error": {
-				"extension": "キャラクターをインポートできませんでした。ファイル拡張子は .fchar である必要があります",
-				"validation": "キャラクターをインポートできませんでした。ファイルが無効です。",
-				"version": "キャラクターをインポートできませんでした。キャラクターのバージョンが古いです。"
-			},
-			"success": "キャラクターが正常にインポートされました！",
-			"title": "ファイルからキャラクターをインポート"
-		},
-		"messages": {
-			"remove": "{value} を削除してもよろしいですか？",
-			"update": "キャラクターバージョンが古くなっています。更新しますか？"
-		},
-		"name": "キャラクターの名前",
-		"new-character": "新しいキャラクター",
-		"no-characters": "まだキャラクターが作成されていません。新規作成するか、ファイルからインポートしてください。",
-		"not-selected": "キャラクターが選択されていません。選択するか、新しく作成してください！",
-		"remove-message": "このキャラクターを削除してもよろしいですか？",
-		"save": "キャラクターを保存",
-		"share": "キャラクターを共有",
-		"sheet": {
-			"avatar": {
-				"actions": "Open avatar actions",
-				"errors": {
-					"fileSize": "Avatar file size exceeds {value} MB."
-				},
-				"label": "Avatar",
-				"section": "Character Avatar",
-				"upload": "Upload avatar"
-			},
-			"name": {
-				"label": "Name",
-				"placeholder": "Character name"
-			}
-		},
-		"update-message": "キャラクターバージョンが古くなっています。更新しますか？",
-		"updated": "キャラクターが v{from} から v{to} に正常に更新されました！",
-		"your-characters": "あなたのキャラクター"
-	},
-	"common": {
-		"actions": {
-			"add": "追加",
-			"back": "戻る",
-			"cancel": "キャンセル",
-			"close": "閉じる",
-			"confirm": "確認",
-			"create": "作成",
-			"decrease": "減少",
-			"delete": "削除",
-			"edit": "編集",
-			"finish": "終了",
-			"go": "行く",
-			"increase": "増加",
-			"next": "次へ",
-			"remove": "削除",
-			"reset": "リセット",
-			"save": "保存",
-			"select": "選択",
-			"update": "更新",
-			"upload": "アップロード",
-			"use": "使用"
-		},
-		"messages": {
-			"emptyList": "まだ要素が追加されていません",
-			"remove": "削除してもよろしいですか？",
-			"remove-named": "\"{value}\" を削除してもよろしいですか？"
-		},
-		"or": "または",
-		"state": {
-			"disabled": "無効",
-			"enabled": "有効"
-		}
-	},
-	"debug": {
-		"add-mock-character": "テストキャラクターを追加"
-	},
-	"errors": {
-		"boundary": {
-			"description": "アプリで問題が発生したため、 safe に続行できません。再読み込みすると解決する可能性があります。",
-			"reload": "再読み込み",
-			"title": "問題が発生しました"
-		},
-		"character": {
-			"create": "キャラクターを作成できませんでした。{error}",
-			"export": "キャラクターを出力できませんでした。{error}",
-			"list": "キャラクター一覧を読み込めませんでした。{error}",
-			"load": "キャラクターを読み込めませんでした。{error}",
-			"remove": "キャラクターを削除できませんでした。{error}",
-			"save": "キャラクターを保存できませんでした。変更が保存されていない可能性があります。{error}"
-		},
-		"module": {
-			"appVersionMismatch": "アプリのバージョン \"{requiredVersion}\" が必要ですが、現在のバージョンは \"{appVersion}\" です",
-			"incompatible": "\"{anotherModule}\" と互換性がありません",
-			"missingDependencies": "不足している依存関係: {modules}",
-			"notFound": "モジュールが見つかりません: \"{module}\"",
-			"otherDependsOn": "他のモジュールが依存しています: {modules}"
-		},
-		"moduleResolution": {
-			"appVersionMismatch": "モジュール '{module}' はアプリのバージョン '{requiredAppVersion}' を必要としますが、現在のバージョンは '{currentAppVersion}' です。",
-			"dependencyCycle": "{modules} を含む依存関係のループが検出されました。",
-			"genericError": "モジュールの解決中に不明なエラーが発生しました。",
-			"incompatibleModules": "モジュール '{module}' は以下と互換性がありません: {incompatible}。",
-			"missingDependency": "モジュール '{module}' に依存関係 '{dependency}' が欠落しています。",
-			"versionMismatch": "モジュール '{module}' は '{dependency}' のバージョン '{requiredVersion}' を必要としますが、見つかったバージョンは '{actualVersion}' です。"
-		},
-		"modules": {
-			"export": "モジュールをエクスポートできませんでした。{error}"
-		},
-		"outdatedBrowser": "お使いのシステムブラウザは古くなっています。アプリケーションが正常に動作しない可能性があります。更新してください。",
-		"unexpected": "予期しないエラーが発生しました。アプリの一部が正常に動作しない可能性があります。"
-	},
-	"forms": {
-		"description": "説明",
-		"name": "名前",
-		"price": "価格",
-		"quantity": "数量",
-		"skill": "スキル",
-		"type": "タイプ"
-	},
-	"inventory": {},
-	"modules": {
-		"configuration": {
-			"author": "著者",
-			"dependencies": "依存関係",
-			"description": "説明",
-			"id": "ID",
-			"label": "カスタム設定",
-			"languages": "言語",
-			"mainSettings": "メイン設定",
-			"name": "名前",
-			"version": "バージョン"
-		},
-		"export": "モジュール設定をエクスポート",
-		"exportSuccess": "モジュールのエクスポートに成功しました！",
-		"external": "外部",
-		"import": {
-			"error": {
-				"extension": "モジュールをインポートできませんでした。ファイル拡張子は .fmod である必要があります",
-				"validation": "モジュールをインポートできませんでした。ファイルが無効です。",
-				"version": "モジュールをインポートできませんでした。モジュールのバージョンが古いです。"
-			},
-			"success": "モジュールが正常にインポートされました！",
-			"title": "ファイルからモジュールをインポート"
-		},
-		"installed": "インストール済みのモジュール ({value}):",
-		"save": "モジュール構成を保存",
-		"selected": "選択されたモジュール",
-		"share": "モジュール構成を共有",
-		"updated": "モジュール {module} が v{version} に更新されました"
-	},
-	"roll-dice": {
-		"config": {
-			"dice": {
-				"material": "サイコロの素材",
-				"title": "サイコロのオプション",
-				"type": "サイコロの種類"
-			},
-			"force": "力",
-			"general": {
-				"haptic": "触覚フィードバック",
-				"shake": "振って投げる",
-				"show-result": "画面に結果を表示",
-				"title": "一般設定"
-			},
-			"gravity": "重力",
-			"haptic": "触覚フィードバック",
-			"number": "ダイスの数",
-			"physics": {
-				"force": "力",
-				"gravity": "重力",
-				"number": "サイコロの数",
-				"size": "サイコロのサイズ",
-				"title": "物理設定"
-			},
-			"reset": "設定をリセット",
-			"resetPhysics": "物理設定をリセット",
-			"shake": "振って投げる",
-			"size": "サイコロのサイズ",
-			"title": "サイコロ投げの設定"
-		},
-		"result": "投げた結果は {value} です",
-		"rolling": "投げています...",
-		"throw": "{value} 個のサイコロを投げる"
-	},
-	"settings": {
-		"about-app": {
-			"author": "作者",
-			"legal": {
-				"title": "法的情報とクレジット"
-			},
-			"license": "ライセンス",
-			"privacy-policy": {
-				"accept-policy": "プライバシーポリシーを読み、同意しました",
-				"acceptance-date": "同意日: {value}",
-				"not-accepted": "プライバシーポリシーが承認されていません。設定に移動して、読んで同意してください。そうしないとアプリを使用できません。",
-				"title": "プライバシーポリシー",
-				"updated": "おかえりなさい！利用規約を少し更新したため、もう一度ご確認をお願いします。"
-			},
-			"source-code": "ソースコード",
-			"title": "アプリについて",
-			"version": "バージョン"
-		},
-		"developer": {
-			"debugInfo": {
-				"toggle": "デバッグ情報を表示",
-				"toggleDescription": "アプリ全体に追加のデバッグツールを表示します — ダイス物理デバッガーと非表示の開発者ページ。"
-			},
-			"devMod": {
-				"connect": "接続",
-				"connected": "「{id}」に接続済み",
-				"disconnect": "切断",
-				"error": "開発用モッドに接続できませんでした。{error}",
-				"title": "開発用モッドに接続",
-				"urlPlaceholder": "http://192.168.1.20:5199"
-			},
-			"installFromUrl": {
-				"confirmMessage": "審査済みレジストリ外から「{id}」をインストールしようとしています。アプリとキャラクターデータへのフルアクセスで動作します。確認するには「{id}」または「install」と入力してください。",
-				"confirmPlaceholder": "確認のため入力",
-				"confirmTitle": "外部コードをインストールしますか？",
-				"error": "モッドをインストールできませんでした。{error}",
-				"install": "インストール",
-				"success": "「{id}」をインストールしました",
-				"title": "URLからインストール",
-				"urlPlaceholder": "https://example.com/mods/author-name"
-			},
-			"registryBase": {
-				"description": "Mod Store を本番ではなくステージングレジストリに向けます。デフォルトを使う場合は空のままにします。",
-				"save": "保存",
-				"title": "レジストリベース URL の上書き"
-			},
-			"title": "開発者",
-			"toggle": "開発者モード",
-			"toggleDescription": "URL からのモッドインストールを有効にします。作者とテスター向けです — モッドはアプリへのフルアクセスで動作します。"
-		},
-		"language": "言語",
-		"mods": {
-			"actions": {
-				"disable": "無効化",
-				"enable": "有効化",
-				"remove": "削除",
-				"retry": "再試行",
-				"update": "更新"
-			},
-			"blocked": "「{id}」は無効化されました — このバージョンは安全でないと判定されています。Mod Store で更新を確認してください。",
-			"browse": {
-				"compatibleOnly": "このアプリと互換性のあるもののみ",
-				"empty": "モッドが見つかりません",
-				"incompatible": "このアプリバージョンと互換性がありません",
-				"loadError": "Mod Store を読み込めませんでした。{error}",
-				"offline": "更新できませんでした — キャッシュ結果を表示中",
-				"searchPlaceholder": "モッドを検索",
-				"stale": "キャッシュ結果を表示中 — 引っ張って更新"
-			},
-			"detail": {
-				"author": "作者: {name}",
-				"blocked": "このバージョンはブロックされています",
-				"config": "設定オプション",
-				"downgrade": "ダウングレード",
-				"install": "インストール",
-				"installed": "インストール済み",
-				"latest": "最新",
-				"readme": "概要",
-				"remove": "削除",
-				"update": "更新",
-				"updateAvailable": "更新あり",
-				"versions": "バージョン"
-			},
-			"empty": "インストール済みのモッドはありません",
-			"errors": {
-				"action": "操作を完了できませんでした。{error}",
-				"list": "インストール済みモッドを読み込めませんでした。{error}"
-			},
-			"installSuccess": "「{id}」をインストールしました",
-			"removeBlocked": "次で使用中: {characters}",
-			"restartToApply": "変更を適用するために再起動",
-			"source": {
-				"dev": "Dev",
-				"registry": "レジストリ",
-				"url": "URL"
-			},
-			"status": {
-				"disabled": "無効",
-				"errored": "エラー",
-				"loaded": "読み込み済み"
-			},
-			"tabs": {
-				"browse": "閲覧",
-				"installed": "インストール済み"
-			},
-			"title": "モッド",
-			"updateSuccess": "「{id}」を更新しました"
-		},
-		"theme": {
-			"dark": "ダーク",
-			"defaultSkin": "デフォルト",
-			"light": "ライト",
-			"system": "システム",
-			"title": "テーマ"
-		}
-	},
-	"suggestions": {
-		"modules": {
-			"install": "Mod Store から「{module}」をインストール",
-			"notInstalled": "「{module}」はインストールされていません",
-			"openModStore": "Mod Store を開く"
-		}
-	},
-	"tabs": {
-		"character": {
-			"title": "キャラクター"
-		},
-		"roll-dice": {
-			"title": "サイコロを振る"
-		},
-		"settings": {
-			"title": "設定"
-		}
-	}
+  "a11y": {
+    "description": "説明",
+    "name": "名前",
+    "quantity": "数量",
+    "validation-error": "検証エラー"
+  },
+  "character": {
+    "configure": "設定",
+    "create": "キャラクターを作成",
+    "export": "キャラクターをエクスポート",
+    "exportSuccess": "キャラクターのエクスポートに成功しました！",
+    "import": {
+      "error": {
+        "extension": "キャラクターをインポートできませんでした。ファイル拡張子は .fchar である必要があります",
+        "validation": "キャラクターをインポートできませんでした。ファイルが無効です。",
+        "version": "キャラクターをインポートできませんでした。キャラクターのバージョンが古いです。"
+      },
+      "success": "キャラクターが正常にインポートされました！",
+      "title": "ファイルからキャラクターをインポート"
+    },
+    "messages": {
+      "remove": "{value} を削除してもよろしいですか？",
+      "update": "キャラクターバージョンが古くなっています。更新しますか？"
+    },
+    "name": "キャラクターの名前",
+    "new-character": "新しいキャラクター",
+    "no-characters": "まだキャラクターが作成されていません。新規作成するか、ファイルからインポートしてください。",
+    "not-selected": "キャラクターが選択されていません。選択するか、新しく作成してください！",
+    "remove-message": "このキャラクターを削除してもよろしいですか？",
+    "save": "キャラクターを保存",
+    "share": "キャラクターを共有",
+    "sheet": {
+      "avatar": {
+        "actions": "Open avatar actions",
+        "errors": {
+          "fileSize": "Avatar file size exceeds {value} MB."
+        },
+        "label": "Avatar",
+        "section": "Character Avatar",
+        "upload": "Upload avatar"
+      },
+      "name": {
+        "label": "Name",
+        "placeholder": "Character name"
+      }
+    },
+    "update-message": "キャラクターバージョンが古くなっています。更新しますか？",
+    "updated": "キャラクターが v{from} から v{to} に正常に更新されました！",
+    "your-characters": "あなたのキャラクター"
+  },
+  "common": {
+    "actions": {
+      "add": "追加",
+      "back": "戻る",
+      "cancel": "キャンセル",
+      "close": "閉じる",
+      "confirm": "確認",
+      "create": "作成",
+      "decrease": "減少",
+      "delete": "削除",
+      "edit": "編集",
+      "finish": "終了",
+      "go": "行く",
+      "increase": "増加",
+      "next": "次へ",
+      "remove": "削除",
+      "reset": "リセット",
+      "save": "保存",
+      "select": "選択",
+      "update": "更新",
+      "upload": "アップロード",
+      "use": "使用"
+    },
+    "messages": {
+      "emptyList": "まだ要素が追加されていません",
+      "remove": "削除してもよろしいですか？",
+      "remove-named": "\"{value}\" を削除してもよろしいですか？"
+    },
+    "or": "または",
+    "state": {
+      "disabled": "無効",
+      "enabled": "有効"
+    }
+  },
+  "debug": {
+    "add-mock-character": "テストキャラクターを追加"
+  },
+  "errors": {
+    "boundary": {
+      "description": "アプリで問題が発生したため、 safe に続行できません。再読み込みすると解決する可能性があります。",
+      "reload": "再読み込み",
+      "title": "問題が発生しました"
+    },
+    "character": {
+      "create": "キャラクターを作成できませんでした。{error}",
+      "export": "キャラクターを出力できませんでした。{error}",
+      "list": "キャラクター一覧を読み込めませんでした。{error}",
+      "load": "キャラクターを読み込めませんでした。{error}",
+      "remove": "キャラクターを削除できませんでした。{error}",
+      "save": "キャラクターを保存できませんでした。変更が保存されていない可能性があります。{error}"
+    },
+    "module": {
+      "appVersionMismatch": "アプリのバージョン \"{requiredVersion}\" が必要ですが、現在のバージョンは \"{appVersion}\" です",
+      "incompatible": "\"{anotherModule}\" と互換性がありません",
+      "missingDependencies": "不足している依存関係: {modules}",
+      "notFound": "モジュールが見つかりません: \"{module}\"",
+      "otherDependsOn": "他のモジュールが依存しています: {modules}"
+    },
+    "moduleResolution": {
+      "appVersionMismatch": "モジュール '{module}' はアプリのバージョン '{requiredAppVersion}' を必要としますが、現在のバージョンは '{currentAppVersion}' です。",
+      "dependencyCycle": "{modules} を含む依存関係のループが検出されました。",
+      "genericError": "モジュールの解決中に不明なエラーが発生しました。",
+      "incompatibleModules": "モジュール '{module}' は以下と互換性がありません: {incompatible}。",
+      "missingDependency": "モジュール '{module}' に依存関係 '{dependency}' が欠落しています。",
+      "versionMismatch": "モジュール '{module}' は '{dependency}' のバージョン '{requiredVersion}' を必要としますが、見つかったバージョンは '{actualVersion}' です。"
+    },
+    "modules": {
+      "export": "モジュールをエクスポートできませんでした。{error}"
+    },
+    "outdatedBrowser": "お使いのシステムブラウザは古くなっています。アプリケーションが正常に動作しない可能性があります。更新してください。",
+    "unexpected": "予期しないエラーが発生しました。アプリの一部が正常に動作しない可能性があります。"
+  },
+  "forms": {
+    "description": "説明",
+    "name": "名前",
+    "price": "価格",
+    "quantity": "数量",
+    "skill": "スキル",
+    "type": "タイプ"
+  },
+  "inventory": {},
+  "modules": {
+    "configuration": {
+      "author": "著者",
+      "dependencies": "依存関係",
+      "description": "説明",
+      "id": "ID",
+      "label": "カスタム設定",
+      "languages": "言語",
+      "mainSettings": "メイン設定",
+      "name": "名前",
+      "version": "バージョン"
+    },
+    "export": "モジュール設定をエクスポート",
+    "exportSuccess": "モジュールのエクスポートに成功しました！",
+    "external": "外部",
+    "import": {
+      "error": {
+        "extension": "モジュールをインポートできませんでした。ファイル拡張子は .fmod である必要があります",
+        "validation": "モジュールをインポートできませんでした。ファイルが無効です。",
+        "version": "モジュールをインポートできませんでした。モジュールのバージョンが古いです。"
+      },
+      "success": "モジュールが正常にインポートされました！",
+      "title": "ファイルからモジュールをインポート"
+    },
+    "installed": "インストール済みのモジュール ({value}):",
+    "save": "モジュール構成を保存",
+    "selected": "選択されたモジュール",
+    "share": "モジュール構成を共有",
+    "updated": "モジュール {module} が v{version} に更新されました"
+  },
+  "roll-dice": {
+    "config": {
+      "dice": {
+        "material": "サイコロの素材",
+        "title": "サイコロのオプション",
+        "type": "サイコロの種類"
+      },
+      "force": "力",
+      "general": {
+        "haptic": "触覚フィードバック",
+        "shake": "振って投げる",
+        "show-result": "画面に結果を表示",
+        "title": "一般設定"
+      },
+      "gravity": "重力",
+      "haptic": "触覚フィードバック",
+      "number": "ダイスの数",
+      "physics": {
+        "force": "力",
+        "gravity": "重力",
+        "number": "サイコロの数",
+        "size": "サイコロのサイズ",
+        "title": "物理設定"
+      },
+      "reset": "設定をリセット",
+      "resetPhysics": "物理設定をリセット",
+      "shake": "振って投げる",
+      "size": "サイコロのサイズ",
+      "title": "サイコロ投げの設定"
+    },
+    "result": "投げた結果は {value} です",
+    "rolling": "投げています...",
+    "throw": "{value} 個のサイコロを投げる"
+  },
+  "settings": {
+    "about-app": {
+      "author": "作者",
+      "legal": {
+        "title": "法的情報とクレジット"
+      },
+      "license": "ライセンス",
+      "privacy-policy": {
+        "accept-policy": "プライバシーポリシーを読み、同意しました",
+        "acceptance-date": "同意日: {value}",
+        "not-accepted": "プライバシーポリシーが承認されていません。設定に移動して、読んで同意してください。そうしないとアプリを使用できません。",
+        "title": "プライバシーポリシー",
+        "updated": "おかえりなさい！利用規約を少し更新したため、もう一度ご確認をお願いします。"
+      },
+      "source-code": "ソースコード",
+      "title": "アプリについて",
+      "version": "バージョン"
+    },
+    "developer": {
+      "debugInfo": {
+        "toggle": "デバッグ情報を表示",
+        "toggleDescription": "アプリ全体に追加のデバッグツールを表示します — ダイス物理デバッガーと非表示の開発者ページ。"
+      },
+      "devMod": {
+        "connect": "接続",
+        "connected": "「{id}」に接続済み",
+        "disconnect": "切断",
+        "error": "開発用モッドに接続できませんでした。{error}",
+        "title": "開発用モッドに接続",
+        "urlPlaceholder": "http://192.168.1.20:5199"
+      },
+      "installFromUrl": {
+        "confirmMessage": "審査済みレジストリ外から「{id}」をインストールしようとしています。アプリとキャラクターデータへのフルアクセスで動作します。確認するには「{id}」または「install」と入力してください。",
+        "confirmPlaceholder": "確認のため入力",
+        "confirmTitle": "外部コードをインストールしますか？",
+        "error": "モッドをインストールできませんでした。{error}",
+        "install": "インストール",
+        "success": "「{id}」をインストールしました",
+        "title": "URLからインストール",
+        "urlPlaceholder": "https://example.com/mods/author-name"
+      },
+      "registryBase": {
+        "description": "Mod Store を本番ではなくステージングレジストリに向けます。デフォルトを使う場合は空のままにします。",
+        "save": "保存",
+        "title": "レジストリベース URL の上書き"
+      },
+      "title": "開発者",
+      "toggle": "開発者モード",
+      "toggleDescription": "URL からのモッドインストールを有効にします。作者とテスター向けです — モッドはアプリへのフルアクセスで動作します。"
+    },
+    "language": "言語",
+    "mods": {
+      "actions": {
+        "disable": "無効化",
+        "enable": "有効化",
+        "remove": "削除",
+        "retry": "再試行",
+        "update": "更新",
+        "removeAnyway": "それでも削除"
+      },
+      "blocked": "「{id}」は無効化されました — このバージョンは安全でないと判定されています。Mod Store で更新を確認してください。",
+      "browse": {
+        "compatibleOnly": "このアプリと互換性のあるもののみ",
+        "empty": "モッドが見つかりません",
+        "incompatible": "このアプリバージョンと互換性がありません",
+        "loadError": "Mod Store を読み込めませんでした。{error}",
+        "offline": "更新できませんでした — キャッシュ結果を表示中",
+        "searchPlaceholder": "モッドを検索",
+        "stale": "キャッシュ結果を表示中 — 引っ張って更新"
+      },
+      "detail": {
+        "author": "作者: {name}",
+        "blocked": "このバージョンはブロックされています",
+        "config": "設定オプション",
+        "downgrade": "ダウングレード",
+        "install": "インストール",
+        "installed": "インストール済み",
+        "latest": "最新",
+        "readme": "概要",
+        "remove": "削除",
+        "update": "更新",
+        "updateAvailable": "更新あり",
+        "versions": "バージョン"
+      },
+      "empty": "インストール済みのモッドはありません",
+      "errors": {
+        "action": "操作を完了できませんでした。{error}",
+        "list": "インストール済みモッドを読み込めませんでした。{error}"
+      },
+      "installSuccess": "「{id}」をインストールしました",
+      "restartToApply": "変更を適用するために再起動",
+      "source": {
+        "dev": "Dev",
+        "registry": "レジストリ",
+        "url": "URL"
+      },
+      "status": {
+        "disabled": "無効",
+        "errored": "エラー",
+        "loaded": "読み込み済み"
+      },
+      "tabs": {
+        "browse": "閲覧",
+        "installed": "インストール済み"
+      },
+      "title": "モッド",
+      "updateSuccess": "「{id}」を更新しました",
+      "removeConfirm": {
+        "inUse": "次で使用中: {characters}",
+        "willUninstall": "削除すると、それらのキャラクターからこのモッドがアンインストールされます。"
+      }
+    },
+    "theme": {
+      "dark": "ダーク",
+      "defaultSkin": "デフォルト",
+      "light": "ライト",
+      "system": "システム",
+      "title": "テーマ"
+    }
+  },
+  "suggestions": {
+    "modules": {
+      "install": "Mod Store から「{module}」をインストール",
+      "notInstalled": "「{module}」はインストールされていません",
+      "openModStore": "Mod Store を開く"
+    }
+  },
+  "tabs": {
+    "character": {
+      "title": "キャラクター"
+    },
+    "roll-dice": {
+      "title": "サイコロを振る"
+    },
+    "settings": {
+      "title": "設定"
+    }
+  }
 }
