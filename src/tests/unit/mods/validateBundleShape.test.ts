@@ -11,6 +11,12 @@ describe('validateBundleShape', () => {
 		expect(() => validateBundleShape(null, undefined)).toThrow(/must be an object/)
 	})
 
+	it('rejects manifest-only keys but allows any other extra key', () => {
+		expect(() => validateBundleShape({ id: 'someone@else' }, undefined)).toThrow(/manifest-only key \(id\)/)
+		expect(() => validateBundleShape({ id: 'x', capabilities: ['theme'] }, undefined)).toThrow(/manifest-only keys \(id, capabilities\)/)
+		expect(() => validateBundleShape({ whateverTheAuthorWants: 42 }, undefined)).not.toThrow()
+	})
+
 	it('validates components when sheetComponents is declared', () => {
 		expect(() => validateBundleShape({ components: 'nope' }, ['sheetComponents'])).toThrow(/components must be an array/)
 		expect(() => validateBundleShape({ components: [{ id: 'x' }] }, ['sheetComponents'])).toThrow(/components\[0\]/)

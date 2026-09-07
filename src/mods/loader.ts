@@ -82,6 +82,12 @@ export async function initMods(): Promise<void> {
 export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifest> {
 	const manifest = JSON.parse(row.manifestJson) as Record<string, unknown>
 
+	// 0. Identity — the stored manifest must be the one this row is keyed by,
+	// checked before its translations are merged into i18n under that id.
+	if (manifest.id !== row.id) {
+		throw new Error(`manifest id "${String(manifest.id)}" does not match the installed id "${row.id}"`)
+	}
+
 	// 1. ABI gate — refuse before executing anything
 	if (typeof manifest.sdk === 'string' && !semver.satisfies(SDK_VERSION, manifest.sdk)) {
 		throw new Error(`requires mod-API ${manifest.sdk}, app provides ${SDK_VERSION}`)
@@ -117,9 +123,14 @@ export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifes
 	// 4. Shape validation — before anything (translations, the sheet) trusts it
 	validateBundleShape(bundle, manifest.capabilities as FateModuleManifest['capabilities'])
 
-	// 5. Assemble exactly like built-ins + merge translations
+	// 5. Assemble exactly like built-ins + merge translations. The identity
+	// re-check is a tripwire on assembleMod's allowlist, not a second gate.
 	registerModTranslations(manifest.id as string, JSON.parse(row.translationsJson || '{}'))
-	return assembleMod(manifest, bundle)
+	const assembled = assembleMod(manifest, bundle)
+	if (assembled.id !== row.id) {
+		throw new Error(`assembled manifest id "${assembled.id}" does not match the installed id "${row.id}"`)
+	}
+	return assembled
 }
 
 /**

@@ -129,6 +129,28 @@ describe('loadExternalMod', () => {
 		await expect(loadExternalMod(row)).rejects.toThrow(/components must be an array/)
 	})
 
+	it('quarantines a bundle that tries to declare its own identity or capabilities', async () => {
+		const row = baseRow()
+		row.sha256 = await sha256(row.bundleCode)
+		importBlobModule.mockResolvedValue({
+			id: 'sonder@core-skills',
+			capabilities: ['theme'],
+			theme: { css: ':root{}' },
+			components: []
+		})
+
+		await expect(loadExternalMod(row)).rejects.toThrow(/manifest-only keys \(id, capabilities\)/)
+	})
+
+	it('quarantines a stored manifest whose id does not match the row', async () => {
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'someone@else', version: '1.0.0' }) })
+		row.sha256 = await sha256(row.bundleCode)
+
+		await expect(loadExternalMod(row)).rejects.toThrow(/does not match the installed id/)
+		expect(importBlobModule).not.toHaveBeenCalled()
+		expect(registerModTranslations).not.toHaveBeenCalled()
+	})
+
 	it('skips the hash check for dev-mode mods', async () => {
 		const row = baseRow({ source: 'dev', sha256: 'irrelevant-and-wrong' })
 		importBlobModule.mockResolvedValue({})

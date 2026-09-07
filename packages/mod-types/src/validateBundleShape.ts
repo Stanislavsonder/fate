@@ -10,6 +10,14 @@ const LIFECYCLE_FNS = ['onInstall', 'onUninstall', 'onReconfigure'] as const
 // already covers the general case indirectly.
 const THEME_CSS_MAX_BYTES = 100 * 1024
 
+// Manifest-owned keys the loader gates on (ABI range, capabilities, identity)
+// before the bundle is ever imported. assembleMod copies an allowlist off the
+// bundle, so these are inert there — rejected rather than silently ignored so
+// an author who puts them in the wrong file finds out at build/PR time, and so
+// a bundle attempting to pick its own identity after the gates is quarantined.
+// Any other extra key is left alone; a bundle may export whatever it likes.
+const MANIFEST_ONLY_KEYS = ['id', 'version', 'sdk', 'capabilities', 'dependencies', 'incompatibleWith', 'appVersion', 'published', 'entry'] as const
+
 /**
  * Cheap structural checks run on a freshly `import()`ed external bundle before
  * anything (assembleMod, translations, the character sheet) trusts its shape.
@@ -24,6 +32,11 @@ export function validateBundleShape(bundle: unknown, capabilities: FateModCapabi
 	}
 
 	const b = bundle as Record<string, unknown>
+
+	const manifestOnly = MANIFEST_ONLY_KEYS.filter(key => key in b)
+	if (manifestOnly.length > 0) {
+		throw new Error(`bundle must not declare manifest-only ${manifestOnly.length > 1 ? 'keys' : 'key'} (${manifestOnly.join(', ')}) — move them to manifest.json`)
+	}
 
 	if (capabilities?.includes('sheetComponents') && b.components !== undefined) {
 		if (!Array.isArray(b.components)) {

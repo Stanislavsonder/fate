@@ -51,6 +51,14 @@ The loader (`src/mods/loader.ts`) merges your `manifest.json` with this
 object into one `FateModuleManifest` — from that point on, your mod is
 indistinguishable from a built-in one to the rest of the app.
 
+Only behaviour comes from the bundle. `id`, `version`, `sdk`, `capabilities`,
+`dependencies`, `incompatibleWith`, `appVersion`, `published`, and `entry`
+belong in `manifest.json` and are rejected if your bundle declares them: the
+loader gates on those fields *before* importing your code, so a bundle that
+could set them would be choosing its own identity after the checks had already
+passed. Any other extra key on your default export is simply yours — the host
+ignores it.
+
 ## 2. `window.FateSDK` — the host API (ABI)
 
 Your mod runs inside the **same Vue instance** as the host app — not a copy.
@@ -274,7 +282,7 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
 
 | Field | Required | Notes |
 |---|---|---|
-| `id` | yes | `"author@name"`, globally unique, matches your bundle's `defineFateMod` export id implicitly (via `assembleMod`) |
+| `id` | yes | `"author@name"`, globally unique. Manifest-only — your bundle must not declare it (see §1) |
 | `version` | yes | semver |
 | `name` | yes | i18n key (`"t.name"` — resolved to `"<id>.name"` at registration via `signRecord`) or a plain string |
 | `author` | yes | `{ name, email?, url? }` |
