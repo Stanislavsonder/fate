@@ -142,6 +142,14 @@ describe('loadExternalMod', () => {
 		await expect(loadExternalMod(row)).rejects.toThrow(/manifest-only keys \(id, capabilities\)/)
 	})
 
+	it('quarantines a mod whose id could shadow an app translation namespace', async () => {
+		const row = baseRow({ id: 'settings', manifestJson: JSON.stringify({ id: 'settings', version: '1.0.0' }) })
+		row.sha256 = await sha256(row.bundleCode)
+
+		await expect(loadExternalMod(row)).rejects.toThrow(/not a valid mod id/)
+		expect(registerModTranslations).not.toHaveBeenCalled()
+	})
+
 	it('quarantines a stored manifest whose id does not match the row', async () => {
 		const row = baseRow({ manifestJson: JSON.stringify({ id: 'someone@else', version: '1.0.0' }) })
 		row.sha256 = await sha256(row.bundleCode)

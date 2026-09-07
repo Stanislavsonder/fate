@@ -3,6 +3,7 @@ import { ModRegistry } from './modRegistry'
 import { loadExternalMod, safeManifest } from './loader'
 import { SDK_VERSION } from './sdk'
 import { getIndex, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
+import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
@@ -52,6 +53,11 @@ export async function fetchManifest(baseUrl: string): Promise<FetchResult<Record
 		const manifest = (await res.json()) as Record<string, unknown>
 		if (typeof manifest.id !== 'string' || typeof manifest.version !== 'string') {
 			return { ok: false, error: 'manifest.json is missing required "id"/"version" fields' }
+		}
+		// Every install path funnels through here, so this is the one place the
+		// id shape has to be checked before anything is stored under it.
+		if (!isValidModId(manifest.id)) {
+			return { ok: false, error: invalidModIdMessage(manifest.id) }
 		}
 		return { ok: true, data: manifest }
 	} catch (e) {

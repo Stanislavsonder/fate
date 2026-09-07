@@ -5,6 +5,7 @@ import { signRecord } from '@/modules/utils/localizationSigners'
 import { registerModTranslations } from './registerModTranslations'
 import { registerBuiltinMods } from './builtins'
 import { importBlobModule } from './importBlobModule'
+import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
 import { validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
@@ -83,9 +84,13 @@ export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifes
 	const manifest = JSON.parse(row.manifestJson) as Record<string, unknown>
 
 	// 0. Identity — the stored manifest must be the one this row is keyed by,
-	// checked before its translations are merged into i18n under that id.
+	// and that id must be namespace-safe, since translations are merged into
+	// i18n under it a few steps below.
 	if (manifest.id !== row.id) {
 		throw new Error(`manifest id "${String(manifest.id)}" does not match the installed id "${row.id}"`)
+	}
+	if (!isValidModId(row.id)) {
+		throw new Error(invalidModIdMessage(row.id))
 	}
 
 	// 1. ABI gate — refuse before executing anything
