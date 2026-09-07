@@ -13,11 +13,17 @@ vi.mock('@/mods/registerModTranslations', () => ({ registerModTranslations }))
 const { importBlobModule } = vi.hoisted(() => ({ importBlobModule: vi.fn() }))
 vi.mock('@/mods/importBlobModule', () => ({ importBlobModule }))
 
-const { loadFullIconset, loadDiceLibs } = vi.hoisted(() => ({
+const { loadFullIconset, loadDiceLibs, loadSharedComponents } = vi.hoisted(() => ({
 	loadFullIconset: vi.fn().mockResolvedValue(undefined),
-	loadDiceLibs: vi.fn().mockResolvedValue(undefined)
+	loadDiceLibs: vi.fn().mockResolvedValue(undefined),
+	loadSharedComponents: vi.fn().mockResolvedValue(undefined)
 }))
-vi.mock('@/mods/sdk', async importOriginal => ({ ...(await importOriginal<typeof SdkModule>()), loadFullIconset, loadDiceLibs }))
+vi.mock('@/mods/sdk', async importOriginal => ({
+	...(await importOriginal<typeof SdkModule>()),
+	loadFullIconset,
+	loadDiceLibs,
+	loadSharedComponents
+}))
 
 import { ModRegistry } from '@/mods/modRegistry'
 import { initMods, loadExternalMod } from '@/mods/loader'
@@ -59,6 +65,7 @@ describe('loadExternalMod', () => {
 
 		expect(manifest.id).toBe('author@mod')
 		expect(loadFullIconset).toHaveBeenCalled()
+		expect(loadSharedComponents).toHaveBeenCalled()
 		expect(importBlobModule).toHaveBeenCalledWith(row.bundleCode)
 		expect(registerModTranslations).toHaveBeenCalledWith('author@mod', { en: { name: 'Mod' } })
 	})
@@ -86,6 +93,16 @@ describe('loadExternalMod', () => {
 		await loadExternalMod(row)
 
 		expect(loadDiceLibs).not.toHaveBeenCalled()
+	})
+
+	it('does not load shared components for a mod without the sheetComponents capability', async () => {
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', capabilities: ['dice'] }) })
+		row.sha256 = await sha256(row.bundleCode)
+		importBlobModule.mockResolvedValue({ dice: {} })
+
+		await loadExternalMod(row)
+
+		expect(loadSharedComponents).not.toHaveBeenCalled()
 	})
 
 	it('quarantines on hash mismatch without ever importing the bundle', async () => {

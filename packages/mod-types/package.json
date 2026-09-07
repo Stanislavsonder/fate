@@ -1,6 +1,6 @@
 {
 	"name": "@fate-app/mod-types",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Shared TypeScript types and runtime helpers for Assistant for Fate mods — the single source of truth for the mod manifest/bundle shape, consumed by both the app and community mod authors.",
 	"license": "MIT",
 	"repository": {
@@ -38,7 +38,8 @@
 	},
 	"devDependencies": {
 		"cannon-es": "^0.20.0",
-		"three": "^0.185.0"
+		"three": "^0.185.0",
+		"vue": "^3.5.0"
 	},
 	"peerDependencies": {
 		"cannon-es": "^0.20.0",

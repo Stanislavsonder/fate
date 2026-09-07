@@ -3,6 +3,7 @@ import { describe, it, expect, vi, beforeAll } from 'vitest'
 import { readFileSync, existsSync } from 'node:fs'
 import path from 'node:path'
 import type { Character, FateContext } from '@/types'
+import type * as SdkModule from '@/mods/sdk'
 
 /**
  * Integration test for the Phase 2 loader against a REAL built mod, not a
@@ -32,6 +33,15 @@ vi.mock('@/mods/registerModTranslations', () => ({ registerModTranslations }))
 // plugin registered (every other test avoids this by never importing the
 // real loader.ts unmocked with real builtins in the chain).
 vi.mock('@/mods/builtins', () => ({ registerBuiltinMods: vi.fn() }))
+
+// example-mod's own manifest declares the sheetComponents capability, so the
+// real loadExternalMod would call the real loadSharedComponents(), which
+// dynamically imports @/components/ui/SheetSection.vue — same "no Vue plugin
+// in this vitest config" problem as builtins above, and irrelevant here:
+// this test is about example-mod's own component/lifecycle output, not
+// SheetSection.
+const { loadSharedComponents } = vi.hoisted(() => ({ loadSharedComponents: vi.fn().mockResolvedValue(undefined) }))
+vi.mock('@/mods/sdk', async importOriginal => ({ ...(await importOriginal<typeof SdkModule>()), loadSharedComponents }))
 
 vi.mock('@/mods/importBlobModule', () => ({
 	async importBlobModule(code: string) {

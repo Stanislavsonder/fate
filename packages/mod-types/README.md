@@ -4,8 +4,10 @@ Shared TypeScript types and runtime helpers for [Assistant for Fate](https://git
 mods — the single source of truth for the mod manifest/bundle shape, consumed
 by both the app and community mod authors.
 
-Exports `defineFateMod`, `getModData`/`setModData`, `validateBundleShape`, and
-the vendored `registry.schema.json` used to validate a mod's `manifest.json`.
+Exports `defineFateMod`, `getModData`/`setModData`, `validateBundleShape`,
+`SheetSection` (a live reference to the host's shared UI, requires SDK
+`^2.1.0`+), and the vendored `registry.schema.json` used to validate a mod's
+`manifest.json`.
 
 Full author-facing documentation lives in the app repo's
 [`docs/MOD_API.md`](https://github.com/Stanislavsonder/fate/blob/main/docs/MOD_API.md).

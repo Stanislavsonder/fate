@@ -6,7 +6,7 @@ import { registerModTranslations } from './registerModTranslations'
 import { registerBuiltinMods } from './builtins'
 import { importBlobModule } from './importBlobModule'
 import { modsService, type StoredMod } from '@/db/tables/mods'
-import { SDK_VERSION, loadFullIconset, loadDiceLibs } from './sdk'
+import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
 import { validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
 
 /**
@@ -88,6 +88,9 @@ export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifes
 	await loadFullIconset()
 	if (Array.isArray(manifest.capabilities) && manifest.capabilities.includes('dice')) {
 		await loadDiceLibs()
+	}
+	if (Array.isArray(manifest.capabilities) && manifest.capabilities.includes('sheetComponents')) {
+		await loadSharedComponents()
 	}
 	const bundle: unknown = await importBlobModule(row.bundleCode)
 

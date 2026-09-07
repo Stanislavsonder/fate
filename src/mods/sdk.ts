@@ -1,4 +1,5 @@
 import * as vue from 'vue'
+import type { Component } from 'vue'
 import * as vueI18n from 'vue-i18n'
 import * as ionicVue from '@ionic/vue'
 import type * as ionicons from 'ionicons/icons'
@@ -8,7 +9,7 @@ import { getModData, setModData } from '@fate-app/mod-types'
 import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
 
 /** ABI version. Bump per docs/MOD_API.md rules: minor for additions, major for anything removed/changed. */
-export const SDK_VERSION = '2.0.0'
+export const SDK_VERSION = '2.1.0'
 
 export interface FateSDK {
 	version: string
@@ -34,6 +35,23 @@ export interface FateSDK {
 	 * a three/cannon-es major bump is an SDK major (docs/MOD_API.md).
 	 */
 	dice: { three: typeof three; cannonEs: typeof cannonEs } | Record<string, never>
+	/**
+	 * Shared host UI components, exposed so a mod's sheet sections can look
+	 * identical to (and stay in sync with) the built-ins' — a redesign here
+	 * reaches every already-installed mod on the app's next release, with no
+	 * mod rebuild/republish needed, since mods read this live rather than
+	 * bundling their own copy. Access via `@fate-app/mod-types`'s `SheetSection`
+	 * export, not this global directly (see packages/mod-types/src/components.ts).
+	 *
+	 * Empty until loadSharedComponents() runs — only when there's an external
+	 * sheetComponents-capability mod to load (src/mods/loader.ts), same lazy
+	 * pattern as ionicons/dice. This keeps SheetSection.vue out of sdk.ts's own
+	 * eager import graph: sdk.ts is pulled in very early (before app mount), and
+	 * built-in modules already import SheetSection.vue directly — an eager
+	 * import here previously made Vite merge those normally-separate,
+	 * normally-lazy built-in-module chunks into one large shared chunk.
+	 */
+	components: { SheetSection: Component } | Record<string, never>
 	api: {
 		toast: {
 			error: typeof showErrorToast
@@ -57,6 +75,7 @@ export function installFateSDK(): void {
 		ionicVue,
 		ionicons: {},
 		dice: {},
+		components: {},
 		api: Object.freeze({
 			toast: Object.freeze({ error: showErrorToast, success: showSuccessToast }),
 			getModData,
@@ -86,4 +105,17 @@ export async function loadFullIconset(): Promise<void> {
 export async function loadDiceLibs(): Promise<void> {
 	const [three, cannonEs] = await Promise.all([import('three'), import('cannon-es')])
 	globalThis.FateSDK = Object.freeze({ ...globalThis.FateSDK, dice: Object.freeze({ three, cannonEs }) })
+}
+
+/**
+ * Upgrades FateSDK.components from empty to { SheetSection }. The loader calls
+ * this once, only when there's an external sheetComponents-capability mod row
+ * to load, so this stays a dynamic import — not a top-level one — keeping
+ * SheetSection.vue (and anything Vite would otherwise merge alongside it) out
+ * of sdk.ts's own eager bundle. Built-in modules import SheetSection.vue
+ * directly and never read this.
+ */
+export async function loadSharedComponents(): Promise<void> {
+	const { default: SheetSection } = await import('@/components/ui/SheetSection.vue')
+	globalThis.FateSDK = Object.freeze({ ...globalThis.FateSDK, components: Object.freeze({ SheetSection }) })
 }

@@ -69,6 +69,7 @@ interface FateSDK {
   ionicVue: typeof import('@ionic/vue')
   ionicons: typeof import('ionicons/icons')   // full icon set; populated lazily, see note below
   dice: { three: typeof import('three'); cannonEs: typeof import('cannon-es') }  // experimental, see §2a
+  components: { SheetSection: Component }  // populated lazily, see §2b
   api: {
     toast: { error(key: string, opts?): Promise<void>; success(key: string, opts?): Promise<void> }
     getModData<T>(character: Character, key: string): T | undefined
@@ -121,6 +122,39 @@ built-ins' dice — you never construct this key yourself.
 
 Marked **experimental**: a three/cannon-es major upgrade is an SDK major
 bump, since it changes what `FateSDK.dice.three`/`.cannonEs` expose.
+
+### 2b. Shared UI components
+
+A `sheetComponents`-capability mod can use the host's own `SheetSection` —
+the same title-bar-over-body card every built-in module's sheet section
+renders in (uppercase title bar with a `header` slot for trailing controls
+like an add button, a padded body below):
+
+```vue
+<script setup lang="ts">
+import { SheetSection } from '@fate-app/mod-types'
+</script>
+<template>
+  <SheetSection :title="$t('my-mod.label')">
+    <template #header>
+      <button type="button" @click="add">+</button>
+    </template>
+    <!-- your section's content -->
+  </SheetSection>
+</template>
+```
+
+Requires `"sdk": "^2.1.0"` or newer. Unlike `vue`/`@ionic/vue`, this isn't a
+real npm package your build tool substitutes — `@fate-app/mod-types`'s
+`SheetSection` export is a live reference into `FateSDK.components`,
+resolved the moment it's actually rendered, not bundled into your
+`bundle.mjs`. That's the point: use it instead of hand-rolling matching CSS,
+and a future host redesign of `SheetSection` reaches your mod on the app's
+next release, with no rebuild or republish on your end. `FateSDK.components`
+is populated lazily — the loader fetches it only when loading a
+`sheetComponents`-capability mod, same as `ionicons` above — so it's simply
+unavailable (throws if you try to render it) for a mod that doesn't declare
+that capability.
 
 **What's on `window.FateSDK` is everything you may rely on from the host.**
 Nothing under `@/` (the app's internal path alias) exists at runtime for a
@@ -270,7 +304,8 @@ without executing a single line of your code.
   Vue/Ionic major upgrade the host takes, since that changes what
   `FateSDK.vue`/`FateSDK.ionicVue` actually expose.
 
-Current: `SDK_VERSION = '2.0.0'`. Treat every property on `FateSDK` as
+Current: `SDK_VERSION = '2.1.0'` (`FateSDK.components`/`SheetSection`, §2b,
+was the minor bump that got it there). Treat every property on `FateSDK` as
 something you must support for years once shipped — this is why its surface
 is deliberately small (`src/mods/sdk.ts`'s own comment: "every property
 added here is frozen ABI").

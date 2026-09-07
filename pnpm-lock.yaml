@@ -290,7 +290,7 @@ importers:
   packages/mod-build:
     dependencies:
       '@fate-app/mod-types':
-        specifier: workspace:^2.0.0
+        specifier: workspace:^2.1.0
         version: link:../mod-types
       '@vitejs/plugin-vue':
         specifier: ^6.0.0
@@ -325,10 +325,6 @@ importers:
         version: 0.185.1
 
   packages/mod-types:
-    dependencies:
-      vue:
-        specifier: ^3.5.0
-        version: 3.5.40(typescript@6.0.3)
     devDependencies:
       cannon-es:
         specifier: ^0.20.0
@@ -336,6 +332,9 @@ importers:
       three:
         specifier: ^0.185.0
         version: 0.185.1
+      vue:
+        specifier: ^3.5.0
+        version: 3.5.40(typescript@6.0.3)
 
 packages:
 

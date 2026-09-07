@@ -1,6 +1,6 @@
 {
 	"name": "@fate-app/mod-build",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Vite build preset + dev-mode server for authoring Assistant for Fate mods — externalizes host-shared libraries against window.FateSDK, inlines CSS, and enforces bundle size limits.",
 	"license": "MIT",
 	"repository": {
@@ -46,7 +46,7 @@
 		"generate-sdk-exports": "node --experimental-transform-types scripts/generateSdkExports.ts"
 	},
 	"dependencies": {
-		"@fate-app/mod-types": "workspace:^2.0.0",
+		"@fate-app/mod-types": "workspace:^2.1.0",
 		"vite-plugin-css-injected-by-js": "^3.5.2"
 	},
 	"devDependencies": {

@@ -15,7 +15,12 @@ import * as modTypes from '@fate-app/mod-types'
 describe('mod-facing ABI surface', () => {
 	it('FateSDK top-level keys', () => {
 		installFateSDK()
-		expect(Object.keys(globalThis.FateSDK).sort()).toEqual(['api', 'dice', 'ionicVue', 'ionicons', 'version', 'vue', 'vueI18n'])
+		expect(Object.keys(globalThis.FateSDK).sort()).toEqual(['api', 'components', 'dice', 'ionicVue', 'ionicons', 'version', 'vue', 'vueI18n'])
+	})
+
+	it('FateSDK.components starts empty (lazy - loadSharedComponents() upgrades it, see loader.test.ts)', () => {
+		installFateSDK()
+		expect(Object.keys(globalThis.FateSDK.components)).toEqual([])
 	})
 
 	it('FateSDK.api surface', () => {
@@ -25,6 +30,6 @@ describe('mod-facing ABI surface', () => {
 	})
 
 	it('@fate-app/mod-types named runtime exports', () => {
-		expect(Object.keys(modTypes).sort()).toEqual(['Dice', 'DiceMaterial', 'defineFateMod', 'getModData', 'setModData', 'validateBundleShape'])
+		expect(Object.keys(modTypes).sort()).toEqual(['Dice', 'DiceMaterial', 'SheetSection', 'defineFateMod', 'getModData', 'setModData', 'validateBundleShape'])
 	})
 })
