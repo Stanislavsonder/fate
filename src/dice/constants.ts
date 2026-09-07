@@ -38,9 +38,8 @@ export const MAX_SCALE = 16
 export const MIN_FORCE = 10
 export const MAX_FORCE = 100
 
-// Populated at boot by src/dice/registerBuiltinDice.ts from ModRegistry mods
-// that declare the 'dice' capability (src/modules/sonder@dice-fudge, sonder@dice-d20)
-// — see planning/modules-2-0/phase-1-builtins-migration.md Step 6.
+// Populated by src/dice/registerBuiltinDice.ts from the built-in Fudge mod
+// and loaded external mods that declare the 'dice' capability.
 export const DICE_SHAPES: Map<string, DiceConstructor> = new Map()
 
 export const DICE_MATERIALS: Map<string, DiceMaterial> = new Map([

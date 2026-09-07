@@ -28,10 +28,10 @@ describe('registerBuiltinDice / syncExternalDice', () => {
 		}
 	})
 
-	it('registers built-in dice under unnamespaced keys', () => {
+	it('registers only built-in dice under unnamespaced keys', () => {
 		registerBuiltinDice()
 		expect(DICE_SHAPES.get('Fudge')).toBeDefined()
-		expect(DICE_SHAPES.get('D20')).toBeDefined()
+		expect(DICE_SHAPES.get('D20')).toBeUndefined()
 	})
 
 	it('syncs a loaded external dice-capability mod under namespaced keys', () => {

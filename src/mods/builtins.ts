@@ -46,11 +46,10 @@ const BUILTIN_MODS: BuiltinMod[] = [
  * Phase 2's initMods() will call this first, then load external mods on top
  * — see planning/modules-2-0/phase-1-builtins-migration.md.
  *
- * Dice mods (sonder@dice-fudge, sonder@dice-d20) are deliberately NOT here:
- * their code is the Three.js/cannon-es dice geometry, which was previously
- * only loaded when the (lazy-routed) Roll Dice page was visited. Importing
- * them from this eagerly-loaded file would pull that ~300KB into every app
- * boot. They register themselves instead, from
+ * The built-in Fudge dice mod is deliberately NOT here: its Three.js/cannon-es
+ * code is only loaded when the lazy-routed Roll Dice page is visited. Importing
+ * it from this eagerly-loaded file would pull that ~300KB into every app boot.
+ * It registers itself instead, from
  * src/dice/registerBuiltinDice.ts, imported only by
  * src/dice/composables/useDiceScene.ts — see that file's comment.
  */

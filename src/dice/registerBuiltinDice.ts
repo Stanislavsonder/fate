@@ -1,15 +1,14 @@
 import { ModRegistry } from '@/mods/modRegistry'
 import { DICE_SHAPES, DICE_MATERIALS } from './constants'
 import SonderDiceFudge from '@/modules/sonder@dice-fudge'
-import SonderDiceD20 from '@/modules/sonder@dice-d20'
 import type { FateModDice } from '@fate-app/mod-types'
 
-const BUILTIN_DICE_MODS = [SonderDiceFudge, SonderDiceD20]
+const BUILTIN_DICE_MODS = [SonderDiceFudge]
 
 let builtinsRegistered = false
 
 /**
- * Registers the built-in dice mods (unnamespaced keys — 'Fudge', 'D20' — for
+ * Registers the built-in dice mods (unnamespaced keys — currently 'Fudge' — for
  * backward-compat with persisted localStorage['dice-roll-config'] and
  * DEFAULT_DICE_SCENE_CONFIG's hardcoded default) once per app lifetime, then
  * syncs every OTHER loaded mod declaring the 'dice' capability under

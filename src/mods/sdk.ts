@@ -80,8 +80,8 @@ export async function loadFullIconset(): Promise<void> {
  * Upgrades FateSDK.dice from empty to { three, cannonEs }. The loader calls
  * this once, only when there's at least one external dice-capability mod row
  * to load, so three/cannon-es (large) stay out of the main bundle for the
- * common case of no external dice mods. Built-in dice (Fudge/D20) already
- * import three/cannon-es directly and never read this.
+ * common case of no external dice mods. The built-in Fudge die already imports
+ * three/cannon-es directly and never reads this.
  */
 export async function loadDiceLibs(): Promise<void> {
 	const [three, cannonEs] = await Promise.all([import('three'), import('cannon-es')])
