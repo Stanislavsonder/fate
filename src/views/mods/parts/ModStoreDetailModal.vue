@@ -10,6 +10,8 @@ import { modsService } from '@/db/tables/mods'
 import i18n from '@/i18n'
 import {
 	changeRegistryVersion,
+	fallbackModStoreImage,
+	getModStoreImageUrl,
 	getRegistryRelease,
 	installFromRegistry,
 	isRegistryReleaseCompatible,
@@ -47,13 +49,7 @@ const versions = computed(() => entry.versions.filter(version => getRegistryRele
 const selectedIsBlocked = computed(() => isRegistryVersionBlocked(blocklist.value, entry.id, selectedVersion.value))
 const selectedIsCompatible = computed(() => isRegistryReleaseCompatible(entry, selectedVersion.value))
 const selectedIsInstalled = computed(() => selectedVersion.value === installedVersion.value)
-const imageUrl = computed(() => {
-	if (!entry.image) {
-		return null
-	}
-	const imageFile = getRegistryRelease(entry, entry.latestVersion)?.files[entry.image]
-	return imageFile ? `${getRegistryBase()}/${imageFile.url}` : null
-})
+const imageUrl = computed(() => getModStoreImageUrl(entry, getRegistryBase()))
 
 const actionKey = computed(() => {
 	if (!installedVersion.value) {
@@ -145,24 +141,25 @@ async function performRemove() {
 		:title="strings.name"
 	>
 		<div class="p-4">
-			<h1 class="text-3xl font-bold">{{ strings.name }}</h1>
-
-			<img
-				v-if="imageUrl"
-				:src="imageUrl"
-				:alt="strings.name"
-				class="mt-4 max-h-72 w-full rounded-lg object-cover"
-			/>
-
-			<ion-note class="mt-3 block">{{ $t('settings.mods.detail.author', { name: entry.author.name }) }}</ion-note>
-
-			<ion-badge
-				v-if="selectedIsBlocked || !selectedIsCompatible"
-				color="danger"
-				class="mt-2"
-			>
-				{{ selectedIsBlocked ? $t('settings.mods.detail.blocked') : $t('settings.mods.browse.incompatible') }}
-			</ion-badge>
+			<div class="flex items-start gap-4">
+				<img
+					:src="imageUrl"
+					:alt="strings.name"
+					class="aspect-square size-24 shrink-0 rounded-xl object-cover"
+					@error="fallbackModStoreImage"
+				/>
+				<div class="min-w-0 flex-1">
+					<h1 class="text-3xl font-bold">{{ strings.name }}</h1>
+					<ion-note class="mt-3 block">{{ $t('settings.mods.detail.author', { name: entry.author.name }) }}</ion-note>
+					<ion-badge
+						v-if="selectedIsBlocked || !selectedIsCompatible"
+						color="danger"
+						class="mt-2"
+					>
+						{{ selectedIsBlocked ? $t('settings.mods.detail.blocked') : $t('settings.mods.browse.incompatible') }}
+					</ion-badge>
+				</div>
+			</div>
 
 			<div class="mt-4 flex">
 				<ion-button

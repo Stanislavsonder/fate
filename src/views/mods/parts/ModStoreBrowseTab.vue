@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { IonList, IonItem, IonLabel, IonNote, IonSearchbar, IonToggle, IonSpinner, IonRefresher, IonRefresherContent, IonBadge } from '@ionic/vue'
+import { IonList, IonItem, IonLabel, IonNote, IonSearchbar, IonToggle, IonSpinner, IonRefresher, IonRefresherContent, IonBadge, IonThumbnail } from '@ionic/vue'
 import { getIndex, refreshIndex, type RegistryModEntry } from '@/mods/registryClient'
-import { isEntryCompatible, isEntryPublished } from '@/mods/installService'
+import { fallbackModStoreImage, getModStoreImageUrl, isEntryCompatible, isEntryPublished } from '@/mods/installService'
+import useRegistryBase from '@/composables/useRegistryBase'
 import { modsService } from '@/db/tables/mods'
 import ModStoreDetailModal from './ModStoreDetailModal.vue'
 
 const { locale } = useI18n()
+const { getRegistryBase } = useRegistryBase()
 
 const entries = ref<RegistryModEntry[]>([])
 const installedIds = ref(new Set<string>())
@@ -75,6 +77,10 @@ const filteredEntries = computed(() => {
 	})
 })
 
+function coverSrc(entry: RegistryModEntry): string {
+	return getModStoreImageUrl(entry, getRegistryBase())
+}
+
 function openDetail(entry: RegistryModEntry) {
 	selectedEntry.value = entry
 	isDetailOpen.value = true
@@ -139,6 +145,18 @@ function openDetail(entry: RegistryModEntry) {
 			:data-testname="entry.id"
 			@click="openDetail(entry)"
 		>
+			<ion-thumbnail
+				slot="start"
+				class="overflow-hidden rounded-lg [--size:4.5rem]"
+			>
+				<img
+					data-testid="mod-store-entry-image"
+					:src="coverSrc(entry)"
+					:alt="displayStrings(entry).name"
+					class="aspect-square size-full object-cover"
+					@error="fallbackModStoreImage"
+				/>
+			</ion-thumbnail>
 			<ion-label>
 				<h2>{{ displayStrings(entry).name }}</h2>
 				<p>{{ entry.id }} · v{{ entry.latestVersion }}</p>

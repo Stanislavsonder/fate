@@ -307,6 +307,25 @@ export function isEntryCompatible(entry: RegistryModEntry): boolean {
 /** Exported for reuse by the Mod Store's Browse tab (published vs draft visibility). */
 export { isEntryPublished } from './registryClient'
 
+export const MOD_STORE_FALLBACK_IMAGE = '/web-app-manifest-192x192.png'
+
+export function getModStoreImageUrl(entry: RegistryModEntry, registryBase: string): string {
+	if (typeof entry.image === 'string') {
+		const imageFile = getRegistryRelease(entry, entry.latestVersion)?.files[entry.image]
+		if (imageFile) {
+			return `${registryBase}/${imageFile.url}`
+		}
+	}
+	return MOD_STORE_FALLBACK_IMAGE
+}
+
+export function fallbackModStoreImage(event: Event) {
+	const image = event.target as HTMLImageElement
+	if (image.src !== new URL(MOD_STORE_FALLBACK_IMAGE, window.location.origin).href) {
+		image.src = MOD_STORE_FALLBACK_IMAGE
+	}
+}
+
 export function getRegistryRelease(entry: RegistryModEntry, version: string): RegistryReleaseEntry | null {
 	const release = entry.releases?.[version]
 	if (release) {
