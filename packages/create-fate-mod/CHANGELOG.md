@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.2
+
+Infra-only, no functional change — version bump so this package's own
+`mod-sdk-v*` publish tag doesn't collide with the already-published 1.2.1,
+alongside the `@fate-app/mod-types`/`@fate-app/mod-build` 2.1.0 release
+(`FateSDK.components.SheetSection`).
+
 ## 1.2.1
 
 Infra-only, no functional change — republished to verify the npm Trusted
