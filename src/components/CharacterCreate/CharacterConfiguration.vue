@@ -4,7 +4,6 @@ import { IonIcon, IonCheckbox, IonItem, IonList, IonLabel, IonNote, IonInput, Io
 import { informationOutline, settings } from 'ionicons/icons'
 import type { Character, CharacterModules } from '@/types'
 import { getSheetModules } from '@/mods/getSheetModules'
-import { ModRegistry } from '@/mods/modRegistry'
 import ModalWindow from '@/components/ui/ModalWindow.vue'
 import ModuleInfo from '@/components/CharacterCreate/ModuleInfo.vue'
 import useFate from '@/store/useFate'
@@ -43,10 +42,6 @@ function openModuleModal(mod: (typeof modulesForDisplay.value)[number]) {
 
 function isConfigurable(mod: FateModuleManifest): boolean {
 	return !!mod.config?.options?.length
-}
-
-function isExternal(id: string): boolean {
-	return ModRegistry.get(id)?.source !== 'builtin'
 }
 
 async function importModules() {
@@ -112,12 +107,6 @@ async function update() {
 				<h3>
 					{{ $t(mod.name) }}
 					<ion-note>{{ mod.version }}</ion-note>
-					<ion-badge
-						v-if="isExternal(mod.id)"
-						color="tertiary"
-					>
-						{{ $t('modules.external') }}
-					</ion-badge>
 				</h3>
 				<p>{{ $t(mod.description.short) }}</p>
 				<ion-note
