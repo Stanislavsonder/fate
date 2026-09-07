@@ -1,5 +1,5 @@
 import type { ModuleResolutionIssue } from './types'
-import { showToast } from '@/utils/helpers/toast'
+import { getToastPositionAnchor, showToast } from '@/utils/helpers/toast'
 import { toastController } from '@ionic/vue'
 import router, { ROUTES } from '@/router'
 import i18n from '@/i18n'
@@ -17,6 +17,7 @@ async function showNotInstalledToast(issue: ModuleResolutionIssue): Promise<void
 		color: 'warning',
 		duration: 6000,
 		position: 'top',
+		positionAnchor: getToastPositionAnchor(),
 		buttons: [
 			{
 				text: t('suggestions.modules.openModStore'),
