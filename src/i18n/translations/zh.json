@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "已安装“{id}”",
 			"removeBlocked": "仍被以下角色使用：{characters}",
+			"restartToApply": "重启以应用更改",
 			"source": {
 				"dev": "Dev",
 				"registry": "注册表",

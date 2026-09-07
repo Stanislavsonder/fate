@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" نصب شد",
 			"removeBlocked": "هنوز توسط این‌ها استفاده می‌شود: {characters}",
+			"restartToApply": "برای اعمال تغییرات، راه‌اندازی مجدد کنید",
 			"source": {
 				"dev": "Dev",
 				"registry": "رجیستری",

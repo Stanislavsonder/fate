@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "«{id}» усталяваны",
 			"removeBlocked": "Усё яшчэ выкарыстоўваецца: {characters}",
+			"restartToApply": "Перазапусціць, каб прымяніць змены",
 			"source": {
 				"dev": "Dev",
 				"registry": "Рэестр",

@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "«{id}» встановлено",
 			"removeBlocked": "Досі використовується: {characters}",
+			"restartToApply": "Перезапустити, щоб застосувати зміни",
 			"source": {
 				"dev": "Dev",
 				"registry": "Реєстр",

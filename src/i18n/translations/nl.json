@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" geïnstalleerd",
 			"removeBlocked": "Nog in gebruik door: {characters}",
+			"restartToApply": "Opnieuw starten om wijzigingen toe te passen",
 			"source": {
 				"dev": "Dev",
 				"registry": "Register",

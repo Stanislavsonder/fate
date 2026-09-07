@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" installert",
 			"removeBlocked": "Fortsatt brukt av: {characters}",
+			"restartToApply": "Start på nytt for å bruke endringene",
 			"source": {
 				"dev": "Dev",
 				"registry": "Register",

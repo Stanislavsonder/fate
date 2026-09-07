@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" asennettu",
 			"removeBlocked": "Vielä käytössä: {characters}",
+			"restartToApply": "Käynnistä uudelleen ottaaksesi muutokset käyttöön",
 			"source": {
 				"dev": "Dev",
 				"registry": "Rekisteri",

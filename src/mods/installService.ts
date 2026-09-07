@@ -7,6 +7,7 @@ import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
 import appVersion from '@/utils/helpers/appVersion'
+import { markModReloadRequired } from '@/mods/reloadState'
 import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
@@ -138,6 +139,7 @@ export async function installFromUrl(baseUrl: string): Promise<InstallOutcome> {
 		await modsService.put(row)
 		const manifest = await loadExternalMod(row)
 		ModRegistry.register({ manifest, source: 'url', status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true, manifest }
 	} catch (e) {
 		await modsService.delete(id).catch(() => {})
@@ -189,6 +191,7 @@ export async function update(id: string, baseUrl?: string): Promise<InstallOutco
 		const manifest = await loadExternalMod(row)
 		await modsService.put(row)
 		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true, manifest }
 	} catch (e) {
 		return { ok: false, error: `Update failed to load — keeping the previously installed version: ${errorMessage(e)}` }
@@ -211,6 +214,7 @@ export async function remove(id: string): Promise<RemoveOutcome> {
 
 		await modsService.delete(id)
 		ModRegistry.remove(id)
+		markModReloadRequired()
 		return { ok: true }
 	} catch (e) {
 		return { ok: false, reason: 'error', error: errorMessage(e) }
@@ -238,17 +242,20 @@ export async function setEnabled(id: string, enabled: boolean): Promise<SimpleOu
 		if (record && record.status !== 'errored') {
 			ModRegistry.register({ ...record, status: 'disabled' })
 		}
+		markModReloadRequired()
 		return { ok: true }
 	}
 
 	if (record && record.status === 'disabled') {
 		ModRegistry.register({ ...record, status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true }
 	}
 
 	try {
 		const manifest = await loadExternalMod({ ...row, enabled: true })
 		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true }
 	} catch (e) {
 		ModRegistry.register({ manifest: safeManifest(row), source: row.source, status: 'errored', error: errorMessage(e) })
@@ -416,6 +423,7 @@ export async function installFromRegistry(id: string, version?: string): Promise
 		await modsService.put(row)
 		const manifest = await loadExternalMod(row)
 		ModRegistry.register({ manifest, source: 'registry', status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true, manifest }
 	} catch (e) {
 		await modsService.delete(id).catch(() => {})
@@ -472,6 +480,7 @@ export async function changeRegistryVersion(id: string, version?: string): Promi
 		const manifest = await loadExternalMod(row)
 		await modsService.put(row)
 		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
 		return { ok: true, manifest }
 	} catch (e) {
 		return { ok: false, error: `Update failed to load — keeping the previously installed version: ${errorMessage(e)}` }

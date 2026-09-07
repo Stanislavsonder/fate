@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" imesakinishwa",
 			"removeBlocked": "Bado inatumika na: {characters}",
+			"restartToApply": "Anzisha upya ili kutumia mabadiliko",
 			"source": {
 				"dev": "Dev",
 				"registry": "Rejista",

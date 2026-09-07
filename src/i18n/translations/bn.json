@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" ইনস্টল হয়েছে",
 			"removeBlocked": "এখনও ব্যবহার করছে: {characters}",
+			"restartToApply": "পরিবর্তনগুলি প্রয়োগ করতে পুনরায় চালু করুন",
 			"source": {
 				"dev": "Dev",
 				"registry": "রেজিস্ট্রি",

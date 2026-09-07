@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "ติดตั้ง \"{id}\" แล้ว",
 			"removeBlocked": "ยังถูกใช้โดย: {characters}",
+			"restartToApply": "เริ่มใหม่เพื่อใช้การเปลี่ยนแปลง",
 			"source": {
 				"dev": "Dev",
 				"registry": "ทะเบียน",

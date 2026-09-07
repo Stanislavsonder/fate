@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" kuruldu",
 			"removeBlocked": "Hâlâ kullananlar: {characters}",
+			"restartToApply": "Değişiklikleri uygulamak için yeniden başlat",
 			"source": {
 				"dev": "Dev",
 				"registry": "Kayıt defteri",

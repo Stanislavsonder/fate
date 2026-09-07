@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" dipasang",
 			"removeBlocked": "Masih digunakan oleh: {characters}",
+			"restartToApply": "Mulai ulang untuk menerapkan perubahan",
 			"source": {
 				"dev": "Dev",
 				"registry": "Registri",

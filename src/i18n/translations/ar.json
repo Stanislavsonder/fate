@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "تم تثبيت \"{id}\"",
 			"removeBlocked": "ما زال مستخدمًا بواسطة: {characters}",
+			"restartToApply": "أعد التشغيل لتطبيق التغييرات",
 			"source": {
 				"dev": "Dev",
 				"registry": "السجل",

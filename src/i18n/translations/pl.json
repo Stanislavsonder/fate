@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "Zainstalowano „{id}”",
 			"removeBlocked": "Nadal używany przez: {characters}",
+			"restartToApply": "Uruchom ponownie, aby zastosować zmiany",
 			"source": {
 				"dev": "Dev",
 				"registry": "Rejestr",

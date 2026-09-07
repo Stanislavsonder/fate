@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" הותקן",
 			"removeBlocked": "עדיין בשימוש על ידי: {characters}",
+			"restartToApply": "הפעלה מחדש כדי להחיל שינויים",
 			"source": {
 				"dev": "Dev",
 				"registry": "רישום",

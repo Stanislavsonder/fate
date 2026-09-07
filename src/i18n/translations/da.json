@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" installeret",
 			"removeBlocked": "Stadig brugt af: {characters}",
+			"restartToApply": "Genstart for at anvende ændringer",
 			"source": {
 				"dev": "Dev",
 				"registry": "Register",

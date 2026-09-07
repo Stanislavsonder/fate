@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "„{id}“ nainstalován",
 			"removeBlocked": "Stále používáno: {characters}",
+			"restartToApply": "Restartovat a použít změny",
 			"source": {
 				"dev": "Dev",
 				"registry": "Registr",

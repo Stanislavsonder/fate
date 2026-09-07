@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "Το \"{id}\" εγκαταστάθηκε",
 			"removeBlocked": "Χρησιμοποιείται ακόμη από: {characters}",
+			"restartToApply": "Επανεκκίνηση για εφαρμογή αλλαγών",
 			"source": {
 				"dev": "Dev",
 				"registry": "Μητρώο",

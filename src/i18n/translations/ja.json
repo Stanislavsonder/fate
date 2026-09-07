@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "「{id}」をインストールしました",
 			"removeBlocked": "次で使用中: {characters}",
+			"restartToApply": "変更を適用するために再起動",
 			"source": {
 				"dev": "Dev",
 				"registry": "レジストリ",

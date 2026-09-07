@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" 설치됨",
 			"removeBlocked": "아직 사용 중: {characters}",
+			"restartToApply": "변경 사항을 적용하려면 다시 시작",
 			"source": {
 				"dev": "Dev",
 				"registry": "레지스트리",

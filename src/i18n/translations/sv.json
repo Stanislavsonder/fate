@@ -269,6 +269,7 @@
 			},
 			"installSuccess": "\"{id}\" installerad",
 			"removeBlocked": "Används fortfarande av: {characters}",
+			"restartToApply": "Starta om för att tillämpa ändringar",
 			"source": {
 				"dev": "Dev",
 				"registry": "Register",
