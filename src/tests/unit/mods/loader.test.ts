@@ -1,8 +1,16 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type * as SdkModule from '@/mods/sdk'
 
-const { getAll, deleteMod } = vi.hoisted(() => ({ getAll: vi.fn(), deleteMod: vi.fn().mockResolvedValue(undefined) }))
-vi.mock('@/db/tables/mods', () => ({ modsService: { getAll, delete: deleteMod } }))
+const { getAll, deleteMod, setBlocked, setEnabled } = vi.hoisted(() => ({
+	getAll: vi.fn(),
+	deleteMod: vi.fn().mockResolvedValue(undefined),
+	setBlocked: vi.fn().mockResolvedValue(undefined),
+	setEnabled: vi.fn().mockResolvedValue(undefined)
+}))
+vi.mock('@/db/tables/mods', () => ({ modsService: { getAll, delete: deleteMod, setBlocked, setEnabled } }))
+
+const { isSeedBlocked } = vi.hoisted(() => ({ isSeedBlocked: vi.fn(() => false) }))
+vi.mock('@/mods/blocklist', () => ({ isSeedBlocked }))
 
 const { registerBuiltinMods } = vi.hoisted(() => ({ registerBuiltinMods: vi.fn() }))
 vi.mock('@/mods/builtins', () => ({ registerBuiltinMods }))
@@ -53,6 +61,7 @@ function baseRow(overrides: Partial<StoredMod> = {}): StoredMod {
 
 beforeEach(() => {
 	vi.clearAllMocks()
+	isSeedBlocked.mockReturnValue(false)
 })
 
 describe('loadExternalMod', () => {
@@ -210,6 +219,29 @@ describe('initMods', () => {
 
 		expect(ModRegistry.get('stale-dev@mod')).toBeUndefined()
 		expect(deleteMod).toHaveBeenCalledWith('stale-dev@mod')
+	})
+
+	it('does not import a blocked mod, even while it is still marked enabled', async () => {
+		const row = baseRow({ id: 'blocked@mod', blocked: true, manifestJson: JSON.stringify({ id: 'blocked@mod', version: '1.0.0' }) })
+		getAll.mockResolvedValue([row])
+
+		await initMods()
+
+		expect(importBlobModule).not.toHaveBeenCalled()
+		expect(ModRegistry.get('blocked@mod')?.status).toBe('disabled')
+	})
+
+	it('applies the compiled-in seed blocklist offline, before the bundle is imported', async () => {
+		const row = baseRow({ id: 'seed-blocked@mod', manifestJson: JSON.stringify({ id: 'seed-blocked@mod', version: '1.0.0' }) })
+		getAll.mockResolvedValue([row])
+		isSeedBlocked.mockReturnValue(true)
+
+		await initMods()
+
+		expect(importBlobModule).not.toHaveBeenCalled()
+		expect(setBlocked).toHaveBeenCalledWith('seed-blocked@mod', true)
+		expect(setEnabled).toHaveBeenCalledWith('seed-blocked@mod', false)
+		expect(ModRegistry.get('seed-blocked@mod')?.status).toBe('disabled')
 	})
 
 	it('registers a disabled stored mod as a stub without importing its bundle', async () => {

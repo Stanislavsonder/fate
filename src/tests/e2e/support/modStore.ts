@@ -18,6 +18,9 @@ export const FIXTURE_REGISTRY_BASE = 'https://fixture-registry.invalid/fate-mods
 export function seedE2ELocalStorage(win: Cypress.AUTWindow): void {
 	win.localStorage.setItem('privacyPolicyAcceptanceDate', new Date().toISOString())
 	win.localStorage.setItem('privacyPolicyVersionDate', ACTUAL_POLICY_VERSION_DATE)
+	// The override is only honoured in Developer Mode (useRegistryBase), so the
+	// toggle has to be seeded alongside it.
+	win.localStorage.setItem('developerMode', 'true')
 	win.localStorage.setItem('registryBaseOverride', FIXTURE_REGISTRY_BASE)
 }
 

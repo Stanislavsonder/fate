@@ -3,6 +3,7 @@ import { ModRegistry } from './modRegistry'
 import { loadExternalMod, safeManifest } from './loader'
 import { SDK_VERSION } from './sdk'
 import { getIndex, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
+import { isSeedBlocked, isVersionBlocked } from './blocklist'
 import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
@@ -133,6 +134,13 @@ export async function installFromUrl(baseUrl: string): Promise<InstallOutcome> {
 		return { ok: false, error: `"${id}" is already installed — use update instead` }
 	}
 
+	// A blocklisted id/version is refused whatever the source — coming from
+	// outside the registry is not a way around the kill switch.
+	const version = fetchedManifest.data.version as string
+	if (await isBlockedVersion(id, version)) {
+		return { ok: false, error: blockedError(id, version) }
+	}
+
 	const fetched = await fetchBundleAndTranslations(baseUrl, fetchedManifest.data)
 	if (!fetched.ok) {
 		return { ok: false, error: fetched.error }
@@ -186,6 +194,11 @@ export async function update(id: string, baseUrl?: string): Promise<InstallOutco
 	}
 	if (fetchedManifest.data.id !== id) {
 		return { ok: false, error: `fetched manifest id "${String(fetchedManifest.data.id)}" does not match installed id "${id}"` }
+	}
+
+	const version = fetchedManifest.data.version as string
+	if (await isBlockedVersion(id, version)) {
+		return { ok: false, error: blockedError(id, version) }
 	}
 
 	const fetched = await fetchBundleAndTranslations(url, fetchedManifest.data)
@@ -267,6 +280,12 @@ export async function setEnabled(id: string, enabled: boolean): Promise<SimpleOu
 	const row = await modsService.get(id)
 	if (!row) {
 		return { ok: false, error: `"${id}" is not installed` }
+	}
+
+	// The flag clears by itself on a successful update: every install path
+	// refuses a blocked version, and the rewritten row carries no flag.
+	if (enabled && (row.blocked || isSeedBlocked(id, row.version))) {
+		return { ok: false, error: `"${id}"@${row.version} is blocked and cannot be enabled — update it instead` }
 	}
 
 	await modsService.setEnabled(id, enabled)
@@ -363,7 +382,22 @@ export function isRegistryReleaseCompatible(entry: RegistryModEntry, version: st
 }
 
 export function isRegistryVersionBlocked(blocklist: Record<string, string[]>, id: string, version: string): boolean {
-	return (blocklist[id] ?? []).some(range => semver.satisfies(version, range))
+	return isVersionBlocked(blocklist, id, version) || isSeedBlocked(id, version)
+}
+
+/** Blocklist check for the paths that don't already hold an index (install
+ * from URL, URL updates). Cache-only, so it never blocks on the network — the
+ * seed list still applies when there's no cached index at all. */
+async function isBlockedVersion(id: string, version: string): Promise<boolean> {
+	if (isSeedBlocked(id, version)) {
+		return true
+	}
+	const cached = await getIndex()
+	return !!cached?.index && isVersionBlocked(cached.index.blocklist, id, version)
+}
+
+function blockedError(id: string, version: string): string {
+	return `"${id}"@${version} is blocked and cannot be installed`
 }
 
 async function hashFile(text: string): Promise<string> {

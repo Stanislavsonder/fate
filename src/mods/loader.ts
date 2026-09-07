@@ -5,6 +5,7 @@ import { signRecord } from '@/modules/utils/localizationSigners'
 import { registerModTranslations } from './registerModTranslations'
 import { registerBuiltinMods } from './builtins'
 import { importBlobModule } from './importBlobModule'
+import { isSeedBlocked } from './blocklist'
 import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
@@ -21,6 +22,19 @@ function registerDisabledMod(row: StoredMod): void {
 		source: row.source,
 		status: 'disabled'
 	})
+}
+
+/** Marks a row blocked in memory and in storage, so the Installed tab can
+ * explain why it is off and the state survives to the next launch. */
+async function blockRow(row: StoredMod): Promise<void> {
+	row.blocked = true
+	row.enabled = false
+	try {
+		await modsService.setBlocked(row.id, true)
+		await modsService.setEnabled(row.id, false)
+	} catch (e) {
+		console.error(`[mods] failed to persist the blocked state of "${row.id}"`, e)
+	}
 }
 
 /**
@@ -43,7 +57,14 @@ export async function initMods(): Promise<void> {
 	}
 
 	for (const row of rows) {
-		if (!row.enabled) {
+		// The registry blocklist only lands after boot (registryClient.refreshIndex),
+		// so the persisted flag and the compiled-in seed list are what stop a
+		// blocked mod from getting one more execution window per launch.
+		if (isSeedBlocked(row.id, row.version)) {
+			await blockRow(row)
+		}
+
+		if (!row.enabled || row.blocked) {
 			registerDisabledMod(row)
 			continue
 		}

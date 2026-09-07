@@ -145,6 +145,19 @@ describe('installFromUrl', () => {
 		expect(fetchMock).toHaveBeenCalledTimes(1)
 	})
 
+	it('refuses a blocklisted version even though it comes from outside the registry', async () => {
+		const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ id: 'evil@mod', version: '1.2.0' }))
+		vi.stubGlobal('fetch', fetchMock)
+		getMod.mockResolvedValue(undefined)
+		getIndex.mockResolvedValue({ index: { ...baseRegistryIndex(), blocklist: { 'evil@mod': ['<2.0.0'] } }, stale: false, fetchedAt: 0 })
+
+		const result = await installFromUrl('https://example.com/mods/evil@mod')
+
+		expect(result).toEqual({ ok: false, error: '"evil@mod"@1.2.0 is blocked and cannot be installed' })
+		expect(putMod).not.toHaveBeenCalled()
+		expect(fetchMock).toHaveBeenCalledTimes(1)
+	})
+
 	it('refuses a duplicate install and suggests update instead, without fetching the bundle', async () => {
 		const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ id: 'dup@mod', version: '1.0.0' }))
 		vi.stubGlobal('fetch', fetchMock)
@@ -315,6 +328,16 @@ describe('setEnabled', () => {
 		const result = await setEnabled('nope@mod', true)
 
 		expect(result).toEqual({ ok: false, error: '"nope@mod" is not installed' })
+	})
+
+	it('refuses to re-enable a blocked mod, but still allows disabling it', async () => {
+		getMod.mockResolvedValue(baseStoredRow({ id: 'blocked@mod', blocked: true }))
+
+		const enableResult = await setEnabled('blocked@mod', true)
+		expect(enableResult).toEqual({ ok: false, error: '"blocked@mod"@1.0.0 is blocked and cannot be enabled — update it instead' })
+		expect(setEnabledMod).not.toHaveBeenCalled()
+
+		await expect(setEnabled('blocked@mod', false)).resolves.toEqual({ ok: true })
 	})
 })
 

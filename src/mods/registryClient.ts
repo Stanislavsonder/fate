@@ -1,4 +1,4 @@
-import semver from 'semver'
+import { isSeedBlocked, isVersionBlocked } from './blocklist'
 import { kvService } from '@/db/tables/kv'
 import { modsService } from '@/db/tables/mods'
 import useRegistryBase from '@/composables/useRegistryBase'
@@ -119,8 +119,7 @@ export async function applyBlocklist(index: RegistryIndex): Promise<void> {
 	const installed = await modsService.getAll()
 
 	for (const row of installed) {
-		const ranges = index.blocklist[row.id]
-		const isBlocked = Array.isArray(ranges) && ranges.some(range => semver.satisfies(row.version, range))
+		const isBlocked = isVersionBlocked(index.blocklist, row.id, row.version) || isSeedBlocked(row.id, row.version)
 
 		if (isBlocked && !row.blocked) {
 			await modsService.setEnabled(row.id, false)
