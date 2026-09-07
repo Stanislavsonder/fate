@@ -34,7 +34,12 @@ const selectedVersion = ref(entry.latestVersion)
 const blocklist = ref<Record<string, string[]>>({})
 const versionPopover = ref<InstanceType<typeof IonPopover>>()
 
-const strings = computed(() => entry.strings[locale.value] ?? entry.strings.en ?? Object.values(entry.strings)[0] ?? { name: entry.id, short: '' })
+const strings = computed<RegistryModEntry['strings'][string]>(
+	() => entry.strings[locale.value] ?? entry.strings.en ?? Object.values(entry.strings)[0] ?? { name: entry.id, short: '' }
+)
+const description = computed(
+	() => strings.value.full ?? (entry.description.full?.startsWith('t.') ? strings.value.short : entry.description.full) ?? strings.value.short
+)
 const versions = computed(() => entry.versions.filter(version => getRegistryRelease(entry, version)).sort(semver.rcompare))
 const selectedIsBlocked = computed(() => isRegistryVersionBlocked(blocklist.value, entry.id, selectedVersion.value))
 const selectedIsCompatible = computed(() => isRegistryReleaseCompatible(entry, selectedVersion.value))
@@ -213,7 +218,7 @@ async function performRemove() {
 
 			<div class="my-6 h-px bg-[var(--ion-color-step-200)]" />
 
-			<p>{{ t(entry.description.full || entry.description.short) }}</p>
+			<p>{{ description }}</p>
 
 			<div
 				v-if="entry.tags.length"

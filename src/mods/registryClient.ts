@@ -30,7 +30,7 @@ export interface RegistryModEntry extends FateModuleManifest {
 	releases?: Record<string, RegistryReleaseEntry>
 	/** Per-language display strings extracted at publish time so the Mod Store
 	 * can render browse cards without fetching each mod's translations. */
-	strings: Record<string, { name: string; short: string }>
+	strings: Record<string, { name: string; short: string; full?: string }>
 }
 
 export interface RegistryIndex {
