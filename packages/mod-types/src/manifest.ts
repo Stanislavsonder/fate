@@ -29,6 +29,8 @@ export interface FateModuleManifest {
 	incompatibleWith?: string[]
 	appVersion?: string
 	loadPriority: number
+	/** When false, the mod is omitted from the public registry index and hidden from the Mod Store. Defaults to true when omitted. */
+	published?: boolean
 	components?: FateModuleComponent[]
 	constants?: Partial<FateConstants>
 	templates?: Partial<FateTemplates>

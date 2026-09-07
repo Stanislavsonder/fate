@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { IonList, IonItem, IonLabel, IonNote, IonSearchbar, IonToggle, IonSpinner, IonRefresher, IonRefresherContent, IonBadge } from '@ionic/vue'
 import { getIndex, refreshIndex, type RegistryModEntry } from '@/mods/registryClient'
-import { isEntryCompatible } from '@/mods/installService'
+import { isEntryCompatible, isEntryPublished } from '@/mods/installService'
 import ModStoreDetailModal from './ModStoreDetailModal.vue'
 
 const { locale } = useI18n()
@@ -53,6 +53,9 @@ function displayStrings(entry: RegistryModEntry): { name: string; short: string 
 const filteredEntries = computed(() => {
 	const query = searchQuery.value.trim().toLowerCase()
 	return entries.value.filter(entry => {
+		if (!isEntryPublished(entry)) {
+			return false
+		}
 		if (compatibleOnly.value && !isEntryCompatible(entry)) {
 			return false
 		}

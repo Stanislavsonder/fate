@@ -285,6 +285,7 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
 | `incompatibleWith` | no | mod ids that can't coexist with yours |
 | `appVersion` | no | semver range gating the **app version** (existing 1.x mechanism) |
 | `loadPriority` | yes | higher loads first; tiebreak for topological sort |
+| `published` | no | when `false`, the mod is omitted from `registry.json` and hidden from the Mod Store; defaults to `true` when omitted. Artifacts are still published to gh-pages for dev-mode and install-from-URL |
 | `sdk` | yes | semver range gating the **ABI version** (`FateSDK.version`) — see Versioning below |
 | `entry` | yes | relative path to your bundle, conventionally `"bundle.mjs"` |
 | `capabilities` | yes | `["sheetComponents"]` for a character-sheet mod; `["dice"]`/`["theme"]` also work for externally-loaded mods (install-from-URL, dev mode) as of the app's SDK 1.1.0 — the curated public registry's own CI may lag behind on accepting `dice`/`theme` submissions, check `fate-mods`' `SUBMITTING.md` for current status |

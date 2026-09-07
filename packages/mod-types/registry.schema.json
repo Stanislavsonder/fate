@@ -73,6 +73,10 @@
 		"loadPriority": {
 			"type": "number"
 		},
+		"published": {
+			"type": "boolean",
+			"description": "Whether the mod appears in the app's Mod Store. Defaults to true when omitted. Unpublished mods are still built and published to gh-pages for dev-mode and install-from-URL use, but are omitted from registry.json."
+		},
 		"sdk": {
 			"type": "string",
 			"description": "Semver range gating FateSDK.version (the ABI)."

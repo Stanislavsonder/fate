@@ -2,7 +2,7 @@ import semver from 'semver'
 import { ModRegistry } from './modRegistry'
 import { loadExternalMod, safeManifest } from './loader'
 import { SDK_VERSION } from './sdk'
-import { getIndex, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
+import { getIndex, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import characterService from '@/service/character.service'
 import useRegistryBase from '@/composables/useRegistryBase'
@@ -275,6 +275,9 @@ export function isEntryCompatible(entry: RegistryModEntry): boolean {
 	return isRegistryReleaseCompatible(entry, entry.latestVersion)
 }
 
+/** Exported for reuse by the Mod Store's Browse tab (published vs draft visibility). */
+export { isEntryPublished } from './registryClient'
+
 export function getRegistryRelease(entry: RegistryModEntry, version: string): RegistryReleaseEntry | null {
 	const release = entry.releases?.[version]
 	if (release) {
@@ -387,6 +390,9 @@ export async function installFromRegistry(id: string, version?: string): Promise
 	if (!entry) {
 		return { ok: false, error: `"${id}" was not found in the registry` }
 	}
+	if (!isEntryPublished(entry)) {
+		return { ok: false, error: `"${id}" is not published in the Mod Store` }
+	}
 	const selectedVersion = version ?? entry.latestVersion
 	const release = getRegistryRelease(entry, selectedVersion)
 	if (!release) {
@@ -444,6 +450,9 @@ export async function changeRegistryVersion(id: string, version?: string): Promi
 	const entry = index.mods.find(m => m.id === id)
 	if (!entry) {
 		return { ok: false, error: `"${id}" was not found in the registry` }
+	}
+	if (!isEntryPublished(entry)) {
+		return { ok: false, error: `"${id}" is not published in the Mod Store` }
 	}
 	const selectedVersion = version ?? entry.latestVersion
 	const release = getRegistryRelease(entry, selectedVersion)
@@ -513,7 +522,12 @@ export async function checkForUpdates(): Promise<AvailableUpdate[]> {
 		if (row.source !== 'registry') continue
 		const entry = index.mods.find(m => m.id === row.id)
 		if (!entry) continue
-		if (isEntryCompatible(entry) && !isRegistryVersionBlocked(index.blocklist, entry.id, entry.latestVersion) && semver.gt(entry.latestVersion, row.version)) {
+		if (
+			isEntryPublished(entry) &&
+			isEntryCompatible(entry) &&
+			!isRegistryVersionBlocked(index.blocklist, entry.id, entry.latestVersion) &&
+			semver.gt(entry.latestVersion, row.version)
+		) {
 			updates.push({ id: row.id, installedVersion: row.version, latestCompatibleVersion: entry.latestVersion })
 		}
 	}

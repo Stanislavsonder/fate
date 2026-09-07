@@ -40,6 +40,11 @@ export interface RegistryIndex {
 	mods: RegistryModEntry[]
 }
 
+/** Defaults to true when omitted — unpublished mods are omitted from registry.json at publish time. */
+export function isEntryPublished(entry: RegistryModEntry): boolean {
+	return entry.published !== false
+}
+
 interface CachedIndex {
 	fetchedAt: number
 	index: RegistryIndex

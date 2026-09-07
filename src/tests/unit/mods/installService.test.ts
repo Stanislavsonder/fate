@@ -18,14 +18,17 @@ vi.mock('@/mods/loader', () => ({ loadExternalMod, safeManifest }))
 const { getCharacters } = vi.hoisted(() => ({ getCharacters: vi.fn().mockResolvedValue([]) }))
 vi.mock('@/service/character.service', () => ({ default: { getCharacters } }))
 
-const { getIndex } = vi.hoisted(() => ({ getIndex: vi.fn() }))
-vi.mock('@/mods/registryClient', () => ({ getIndex }))
+const { getIndex, isEntryPublished } = vi.hoisted(() => ({
+	getIndex: vi.fn(),
+	isEntryPublished: (entry: { published?: boolean }) => entry.published !== false
+}))
+vi.mock('@/mods/registryClient', () => ({ getIndex, isEntryPublished }))
 
 const { getRegistryBase } = vi.hoisted(() => ({ getRegistryBase: vi.fn(() => 'https://registry.example.com') }))
 vi.mock('@/composables/useRegistryBase', () => ({ default: () => ({ getRegistryBase }) }))
 
 import { ModRegistry } from '@/mods/modRegistry'
-import { installFromUrl, update, remove, setEnabled, installFromRegistry, updateFromRegistry, checkForUpdates } from '@/mods/installService'
+import { installFromUrl, update, remove, setEnabled, installFromRegistry, updateFromRegistry, checkForUpdates, isEntryPublished } from '@/mods/installService'
 import type { StoredMod } from '@/db/tables/mods'
 import type { RegistryIndex, RegistryModEntry } from '@/mods/registryClient'
 
@@ -324,6 +327,21 @@ describe('installFromRegistry', () => {
 		const result = await installFromRegistry('reg@mod')
 
 		expect(result.ok).toBe(false)
+	})
+
+	it('refuses when the entry is unpublished', async () => {
+		getIndex.mockResolvedValue({ index: baseRegistryIndex([baseRegistryEntry({ published: false })]) })
+		getMod.mockResolvedValue(undefined)
+
+		const result = await installFromRegistry('reg@mod')
+
+		expect(result).toEqual({ ok: false, error: '"reg@mod" is not published in the Mod Store' })
+	})
+
+	it('treats omitted published as visible', () => {
+		expect(isEntryPublished(baseRegistryEntry())).toBe(true)
+		expect(isEntryPublished(baseRegistryEntry({ published: true }))).toBe(true)
+		expect(isEntryPublished(baseRegistryEntry({ published: false }))).toBe(false)
 	})
 
 	it('refuses when the fetched bundle does not match the pinned index hash', async () => {

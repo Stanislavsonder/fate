@@ -6,7 +6,7 @@ import { resolveModules } from '@/modules/utils/resolveModules'
 import { showIssuesMessage } from './showIssuesMessage'
 import { updateModule } from './updateModules'
 import { ModRegistry } from '@/mods/modRegistry'
-import { getIndex } from '@/mods/registryClient'
+import { getIndex, isEntryPublished } from '@/mods/registryClient'
 import i18n from '@/i18n'
 
 const { t } = i18n.global
@@ -32,7 +32,7 @@ async function findNotInstalledIssues(characterModuleIds: string[], resolvedIds:
 	}
 
 	return missingIds
-		.filter(id => index.mods.some(entry => entry.id === id))
+		.filter(id => index.mods.some(entry => entry.id === id && isEntryPublished(entry)))
 		.map(id => ({
 			type: 'mod-not-installed',
 			moduleId: id,

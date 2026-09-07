@@ -17,8 +17,11 @@ vi.mock('@/modules/utils/showIssuesMessage', () => ({
 	showIssuesMessage: mocks.showIssuesMessage
 }))
 
-const { getIndex } = vi.hoisted(() => ({ getIndex: vi.fn().mockResolvedValue({ index: null, stale: true, fetchedAt: null }) }))
-vi.mock('@/mods/registryClient', () => ({ getIndex }))
+const { getIndex, isEntryPublished } = vi.hoisted(() => ({
+	getIndex: vi.fn().mockResolvedValue({ index: null, stale: true, fetchedAt: null }),
+	isEntryPublished: (entry: { published?: boolean }) => entry.published !== false
+}))
+vi.mock('@/mods/registryClient', () => ({ getIndex, isEntryPublished }))
 
 const testModuleRecords = vi.hoisted(
 	() =>
