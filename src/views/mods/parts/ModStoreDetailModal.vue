@@ -91,7 +91,7 @@ async function performVersionAction() {
 			? await changeRegistryVersion(entry.id, selectedVersion.value)
 			: await installFromRegistry(entry.id, selectedVersion.value)
 		if (result.ok) {
-			await showSuccessToast(installedVersion.value ? 'settings.mods.updateSuccess' : 'settings.mods.installSuccess', { id: entry.id })
+			await showSuccessToast(installedVersion.value ? 'settings.mods.updateSuccess' : 'settings.mods.installSuccess', { id: strings.value.name })
 			await refreshState()
 			emit('changed')
 		} else {

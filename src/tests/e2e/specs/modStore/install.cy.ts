@@ -9,7 +9,7 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 
-		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')
@@ -25,7 +25,7 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="mod-store-version-1.0.0"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').should('contain.text', 'v1.0.0').click()
 
-		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')
@@ -39,7 +39,7 @@ describe('Mod Store - Install', () => {
 
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
-		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 
 		cy.get('[data-testid="mod-store-version-button"]').click()
 		cy.get('[data-testid="mod-store-version-1.0.0"]').click()

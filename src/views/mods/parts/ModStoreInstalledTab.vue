@@ -96,7 +96,7 @@ async function updateMod(row: ModRow) {
 	try {
 		const result = row.source === 'registry' ? await updateFromRegistry(row.id) : await update(row.id)
 		if (result.ok) {
-			await showSuccessToast('settings.mods.updateSuccess', { id: row.id })
+			await showSuccessToast('settings.mods.updateSuccess', { id: t(row.name) })
 		} else {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
 		}

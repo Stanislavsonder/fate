@@ -8,7 +8,7 @@ describe('Mod Store - Remove', () => {
 
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
-		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 	})
 
 	it('removes an installed mod from the detail modal after confirming', () => {

@@ -6,7 +6,7 @@ describe('Mod Store - Offline / cached behavior', () => {
 
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
-		cy.getToast().should('contain.text', '"e2e@fixture-mod" installed')
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')
