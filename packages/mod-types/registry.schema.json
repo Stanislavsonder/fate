@@ -45,7 +45,7 @@
 		"image": {
 			"type": "string",
 			"pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.(png|jpe?g|webp)$",
-			"description": "Optional artwork file stored in the mod directory."
+			"description": "Optional square artwork filename in the mod directory (png, jpg/jpeg, or webp; max 512×512). CI rejects non-square or oversized files."
 		},
 		"languages": {
 			"type": "array",

@@ -22,6 +22,7 @@ export interface FateModuleManifest {
 		short: string
 		full?: string
 	}
+	/** Square artwork filename (`png` / `jpg` / `jpeg` / `webp`, max 512×512). */
 	image?: string
 	languages: string[]
 	tags: string[]

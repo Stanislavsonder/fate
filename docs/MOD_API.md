@@ -279,6 +279,7 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
 | `name` | yes | i18n key (`"t.name"` — resolved to `"<id>.name"` at registration via `signRecord`) or a plain string |
 | `author` | yes | `{ name, email?, url? }` |
 | `description` | yes | `{ short, full? }`, same `"t."` convention |
+| `image` | no | filename of square artwork in the mod folder (`png` / `jpg` / `jpeg` / `webp`, max 512×512); the registry publishes it and the Mod Store uses that URL |
 | `languages` | yes | locale codes your `translations/` folder covers |
 | `tags` | yes | freeform, used for browsing in the Mod Store |
 | `dependencies` | no | `{ [modId]: semverRange }` |
