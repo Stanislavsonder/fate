@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { IonList, IonItem, IonLabel, IonNote, IonSearchbar, IonToggle, IonSpinner, IonRefresher, IonRefresherContent, IonBadge, IonThumbnail } from '@ionic/vue'
 import { getIndex, refreshIndex, type RegistryModEntry } from '@/mods/registryClient'
-import { fallbackModStoreImage, getModStoreImageUrl, isEntryCompatible, isEntryPublished } from '@/mods/installService'
+import { checkForUpdates, fallbackModStoreImage, getModStoreImageUrl, isEntryCompatible, isEntryPublished } from '@/mods/installService'
 import useRegistryBase from '@/composables/useRegistryBase'
 import { modsService } from '@/db/tables/mods'
 import ModStoreDetailModal from './ModStoreDetailModal.vue'
@@ -13,6 +13,7 @@ const { getRegistryBase } = useRegistryBase()
 
 const entries = ref<RegistryModEntry[]>([])
 const installedIds = ref(new Set<string>())
+const updateIds = ref(new Set<string>())
 const stale = ref(false)
 const loading = ref(true)
 const loadError = ref<string | null>(null)
@@ -30,9 +31,10 @@ async function fetchCatalog() {
 	// call to have already populated the cache is a race — it may not have
 	// completed yet if the store is opened shortly after app boot.
 	const [refreshResult, stored] = await Promise.all([refreshIndex(true), modsService.getAll()])
-	const { index, stale: cacheStale } = await getIndex()
+	const [{ index, stale: cacheStale }, updates] = await Promise.all([getIndex(), checkForUpdates()])
 	entries.value = index?.mods ?? []
 	installedIds.value = new Set(stored.map(row => row.id))
+	updateIds.value = new Set(updates.map(update => update.id))
 	stale.value = cacheStale
 	loadError.value = !refreshResult.ok && entries.value.length === 0 ? refreshResult.error : null
 }
@@ -163,7 +165,14 @@ function openDetail(entry: RegistryModEntry) {
 				<p>{{ displayStrings(entry).short }}</p>
 				<div class="mt-1 flex flex-wrap gap-1">
 					<ion-badge
-						v-if="installedIds.has(entry.id)"
+						v-if="updateIds.has(entry.id)"
+						color="warning"
+						data-testid="mod-store-update-badge"
+					>
+						{{ $t('settings.mods.detail.updateAvailable') }}
+					</ion-badge>
+					<ion-badge
+						v-else-if="installedIds.has(entry.id)"
 						color="success"
 						data-testid="mod-store-installed-badge"
 					>

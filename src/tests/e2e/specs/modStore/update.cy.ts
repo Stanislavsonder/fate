@@ -26,6 +26,9 @@ describe('Mod Store - Update', () => {
 		cy.switchModStoreTab('installed')
 		cy.switchModStoreTab('browse')
 
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-update-badge"]').should('contain.text', 'Update available')
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-installed-badge"]').should('not.exist')
+
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-update-button"]').should('contain.text', 'Update').and('contain.text', '1.0.1')
 		cy.get('[data-testid="mod-store-update-button"]').click()
