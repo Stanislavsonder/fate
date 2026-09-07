@@ -36,10 +36,12 @@ function saveRegistryBase() {
 	setRegistryBaseOverride(registryBaseInput.value)
 }
 
+const DEFAULT_DEV_MOD_URL = 'http://localhost:5199'
+
 const url = ref('')
 const installing = ref(false)
 
-const devUrl = ref('')
+const devUrl = ref(DEFAULT_DEV_MOD_URL)
 const connecting = ref(false)
 const connectedDevMods = ref<string[]>([])
 
@@ -57,7 +59,7 @@ async function connect() {
 				connectedDevMods.value.push(result.id)
 			}
 			await showSuccessToast('settings.developer.devMod.connected', { id: result.id })
-			devUrl.value = ''
+			devUrl.value = DEFAULT_DEV_MOD_URL
 		} else {
 			await showErrorToast('settings.developer.devMod.error', { error: result.error })
 		}
