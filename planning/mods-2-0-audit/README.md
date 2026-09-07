@@ -28,7 +28,7 @@ now if you want them at all.
 | --- | --- | --- | --- |
 | [M1](#m1) | ~~Critical~~ done | Loader | A bundle can overwrite any manifest field, including `id` and `capabilities` |
 | [M2](#m2) | ~~Critical~~ A done, B batched | i18n | Mod ids are unvalidated app-side; a mod can hijack the app's translation namespace |
-| [M3](#m3) | High | Kill switch | Blocked mods still execute once per boot; the registry base lives in writable localStorage |
+| [M3](#m3) | ~~High~~ done | Kill switch | Blocked mods still execute once per boot; the registry base lives in writable localStorage |
 | [M4](#m4) | High | Trust model | The load-time hash check is self-consistency, but is documented as anti-tampering |
 | [M5](#m5) | High | Isolation | No CSP — every mod has unrestricted network access to all character data |
 | [M6](#m6) | High | SDK | `Object.freeze(FateSDK)` does not prevent reassignment of the global |
@@ -221,6 +221,29 @@ Two related gaps:
 | E | Accept as a documented limitation. | free |
 
 Recommend **A + B + C**. D only if you expect to actually need same-day revocation.
+
+**A + B + C resolved.**
+
+- A — `initMods` skips any row with `blocked: true` and registers it as a disabled stub, so a
+  blocked bundle no longer gets one execution window per launch. `setEnabled(id, true)` refuses
+  with a "update it instead" error; disabling still works. Every install path now refuses a
+  blocklisted version, install-from-URL and URL updates included (a blocklisted id was
+  previously reachable by installing it from outside the registry) — which is also what makes
+  the flag self-clearing: the rewritten row can only carry a version that is not blocked.
+- B — `getRegistryBase` honours the override only while Developer Mode is on *and* the URL is
+  `https`, or `http` on `localhost`/`127.0.0.1` for a local staging registry. localStorage is
+  same-origin state a mod can write, so the gate has to be at read time, not at save time.
+  The Mod Store e2e helper now seeds `developerMode` alongside the override.
+- C — `src/mods/blocklist.ts` holds `SEED_BLOCKLIST`, compiled into the app in the registry's
+  own `{ id: semverRange[] }` shape and merged into every blocklist check. It applies at boot,
+  offline, before any bundle is imported, and cannot be redirected by a tampered registry base.
+  Empty today; an entry ships with an emergency release and is pruned once that release is out
+  of circulation.
+
+D was not taken: A + C cover the boot window without spending 2–3 s of startup on a fetch.
+
+Tests: `loader.test.ts` (blocked row and seed-blocked row are never imported),
+`installService.test.ts` (blocked re-enable, blocked install from URL).
 
 ### M4 — The load-time hash check is self-consistency, not provenance {#m4}
 
@@ -661,7 +684,7 @@ single co-ordinated republish.
 - [ ] M8 — honour the incompatible-patch abort
 - [ ] M10 — real context + `safeClone` in `remove()`
 - [ ] M6 — non-reassignable `FateSDK`
-- [ ] M3 (A, B) — refuse blocked rows at load; gate the registry override
+- [x] M3 (A, B, C) — refuse blocked rows at load; gate the registry override; seed blocklist
 - [ ] M11 (A) — always validate `components`
 - [ ] M19 — enforce `appVersion` at load
 
