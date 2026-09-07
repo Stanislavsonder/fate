@@ -30,6 +30,21 @@
 		"remove-message": "このキャラクターを削除してもよろしいですか？",
 		"save": "キャラクターを保存",
 		"share": "キャラクターを共有",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "キャラクターバージョンが古くなっています。更新しますか？",
 		"updated": "キャラクターが v{from} から v{to} に正常に更新されました！",
 		"your-characters": "あなたのキャラクター"

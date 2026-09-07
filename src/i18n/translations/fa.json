@@ -30,6 +30,21 @@
 		"remove-message": "آیا مطمئن هستید که می‌خواهید این شخصیت را حذف کنید؟",
 		"save": "ذخیره شخصیت",
 		"share": "اشتراک‌گذاری شخصیت",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "نسخه شخصیت قدیمی است. آیا می‌خواهید به‌روزرسانی کنید؟",
 		"updated": "شخصیت با موفقیت از نسخه v{from} به v{to} به‌روزرسانی شد!",
 		"your-characters": "شخصیت‌های شما"

@@ -30,6 +30,21 @@
 		"remove-message": "Czy na pewno chcesz usunąć tę postać?",
 		"save": "Zapisz postać",
 		"share": "Udostępnij postać",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Wersja postaci jest nieaktualna. Czy chcesz ją zaktualizować?",
 		"updated": "Postać pomyślnie zaktualizowana z v{from} do v{to}!",
 		"your-characters": "Twoje postacie"

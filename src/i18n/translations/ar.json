@@ -30,6 +30,21 @@
 		"remove-message": "هل أنت متأكد أنك تريد حذف هذه الشخصية؟",
 		"save": "حفظ الشخصية",
 		"share": "مشاركة الشخصية",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "إصدار الشخصية قديم. هل تريد تحديثه؟",
 		"updated": "تم تحديث الشخصية بنجاح من الإصدار v{from} إلى v{to}!",
 		"your-characters": "شخصياتك"

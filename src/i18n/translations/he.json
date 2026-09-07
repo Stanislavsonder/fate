@@ -30,6 +30,21 @@
 		"remove-message": "האם אתה בטוח שברצונך להסיר את הדמות הזו?",
 		"save": "שמור דמות",
 		"share": "שתף דמות",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "גרסת הדמות אינה מעודכנת. האם תרצה לעדכן אותה?",
 		"updated": "הדמות עודכנה בהצלחה מ-v{from} ל-v{to}!",
 		"your-characters": "הדמויות שלך"

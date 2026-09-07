@@ -30,6 +30,21 @@
 		"remove-message": "क्या आप वाकई इस चरित्र को हटाना चाहते हैं?",
 		"save": "चरित्र सहेजें",
 		"share": "चरित्र साझा करें",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "चरित्र संस्करण पुराना हो गया है। क्या आप इसे अपडेट करना चाहते हैं?",
 		"updated": "चरित्र सफलतापूर्वक v{from} से v{to} तक अपडेट किया गया!",
 		"your-characters": "आपके पात्र"

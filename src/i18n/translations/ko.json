@@ -30,6 +30,21 @@
 		"remove-message": "이 캐릭터를 삭제하시겠습니까?",
 		"save": "캐릭터 저장",
 		"share": "캐릭터 공유",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?",
 		"updated": "캐릭터가 v{from}에서 v{to}로 성공적으로 업데이트되었습니다!",
 		"your-characters": "당신의 캐릭터"

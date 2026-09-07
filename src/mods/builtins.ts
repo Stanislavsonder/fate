@@ -1,5 +1,3 @@
-import SonderCoreIdentity from '@/modules/sonder@core-identity'
-import SonderCoreIdentityTranslations from '@/modules/sonder@core-identity/translations'
 import SonderCoreAspects from '@/modules/sonder@core-aspects'
 import SonderCoreAspectsTranslations from '@/modules/sonder@core-aspects/translations'
 import SonderCoreSkills from '@/modules/sonder@core-skills'
@@ -28,7 +26,6 @@ interface BuiltinMod {
 
 // prettier-ignore
 const BUILTIN_MODS: BuiltinMod[] = [
-	{ manifest: SonderCoreIdentity, translations: SonderCoreIdentityTranslations },
 	{ manifest: SonderCoreAspects, translations: SonderCoreAspectsTranslations },
 	{ manifest: SonderCoreSkills, translations: SonderCoreSkillsTranslations },
 	{ manifest: SonderCoreStunts, translations: SonderCoreStuntsTranslations },

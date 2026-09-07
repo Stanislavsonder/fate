@@ -30,6 +30,21 @@
 		"remove-message": "আপনি কি নিশ্চিত যে আপনি এই চরিত্রটি মুছে ফেলতে চান?",
 		"save": "চরিত্র সংরক্ষণ করুন",
 		"share": "চরিত্র শেয়ার করুন",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "চরিত্রের সংস্করণ পুরানো। আপনি কি এটি আপডেট করতে চান?",
 		"updated": "চরিত্র সফলভাবে v{from} থেকে v{to} তে আপডেট হয়েছে!",
 		"your-characters": "আপনার চরিত্রগুলি"

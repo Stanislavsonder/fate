@@ -30,6 +30,21 @@
 		"remove-message": "Oletko varma, että haluat poistaa tämän hahmon?",
 		"save": "Tallenna hahmo",
 		"share": "Jaa hahmo",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Hahmon versio on vanhentunut. Haluatko päivittää sen?",
 		"updated": "Hahmo päivitetty onnistuneesti versiosta v{from} versioon v{to}!",
 		"your-characters": "Hahmosi"

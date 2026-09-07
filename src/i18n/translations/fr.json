@@ -30,6 +30,21 @@
 		"remove-message": "Êtes-vous sûr de vouloir supprimer ce personnage ?",
 		"save": "Enregistrer le personnage",
 		"share": "Partager le personnage",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "La version du personnage est obsolète. Mettre à jour ?",
 		"updated": "Personnage mis à jour avec succès de la v{from} à la v{to} !",
 		"your-characters": "Vos personnages"

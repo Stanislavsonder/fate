@@ -30,6 +30,21 @@
 		"remove-message": "Je, una hakika unataka kuondoa mhusika huyu?",
 		"save": "Hifadhi mhusika",
 		"share": "Shiriki mhusika",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Toleo la mhusika limepitwa na wakati. Unataka kulisasisha?",
 		"updated": "Mhusika amesasishwa kwa mafanikio kutoka v{from} hadi v{to}!",
 		"your-characters": "Wahusika Wako"

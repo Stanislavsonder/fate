@@ -30,6 +30,21 @@
 		"remove-message": "Ești sigur că vrei să elimini acest personaj?",
 		"save": "Salvează personajul",
 		"share": "Partajează personajul",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Versiunea personajului este învechită. Dorești să o actualizezi?",
 		"updated": "Personaj actualizat cu succes de la v{from} la v{to}!",
 		"your-characters": "Personajele tale"

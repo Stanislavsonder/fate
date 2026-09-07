@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { inject, type Ref, ref } from 'vue'
-import { IonIcon } from '@ionic/vue'
-import { trash, image } from 'ionicons/icons'
+import { IonIcon, actionSheetController } from '@ionic/vue'
+import { trash, image, close } from 'ionicons/icons'
 import { useI18n } from 'vue-i18n'
-import Button from '@/components/ui/Button.vue'
 import type { FateContext } from '@/types'
 
 const { t } = useI18n()
@@ -19,13 +18,41 @@ function uploadAvatar() {
 	fileInput.value?.click()
 }
 
+async function openAvatarActions() {
+	const actionSheet = await actionSheetController.create({
+		header: t('character.sheet.avatar.actions'),
+		buttons: [
+			{
+				text: t('common.actions.upload'),
+				icon: image,
+				cssClass: 'avatar-upload-option',
+				handler: uploadAvatar
+			},
+			{
+				text: t('common.actions.remove'),
+				icon: trash,
+				role: 'destructive',
+				cssClass: 'avatar-remove-option',
+				handler: removeAvatar
+			},
+			{
+				text: t('common.actions.cancel'),
+				icon: close,
+				role: 'cancel'
+			}
+		]
+	})
+
+	await actionSheet.present()
+}
+
 function handleFileChange(event: Event) {
 	const target = event.target as HTMLInputElement
 	const file = target.files?.[0]
 	if (file) {
 		if (file.size > context.value.constants.MAX_AVATAR_FILE_SIZE!) {
 			alert(
-				t('sonder@core-identity.errors.fileSize', {
+				t('character.sheet.avatar.errors.fileSize', {
 					value: context.value.constants.MAX_AVATAR_FILE_SIZE! / 1024 / 1024
 				})
 			)
@@ -46,7 +73,7 @@ function removeAvatar() {
 </script>
 
 <template>
-	<div :aria-label="$t('sonder@core-identity.form.avatar.section')">
+	<div :aria-label="$t('character.sheet.avatar.section')">
 		<!--
 			No avatar yet: the whole square is the upload target. Corner brackets mark its bounds so
 			it reads as a control rather than an empty panel.
@@ -80,7 +107,7 @@ function removeAvatar() {
 					aria-hidden="true"
 				/>
 				<span class="px-6 text-center text-sm font-medium">
-					{{ $t('sonder@core-identity.form.avatar.upload') }}
+					{{ $t('character.sheet.avatar.upload') }}
 				</span>
 			</button>
 			<!--
@@ -97,44 +124,30 @@ function removeAvatar() {
 			/>
 		</template>
 
-		<!-- Avatar set: image plus the usual remove / upload actions. -->
+		<!-- Avatar set: tap the image to open the upload/remove actions. -->
 		<template v-else>
-			<img
-				data-testid="character-image"
-				:src="avatar"
-				:alt="$t('sonder@core-identity.form.avatar.label')"
-				class="aspect-square w-full rounded-xl object-cover shadow-md mb-4"
+			<button
+				type="button"
+				data-testid="character-image-button"
+				class="block w-full focus-visible:outline-accent rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2"
+				:aria-label="$t('character.sheet.avatar.actions')"
+				@click="openAvatarActions"
+			>
+				<img
+					data-testid="character-image"
+					:src="avatar"
+					:alt="$t('character.sheet.avatar.label')"
+					class="aspect-square w-full rounded-xl object-cover shadow-md"
+				/>
+			</button>
+			<input
+				ref="fileInput"
+				data-testid="character-image-upload-button"
+				type="file"
+				class="sr-only"
+				:accept="ACCEPTED_FILE_TYPES"
+				@change="handleFileChange"
 			/>
-			<div class="grid grid-cols-2 gap-4 md:grid-cols-1">
-				<Button
-					class="bg-danger md:row-start-2"
-					@click="removeAvatar"
-				>
-					<ion-icon
-						:icon="trash"
-						class="text-xl"
-						aria-hidden="true"
-						data-testid="character-image-remove-button"
-					/>
-					{{ $t('common.actions.remove') }}
-				</Button>
-				<Button @click="uploadAvatar">
-					<ion-icon
-						:icon="image"
-						class="text-xl"
-						aria-hidden="true"
-					/>
-					{{ $t('common.actions.upload') }}
-					<input
-						ref="fileInput"
-						data-testid="character-image-upload-button"
-						type="file"
-						class="sr-only"
-						:accept="ACCEPTED_FILE_TYPES"
-						@change="handleFileChange"
-					/>
-				</Button>
-			</div>
 		</template>
 	</div>
 </template>

@@ -30,6 +30,21 @@
 		"remove-message": "你确定要删除这个角色吗？",
 		"save": "保存角色",
 		"share": "分享角色",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "角色版本已过时。是否更新？",
 		"updated": "角色已成功从 v{from} 更新到 v{to}！",
 		"your-characters": "你的角色"

@@ -30,6 +30,21 @@
 		"remove-message": "Вы ўпэўненыя, што хочаце выдаліць гэтага персанажа?",
 		"save": "Захаваць персанажа",
 		"share": "Падзяліцца персанажам",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Версія персанажа састарэла. Абнавіць?",
 		"updated": "Персанаж паспяхова абноўлены з v{from} да v{to}!",
 		"your-characters": "Вашы персанажы"

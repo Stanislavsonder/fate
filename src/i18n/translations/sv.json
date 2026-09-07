@@ -30,6 +30,21 @@
 		"remove-message": "Är du säker på att du vill ta bort denna karaktär?",
 		"save": "Spara karaktär",
 		"share": "Dela karaktär",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Karaktärens version är föråldrad. Vill du uppdatera den?",
 		"updated": "Karaktär uppdaterad framgångsrikt från v{from} till v{to}!",
 		"your-characters": "Dina karaktärer"

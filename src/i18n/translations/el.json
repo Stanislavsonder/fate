@@ -30,6 +30,21 @@
 		"remove-message": "Είστε σίγουροι ότι θέλετε να αφαιρέσετε αυτόν τον χαρακτήρα;",
 		"save": "Αποθήκευση χαρακτήρα",
 		"share": "Κοινοποίηση χαρακτήρα",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Η έκδοση του χαρακτήρα είναι παρωχημένη. Θέλετε να την ενημερώσετε;",
 		"updated": "Ο χαρακτήρας ενημερώθηκε με επιτυχία από v{from} σε v{to}!",
 		"your-characters": "Οι χαρακτήρες σας"

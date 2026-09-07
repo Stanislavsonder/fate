@@ -30,6 +30,21 @@
 		"remove-message": "Apakah Anda yakin ingin menghapus karakter ini?",
 		"save": "Simpan karakter",
 		"share": "Bagikan karakter",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Versi karakter sudah usang. Apakah Anda ingin memperbaruinya?",
 		"updated": "Karakter berhasil diperbarui dari v{from} ke v{to}!",
 		"your-characters": "Karakter Anda"

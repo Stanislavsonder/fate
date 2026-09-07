@@ -7,6 +7,7 @@ export interface FateTemplates {
 }
 
 export interface FateConstants {
+	MAX_AVATAR_FILE_SIZE?: number
 	[modKey: string]: unknown
 }
 

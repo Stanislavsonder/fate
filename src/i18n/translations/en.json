@@ -30,6 +30,21 @@
 		"remove-message": "Are you sure you want to remove this character?",
 		"save": "Save character",
 		"share": "Share character",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Character version is outdated. Do you want to update it?",
 		"updated": "Character updated successfully from v{from} to v{to}!",
 		"your-characters": "Your characters"

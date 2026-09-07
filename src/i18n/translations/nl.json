@@ -30,6 +30,21 @@
 		"remove-message": "Weet je zeker dat je dit personage wilt verwijderen?",
 		"save": "Personage opslaan",
 		"share": "Personage delen",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "De versie van het personage is verouderd. Wil je deze bijwerken?",
 		"updated": "Personage succesvol bijgewerkt van v{from} naar v{to}!",
 		"your-characters": "Jouw personages"

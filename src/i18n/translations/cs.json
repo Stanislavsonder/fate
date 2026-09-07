@@ -30,6 +30,21 @@
 		"remove-message": "Opravdu chcete tuto postavu odstranit?",
 		"save": "Uložit postavu",
 		"share": "Sdílet postavu",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Verze postavy je zastaralá. Chcete ji aktualizovat?",
 		"updated": "Postava byla úspěšně aktualizována z v{from} na v{to}!",
 		"your-characters": "Vaše postavy"

@@ -30,6 +30,21 @@
 		"remove-message": "Er du sikker på, at du vil fjerne denne karakter?",
 		"save": "Gem karakter",
 		"share": "Del karakter",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Karakterversionen er forældet. Vil du opdatere den?",
 		"updated": "Karakter opdateret succesfuldt fra v{from} til v{to}!",
 		"your-characters": "Dine karakterer"

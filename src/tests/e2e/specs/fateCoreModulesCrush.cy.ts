@@ -19,7 +19,7 @@ describe('Fate Core Modules crush-test', () => {
 		cy.get('[data-testid="character-name-input"]').type(startCharacter)
 
 		// Create only with Aspects, Stress and Tokens
-		const toDisable = ['sonder@core-stunts', 'sonder@core-skills', 'sonder@core-identity', 'sonder@core-consequences']
+		const toDisable = ['sonder@core-stunts', 'sonder@core-skills', 'sonder@core-consequences']
 		for (const id of toDisable) {
 			cy.get(`ion-checkbox[data-testname="${id}"]`).click()
 		}
@@ -36,6 +36,10 @@ describe('Fate Core Modules crush-test', () => {
 		cy.get('[data-testid="sheet-section"]').eq(0).contains('Aspects')
 		cy.get('[data-testid="sheet-section"]').eq(1).contains('Stress')
 		cy.get('[data-testid="sheet-section"]').eq(2).contains('Fate Points')
+
+		// Name/avatar editing is core, always-present UI - unrelated to any installed module
+		cy.get('[data-testid="character-name-field"]').contains(startCharacter).should('exist')
+		cy.get('[data-testid="character-image-placeholder"]').should('exist')
 
 		// Add an Aspect
 		cy.addAspect(testAspect)

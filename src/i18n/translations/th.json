@@ -30,6 +30,21 @@
 		"remove-message": "คุณแน่ใจหรือว่าต้องการลบตัวละครนี้?",
 		"save": "บันทึกตัวละคร",
 		"share": "แชร์ตัวละคร",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "เวอร์ชันของตัวละครล้าสมัย คุณต้องการอัปเดตหรือไม่?",
 		"updated": "ตัวละครอัปเดตสำเร็จจาก v{from} เป็น v{to}!",
 		"your-characters": "ตัวละครของคุณ"

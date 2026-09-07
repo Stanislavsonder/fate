@@ -30,6 +30,21 @@
 		"remove-message": "Bu karakteri silmek istediğinizden emin misiniz?",
 		"save": "Karakteri kaydet",
 		"share": "Karakteri paylaş",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Karakter sürümü güncel değil. Güncellemek ister misiniz?",
 		"updated": "Karakter başarıyla v{from} sürümünden v{to} sürümüne güncellendi!",
 		"your-characters": "Karakterleriniz"
