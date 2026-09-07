@@ -9,6 +9,7 @@ describe('Mod Store - Browse tab', () => {
 			.should('exist')
 			.and('contain.text', 'E2E Fixture Mod')
 			.and('contain.text', 'v1.0.0')
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-installed-badge"]').should('not.exist')
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@incompatible-mod"]').should('not.exist')
 	})
 

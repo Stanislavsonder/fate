@@ -12,6 +12,7 @@ describe('Mod Store - Install', () => {
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
 
 		cy.closeModStoreModal()
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-installed-badge"]').should('contain.text', 'Installed')
 		cy.switchModStoreTab('installed')
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('exist').and('contain.text', 'v1.0.0')
 	})

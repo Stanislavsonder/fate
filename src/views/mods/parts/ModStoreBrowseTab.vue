@@ -4,11 +4,13 @@ import { useI18n } from 'vue-i18n'
 import { IonList, IonItem, IonLabel, IonNote, IonSearchbar, IonToggle, IonSpinner, IonRefresher, IonRefresherContent, IonBadge } from '@ionic/vue'
 import { getIndex, refreshIndex, type RegistryModEntry } from '@/mods/registryClient'
 import { isEntryCompatible, isEntryPublished } from '@/mods/installService'
+import { modsService } from '@/db/tables/mods'
 import ModStoreDetailModal from './ModStoreDetailModal.vue'
 
 const { locale } = useI18n()
 
 const entries = ref<RegistryModEntry[]>([])
+const installedIds = ref(new Set<string>())
 const stale = ref(false)
 const loading = ref(true)
 const loadError = ref<string | null>(null)
@@ -19,27 +21,28 @@ const compatibleOnly = ref(true)
 const selectedEntry = ref<RegistryModEntry | null>(null)
 const isDetailOpen = ref(false)
 
-async function load() {
-	loading.value = true
+async function fetchCatalog() {
 	// Forced, not throttled: opening the Mod Store is a deliberate user action
 	// (per the Phase 3 design — throttling is only meant to limit main.ts's
 	// automatic background refresh), and relying on that earlier fire-and-forget
 	// call to have already populated the cache is a race — it may not have
 	// completed yet if the store is opened shortly after app boot.
-	const refreshResult = await refreshIndex(true)
+	const [refreshResult, stored] = await Promise.all([refreshIndex(true), modsService.getAll()])
 	const { index, stale: cacheStale } = await getIndex()
 	entries.value = index?.mods ?? []
+	installedIds.value = new Set(stored.map(row => row.id))
 	stale.value = cacheStale
 	loadError.value = !refreshResult.ok && entries.value.length === 0 ? refreshResult.error : null
+}
+
+async function load() {
+	loading.value = true
+	await fetchCatalog()
 	loading.value = false
 }
 
 async function onRefresh(event: CustomEvent) {
-	const refreshResult = await refreshIndex(true)
-	const { index, stale: cacheStale } = await getIndex()
-	entries.value = index?.mods ?? []
-	stale.value = cacheStale
-	loadError.value = !refreshResult.ok && entries.value.length === 0 ? refreshResult.error : null
+	await fetchCatalog()
 	;(event.target as unknown as { complete(): void }).complete()
 }
 
@@ -140,12 +143,21 @@ function openDetail(entry: RegistryModEntry) {
 				<h2>{{ displayStrings(entry).name }}</h2>
 				<p>{{ entry.id }} · v{{ entry.latestVersion }}</p>
 				<p>{{ displayStrings(entry).short }}</p>
-				<ion-badge
-					v-if="!isEntryCompatible(entry)"
-					color="danger"
-				>
-					{{ $t('settings.mods.browse.incompatible') }}
-				</ion-badge>
+				<div class="mt-1 flex flex-wrap gap-1">
+					<ion-badge
+						v-if="installedIds.has(entry.id)"
+						color="success"
+						data-testid="mod-store-installed-badge"
+					>
+						{{ $t('settings.mods.detail.installed') }}
+					</ion-badge>
+					<ion-badge
+						v-if="!isEntryCompatible(entry)"
+						color="danger"
+					>
+						{{ $t('settings.mods.browse.incompatible') }}
+					</ion-badge>
+				</div>
 			</ion-label>
 		</ion-item>
 	</ion-list>
@@ -160,6 +172,6 @@ function openDetail(entry: RegistryModEntry) {
 		v-if="selectedEntry"
 		v-model="isDetailOpen"
 		:entry="selectedEntry"
-		@changed="load"
+		@changed="fetchCatalog"
 	/>
 </template>
