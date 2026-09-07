@@ -5,7 +5,7 @@ import { ModRegistry, type ModSource, type ModStatus } from '@/mods/modRegistry'
 import { safeManifest } from '@/mods/loader'
 import { registerModTranslations } from '@/mods/registerModTranslations'
 import { modsService } from '@/db/tables/mods'
-import { setEnabled, update, updateFromRegistry, remove } from '@/mods/installService'
+import { checkForUpdates, setEnabled, update, updateFromRegistry, remove } from '@/mods/installService'
 import { confirmRemove } from '@/utils/helpers/dialog'
 import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
 import i18n from '@/i18n'
@@ -20,6 +20,7 @@ interface ModRow {
 	status: ModStatus
 	error?: string
 	blocked?: boolean
+	updateAvailable: boolean
 }
 
 const rows = ref<ModRow[]>([])
@@ -27,7 +28,8 @@ const busyId = ref<string | null>(null)
 
 async function refresh() {
 	try {
-		const storedRows = await modsService.getAll()
+		const [storedRows, availableUpdates] = await Promise.all([modsService.getAll(), checkForUpdates()])
+		const updateIds = new Set(availableUpdates.map(update => update.id))
 		rows.value = storedRows.map(stored => {
 			const record = ModRegistry.get(stored.id)
 			if (record) {
@@ -38,7 +40,8 @@ async function refresh() {
 					source: record.source,
 					status: record.status,
 					error: record.error,
-					blocked: stored.blocked
+					blocked: stored.blocked,
+					updateAvailable: stored.source === 'url' || updateIds.has(stored.id)
 				}
 			}
 			// Not loaded this session (e.g. disabled before this boot) — fall back to the stored manifest for display.
@@ -54,7 +57,8 @@ async function refresh() {
 				version: fallback.version || stored.version,
 				source: stored.source,
 				status: 'disabled' as ModStatus,
-				blocked: stored.blocked
+				blocked: stored.blocked,
+				updateAvailable: stored.source === 'url' || updateIds.has(stored.id)
 			}
 		})
 	} catch (e) {
@@ -168,7 +172,7 @@ async function removeMod(row: ModRow) {
 					{{ $t(row.status === 'disabled' ? 'settings.mods.actions.enable' : 'settings.mods.actions.disable') }}
 				</ion-button>
 				<ion-button
-					v-if="row.source === 'url' || row.source === 'registry'"
+					v-if="row.updateAvailable"
 					data-testid="installed-mod-update"
 					:disabled="busyId === row.id"
 					@click="updateMod(row)"
