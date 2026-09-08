@@ -1,5 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import type * as SdkModule from '@/mods/sdk'
+import type * as RegistryClientModule from '@/mods/registryClient'
+import type { RegistryIndex } from '@/mods/registryClient'
 
 const { getAll, deleteMod, setBlocked, setEnabled } = vi.hoisted(() => ({
 	getAll: vi.fn(),
@@ -11,6 +13,11 @@ vi.mock('@/db/tables/mods', () => ({ modsService: { getAll, delete: deleteMod, s
 
 const { isSeedBlocked } = vi.hoisted(() => ({ isSeedBlocked: vi.fn(() => false) }))
 vi.mock('@/mods/blocklist', () => ({ isSeedBlocked }))
+
+// Only the cache read is stubbed — getRegistryRelease stays real so the pin
+// lookup is exercised against actual index shapes.
+const { getIndex } = vi.hoisted(() => ({ getIndex: vi.fn() }))
+vi.mock('@/mods/registryClient', async importOriginal => ({ ...(await importOriginal<typeof RegistryClientModule>()), getIndex }))
 
 const { registerBuiltinMods } = vi.hoisted(() => ({ registerBuiltinMods: vi.fn() }))
 vi.mock('@/mods/builtins', () => ({ registerBuiltinMods }))
@@ -59,9 +66,26 @@ function baseRow(overrides: Partial<StoredMod> = {}): StoredMod {
 	}
 }
 
+/** An index pinning one version of author@mod to `sha256`. */
+function indexPinning(sha256: string, version = '1.0.0'): RegistryIndex {
+	return {
+		schemaVersion: 2,
+		generatedAt: '2026-01-01T00:00:00Z',
+		blocklist: {},
+		mods: [
+			{
+				id: 'author@mod',
+				latestVersion: version,
+				releases: { [version]: { version, files: { 'bundle.mjs': { url: '', sha256, size: 0 } } } }
+			} as never
+		]
+	}
+}
+
 beforeEach(() => {
 	vi.clearAllMocks()
 	isSeedBlocked.mockReturnValue(false)
+	getIndex.mockResolvedValue({ index: null, stale: true, fetchedAt: null })
 })
 
 describe('loadExternalMod', () => {
@@ -117,9 +141,39 @@ describe('loadExternalMod', () => {
 	it('quarantines on hash mismatch without ever importing the bundle', async () => {
 		const row = baseRow({ sha256: 'deadbeef' })
 
-		await expect(loadExternalMod(row)).rejects.toThrow(/hash mismatch/)
+		await expect(loadExternalMod(row)).rejects.toThrow(/does not match its stored hash/)
 		expect(importBlobModule).not.toHaveBeenCalled()
 		expect(loadFullIconset).not.toHaveBeenCalled()
+	})
+
+	it('quarantines a registry mod whose stored bundle no longer matches the published hash', async () => {
+		const row = baseRow({ source: 'registry' })
+		row.sha256 = await sha256(row.bundleCode)
+		getIndex.mockResolvedValue({ index: indexPinning('a-different-hash'), stale: false, fetchedAt: 0 })
+
+		await expect(loadExternalMod(row)).rejects.toThrow(/the registry published/)
+		expect(importBlobModule).not.toHaveBeenCalled()
+	})
+
+	it('loads a registry mod that still matches its published hash', async () => {
+		const row = baseRow({ source: 'registry' })
+		row.sha256 = await sha256(row.bundleCode)
+		getIndex.mockResolvedValue({ index: indexPinning(row.sha256), stale: false, fetchedAt: 0 })
+		importBlobModule.mockResolvedValue({ components: [] })
+
+		await expect(loadExternalMod(row)).resolves.toMatchObject({ id: 'author@mod' })
+	})
+
+	it('loads a registry mod when no pin is available — an uncached index is not suspicious', async () => {
+		const row = baseRow({ source: 'registry', version: '0.9.0' })
+		row.sha256 = await sha256(row.bundleCode)
+		importBlobModule.mockResolvedValue({ components: [] })
+
+		await expect(loadExternalMod(row)).resolves.toMatchObject({ id: 'author@mod' })
+
+		// Same for an index that carries no pinned release for this old version.
+		getIndex.mockResolvedValue({ index: indexPinning('a-different-hash', '2.0.0'), stale: false, fetchedAt: 0 })
+		await expect(loadExternalMod(row)).resolves.toMatchObject({ id: 'author@mod' })
 	})
 
 	it('quarantines on an sdk-range mismatch without ever importing the bundle', async () => {
@@ -190,7 +244,7 @@ describe('initMods', () => {
 		expect(registerBuiltinMods).toHaveBeenCalled()
 		const record = ModRegistry.get('bad@mod')
 		expect(record?.status).toBe('errored')
-		expect(record?.error).toMatch(/hash mismatch/)
+		expect(record?.error).toMatch(/does not match its stored hash/)
 	})
 
 	it('registers a successfully loaded external mod as loaded', async () => {

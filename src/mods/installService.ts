@@ -2,7 +2,7 @@ import semver from 'semver'
 import { ModRegistry } from './modRegistry'
 import { loadExternalMod, safeManifest } from './loader'
 import { SDK_VERSION } from './sdk'
-import { getIndex, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
+import { getIndex, getRegistryRelease, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
 import { isSeedBlocked, isVersionBlocked } from './blocklist'
 import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
@@ -330,7 +330,7 @@ export function isEntryCompatible(entry: RegistryModEntry): boolean {
 }
 
 /** Exported for reuse by the Mod Store's Browse tab (published vs draft visibility). */
-export { isEntryPublished } from './registryClient'
+export { isEntryPublished, getRegistryRelease } from './registryClient'
 
 export const MOD_STORE_FALLBACK_IMAGE = '/web-app-manifest-192x192.png'
 
@@ -348,22 +348,6 @@ export function fallbackModStoreImage(event: Event) {
 	const image = event.target as HTMLImageElement
 	if (image.src !== new URL(MOD_STORE_FALLBACK_IMAGE, window.location.origin).href) {
 		image.src = MOD_STORE_FALLBACK_IMAGE
-	}
-}
-
-export function getRegistryRelease(entry: RegistryModEntry, version: string): RegistryReleaseEntry | null {
-	const release = entry.releases?.[version]
-	if (release) {
-		return release
-	}
-	if (version !== entry.latestVersion) {
-		return null
-	}
-	return {
-		version,
-		appVersion: entry.appVersion,
-		sdk: entry.sdk,
-		files: entry.files
 	}
 }
 

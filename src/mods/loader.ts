@@ -6,6 +6,7 @@ import { registerModTranslations } from './registerModTranslations'
 import { registerBuiltinMods } from './builtins'
 import { importBlobModule } from './importBlobModule'
 import { isSeedBlocked } from './blocklist'
+import { getIndex, getRegistryRelease, type RegistryIndex } from './registryClient'
 import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
@@ -96,6 +97,40 @@ export async function initMods(): Promise<void> {
 	}
 }
 
+async function sha256Hex(text: string): Promise<string> {
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
+	return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('')
+}
+
+/**
+ * Compares a registry mod's stored bundle against the hash the registry
+ * published for that exact version, which install-time verification checked
+ * once and nothing has re-checked since.
+ *
+ * The pin lives in the cached index, which is same-origin state too — but
+ * every successful refresh overwrites it wholesale from the network, so
+ * rewriting a mod's row survives at most until the next refresh and then
+ * quarantines it for good. Absence of a pin is not suspicious (no cache yet on
+ * a first offline boot, an unpinned older release in a schema-v1 cache), so it
+ * skips rather than refuses.
+ */
+async function verifyRegistryPin(row: StoredMod, manifest: Record<string, unknown>, hash: string): Promise<void> {
+	let index: RegistryIndex | null
+	try {
+		index = (await getIndex()).index
+	} catch (e) {
+		console.warn(`[mods] could not read the registry index to re-verify "${row.id}"`, e)
+		return
+	}
+
+	const entry = index?.mods.find(mod => mod.id === row.id)
+	const release = entry ? getRegistryRelease(entry, row.version) : null
+	const pinned = release?.files[typeof manifest.entry === 'string' ? manifest.entry : 'bundle.mjs']
+	if (pinned && pinned.sha256 !== hash) {
+		throw new Error('stored bundle does not match the hash the registry published for this version — refusing to load')
+	}
+}
+
 /**
  * Loads a single stored mod through the ABI, integrity, import, and shape
  * gates and assembles it exactly like a built-in. Exported so installService
@@ -123,10 +158,16 @@ export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifes
 	// for dev-mode mods: WebCrypto requires a secure context and dev servers
 	// are plain http:// on the LAN (see src/mods/devMode.ts).
 	if (row.source !== 'dev') {
-		const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(row.bundleCode))
-		const hex = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('')
+		const hex = await sha256Hex(row.bundleCode)
+		// Both operands live in the same IndexedDB row, so this alone only
+		// detects corruption — anything that can rewrite the code can rewrite
+		// the hash beside it. verifyRegistryPin is what turns it into a
+		// tampering check for registry mods.
 		if (hex !== row.sha256) {
-			throw new Error('bundle hash mismatch — possible tampering, refusing to load')
+			throw new Error('stored bundle does not match its stored hash — refusing to load')
+		}
+		if (row.source === 'registry') {
+			await verifyRegistryPin(row, manifest, hex)
 		}
 	}
 

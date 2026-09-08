@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+import type * as RegistryClientModule from '@/mods/registryClient'
 
 const { getMod, putMod, deleteMod, setEnabledMod, getAllMods } = vi.hoisted(() => ({
 	getMod: vi.fn(),
@@ -21,11 +22,9 @@ const { getCharacters, updateCharacter } = vi.hoisted(() => ({
 }))
 vi.mock('@/service/character.service', () => ({ default: { getCharacters, updateCharacter } }))
 
-const { getIndex, isEntryPublished } = vi.hoisted(() => ({
-	getIndex: vi.fn(),
-	isEntryPublished: (entry: { published?: boolean }) => entry.published !== false
-}))
-vi.mock('@/mods/registryClient', () => ({ getIndex, isEntryPublished }))
+// Only the cache read is stubbed; the index-shape helpers stay real.
+const { getIndex } = vi.hoisted(() => ({ getIndex: vi.fn() }))
+vi.mock('@/mods/registryClient', async importOriginal => ({ ...(await importOriginal<typeof RegistryClientModule>()), getIndex }))
 
 const { getRegistryBase } = vi.hoisted(() => ({ getRegistryBase: vi.fn(() => 'https://registry.example.com') }))
 vi.mock('@/composables/useRegistryBase', () => ({ default: () => ({ getRegistryBase }) }))

@@ -45,6 +45,25 @@ export function isEntryPublished(entry: RegistryModEntry): boolean {
 	return entry.published !== false
 }
 
+/** The hash-pinned release metadata for one version, or null if this index
+ * doesn't carry it. Schema-v1 caches have no `releases` map at all — there the
+ * top-level `files` describe the latest version, and older ones are unpinned. */
+export function getRegistryRelease(entry: RegistryModEntry, version: string): RegistryReleaseEntry | null {
+	const release = entry.releases?.[version]
+	if (release) {
+		return release
+	}
+	if (version !== entry.latestVersion) {
+		return null
+	}
+	return {
+		version,
+		appVersion: entry.appVersion,
+		sdk: entry.sdk,
+		files: entry.files
+	}
+}
+
 interface CachedIndex {
 	fetchedAt: number
 	index: RegistryIndex
