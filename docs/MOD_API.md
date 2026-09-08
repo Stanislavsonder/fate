@@ -349,3 +349,11 @@ that proves depends on the source:
 Neither is a sandbox, and neither replaces the install-time decision: a mod
 you install runs with full app privileges from that point on
 (`src/mods/loader.ts`).
+
+Release builds ship a Content-Security-Policy (`vite.config.mts`) that
+blocks remote and inline `<script>`, `eval`, plugins, `<base>` rewriting and
+form posts. It is not mod containment: `script-src` has to allow `blob:` for
+the loader to import your bundle at all, and `connect-src` is deliberately
+left open so install-from-URL, a custom registry base and dev-server hot
+reload keep working. A mod can still reach the network — treat "this mod
+could exfiltrate the character sheet" as true, and install accordingly.

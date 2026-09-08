@@ -30,7 +30,7 @@ now if you want them at all.
 | [M2](#m2) | ~~Critical~~ A done, B batched | i18n | Mod ids are unvalidated app-side; a mod can hijack the app's translation namespace |
 | [M3](#m3) | ~~High~~ done | Kill switch | Blocked mods still execute once per boot; the registry base lives in writable localStorage |
 | [M4](#m4) | ~~High~~ A+C done | Trust model | The load-time hash check is self-consistency, but is documented as anti-tampering |
-| [M5](#m5) | High | Isolation | No CSP — every mod has unrestricted network access to all character data |
+| [M5](#m5) | ~~High~~ hygiene done, containment deferred | Isolation | No CSP — every mod has unrestricted network access to all character data |
 | [M6](#m6) | High | SDK | `Object.freeze(FateSDK)` does not prevent reassignment of the global |
 | [M7](#m7) | High | Dev mode | Dev mods persist forever, are never re-verified, and can overwrite a real install |
 | [M8](#m8) | High | Lifecycle | `installModule` ignores the "incompatible patch" abort and installs anyway |
@@ -311,6 +311,32 @@ Caveat worth deciding on explicitly: a static CSP cannot be relaxed at runtime, 
 own, which weakens the policy on release builds unless you ship a separate dev CSP. Also worth
 weighing the App Store / Play angle — remote code execution with unrestricted network is the
 first thing a reviewer asks about.
+
+**Partially resolved — hygiene shipped, containment deferred.** Scoping A turned up a coupling
+the estimate above missed: `script-src` *must* allow `blob:`, because that is how the loader
+imports every external mod, and it is the same primitive a mod would use to run code it
+generated itself. So `script-src` cannot contain a mod on its own — the only directive that can
+is `connect-src`, and closing that takes install-from-URL, the registry-base override and
+dev-server hot reload with it, all three being features that fetch arbitrary hosts by design.
+
+What shipped (`vite.config.mts`, injected at build time only): `default-src 'self'`,
+`script-src 'self' blob:`, `object-src 'none'`, `base-uri 'self'`, `form-action 'none'`, plus
+`style-src 'unsafe-inline'` for Ionic/Vue/mod themes. That closes the injection surface around
+imported character files and mod-supplied markup — no remote or inline `<script>`, no `eval`.
+`connect-src` stays open, so **there is still no exfiltration protection**; `MOD_API.md` §8 now
+says so in as many words rather than implying otherwise. `frame-ancestors` and `report-to` are
+omitted because browsers ignore both in a `<meta>` policy; `frame-ancestors` belongs in hosting
+headers if the web build ever gets them.
+
+The remaining decision, when the Mod Store goes public: route the app's own HTTP through
+Capacitor's native bridge (not subject to the WebView's CSP) and close `connect-src` on native
+builds, so in-WebView mod `fetch` is blocked while the Developer Mode features keep working.
+SSE has no native equivalent, so dev hot reload would become polling, and the web build cannot
+be covered this way at all.
+
+Not exercised by CI: the policy is build-only, and Cypress drives the dev server. Smoke-test
+`pnpm preview` plus one iOS and one Android build before release — a CSP mistake here is a
+white screen, not a warning.
 
 ### M6 — `Object.freeze(FateSDK)` does not prevent reassignment {#m6}
 
@@ -706,7 +732,7 @@ single co-ordinated republish.
 
 **Decisions to make deliberately (not code, policy)**
 
-- [ ] M5 — CSP: adopt now, or accept the open network surface and document it
+- [x] M5 — hygiene CSP shipped (`connect-src` left open); native containment deferred until Mod Store public
 - [x] M4 (A, C) — cached-index re-verification at load; honest wording. Signed index (B) left open
 - [ ] M17 — mandatory reload after mod changes, or invest in in-session correctness
 
