@@ -334,6 +334,18 @@ established two ways depending on install source:
   needed for a mod installed from the reviewed registry via the in-app Mod
   Store.
 
-Every load goes through integrity verification regardless of source
-(except `dev`, for the reasons above): the loader recomputes the bundle's
-SHA-256 and refuses to run it on mismatch (`src/mods/loader.ts`).
+Every load recomputes the stored bundle's SHA-256 and refuses to run it on
+mismatch, regardless of source (except `dev`, for the reasons above). What
+that proves depends on the source:
+
+- **Registry**: the hash is also compared against the one the registry
+  published for that exact version, read from the cached index. A bundle
+  rewritten in local storage therefore stops loading — at the latest, on the
+  first launch after the index refreshes.
+- **Install from URL**: there is nothing to compare against, so the check is
+  a corruption detector. It proves the stored bundle is the one that was
+  stored, not that it is the one you downloaded.
+
+Neither is a sandbox, and neither replaces the install-time decision: a mod
+you install runs with full app privileges from that point on
+(`src/mods/loader.ts`).

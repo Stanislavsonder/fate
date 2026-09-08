@@ -29,7 +29,7 @@ now if you want them at all.
 | [M1](#m1) | ~~Critical~~ done | Loader | A bundle can overwrite any manifest field, including `id` and `capabilities` |
 | [M2](#m2) | ~~Critical~~ A done, B batched | i18n | Mod ids are unvalidated app-side; a mod can hijack the app's translation namespace |
 | [M3](#m3) | ~~High~~ done | Kill switch | Blocked mods still execute once per boot; the registry base lives in writable localStorage |
-| [M4](#m4) | High | Trust model | The load-time hash check is self-consistency, but is documented as anti-tampering |
+| [M4](#m4) | ~~High~~ A+C done | Trust model | The load-time hash check is self-consistency, but is documented as anti-tampering |
 | [M5](#m5) | High | Isolation | No CSP — every mod has unrestricted network access to all character data |
 | [M6](#m6) | High | SDK | `Object.freeze(FateSDK)` does not prevent reassignment of the global |
 | [M7](#m7) | High | Dev mode | Dev mods persist forever, are never re-verified, and can overwrite a real install |
@@ -270,6 +270,22 @@ registry index comparison at install time (`installService.ts:368`), which is ge
 | **A (recommended)** | Re-verify registry-sourced rows against the cached index's pinned hash at load, not just at install. | small |
 | B | Sign `registry.json` and ship a public key in the app — real provenance, and the prerequisite for ever accepting mods you do not review by hand. | large |
 | **C (recommended)** | Fix the wording in `MOD_API.md` §8 and the code comment. | trivial |
+
+**A + C resolved.** `verifyRegistryPin` in `loadExternalMod` compares a registry mod's stored
+bundle against the hash the registry published for that exact version, read from the cached
+index. The pin is same-origin state too, so this is not a hard boundary — but every successful
+refresh overwrites the cache wholesale from the network, so a rewritten row survives at most
+until the next refresh and is then quarantined for good. A missing pin (no cache yet on a first
+offline boot, an unpinned older release in a schema-v1 cache) skips rather than refuses.
+`getRegistryRelease` moved to `registryClient.ts` so the loader can read pins without importing
+`installService`, which imports the loader. Wording fixed in `MOD_API.md` §8 and at the check
+itself; the mismatch message no longer claims tampering it cannot detect.
+
+B (signing `registry.json`) is still the only real provenance answer and remains open — it is
+the prerequisite for ever accepting mods we do not review by hand, not something 2.0 needs.
+
+Tests: four cases in `loader.test.ts` (tampered registry row, matching row, uncached index,
+unpinned older release).
 
 ### M5 — No CSP: unrestricted exfiltration surface {#m5}
 
@@ -691,7 +707,7 @@ single co-ordinated republish.
 **Decisions to make deliberately (not code, policy)**
 
 - [ ] M5 — CSP: adopt now, or accept the open network surface and document it
-- [ ] M4 — provenance: cached-index re-verification now, signed index later, or neither
+- [x] M4 (A, C) — cached-index re-verification at load; honest wording. Signed index (B) left open
 - [ ] M17 — mandatory reload after mod changes, or invest in in-session correctness
 
 **2.0.x / 2.1**
