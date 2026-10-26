@@ -10,6 +10,10 @@ vi.mock('@/modules/utils/installModules', () => ({
 	installModules: vi.fn()
 }))
 
+vi.mock('@/modules/utils/buildStaticContext', () => ({
+	buildStaticContext: vi.fn(context => context)
+}))
+
 vi.mock('@/modules/utils/updateModules', () => ({
 	updateModules: vi.fn().mockResolvedValue(undefined)
 }))

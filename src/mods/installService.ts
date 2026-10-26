@@ -11,21 +11,22 @@ import useRegistryBase from '@/composables/useRegistryBase'
 import appVersion from '@/utils/helpers/appVersion'
 import { markModReloadRequired } from '@/mods/reloadState'
 import { uninstallModule } from '@/modules/utils/uninstallModules'
-import { clone } from '@/utils/helpers/clone'
+import { buildStaticContext } from '@/modules/utils/buildStaticContext'
+import { safeClone } from '@/utils/helpers/clone'
 import { constants, templates } from '@/utils/config'
 import type { Character, FateContext } from '@/types'
 import type { FateModuleManifest } from '@fate-app/mod-types'
 
 export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
 export type SimpleOutcome = { ok: true } | { ok: false; error: string }
-export type RemoveOutcome = { ok: true } | { ok: false; reason: 'error'; error: string }
+export type RemoveOutcome = { ok: true; uninstallFailures?: string[] } | { ok: false; reason: 'error'; error: string }
 
 function emptyFateContext(): FateContext {
 	return {
 		modules: {},
-		constants: clone(constants),
+		constants: safeClone(constants),
 		components: [],
-		templates: clone(templates),
+		templates: safeClone(templates),
 		shared: {}
 	}
 }
@@ -236,34 +237,54 @@ export async function getCharactersUsingMod(id: string): Promise<{ id: number; n
 	return characters.filter(character => id in character._modules).map(character => ({ id: character.id, name: character.name }))
 }
 
-async function uninstallModFromCharacter(id: string, character: Character, manifest: FateModuleManifest | undefined): Promise<void> {
-	const next = clone(character)
-	delete next._modules[id]
+async function uninstallModFromCharacter(id: string, character: Character, manifest: FateModuleManifest | undefined): Promise<string | null> {
+	const next = safeClone(character)
+	let failure: string | null = null
 	if (typeof manifest?.onUninstall === 'function') {
-		await uninstallModule(manifest, emptyFateContext(), next)
+		// onUninstall gets the context this character's modules would really
+		// produce, so a hook that reads its own or another mod's shared slice
+		// works the same as when the user removes it from the sheet.
+		const context = buildStaticContext(emptyFateContext(), next._modules)
+		try {
+			await uninstallModule(manifest, context, next)
+		} catch (e) {
+			// A throwing hook must not strand the removal halfway through the
+			// character list. The reference is still dropped below; whatever
+			// the hook did not clean up stays on the character as orphaned data.
+			console.error(`[mods] onUninstall of "${id}" failed for character ${character.id}`, e)
+			failure = character.name || String(character.id)
+		}
 	}
+	delete next._modules[id]
 	await characterService.updateCharacter(next)
+	return failure
 }
 
 /**
  * Removes an installed mod. Uninstalls it from every character that still
  * references it (running onUninstall when a manifest is registered), then
- * deletes the stored mod.
+ * deletes the stored mod. A failing onUninstall is reported in
+ * `uninstallFailures` rather than aborting; a failing character write aborts
+ * before the mod itself is deleted.
  */
 export async function remove(id: string): Promise<RemoveOutcome> {
 	try {
 		const characters = await characterService.getCharacters()
 		const manifest = ModRegistry.get(id)?.manifest
+		const uninstallFailures: string[] = []
 
 		for (const character of characters) {
 			if (!(id in character._modules)) continue
-			await uninstallModFromCharacter(id, character, manifest)
+			const failure = await uninstallModFromCharacter(id, character, manifest)
+			if (failure) {
+				uninstallFailures.push(failure)
+			}
 		}
 
 		await modsService.delete(id)
 		ModRegistry.remove(id)
 		markModReloadRequired()
-		return { ok: true }
+		return uninstallFailures.length > 0 ? { ok: true, uninstallFailures } : { ok: true }
 	} catch (e) {
 		return { ok: false, reason: 'error', error: errorMessage(e) }
 	}

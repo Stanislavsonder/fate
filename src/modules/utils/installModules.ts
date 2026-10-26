@@ -1,10 +1,10 @@
 import type { Character, FateContext } from '@/types'
 import type { FateModuleManifest, ModuleResolutionIssue } from '@/modules/utils/types'
 import { getModules } from '@/modules/utils/getModules'
-import { markRaw } from 'vue'
 import { resolveModules } from '@/modules/utils/resolveModules'
 import { showIssuesMessage } from './showIssuesMessage'
 import { updateModule } from './updateModules'
+import { mergeModuleIntoContext } from './buildStaticContext'
 import { ModRegistry } from '@/mods/modRegistry'
 import { getIndex, isEntryPublished } from '@/mods/registryClient'
 import i18n from '@/i18n'
@@ -70,25 +70,7 @@ export async function installModule(module: FateModuleManifest, context: FateCon
 		components: [...context.components]
 	}
 
-	context.modules[module.id] = module
-
-	if (module.shared && Object.keys(module.shared).length > 0) {
-		Object.assign(context.shared, {
-			[module.id]: module.shared
-		})
-	}
-
-	if (module.constants && Object.keys(module.constants).length > 0) {
-		Object.assign(context.constants, module.constants)
-	}
-
-	if (module.templates && Object.keys(module.templates).length > 0) {
-		Object.assign(context.templates, module.templates)
-	}
-
-	if (Array.isArray(module.components) && module.components.length > 0) {
-		context.components.push(...module.components.map(markRaw))
-	}
+	mergeModuleIntoContext(module, context)
 
 	if (module.version !== character._modules[module.id].version) {
 		const updated = await updateModule(context, character, module.id, character._modules[module.id])

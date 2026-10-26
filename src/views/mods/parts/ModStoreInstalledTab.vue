@@ -7,7 +7,7 @@ import { registerModTranslations } from '@/mods/registerModTranslations'
 import { modsService } from '@/db/tables/mods'
 import { checkForUpdates, getCharactersUsingMod, setEnabled, update, updateFromRegistry, remove } from '@/mods/installService'
 import { confirmRemoveMod } from '@/utils/helpers/dialog'
-import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
+import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
 import useCharacter from '@/store/useCharacter'
 import i18n from '@/i18n'
 
@@ -129,6 +129,9 @@ async function removeMod(row: ModRow) {
 		if (!result.ok) {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
 			return
+		}
+		if (result.uninstallFailures) {
+			await showWarningToast('settings.mods.errors.uninstallPartial', { characters: result.uninstallFailures.join(', ') })
 		}
 		const currentId = characterStore.character?.id
 		if (currentId != null && usedBy.some(character => character.id === currentId)) {

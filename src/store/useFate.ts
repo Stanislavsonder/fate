@@ -4,6 +4,7 @@ import { ref } from 'vue'
 import { templates, constants } from '@/utils/config'
 import { modulesDiff } from '@/modules/utils/modulesDiff'
 import { installModules } from '@/modules/utils/installModules'
+import { buildStaticContext } from '@/modules/utils/buildStaticContext'
 import { uninstallModules } from '@/modules/utils/uninstallModules'
 import { getModules } from '@/modules/utils/getModules'
 import { mergeComponents } from '@/utils/helpers/mergeComponents'
@@ -82,8 +83,12 @@ const useFate = defineStore('fate', () => {
 			// Get change instructions
 			const diff = modulesDiff(character._modules, newModules)
 
-			// Uninstall removed modules (character data only; context is rebuilt below)
-			await uninstallModules(ctx, char, getModules(diff.uninstall))
+			// Uninstall removed modules against the context the character's
+			// current modules produce, so onUninstall sees the same shared /
+			// constants it would on the sheet. Only character data matters here;
+			// the context itself is rebuilt below.
+			const uninstallCtx = buildStaticContext(safeClone(EMPTY_FATE_CONTEXT), character._modules)
+			await uninstallModules(uninstallCtx, char, getModules(diff.uninstall))
 
 			// Rebuild context from defaults for all remaining modules
 			await installModules(ctx, char)

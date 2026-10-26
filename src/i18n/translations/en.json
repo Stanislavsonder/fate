@@ -280,7 +280,8 @@
 			"empty": "No mods installed",
 			"errors": {
 				"action": "Could not complete the action. {error}",
-				"list": "Could not load installed mods. {error}"
+				"list": "Could not load installed mods. {error}",
+				"uninstallPartial": "Removed, but the mod could not clean up its data on: {characters}"
 			},
 			"installSuccess": "\"{id}\" installed",
 			"removeConfirm": {

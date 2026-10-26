@@ -264,6 +264,50 @@ describe('remove', () => {
 		expect(ModRegistry.get('author@mod')).toBeDefined()
 	})
 
+	it("hands onUninstall a context built from the character's modules", async () => {
+		const seen: unknown[] = []
+		const onUninstall = vi.fn(context => {
+			seen.push(context.shared['other@mod'], context.modules['author@mod'])
+		})
+		getCharacters.mockResolvedValue([{ id: 1, name: 'Hero', avatar: '', _modules: { 'author@mod': { version: '1.0.0' }, 'other@mod': { version: '1.0.0' } } }])
+		ModRegistry.register({
+			manifest: { id: 'other@mod', version: '1.0.0', loadPriority: 0, shared: { bag: 1 }, onInstall: vi.fn(), onUninstall: vi.fn() } as never,
+			source: 'url',
+			status: 'loaded'
+		})
+		ModRegistry.register({
+			manifest: { id: 'author@mod', version: '1.0.0', loadPriority: 0, onInstall: vi.fn(), onUninstall } as never,
+			source: 'url',
+			status: 'loaded'
+		})
+
+		const result = await remove('author@mod')
+
+		expect(result).toEqual({ ok: true })
+		expect(seen[0]).toEqual({ bag: 1 })
+		expect(seen[1]).toEqual(expect.objectContaining({ id: 'author@mod' }))
+		ModRegistry.remove('other@mod')
+	})
+
+	it('keeps going and reports characters whose onUninstall throws', async () => {
+		const onUninstall = vi.fn().mockRejectedValueOnce(new Error('boom')).mockResolvedValueOnce(undefined)
+		const createdAt = new Date('2026-01-01')
+		getCharacters.mockResolvedValue([
+			{ id: 1, name: 'Hero', avatar: '', _modules: { 'author@mod': { version: '1.0.0' } } },
+			{ id: 2, name: 'Sidekick', avatar: '', createdAt, _modules: { 'author@mod': { version: '1.0.0' } } }
+		])
+		ModRegistry.register({ manifest: { id: 'author@mod', version: '1.0.0', onUninstall } as never, source: 'url', status: 'loaded' })
+
+		const result = await remove('author@mod')
+
+		expect(result).toEqual({ ok: true, uninstallFailures: ['Hero'] })
+		expect(updateCharacter).toHaveBeenCalledTimes(2)
+		expect(updateCharacter).toHaveBeenCalledWith(expect.objectContaining({ id: 1, _modules: {} }))
+		// Non-JSON values on the character survive the write-back.
+		expect(updateCharacter.mock.calls[1][0].createdAt).toBeInstanceOf(Date)
+		expect(deleteMod).toHaveBeenCalledWith('author@mod')
+	})
+
 	it('removes the mod when no character references it', async () => {
 		ModRegistry.register({ manifest: { id: 'removable@mod', version: '1.0.0' } as never, source: 'url', status: 'loaded' })
 
