@@ -278,6 +278,41 @@ describe('installModule', () => {
 		expect(callOrder).toEqual(['updateModule', 'onInstall'])
 	})
 
+	it('leaves the module out of the context and skips onInstall when an incompatible patch aborts the update', async () => {
+		vi.spyOn(updateModulesModule, 'updateModule').mockImplementation(async (_ctx, char, id) => {
+			delete char._modules[id]
+			return false
+		})
+
+		const existing = { id: 'keep', component: {}, order: 0 }
+		const context = createContext({
+			constants: { OTHER: 'keep' } as unknown as FateContext['constants'],
+			components: [existing]
+		})
+		const constantsRef = context.constants
+		const character = createCharacter({
+			_modules: { 'test@module': { version: '1.0.0' } }
+		})
+		const onInstall = vi.fn()
+		const module = createModule({
+			version: '2.0.0',
+			onInstall,
+			shared: { bag: true } as FateModuleManifest['shared'],
+			constants: { MAX_TOKENS: 9 } as FateModuleManifest['constants'],
+			components: [{ id: 'module-ui', component: {}, order: 1 }]
+		})
+
+		await installModule(module, context, character)
+
+		expect(onInstall).not.toHaveBeenCalled()
+		expect(context.modules['test@module']).toBeUndefined()
+		expect(context.shared).toEqual({})
+		expect(context.constants).toBe(constantsRef)
+		expect(context.constants).toEqual({ OTHER: 'keep' })
+		expect(context.components).toEqual([existing])
+		expect(character._modules['test@module']).toBeUndefined()
+	})
+
 	it('skips version update when versions match', async () => {
 		const updateModuleSpy = vi.spyOn(updateModulesModule, 'updateModule')
 		const context = createContext()

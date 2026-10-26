@@ -48,7 +48,28 @@ async function findNotInstalledIssues(characterModuleIds: string[], resolvedIds:
 		}))
 }
 
+/** Restores an object's own keys to a shallow snapshot without replacing the object itself. */
+function restoreInPlace(target: object, snapshot: object): void {
+	const record = target as Record<string, unknown>
+	for (const key of Object.keys(record)) {
+		if (!(key in snapshot)) {
+			delete record[key]
+		}
+	}
+	Object.assign(record, snapshot)
+}
+
 export async function installModule(module: FateModuleManifest, context: FateContext, character: Character) {
+	// Patches run with this module already merged into the context, so take a
+	// snapshot first: an incompatible patch makes updateModule drop the module
+	// from the character, and the context has to follow — otherwise the sheet
+	// renders a section for a module the character no longer has.
+	const snapshot = {
+		constants: { ...context.constants },
+		templates: { ...context.templates },
+		components: [...context.components]
+	}
+
 	context.modules[module.id] = module
 
 	if (module.shared && Object.keys(module.shared).length > 0) {
@@ -70,7 +91,15 @@ export async function installModule(module: FateModuleManifest, context: FateCon
 	}
 
 	if (module.version !== character._modules[module.id].version) {
-		await updateModule(context, character, module.id, character._modules[module.id])
+		const updated = await updateModule(context, character, module.id, character._modules[module.id])
+		if (!updated) {
+			delete context.modules[module.id]
+			delete context.shared[module.id]
+			restoreInPlace(context.constants, snapshot.constants)
+			restoreInPlace(context.templates, snapshot.templates)
+			context.components.splice(0, context.components.length, ...snapshot.components)
+			return
+		}
 	}
 
 	await module.onInstall(context, character)
