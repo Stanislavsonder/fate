@@ -1,4 +1,4 @@
-import { resolveValue } from '@intlify/core-base'
+import { resolveValue, type MessageResolver } from '@intlify/core-base'
 import { isValidModId } from '@/mods/modId'
 
 /**
@@ -16,7 +16,7 @@ export const MOD_MESSAGES_ROOT = 'mods'
  * (e.g. a stress track's name), so the short form keeps working without a
  * data migration — it just can never resolve outside the mods root.
  */
-export function modMessageResolver(obj: unknown, path: string): unknown {
+export const modMessageResolver: MessageResolver = (obj, path) => {
 	const dot = path.indexOf('.')
 	const head = dot === -1 ? path : path.slice(0, dot)
 	return resolveValue(obj, isValidModId(head) ? `${MOD_MESSAGES_ROOT}.${path}` : path)
