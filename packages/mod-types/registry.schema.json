@@ -88,14 +88,8 @@
 		"capabilities": {
 			"type": "array",
 			"minItems": 1,
-			"items": { "type": "string", "enum": ["sheetComponents", "dice", "theme", "translations"] },
-			"description": "\"sheetComponents\", \"dice\", and \"theme\" are fully supported for external mods (SDK >= 1.1.0). \"translations\" is declared-only for now: the manifest fields exist, but the app does not yet merge translation packs at runtime."
-		},
-		"translationTargets": {
-			"type": "array",
-			"items": { "type": "string", "pattern": "^(app|[a-z0-9-]+@[a-z0-9-]+)$" },
-			"minItems": 1,
-			"description": "For \"translations\"-capability mods: what this pack translates — \"app\" (the app's own UI strings) and/or other mod ids. Declarative only until the runtime merge ships; entry/bundle.mjs is still required for now."
+			"items": { "type": "string", "enum": ["sheetComponents", "dice", "theme"] },
+			"description": "What the mod extends. The bundle may only export the sections of the capabilities declared here (SDK >= 3.0.0 refuses anything else)."
 		},
 		"config": {
 			"type": "object",
