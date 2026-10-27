@@ -27,31 +27,31 @@ now if you want them at all.
 | # | Severity | Area | One-line |
 | --- | --- | --- | --- |
 | [M1](#m1) | ~~Critical~~ done | Loader | A bundle can overwrite any manifest field, including `id` and `capabilities` |
-| [M2](#m2) | ~~Critical~~ A done, B batched | i18n | Mod ids are unvalidated app-side; a mod can hijack the app's translation namespace |
+| [M2](#m2) | ~~Critical~~ done | i18n | Mod ids are unvalidated app-side; a mod can hijack the app's translation namespace |
 | [M3](#m3) | ~~High~~ done | Kill switch | Blocked mods still execute once per boot; the registry base lives in writable localStorage |
 | [M4](#m4) | ~~High~~ A+C done | Trust model | The load-time hash check is self-consistency, but is documented as anti-tampering |
 | [M5](#m5) | ~~High~~ hygiene done, containment deferred | Isolation | No CSP — every mod has unrestricted network access to all character data |
-| [M6](#m6) | High | SDK | `Object.freeze(FateSDK)` does not prevent reassignment of the global |
-| [M7](#m7) | High | Dev mode | Dev mods persist forever, are never re-verified, and can overwrite a real install |
-| [M8](#m8) | High | Lifecycle | `installModule` ignores the "incompatible patch" abort and installs anyway |
-| [M9](#m9) | High | Data | Orphaned mod data is never cleaned up; `setModData` keys are unnamespaced |
-| [M10](#m10) | High | Removal | `remove()` runs `onUninstall` with an empty context and JSON-clones characters |
-| [M11](#m11) | Medium | Validation | Bundles without `capabilities` skip component shape validation |
+| [M6](#m6) | ~~High~~ done | SDK | `Object.freeze(FateSDK)` does not prevent reassignment of the global |
+| [M7](#m7) | ~~High~~ done | Dev mode | Dev mods persist forever, are never re-verified, and can overwrite a real install |
+| [M8](#m8) | ~~High~~ done | Lifecycle | `installModule` ignores the "incompatible patch" abort and installs anyway |
+| [M9](#m9) | ~~High~~ done | Data | Orphaned mod data is never cleaned up; `setModData` keys are unnamespaced |
+| [M10](#m10) | ~~High~~ done | Removal | `remove()` runs `onUninstall` with an empty context and JSON-clones characters |
+| [M11](#m11) | ~~Medium~~ done | Validation | Bundles without `capabilities` skip component shape validation |
 | [M12](#m12) | Medium | Versioning | Downgrades run forward-only patches and silently rewrite the stored version |
 | [M13](#m13) | Medium | Updates | URL mods always show "Update"; updating re-executes new code with no confirmation |
 | [M14](#m14) | Medium | Registry | Only `manifest.json` and the bundle are hash-verified; translations are not |
 | [M15](#m15) | Medium | Storage | No size or count limits at install time; quota errors are generic |
 | [M16](#m16) | Medium | Registry | `isSaneIndex` validates three fields; entries are trusted wholesale |
-| [M17](#m17) | Medium | Runtime | In-session install/remove is half-applied; reload is the real contract |
+| [M17](#m17) | ~~Medium~~ done | Runtime | In-session install/remove is half-applied; reload is the real contract |
 | [M18](#m18) | Medium | Boot | Mod imports are serialized with no timeout, and block `app.mount()` |
-| [M19](#m19) | Medium | Compat | `appVersion` is ignored for dice/theme mods and for URL/dev installs |
-| [M20](#m20) | Medium | Compat | `sdk` is documented as required but optional at runtime |
+| [M19](#m19) | ~~Medium~~ done | Compat | `appVersion` is ignored for dice/theme mods and for URL/dev installs |
+| [M20](#m20) | ~~Medium~~ done | Compat | `sdk` is documented as required but optional at runtime |
 | [M21](#m21) | Low | Hardening | Manifest-derived values reach `Object.assign` (prototype pollution path) |
 | [M22](#m22) | Low | Config | Config values are never validated against the declared schema |
 | [M23](#m23) | Low | Concurrency | No locking around install/update; check-then-write races |
 | [M24](#m24) | Optional | UX | Character import does not reconcile required mods |
 | [M25](#m25) | Optional | Themes | Theme CSS is treated as inert; it is not |
-| [M26](#m26) | Optional | API | The `translations` capability is published but unimplemented |
+| [M26](#m26) | ~~Optional~~ done (removed) | API | The `translations` capability is published but unimplemented |
 | [M27](#m27) | Optional | CI | `onInstall` idempotency is a rule with no enforcement |
 | [M28](#m28) | Optional | Registry CI | Multi-mod PRs validate one mod; security lint scope is narrow |
 | [M29](#m29) | Optional | Support | No per-mod error boundary and no diagnostics surface |
@@ -704,6 +704,25 @@ load errors and quarantine reasons would make user-reported issues tractable.
 
 ## Suggested sequencing
 
+> **Status (2026-10-27):** everything under "Before the API freezes", "Before shipping 2.0"
+> and the M17 decision is done, shipped together as mod SDK **3.0.0**. Notes on how each was
+> resolved are in the commits (`git log --grep "mods 2.0 audit"`). Where the resolution differs from
+> the options above:
+>
+> - **M2 (B)** keeps `<modId>.<key>` as the key form everywhere. Messages are *stored* under
+>   `mods.<id>`, and a custom vue-i18n `messageResolver` (`src/i18n/modMessages.ts`) routes any
+>   path whose first segment is a mod id into that root. Same guarantee (nothing a mod ships can
+>   land beside app namespaces), but no call-site rename and no migration of the stress-track
+>   names already persisted in saved characters — the field-aware-rename hazard described
+>   under M2 never arises.
+> - **M9** went further than A: the accessors take `(character, modId, key)`, and the host deletes
+>   a mod's `<modId>.*` data itself after `onUninstall` and on removal (B without the prompt —
+>   removal already confirms that the mod is uninstalled from those characters).
+> - **M17** prompts with "Restart now / Later" rather than forcing the restart; "Later" keeps the
+>   existing banner.
+> - **M26**: removed. It can come back as a minor once a translations-only mod is actually
+>   implemented.
+
 **Before the API freezes (breaking later, free now)**
 
 The freeze point is the Mod Store's public release, not the 2.0.0 tag. Everything here is a
@@ -713,28 +732,28 @@ single co-ordinated republish.
 
 - [x] M1 — whitelist bundle keys in `assembleMod`
 - [x] M2 (A) — validate the mod id format at install and at load
-- [ ] M2 (B) — move mod messages under a `mods.` root (field-aware rename; see M2 for the
+- [x] M2 (B) — move mod messages under a `mods.` root (field-aware rename; see M2 for the
       data-id hazard)
-- [ ] M9 (A) — enforce the `<modId>.` prefix in `setModData`/`getModData`
-- [ ] M11 (B) — make `capabilities` mandatory, drop the "no capabilities" compat branch
-- [ ] M26 — implement or remove the `translations` capability
-- [ ] M20 — require `sdk`
+- [x] M9 (A) — enforce the `<modId>.` prefix in `setModData`/`getModData`
+- [x] M11 (B) — make `capabilities` mandatory, drop the "no capabilities" compat branch
+- [x] M26 — implement or remove the `translations` capability
+- [x] M20 — require `sdk`
 
 **Before shipping 2.0 (correctness and data safety)**
 
-- [ ] M7 — stop persisting dev mods
-- [ ] M8 — honour the incompatible-patch abort
-- [ ] M10 — real context + `safeClone` in `remove()`
-- [ ] M6 — non-reassignable `FateSDK`
+- [x] M7 — stop persisting dev mods
+- [x] M8 — honour the incompatible-patch abort
+- [x] M10 — real context + `safeClone` in `remove()`
+- [x] M6 — non-reassignable `FateSDK`
 - [x] M3 (A, B, C) — refuse blocked rows at load; gate the registry override; seed blocklist
-- [ ] M11 (A) — always validate `components`
-- [ ] M19 — enforce `appVersion` at load
+- [x] M11 (A) — always validate `components`
+- [x] M19 — enforce `appVersion` at load
 
 **Decisions to make deliberately (not code, policy)**
 
 - [x] M5 — hygiene CSP shipped (`connect-src` left open); native containment deferred until Mod Store public
 - [x] M4 (A, C) — cached-index re-verification at load; honest wording. Signed index (B) left open
-- [ ] M17 — mandatory reload after mod changes, or invest in in-session correctness
+- [x] M17 — mandatory reload after mod changes, or invest in in-session correctness
 
 **2.0.x / 2.1**
 
