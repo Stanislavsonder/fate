@@ -66,9 +66,28 @@ declare global {
 	var FateSDK: FateSDK
 }
 
+/**
+ * The live SDK. The global is a non-configurable getter over this binding, so
+ * mods can read FateSDK but cannot swap it for a proxy that observes or
+ * rewrites what later-loaded mods do. The lazy loaders below replace this
+ * (frozen) object instead of the global.
+ */
+let currentSDK: FateSDK | undefined
+
+function publish(sdk: FateSDK): void {
+	currentSDK = Object.freeze(sdk)
+	if (!Object.getOwnPropertyDescriptor(globalThis, 'FateSDK')) {
+		Object.defineProperty(globalThis, 'FateSDK', {
+			get: () => currentSDK,
+			enumerable: true,
+			configurable: false
+		})
+	}
+}
+
 /** Installs the host API mod bundles are built against. Call before initMods(). */
 export function installFateSDK(): void {
-	globalThis.FateSDK = Object.freeze({
+	publish({
 		version: SDK_VERSION,
 		vue,
 		vueI18n,
@@ -92,7 +111,7 @@ export function installFateSDK(): void {
  */
 export async function loadFullIconset(): Promise<void> {
 	const ionicons = await import('ionicons/icons')
-	globalThis.FateSDK = Object.freeze({ ...globalThis.FateSDK, ionicons })
+	publish({ ...globalThis.FateSDK, ionicons })
 }
 
 /**
@@ -104,7 +123,7 @@ export async function loadFullIconset(): Promise<void> {
  */
 export async function loadDiceLibs(): Promise<void> {
 	const [three, cannonEs] = await Promise.all([import('three'), import('cannon-es')])
-	globalThis.FateSDK = Object.freeze({ ...globalThis.FateSDK, dice: Object.freeze({ three, cannonEs }) })
+	publish({ ...globalThis.FateSDK, dice: Object.freeze({ three, cannonEs }) })
 }
 
 /**
@@ -117,5 +136,5 @@ export async function loadDiceLibs(): Promise<void> {
  */
 export async function loadSharedComponents(): Promise<void> {
 	const { default: SheetSection } = await import('@/components/ui/SheetSection.vue')
-	globalThis.FateSDK = Object.freeze({ ...globalThis.FateSDK, components: Object.freeze({ SheetSection }) })
+	publish({ ...globalThis.FateSDK, components: Object.freeze({ SheetSection }) })
 }

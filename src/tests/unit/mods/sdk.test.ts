@@ -15,6 +15,22 @@ describe('FateSDK', () => {
 		expect(globalThis.FateSDK.version).toBe(SDK_VERSION)
 	})
 
+	it('cannot be reassigned or redefined by a mod', async () => {
+		installFateSDK()
+		const original = globalThis.FateSDK
+
+		expect(() => {
+			globalThis.FateSDK = { ...original, version: 'proxy' }
+		}).toThrow(TypeError)
+		expect(() => Object.defineProperty(globalThis, 'FateSDK', { value: {} })).toThrow(TypeError)
+		expect(globalThis.FateSDK).toBe(original)
+
+		// The host's own lazy upgrades still land.
+		await loadFullIconset()
+		expect(globalThis.FateSDK).not.toBe(original)
+		expect(Object.keys(globalThis.FateSDK.ionicons).length).toBeGreaterThan(100)
+	})
+
 	it('loadFullIconset upgrades FateSDK.ionicons with the full icon set, staying frozen', async () => {
 		installFateSDK()
 
