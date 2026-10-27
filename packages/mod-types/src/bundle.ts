@@ -27,7 +27,10 @@ export interface FateModTheme {
 	css: string
 }
 
-export type FateModCapability = 'sheetComponents' | 'dice' | 'theme' | 'translations'
+/** Every capability the host understands. A manifest declaring anything else is refused at load. */
+export const FATE_MOD_CAPABILITIES = ['sheetComponents', 'dice', 'theme'] as const
+
+export type FateModCapability = (typeof FATE_MOD_CAPABILITIES)[number]
 
 /** Identity helper that gives mod authors typing + future validation hook */
 export function defineFateMod<_TData = unknown>(bundle: FateModBundle): FateModBundle {

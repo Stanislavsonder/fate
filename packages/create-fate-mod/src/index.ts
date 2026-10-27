@@ -42,8 +42,7 @@ async function main(): Promise<void> {
 				choices: [
 					{ title: 'Sheet components (a character sheet section)', value: 'sheetComponents', selected: true },
 					{ title: 'Dice (custom roll shapes/materials) — experimental', value: 'dice' },
-					{ title: 'Theme (an app skin)', value: 'theme' },
-					{ title: 'Translations (a localization pack)', value: 'translations' }
+					{ title: 'Theme (an app skin)', value: 'theme' }
 				],
 				min: 1,
 				instructions: false

@@ -55,7 +55,7 @@ function baseRow(overrides: Partial<StoredMod> = {}): StoredMod {
 		version: '1.0.0',
 		source: 'url',
 		enabled: true,
-		manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', capabilities: ['sheetComponents'] }),
+		manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }),
 		bundleCode: 'export default {}',
 		translationsJson: '{}',
 		sha256: '',
@@ -104,7 +104,7 @@ describe('loadExternalMod', () => {
 	})
 
 	it('populates FateSDK.dice before importing a dice-capability bundle', async () => {
-		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', capabilities: ['dice'] }) })
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '*', capabilities: ['dice'] }) })
 		row.sha256 = await sha256(row.bundleCode)
 		importBlobModule.mockImplementation(async () => {
 			// The shimmed bundle reads globalThis.FateSDK.dice.* at module
@@ -129,7 +129,7 @@ describe('loadExternalMod', () => {
 	})
 
 	it('does not load shared components for a mod without the sheetComponents capability', async () => {
-		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', capabilities: ['dice'] }) })
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '*', capabilities: ['dice'] }) })
 		row.sha256 = await sha256(row.bundleCode)
 		importBlobModule.mockResolvedValue({ dice: {} })
 
@@ -177,11 +177,26 @@ describe('loadExternalMod', () => {
 	})
 
 	it('quarantines on an sdk-range mismatch without ever importing the bundle', async () => {
-		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '^99.0.0' }) })
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '^99.0.0', capabilities: ['sheetComponents'] }) })
 
 		await expect(loadExternalMod(row)).rejects.toThrow(/mod-API/)
 		expect(importBlobModule).not.toHaveBeenCalled()
 		expect(loadFullIconset).not.toHaveBeenCalled()
+	})
+
+	it.each([
+		['no sdk range', { sdk: undefined }, /valid "sdk" range/],
+		['an unparseable sdk range', { sdk: 'whenever' }, /valid "sdk" range/],
+		['an app version this build does not satisfy', { appVersion: '>=99.0.0' }, /requires app >=99.0.0/],
+		['an unparseable app version', { appVersion: 42 }, /"appVersion" must be a valid semver range/],
+		['no capabilities', { capabilities: undefined }, /non-empty "capabilities"/],
+		['an empty capabilities list', { capabilities: [] }, /non-empty "capabilities"/],
+		['an unknown capability', { capabilities: ['translations'] }, /unknown capability "translations"/]
+	])('refuses a manifest with %s without importing the bundle', async (_label, overrides, error) => {
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'author@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'], ...overrides }) })
+
+		await expect(loadExternalMod(row)).rejects.toThrow(error)
+		expect(importBlobModule).not.toHaveBeenCalled()
 	})
 
 	it('quarantines a malformed bundle shape', async () => {
@@ -206,7 +221,7 @@ describe('loadExternalMod', () => {
 	})
 
 	it('quarantines a mod whose id could shadow an app translation namespace', async () => {
-		const row = baseRow({ id: 'settings', manifestJson: JSON.stringify({ id: 'settings', version: '1.0.0' }) })
+		const row = baseRow({ id: 'settings', manifestJson: JSON.stringify({ id: 'settings', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }) })
 		row.sha256 = await sha256(row.bundleCode)
 
 		await expect(loadExternalMod(row)).rejects.toThrow(/not a valid mod id/)
@@ -214,7 +229,7 @@ describe('loadExternalMod', () => {
 	})
 
 	it('quarantines a stored manifest whose id does not match the row', async () => {
-		const row = baseRow({ manifestJson: JSON.stringify({ id: 'someone@else', version: '1.0.0' }) })
+		const row = baseRow({ manifestJson: JSON.stringify({ id: 'someone@else', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }) })
 		row.sha256 = await sha256(row.bundleCode)
 
 		await expect(loadExternalMod(row)).rejects.toThrow(/does not match the installed id/)
@@ -234,7 +249,7 @@ describe('initMods', () => {
 	it('registers built-ins first, then quarantines a failing external mod instead of throwing', async () => {
 		const row = baseRow({
 			id: 'bad@mod',
-			manifestJson: JSON.stringify({ id: 'bad@mod', version: '1.0.0', capabilities: ['sheetComponents'] }),
+			manifestJson: JSON.stringify({ id: 'bad@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }),
 			sha256: 'wrong'
 		})
 		getAll.mockResolvedValue([row])
@@ -248,7 +263,7 @@ describe('initMods', () => {
 	})
 
 	it('registers a successfully loaded external mod as loaded', async () => {
-		const row = baseRow({ id: 'good@mod', manifestJson: JSON.stringify({ id: 'good@mod', version: '1.0.0' }) })
+		const row = baseRow({ id: 'good@mod', manifestJson: JSON.stringify({ id: 'good@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }) })
 		row.sha256 = await sha256(row.bundleCode)
 		getAll.mockResolvedValue([row])
 		importBlobModule.mockResolvedValue({})
@@ -264,7 +279,7 @@ describe('initMods', () => {
 		const row = baseRow({
 			id: 'stale-dev@mod',
 			source: 'dev',
-			manifestJson: JSON.stringify({ id: 'stale-dev@mod', version: '1.0.0' })
+			manifestJson: JSON.stringify({ id: 'stale-dev@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] })
 		})
 		getAll.mockResolvedValue([row])
 
@@ -276,7 +291,11 @@ describe('initMods', () => {
 	})
 
 	it('does not import a blocked mod, even while it is still marked enabled', async () => {
-		const row = baseRow({ id: 'blocked@mod', blocked: true, manifestJson: JSON.stringify({ id: 'blocked@mod', version: '1.0.0' }) })
+		const row = baseRow({
+			id: 'blocked@mod',
+			blocked: true,
+			manifestJson: JSON.stringify({ id: 'blocked@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] })
+		})
 		getAll.mockResolvedValue([row])
 
 		await initMods()
@@ -286,7 +305,10 @@ describe('initMods', () => {
 	})
 
 	it('applies the compiled-in seed blocklist offline, before the bundle is imported', async () => {
-		const row = baseRow({ id: 'seed-blocked@mod', manifestJson: JSON.stringify({ id: 'seed-blocked@mod', version: '1.0.0' }) })
+		const row = baseRow({
+			id: 'seed-blocked@mod',
+			manifestJson: JSON.stringify({ id: 'seed-blocked@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] })
+		})
 		getAll.mockResolvedValue([row])
 		isSeedBlocked.mockReturnValue(true)
 
@@ -302,7 +324,7 @@ describe('initMods', () => {
 		const row = baseRow({
 			id: 'off@mod',
 			enabled: false,
-			manifestJson: JSON.stringify({ id: 'off@mod', version: '1.0.0' }),
+			manifestJson: JSON.stringify({ id: 'off@mod', version: '1.0.0', sdk: '*', capabilities: ['sheetComponents'] }),
 			translationsJson: JSON.stringify({ en: { name: 'Off' } })
 		})
 		getAll.mockResolvedValue([row])

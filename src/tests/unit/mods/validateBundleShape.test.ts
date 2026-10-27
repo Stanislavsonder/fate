@@ -23,8 +23,10 @@ describe('validateBundleShape', () => {
 		expect(() => validateBundleShape({ components: [{ id: 'x', order: 1, component: {} }] }, ['sheetComponents'])).not.toThrow()
 	})
 
-	it('ignores components when sheetComponents is not declared', () => {
-		expect(() => validateBundleShape({ components: 'nope' }, ['dice'])).not.toThrow()
+	it('rejects a capability section the manifest does not declare', () => {
+		expect(() => validateBundleShape({ components: [] }, ['dice'])).toThrow(/does not declare the "sheetComponents" capability/)
+		expect(() => validateBundleShape({ components: [] }, undefined)).toThrow(/does not declare the "sheetComponents" capability/)
+		expect(() => validateBundleShape({ theme: { css: '' } }, ['sheetComponents'])).toThrow(/"theme" capability/)
 	})
 
 	it('rejects non-function lifecycle hooks', () => {
@@ -64,7 +66,7 @@ describe('validateBundleShape', () => {
 		expect(() => validateBundleShape({ dice: { materials: [validMaterial] } }, ['dice'])).not.toThrow()
 	})
 
-	it('ignores dice when the dice capability is not declared', () => {
-		expect(() => validateBundleShape({ dice: { shapes: 'nope' } }, ['theme'])).not.toThrow()
+	it('rejects dice when the dice capability is not declared', () => {
+		expect(() => validateBundleShape({ dice: { shapes: [] } }, ['theme'])).toThrow(/"dice" capability/)
 	})
 })

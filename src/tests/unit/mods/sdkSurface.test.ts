@@ -30,6 +30,15 @@ describe('mod-facing ABI surface', () => {
 	})
 
 	it('@fate-app/mod-types named runtime exports', () => {
-		expect(Object.keys(modTypes).sort()).toEqual(['Dice', 'DiceMaterial', 'SheetSection', 'defineFateMod', 'getModData', 'setModData', 'validateBundleShape'])
+		expect(Object.keys(modTypes).sort()).toEqual([
+			'Dice',
+			'DiceMaterial',
+			'FATE_MOD_CAPABILITIES',
+			'SheetSection',
+			'defineFateMod',
+			'getModData',
+			'setModData',
+			'validateBundleShape'
+		])
 	})
 })

@@ -44,14 +44,12 @@ export interface FateModuleManifest {
 	patches?: FatePatch[]
 	config?: FateModuleConfig
 
-	/** Host mod-API (ABI) semver range this manifest was built against */
+	/** Host mod-API (ABI) semver range this manifest was built against. Required for external mods — the loader refuses a manifest without one. */
 	sdk?: string
 	/** Entry file relative to the mod's published directory, e.g. "bundle.mjs" */
 	entry?: string
+	/** What the mod extends. Required and non-empty for external mods — the loader refuses a manifest without one. */
 	capabilities?: FateModCapability[]
-	/** For 'translations'-capability mods: what the pack translates — "app" and/or other mod ids.
-	 * Declarative only for now (schema stub); the runtime merge is not implemented yet. */
-	translationTargets?: string[]
 	/** Present when capabilities includes 'dice' — spread onto the manifest by assembleMod() from the bundle */
 	dice?: FateModDice
 	/** Present when capabilities includes 'theme' — spread onto the manifest by assembleMod() from the bundle */

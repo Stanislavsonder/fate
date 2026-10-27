@@ -10,7 +10,8 @@ import { getIndex, getRegistryRelease, type RegistryIndex } from './registryClie
 import { invalidModIdMessage, isValidModId } from './modId'
 import { modsService, type StoredMod } from '@/db/tables/mods'
 import { SDK_VERSION, loadFullIconset, loadDiceLibs, loadSharedComponents } from './sdk'
-import { validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
+import { FATE_MOD_CAPABILITIES, validateBundleShape, type FateModuleManifest } from '@fate-app/mod-types'
+import appVersion from '@/utils/helpers/appVersion'
 
 function registerDisabledMod(row: StoredMod): void {
 	try {
@@ -130,6 +131,40 @@ async function verifyRegistryPin(row: StoredMod, manifest: Record<string, unknow
 }
 
 /**
+ * The static checks a stored manifest must pass before its bundle may run:
+ * a mod-API range this app satisfies, the app version it asks for, and a
+ * declared, known set of capabilities. Re-checked at every load, not only at
+ * install, so an app update cannot silently keep running a mod it no longer
+ * supports.
+ */
+export function checkManifestGates(manifest: Record<string, unknown>): void {
+	if (typeof manifest.sdk !== 'string' || semver.validRange(manifest.sdk) === null) {
+		throw new Error('manifest.json must declare a valid "sdk" range')
+	}
+	if (!semver.satisfies(SDK_VERSION, manifest.sdk)) {
+		throw new Error(`requires mod-API ${manifest.sdk}, app provides ${SDK_VERSION}`)
+	}
+
+	if (manifest.appVersion !== undefined) {
+		if (typeof manifest.appVersion !== 'string' || semver.validRange(manifest.appVersion) === null) {
+			throw new Error('manifest.json "appVersion" must be a valid semver range')
+		}
+		if (!semver.satisfies(appVersion, manifest.appVersion)) {
+			throw new Error(`requires app ${manifest.appVersion}, this is ${appVersion}`)
+		}
+	}
+
+	const capabilities = manifest.capabilities
+	if (!Array.isArray(capabilities) || capabilities.length === 0) {
+		throw new Error('manifest.json must declare a non-empty "capabilities" list')
+	}
+	const unknown = capabilities.filter(capability => !(FATE_MOD_CAPABILITIES as readonly unknown[]).includes(capability))
+	if (unknown.length > 0) {
+		throw new Error(`unknown ${unknown.length > 1 ? 'capabilities' : 'capability'} ${unknown.map(c => JSON.stringify(c)).join(', ')}`)
+	}
+}
+
+/**
  * Loads a single stored mod through the ABI, integrity, import, and shape
  * gates and assembles it exactly like a built-in. Exported so installService
  * (install/update/retry) can reuse the same path without duplicating it.
@@ -147,10 +182,8 @@ export async function loadExternalMod(row: StoredMod): Promise<FateModuleManifes
 		throw new Error(invalidModIdMessage(row.id))
 	}
 
-	// 1. ABI gate — refuse before executing anything
-	if (typeof manifest.sdk === 'string' && !semver.satisfies(SDK_VERSION, manifest.sdk)) {
-		throw new Error(`requires mod-API ${manifest.sdk}, app provides ${SDK_VERSION}`)
-	}
+	// 1. Compatibility gates — refuse before executing anything
+	checkManifestGates(manifest)
 
 	// 2. Integrity — recompute the hash of the code we're about to run. Skipped
 	// for dev-mode mods: WebCrypto requires a secure context and dev servers

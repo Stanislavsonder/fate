@@ -18,6 +18,16 @@ const THEME_CSS_MAX_BYTES = 100 * 1024
 // Any other extra key is left alone; a bundle may export whatever it likes.
 const MANIFEST_ONLY_KEYS = ['id', 'version', 'sdk', 'capabilities', 'dependencies', 'incompatibleWith', 'appVersion', 'published', 'entry'] as const
 
+// Bundle sections that only take effect under a declared capability. The
+// loader prepares the SDK per capability (dice libs, shared components) before
+// import, so a section without its capability would be loaded unprepared or
+// silently ignored — refused instead, so the mismatch surfaces at build time.
+const CAPABILITY_SECTIONS = [
+	['components', 'sheetComponents'],
+	['dice', 'dice'],
+	['theme', 'theme']
+] as const satisfies readonly (readonly [keyof FateModBundle, FateModCapability])[]
+
 /**
  * Cheap structural checks run on a freshly `import()`ed external bundle before
  * anything (assembleMod, translations, the character sheet) trusts its shape.
@@ -35,10 +45,20 @@ export function validateBundleShape(bundle: unknown, capabilities: FateModCapabi
 
 	const manifestOnly = MANIFEST_ONLY_KEYS.filter(key => key in b)
 	if (manifestOnly.length > 0) {
-		throw new Error(`bundle must not declare manifest-only ${manifestOnly.length > 1 ? 'keys' : 'key'} (${manifestOnly.join(', ')}) — move them to manifest.json`)
+		throw new Error(
+			`bundle must not declare manifest-only ${manifestOnly.length > 1 ? 'keys' : 'key'} (${manifestOnly.join(', ')}) — move them to manifest.json`
+		)
 	}
 
-	if (capabilities?.includes('sheetComponents') && b.components !== undefined) {
+	for (const [section, capability] of CAPABILITY_SECTIONS) {
+		if (b[section] !== undefined && !capabilities?.includes(capability)) {
+			throw new Error(`bundle exports "${section}" but manifest.json does not declare the "${capability}" capability`)
+		}
+	}
+
+	// Every section is validated whenever present — never skipped on the
+	// strength of what the manifest declares.
+	if (b.components !== undefined) {
 		if (!Array.isArray(b.components)) {
 			throw new Error('bundle.components must be an array')
 		}
@@ -68,7 +88,7 @@ export function validateBundleShape(bundle: unknown, capabilities: FateModCapabi
 		})
 	}
 
-	if (capabilities?.includes('theme') && b.theme !== undefined) {
+	if (b.theme !== undefined) {
 		const theme = b.theme as Record<string, unknown> | null
 		if (!theme || typeof theme.css !== 'string') {
 			throw new Error('bundle.theme.css must be a string')
@@ -78,7 +98,7 @@ export function validateBundleShape(bundle: unknown, capabilities: FateModCapabi
 		}
 	}
 
-	if (capabilities?.includes('dice') && b.dice !== undefined) {
+	if (b.dice !== undefined) {
 		const dice = b.dice as Record<string, unknown> | null
 		if (!dice || typeof dice !== 'object') {
 			throw new Error('bundle.dice must be an object')

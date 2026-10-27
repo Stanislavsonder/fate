@@ -8,7 +8,7 @@ import { join } from 'node:path'
  */
 const CURRENT_SDK_VERSION = '2.0.0'
 
-export type Capability = 'sheetComponents' | 'dice' | 'theme' | 'translations'
+export type Capability = 'sheetComponents' | 'dice' | 'theme'
 
 export interface ScaffoldAnswers {
 	id: string
