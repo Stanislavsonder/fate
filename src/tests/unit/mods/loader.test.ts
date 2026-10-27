@@ -260,17 +260,17 @@ describe('initMods', () => {
 		expect(record?.source).toBe('url')
 	})
 
-	it('silently drops an unreachable dev mod instead of quarantining it', async () => {
+	it('drops a persisted dev mod left by an older build without executing it', async () => {
 		const row = baseRow({
 			id: 'stale-dev@mod',
 			source: 'dev',
 			manifestJson: JSON.stringify({ id: 'stale-dev@mod', version: '1.0.0' })
 		})
 		getAll.mockResolvedValue([row])
-		importBlobModule.mockRejectedValue(new Error('dev server unreachable'))
 
 		await initMods()
 
+		expect(importBlobModule).not.toHaveBeenCalled()
 		expect(ModRegistry.get('stale-dev@mod')).toBeUndefined()
 		expect(deleteMod).toHaveBeenCalledWith('stale-dev@mod')
 	})

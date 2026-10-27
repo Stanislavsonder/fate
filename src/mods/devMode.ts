@@ -64,6 +64,11 @@ async function loadDevMod(baseUrl: string): Promise<DevConnectOutcome> {
 	if (ModRegistry.get(id)?.source === 'builtin') {
 		return { ok: false, error: `"${id}" conflicts with a built-in mod` }
 	}
+	// A dev build must never shadow a real install: the stored copy keeps its
+	// provenance and update path only if nothing loads over it.
+	if (await modsService.get(id)) {
+		return { ok: false, error: `"${id}" is installed — remove it before connecting a dev build of it` }
+	}
 
 	const fetched = await fetchBundleAndTranslations(baseUrl, fetchedManifest.data)
 	if (!fetched.ok) {
@@ -85,8 +90,10 @@ async function loadDevMod(baseUrl: string): Promise<DevConnectOutcome> {
 		updatedAt: now
 	}
 
+	// Session-only: dev builds are never persisted. They are unreviewed and
+	// skip the hash check, so they must not outlive the connection that
+	// vouches for them — reconnect via Settings -> Developer Mode after a reload.
 	try {
-		await modsService.put(row)
 		const manifest = await loadExternalMod(row)
 		ModRegistry.register({ manifest, source: 'dev', status: 'loaded' })
 		return { ok: true, id }

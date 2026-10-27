@@ -9,8 +9,8 @@ vi.mock('@/mods/installService', () => ({ fetchManifest, fetchBundleAndTranslati
 const { loadExternalMod } = vi.hoisted(() => ({ loadExternalMod: vi.fn() }))
 vi.mock('@/mods/loader', () => ({ loadExternalMod }))
 
-const { putMod } = vi.hoisted(() => ({ putMod: vi.fn().mockResolvedValue(undefined) }))
-vi.mock('@/db/tables/mods', () => ({ modsService: { put: putMod } }))
+const { putMod, getMod } = vi.hoisted(() => ({ putMod: vi.fn().mockResolvedValue(undefined), getMod: vi.fn().mockResolvedValue(undefined) }))
+vi.mock('@/db/tables/mods', () => ({ modsService: { put: putMod, get: getMod } }))
 
 const { reconfigureCharacter, characterRef } = vi.hoisted(() => ({
 	reconfigureCharacter: vi.fn(),
@@ -73,7 +73,8 @@ describe('connectDevMod', () => {
 		const result = await connectDevMod('http://192.168.1.20:5199')
 
 		expect(result).toEqual({ ok: true, id: 'author@dev-mod' })
-		expect(putMod).toHaveBeenCalledWith(expect.objectContaining({ id: 'author@dev-mod', source: 'dev' }))
+		expect(loadExternalMod).toHaveBeenCalledWith(expect.objectContaining({ id: 'author@dev-mod', source: 'dev' }))
+		expect(putMod).not.toHaveBeenCalled()
 		expect(ModRegistry.get('author@dev-mod')).toEqual({
 			manifest: { id: 'author@dev-mod', version: '1.0.0' },
 			source: 'dev',
@@ -91,6 +92,17 @@ describe('connectDevMod', () => {
 		const result = await connectDevMod('http://192.168.1.20:5199')
 
 		expect(result).toEqual({ ok: false, error: '"builtin@mod" conflicts with a built-in mod' })
+		expect(FakeEventSource.instances).toHaveLength(0)
+	})
+
+	it('refuses to connect over an installed mod', async () => {
+		getMod.mockResolvedValueOnce({ id: 'author@dev-mod', source: 'registry' })
+		mockHappyFetch('author@dev-mod')
+
+		const result = await connectDevMod('http://192.168.1.20:5199')
+
+		expect(result).toEqual({ ok: false, error: '"author@dev-mod" is installed — remove it before connecting a dev build of it' })
+		expect(loadExternalMod).not.toHaveBeenCalled()
 		expect(FakeEventSource.instances).toHaveLength(0)
 	})
 

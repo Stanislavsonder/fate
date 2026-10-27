@@ -58,6 +58,13 @@ export async function initMods(): Promise<void> {
 	}
 
 	for (const row of rows) {
+		// Dev builds are session-only (see devMode.ts). Older builds persisted
+		// them; drop any such row rather than run unverified code at boot.
+		if (row.source === 'dev') {
+			await modsService.delete(row.id).catch(() => {})
+			continue
+		}
+
 		// The registry blocklist only lands after boot (registryClient.refreshIndex),
 		// so the persisted flag and the compiled-in seed list are what stop a
 		// blocked mod from getting one more execution window per launch.
@@ -77,15 +84,6 @@ export async function initMods(): Promise<void> {
 				`[mods] loaded "${row.id}"@${row.version} (${row.source}, sdk range ${JSON.parse(row.manifestJson).sdk ?? 'unspecified'}, app SDK ${SDK_VERSION})`
 			)
 		} catch (e) {
-			if (row.source === 'dev') {
-				// A dev-mod row surviving to next boot almost always means the dev
-				// server is no longer running — that's normal, not an error worth
-				// a scary persistent quarantine entry. Drop it silently; reconnect
-				// via Settings -> Developer Mode when the server is back.
-				console.warn(`[mods] dev mod "${row.id}" unreachable at boot, dropping`, e)
-				await modsService.delete(row.id).catch(() => {})
-				continue
-			}
 			console.error(`[mods] failed to load "${row.id}"`, e)
 			ModRegistry.register({
 				manifest: safeManifest(row),
