@@ -48,6 +48,9 @@ importers:
       '@fate-app/mod-types':
         specifier: workspace:*
         version: link:packages/mod-types
+      '@intlify/core-base':
+        specifier: 11.4.7
+        version: 11.4.7
       '@ionic/pwa-elements':
         specifier: 3.4.0
         version: 3.4.0

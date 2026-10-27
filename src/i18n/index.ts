@@ -1,5 +1,6 @@
 import { createI18n } from 'vue-i18n'
 import messages from './languages.json'
+import { modMessageResolver } from './modMessages'
 
 // prettier-ignore
 export const AVAILABLE_LANGUAGES = [
@@ -15,7 +16,8 @@ const i18n = createI18n({
 	locale: localStorage.getItem('locale') || navigator.language.slice(0, 2),
 	fallbackLocale: 'en',
 	legacy: false,
-	messages
+	messages,
+	messageResolver: modMessageResolver
 })
 
 export default i18n

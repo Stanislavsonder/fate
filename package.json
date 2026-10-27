@@ -62,6 +62,7 @@
 		"@capacitor/share": "8.0.1",
 		"@capacitor/status-bar": "8.0.3",
 		"@fate-app/mod-types": "workspace:*",
+		"@intlify/core-base": "11.4.7",
 		"@ionic/pwa-elements": "3.4.0",
 		"@ionic/vue": "8.8.15",
 		"@ionic/vue-router": "8.8.15",

@@ -12,12 +12,12 @@ vi.mock('@/i18n', () => ({
 }))
 
 describe('registerModTranslations', () => {
-	it('merges each locale under the mod id namespace', () => {
+	it('merges each locale under mods.<id>, never at the top level', () => {
 		registerModTranslations('test@mod', { en: { greeting: 'Hello from mod' }, ru: { greeting: 'Привет от мода' } })
 
 		expect(mergeLocaleMessage).toHaveBeenCalledTimes(2)
-		expect(mergeLocaleMessage).toHaveBeenCalledWith('en', { 'test@mod': { greeting: 'Hello from mod' } })
-		expect(mergeLocaleMessage).toHaveBeenCalledWith('ru', { 'test@mod': { greeting: 'Привет от мода' } })
+		expect(mergeLocaleMessage).toHaveBeenCalledWith('en', { mods: { 'test@mod': { greeting: 'Hello from mod' } } })
+		expect(mergeLocaleMessage).toHaveBeenCalledWith('ru', { mods: { 'test@mod': { greeting: 'Привет от мода' } } })
 	})
 
 	it('does nothing when a mod has no translations', () => {
