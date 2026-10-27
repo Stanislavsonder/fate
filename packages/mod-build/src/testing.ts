@@ -42,8 +42,9 @@ export interface StubFateSDK {
 	dice: { three: typeof ThreeModule; cannonEs: typeof CannonEsModule }
 	api: {
 		toast: { error(key: string, opts?: Record<string, unknown>): Promise<void>; success(key: string, opts?: Record<string, unknown>): Promise<void> }
-		getModData<T>(character: unknown, key: string): T | undefined
-		setModData<T>(character: unknown, key: string, value: T): void
+		getModData<T>(character: unknown, modId: string, key: string): T | undefined
+		setModData<T>(character: unknown, modId: string, key: string, value: T): void
+		deleteModData(character: unknown, modId: string, key?: string): void
 	}
 }
 
@@ -88,7 +89,8 @@ export async function stubFateSDK(): Promise<StubFateSDK> {
 		api: {
 			toast: { error: async () => {}, success: async () => {} },
 			getModData: () => undefined,
-			setModData: () => {}
+			setModData: () => {},
+			deleteModData: () => {}
 		}
 	}
 }

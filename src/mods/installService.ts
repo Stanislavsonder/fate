@@ -15,7 +15,7 @@ import { buildStaticContext } from '@/modules/utils/buildStaticContext'
 import { safeClone } from '@/utils/helpers/clone'
 import { constants, templates } from '@/utils/config'
 import type { Character, FateContext } from '@/types'
-import type { FateModuleManifest } from '@fate-app/mod-types'
+import { deleteModData, type FateModuleManifest } from '@fate-app/mod-types'
 
 export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
 export type SimpleOutcome = { ok: true } | { ok: false; error: string }
@@ -255,6 +255,10 @@ async function uninstallModFromCharacter(id: string, character: Character, manif
 			failure = character.name || String(character.id)
 		}
 	}
+	// Runs even when there is no hook to call (the mod is disabled, errored,
+	// or its manifest is gone): data stored through setModData is prefixed
+	// with the mod id, so it is removable without the mod's cooperation.
+	deleteModData(next, id)
 	delete next._modules[id]
 	await characterService.updateCharacter(next)
 	return failure

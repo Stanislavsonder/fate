@@ -2,6 +2,7 @@ import type { FateModuleManifest } from '@/modules/utils/types'
 import type { Character, FateContext } from '@/types'
 import constants from '@/utils/config/constants'
 import { getModules } from '@/modules/utils/getModules'
+import { deleteModData, MOD_ID_PATTERN } from '@fate-app/mod-types'
 
 function asRecord(value: object): Record<string, unknown> {
 	return value as unknown as Record<string, unknown>
@@ -9,6 +10,10 @@ function asRecord(value: object): Record<string, unknown> {
 
 export async function uninstallModule(module: FateModuleManifest, context: FateContext, character: Character) {
 	await module.onUninstall(context, character)
+	// Whatever the hook left behind under the mod's own prefix goes too.
+	if (MOD_ID_PATTERN.test(module.id)) {
+		deleteModData(character, module.id)
+	}
 
 	if (module.shared && Object.keys(module.shared).length > 0) {
 		delete asRecord(context.shared)[module.id]

@@ -25,7 +25,7 @@ describe('mod-facing ABI surface', () => {
 
 	it('FateSDK.api surface', () => {
 		installFateSDK()
-		expect(Object.keys(globalThis.FateSDK.api).sort()).toEqual(['getModData', 'setModData', 'toast'])
+		expect(Object.keys(globalThis.FateSDK.api).sort()).toEqual(['deleteModData', 'getModData', 'setModData', 'toast'])
 		expect(Object.keys(globalThis.FateSDK.api.toast).sort()).toEqual(['error', 'success'])
 	})
 
@@ -34,8 +34,10 @@ describe('mod-facing ABI surface', () => {
 			'Dice',
 			'DiceMaterial',
 			'FATE_MOD_CAPABILITIES',
+			'MOD_ID_PATTERN',
 			'SheetSection',
 			'defineFateMod',
+			'deleteModData',
 			'getModData',
 			'setModData',
 			'validateBundleShape'

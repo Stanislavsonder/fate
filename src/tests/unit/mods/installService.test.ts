@@ -308,6 +308,19 @@ describe('remove', () => {
 		expect(deleteMod).toHaveBeenCalledWith('author@mod')
 	})
 
+	it("clears the mod's prefixed data even when it has no hook to run (disabled/errored)", async () => {
+		getCharacters.mockResolvedValue([
+			{ id: 1, name: 'Hero', avatar: '', 'author@mod.note': 'hi', 'other@mod.note': 'keep', _modules: { 'author@mod': { version: '1.0.0' } } }
+		])
+		ModRegistry.register({ manifest: { id: 'author@mod', version: '1.0.0' } as never, source: 'url', status: 'errored' })
+
+		await remove('author@mod')
+
+		const saved = updateCharacter.mock.calls[0][0]
+		expect(saved['author@mod.note']).toBeUndefined()
+		expect(saved['other@mod.note']).toBe('keep')
+	})
+
 	it('removes the mod when no character references it', async () => {
 		ModRegistry.register({ manifest: { id: 'removable@mod', version: '1.0.0' } as never, source: 'url', status: 'loaded' })
 

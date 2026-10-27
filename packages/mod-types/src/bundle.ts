@@ -37,10 +37,48 @@ export function defineFateMod<_TData = unknown>(bundle: FateModBundle): FateModB
 	return bundle
 }
 
-export function getModData<T>(character: Character, key: string): T | undefined {
-	return (character as unknown as Record<string, unknown>)[key] as T | undefined
+/**
+ * The `author@name` mod id shape. Kept identical to the registry's
+ * `registry.schema.json` id pattern; the host app enforces it at install and
+ * at load.
+ */
+export const MOD_ID_PATTERN = /^[a-z0-9-]+@[a-z0-9-]+$/
+
+/**
+ * Mod data lives on the character as top-level `<modId>.<key>` fields. Taking
+ * the id and the key separately makes the prefix structural: a mod cannot
+ * write `name`, `avatar`, `_modules` or another app field through this API,
+ * and the host can find (and clean up) everything a mod stored.
+ */
+function modDataKey(modId: string, key: string): string {
+	if (!MOD_ID_PATTERN.test(modId)) {
+		throw new Error(`"${String(modId)}" is not a valid mod id — expected "author@name"`)
+	}
+	if (typeof key !== 'string' || key.length === 0) {
+		throw new Error('mod data key must be a non-empty string')
+	}
+	return `${modId}.${key}`
 }
 
-export function setModData<T>(character: Character, key: string, value: T): void {
-	;(character as unknown as Record<string, unknown>)[key] = value
+export function getModData<T>(character: Character, modId: string, key: string): T | undefined {
+	return (character as unknown as Record<string, unknown>)[modDataKey(modId, key)] as T | undefined
+}
+
+export function setModData<T>(character: Character, modId: string, key: string, value: T): void {
+	;(character as unknown as Record<string, unknown>)[modDataKey(modId, key)] = value
+}
+
+/** Deletes one key of a mod's data, or — with no key — everything the mod stored on the character. */
+export function deleteModData(character: Character, modId: string, key?: string): void {
+	const record = character as unknown as Record<string, unknown>
+	if (key !== undefined) {
+		delete record[modDataKey(modId, key)]
+		return
+	}
+	const prefix = modDataKey(modId, '_').slice(0, -1)
+	for (const field of Object.keys(record)) {
+		if (field.startsWith(prefix)) {
+			delete record[field]
+		}
+	}
 }

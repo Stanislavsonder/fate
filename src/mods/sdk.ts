@@ -5,7 +5,7 @@ import * as ionicVue from '@ionic/vue'
 import type * as ionicons from 'ionicons/icons'
 import type * as three from 'three'
 import type * as cannonEs from 'cannon-es'
-import { getModData, setModData } from '@fate-app/mod-types'
+import { deleteModData, getModData, setModData } from '@fate-app/mod-types'
 import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
 
 /** ABI version. Bump per docs/MOD_API.md rules: minor for additions, major for anything removed/changed. */
@@ -59,6 +59,7 @@ export interface FateSDK {
 		}
 		getModData: typeof getModData
 		setModData: typeof setModData
+		deleteModData: typeof deleteModData
 	}
 }
 
@@ -98,7 +99,8 @@ export function installFateSDK(): void {
 		api: Object.freeze({
 			toast: Object.freeze({ error: showErrorToast, success: showSuccessToast }),
 			getModData,
-			setModData
+			setModData,
+			deleteModData
 		})
 	})
 }
