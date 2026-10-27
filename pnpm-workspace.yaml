@@ -12,3 +12,5 @@ onlyBuiltDependencies:
 overrides:
   nanoid: 3.3.18
   postcss: 8.5.23
+  brace-expansion@2: 2.1.7
+  source-map-js: 1.2.2
