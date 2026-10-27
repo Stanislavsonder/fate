@@ -134,6 +134,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      # integration.exampleMod.test.ts loads the real built example mod
+      # through the real loader, so its bundle has to exist first.
+      - name: Build the example mod
+        run: pnpm --filter example-mod build
+
       - name: Run unit tests
         run: pnpm test:unit
 
