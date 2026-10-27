@@ -2,19 +2,7 @@
 import { useRouter } from 'vue-router'
 import usePolicy from '@/composables/usePolicy'
 import { nextTick, ref, watch } from 'vue'
-import {
-	IonButton,
-	IonButtons,
-	IonContent,
-	IonHeader,
-	IonIcon,
-	IonItem,
-	IonLabel,
-	IonPage,
-	IonTitle,
-	IonToolbar,
-	IonPopover
-} from '@ionic/vue'
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonLabel, IonPage, IonTitle, IonToolbar, IonPopover } from '@ionic/vue'
 import { useI18n } from 'vue-i18n'
 import MarkdownIt from 'markdown-it'
 import { ROUTES } from '@/router'

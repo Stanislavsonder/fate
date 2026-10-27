@@ -4,6 +4,8 @@
 /dist
 /public
 packages/*/dist
+# Snapshots of real mod-build output (pnpm fixtures:mods) — kept byte-for-byte as built.
+src/tests/e2e/fixtures/mods/*/*/bundle.mjs
 
 /src/i18n/languages.json
 
