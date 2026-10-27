@@ -27,7 +27,7 @@ function fateSdkComponent<K extends keyof FateSDKComponents>(name: K): FateSDKCo
 	const component = sdk?.components?.[name]
 	if (!component) {
 		throw new Error(
-			`@fate-app/mod-types: FateSDK.components.${name} is unavailable - this mod needs host SDK ^2.1.0 or newer, ` +
+			`@fate-app/mod-types: FateSDK.components.${name} is unavailable - this mod needs host SDK ^3.0.0 or newer, ` +
 				`and "sheetComponents" in its own manifest.json "capabilities" (that's what triggers the host to load it).`
 		)
 	}
@@ -62,7 +62,7 @@ function lazyHostComponent(name: keyof FateSDKComponents): Component {
  * </template>
  * ```
  *
- * Requires `"sdk": "^2.1.0"` or newer in manifest.json.
+ * Requires `"sdk": "^3.0.0"` (available since SDK 2.1.0).
  */
 // prettier-ignore
 export const SheetSection = /* @__PURE__ */ lazyHostComponent('SheetSection')

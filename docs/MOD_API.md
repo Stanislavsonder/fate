@@ -59,12 +59,21 @@ could set them would be choosing its own identity after the checks had already
 passed. Any other extra key on your default export is simply yours — the host
 ignores it.
 
+Capability sections (`components`, `dice`, `theme`) may only appear when your
+manifest declares the matching capability (`sheetComponents`, `dice`,
+`theme`). Every section that is present is validated, and a section without its
+capability is refused: the loader prepares the SDK per capability before
+importing your bundle, so an undeclared section would either fail or be ignored
+silently.
+
 ## 2. `window.FateSDK` — the host API (ABI)
 
 Your mod runs inside the **same Vue instance** as the host app — not a copy.
 This is what makes reactivity, `provide`/`inject`, and shared component
 context work across the mod boundary. The mechanism (`src/mods/sdk.ts`):
-before loading any mod, the app freezes `window.FateSDK`, and your build
+before loading any mod, the app installs a frozen `window.FateSDK` behind a
+non-configurable getter (no mod can replace it for the ones loaded after it),
+and your build
 tool (`@fate-app/mod-build`) rewrites `import { ref } from 'vue'` and
 similar imports into re-exports from `FateSDK.vue` — you never see this
 rewrite; you just write normal imports.
@@ -80,8 +89,9 @@ interface FateSDK {
   components: { SheetSection: Component }  // populated lazily, see §2b
   api: {
     toast: { error(key: string, opts?): Promise<void>; success(key: string, opts?): Promise<void> }
-    getModData<T>(character: Character, key: string): T | undefined
-    setModData<T>(character: Character, key: string, value: T): void
+    getModData<T>(character: Character, modId: string, key: string): T | undefined
+    setModData<T>(character: Character, modId: string, key: string, value: T): void
+    deleteModData(character: Character, modId: string, key?: string): void
   }
 }
 ```
@@ -152,7 +162,7 @@ import { SheetSection } from '@fate-app/mod-types'
 </template>
 ```
 
-Requires `"sdk": "^2.1.0"` or newer. Unlike `vue`/`@ionic/vue`, this isn't a
+Available since SDK 2.1.0 (so any `"sdk": "^3.0.0"` mod has it). Unlike `vue`/`@ionic/vue`, this isn't a
 real npm package your build tool substitutes — `@fate-app/mod-types`'s
 `SheetSection` export is a live reference into `FateSDK.components`,
 resolved the moment it's actually rendered, not bundled into your
@@ -180,9 +190,21 @@ modules }`) — the exact same contract built-in modules use
 external mods; the render path was already fully data-driven before Phase 2.
 
 Since you don't own `Character`'s type (only the app does), you read/write
-your own data through namespaced keys via `getModData`/`setModData` rather
-than declaring new `Character` fields — see `packages/example-mod` for a
-worked example (`sonder@example.note` as its key).
+your own data through `getModData`/`setModData`/`deleteModData` rather than
+declaring new `Character` fields. Each call takes your mod id and a key, and
+stores the value at `<modId>.<key>` on the character — see
+`packages/example-mod` (`getModData(character, manifest.id, 'note')`, stored as
+`sonder@example.note`). The split is structural: these accessors refuse
+anything that is not a valid mod id, so they can never write `name`, `avatar`,
+`_modules` or another app field, and the host always knows which data is yours.
+
+### Translations
+
+Your `translations/<lang>.json` is merged under `mods.<your-mod-id>` — never
+at the top level beside the app's own strings, so nothing you ship can reach
+them. Write keys relative to your id, exactly as before: `$t('author@name.label')`
+resolves to `mods.author@name.label` (`src/i18n/modMessages.ts`), and `"t.label"`
+values in `manifest.json` are signed to that same form.
 
 ### Lifecycle guarantees
 
@@ -196,14 +218,16 @@ Unchanged from the 1.x module system (`src/modules/utils/installModules.ts`,
   `FateContext` from scratch each load). **It must be idempotent**: only
   initialize a field if it's genuinely unset, exactly like the built-in
   modules' `character.field = character.field ?? default` pattern —
-  `setModData(character, key, getModData(character, key) ?? default)`.
-  Writing an unconditional default (`setModData(character, key, default)`)
+  `setModData(character, id, key, getModData(character, id, key) ?? default)`.
+  Writing an unconditional default (`setModData(character, id, key, default)`)
   will silently wipe the user's data on every reload; this is a real bug
   `packages/example-mod` shipped with initially and was caught by manual
   testing, not by any automated check — see `src/modules/utils/installModules.ts`.
-- `onUninstall(context, character)` runs once, when removed — clean up your
-  own data (`setModData`/`delete character[yourKey]`); the app never touches
-  it for you.
+- `onUninstall(context, character)` runs once, when removed — clean up
+  anything you changed beyond your own data. Afterwards the host deletes every
+  `<your-mod-id>.*` key itself (also when your mod is removed while disabled or
+  failing to load, when no hook can run), so `deleteModData(character, id)` in
+  the hook is optional.
 - `onReconfigure(context, character)` runs whenever the user changes your
   mod's config options (declared in `manifest.json`'s `config`).
 - `patches` — an array of `{ version: string; action(context, character) }`,
@@ -279,6 +303,10 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
    - Android device: prefer `adb reverse tcp:5199 tcp:5199` so the app can reach `http://localhost:5199` instead of needing cleartext-traffic exceptions for a LAN IP — **not verified on-device in this implementation session**, flagged for manual follow-up.
    - Web (browser/`vite preview`): plain fetch, no special setup — verified working end-to-end (manifest/bundle/translations serving, CORS, SSE rebuild notifications) as part of this implementation.
 
+After any install, update, removal, enable or disable the app asks the user to
+restart: an imported bundle cannot be unloaded, so a restart is what makes a mod
+change fully take effect. "Later" leaves a restart banner in the Mod Store.
+
 ## 6. Manifest reference (`manifest.json`)
 
 | Field | Required | Notes |
@@ -293,12 +321,12 @@ mod: a sheet component, `getModData`/`setModData`, a config option,
 | `tags` | yes | freeform, used for browsing in the Mod Store |
 | `dependencies` | no | `{ [modId]: semverRange }` |
 | `incompatibleWith` | no | mod ids that can't coexist with yours |
-| `appVersion` | no | semver range gating the **app version** (existing 1.x mechanism) |
+| `appVersion` | no | semver range gating the **app version** — checked at install and again at every load, so an app update stops loading a mod that no longer supports it |
 | `loadPriority` | yes | higher loads first; tiebreak for topological sort |
 | `published` | no | when `false`, the mod is omitted from `registry.json` and hidden from the Mod Store; defaults to `true` when omitted. Artifacts are still published to gh-pages for dev-mode and install-from-URL |
-| `sdk` | yes | semver range gating the **ABI version** (`FateSDK.version`) — see Versioning below |
+| `sdk` | yes | semver range gating the **ABI version** (`FateSDK.version`) — see Versioning below. A manifest without a valid range is refused |
 | `entry` | yes | relative path to your bundle, conventionally `"bundle.mjs"` |
-| `capabilities` | yes | `["sheetComponents"]` for a character-sheet mod; `["dice"]`/`["theme"]` also work for externally-loaded mods (install-from-URL, dev mode) as of the app's SDK 1.1.0 — the curated public registry's own CI may lag behind on accepting `dice`/`theme` submissions, check `fate-mods`' `SUBMITTING.md` for current status |
+| `capabilities` | yes | non-empty list of `sheetComponents` (a character-sheet section), `dice` (§2a) and/or `theme` (an app skin). Anything else is refused; your bundle may only export the sections of the capabilities you declare |
 | `config` | no | `{ groups: [], options: [] }` — declarative settings schema, rendered by the host's existing config UI, unchanged from 1.x |
 
 ## 7. Versioning rules
@@ -315,8 +343,12 @@ without executing a single line of your code.
   Vue/Ionic major upgrade the host takes, since that changes what
   `FateSDK.vue`/`FateSDK.ionicVue` actually expose.
 
-Current: `SDK_VERSION = '2.1.0'` (`FateSDK.components`/`SheetSection`, §2b,
-was the minor bump that got it there). Treat every property on `FateSDK` as
+Current: `SDK_VERSION = '3.0.0'`. The 3.0 major (before the Mod Store's public
+release) made `sdk` and `capabilities` mandatory, re-checks `appVersion` at
+load, takes the mod id in `getModData`/`setModData` (and adds
+`deleteModData`), moves mod translations under `mods.<id>`, and removes the
+never-implemented `translations` capability. 2.x mods must bump `sdk` to
+`^3.0.0` and pass their id to the data accessors. Treat every property on `FateSDK` as
 something you must support for years once shipped — this is why its surface
 is deliberately small (`src/mods/sdk.ts`'s own comment: "every property
 added here is frozen ABI").

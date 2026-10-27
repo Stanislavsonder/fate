@@ -1,5 +1,6 @@
 {
 	"author": { "name": "Cypress Fixtures" },
+	"capabilities": ["sheetComponents"],
 	"description": { "short": "A mod that exists only to be installed by Cypress specs." },
 	"entry": "bundle.mjs",
 	"id": "e2e@fixture-mod",

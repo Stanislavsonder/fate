@@ -6,7 +6,7 @@ import { join } from 'node:path'
  * same version-discipline rule as @fate-app/mod-types/@fate-app/mod-build's
  * own READMEs. Bump this in the same PR that bumps SDK_VERSION.
  */
-const CURRENT_SDK_VERSION = '2.0.0'
+const CURRENT_SDK_VERSION = '3.0.0'
 
 export type Capability = 'sheetComponents' | 'dice' | 'theme'
 

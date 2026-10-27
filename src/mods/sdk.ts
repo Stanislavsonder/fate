@@ -9,7 +9,7 @@ import { deleteModData, getModData, setModData } from '@fate-app/mod-types'
 import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
 
 /** ABI version. Bump per docs/MOD_API.md rules: minor for additions, major for anything removed/changed. */
-export const SDK_VERSION = '2.1.0'
+export const SDK_VERSION = '3.0.0'
 
 export interface FateSDK {
 	version: string

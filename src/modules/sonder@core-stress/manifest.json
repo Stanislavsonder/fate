@@ -62,7 +62,7 @@
 	],
 	"loadPriority": 1000,
 	"name": "t.name",
-	"sdk": "^1.0.0",
+	"sdk": "^3.0.0",
 	"tags": ["core"],
 	"version": "1.0.1"
 }

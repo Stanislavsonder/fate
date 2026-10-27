@@ -13,8 +13,8 @@
 					"url": "mods/e2e@fixture-mod/1.0.0/bundle.mjs"
 				},
 				"manifest.json": {
-					"sha256": "7336cb38ef9c8784f0a0b69f8fdd7d221c763123c802bae5a9e8d6c93feb3a76",
-					"size": 315,
+					"sha256": "fe43365e8c8c19f9a38309c9e1e6e4ef6a343dada7bb78573f63c5ca6e347285",
+					"size": 353,
 					"url": "mods/e2e@fixture-mod/1.0.0/manifest.json"
 				},
 				"translations/en.json": {

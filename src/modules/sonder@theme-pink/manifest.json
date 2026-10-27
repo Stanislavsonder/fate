@@ -13,7 +13,7 @@
 	"languages": ["en"],
 	"loadPriority": 1000,
 	"name": "Pink",
-	"sdk": "^1.0.0",
+	"sdk": "^3.0.0",
 	"tags": ["theme"],
 	"version": "1.0.0"
 }

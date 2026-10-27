@@ -185,7 +185,7 @@ function generateManifestJson() {
 		tags: [],
 		name: 't.name',
 		version: '1.0.0',
-		sdk: '^1.0.0',
+		sdk: '^3.0.0',
 		entry: 'bundle.mjs',
 		capabilities: ['sheetComponents'],
 		config: {
