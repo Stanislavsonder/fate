@@ -1,5 +1,25 @@
 # Outstanding work after the 1.5.0 → 2.0.0 merge and branding migration
 
+> **Release status (2026-10-27).** Sections A–C below are closed. The pre-release mods audit
+> (`planning/mods-2-0-audit/`) is resolved through its "before shipping 2.0" and "before the API
+> freezes" lists, shipped as mod SDK **3.0.0** (`@fate-app/mod-types` 3.0.0, `@fate-app/mod-build`
+> 3.0.1, `create-fate-mod` 1.3.0, all on npm with provenance). All four `fate-mods` mods were
+> republished for SDK 3 (fate-mods#7–#11: `dice-d20` 1.2.0, `dice-d6` 1.4.0, `relationships` 1.1.0,
+> `example` 1.3.0 unpublished). Locally green: lint, prettier, vue-tsc, 249 unit tests, build,
+> registry-schema check, and the full Cypress suite (35/35).
+>
+> Left before tagging 2.0.0:
+>
+> 1. **Device pass** — never done for Modules 2.0. On one iOS and one Android build: install a mod
+>    from the Mod Store, restart, use it on a sheet, roll an external die, and confirm the release
+>    CSP does not block anything (the audit's M5 asks for exactly this).
+> 2. **Merge `2.0.0` → `main`** through its PR (CI runs the full suite there for the first time,
+>    see C4), then run the Release workflow from `main`.
+>
+> Deliberately after 2.0.0 (audit "2.0.x / 2.1" and backlog): M12–M16, M18, M21–M25, M27–M29, M4 (B)
+> signed index, M5 native containment.
+
+
 Snapshot taken 2026-09-06, on `2.0.0` @ `c73ff5f`.
 
 Everything here was found while merging `1.5.0` into `2.0.0` and migrating the mod SDK off the
