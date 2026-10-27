@@ -7,6 +7,7 @@ describe('Mod Store - Update', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 		// The already-open detail modal's `entry` prop is a snapshot taken when the
 		// card was clicked — refreshing the registry index doesn't reactively update
 		// it. Closing it, then switching tabs away and back, unmounts/remounts the
@@ -34,6 +35,7 @@ describe('Mod Store - Update', () => {
 		cy.get('[data-testid="mod-store-update-button"]').click()
 
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" updated')
+		cy.answerModReloadPrompt('later')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')
@@ -45,10 +47,18 @@ describe('Mod Store - Update', () => {
 		cy.interceptModFiles('e2e@fixture-mod', '1.0.1')
 		cy.triggerModStoreRefresh()
 
+		// The response landing is not the cache write: wait until the Browse tab
+		// (which re-reads the cache on remount) shows the update, so the Installed
+		// tab's one-shot read cannot mount ahead of it.
+		cy.switchModStoreTab('installed')
+		cy.switchModStoreTab('browse')
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-update-badge"]').should('exist')
+
 		cy.switchModStoreTab('installed')
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"] [data-testid="installed-mod-update"]').click()
 
 		cy.getToast().should('contain.text', '"Fixture Mod" updated')
+		cy.answerModReloadPrompt('later')
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('contain.text', 'v1.0.1')
 	})
 })

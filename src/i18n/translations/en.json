@@ -284,6 +284,12 @@
 				"uninstallPartial": "Removed, but the mod could not clean up its data on: {characters}"
 			},
 			"installSuccess": "\"{id}\" installed",
+			"reloadPrompt": {
+				"later": "Later",
+				"message": "Mod changes take effect after the app restarts.",
+				"now": "Restart now",
+				"title": "Restart required"
+			},
 			"removeConfirm": {
 				"inUse": "Used by: {characters}",
 				"willUninstall": "Removing it will uninstall this mod from those characters."

@@ -11,7 +11,8 @@ function getSavedSkinId(): string | null {
 }
 
 function getSkinRecords(): ModRecord[] {
-	return ModRegistry.getAll().filter(record => record.manifest.capabilities?.includes('theme') && record.manifest.theme)
+	// A skin disabled mid-session must stop applying at once, not at the restart.
+	return ModRegistry.getAll().filter(record => record.status === 'loaded' && record.manifest.capabilities?.includes('theme') && record.manifest.theme)
 }
 
 function applySkin(id: string | null) {

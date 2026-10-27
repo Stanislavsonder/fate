@@ -7,6 +7,7 @@ describe('Mod Store - Blocklist', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 	})
 
 	it('auto-disables an installed mod whose version is blocklisted, then clears the explanation once unblocked', () => {
@@ -32,6 +33,10 @@ describe('Mod Store - Blocklist', () => {
 		cy.interceptRegistry('registry.v4-unblocked.json')
 		cy.switchModStoreTab('browse')
 		cy.wait('@registryIndex')
+		// The response landing is not the end of the refresh: applyBlocklist clears
+		// the flag in IndexedDB afterwards, and the Installed tab reads once on
+		// mount. Wait for the write so the tab cannot mount ahead of it.
+		cy.waitForStoredMod('e2e@fixture-mod', row => row?.blocked !== true)
 
 		cy.switchModStoreTab('installed')
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('not.contain.text', 'flagged as unsafe')

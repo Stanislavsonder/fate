@@ -67,6 +67,10 @@ declare global {
 			 * .fchar file-picker (see notInstalled.cy.ts for why). */
 			addCharacterModuleReference(characterName: string, moduleId: string, version: string): Chainable<void>
 			getStoredCharacter(characterName: string): Chainable<StoredCharacterRow>
+			/** Polls IndexedDB until the installed mod row (undefined when absent)
+			 * satisfies `predicate` — for waiting on a background write the UI does
+			 * not signal. Fails after `timeout` ms. */
+			waitForStoredMod(id: string, predicate: (row: StoredMod | undefined) => boolean, timeout?: number): Chainable<void>
 			/** ion-toast renders its message/buttons inside a shadow root, not as
 			 * slotted light-DOM content — plain `cy.get('ion-toast').should('contain.text', ...)`
 			 * always sees empty text because .text() doesn't cross the shadow
@@ -81,6 +85,10 @@ declare global {
 			 * defaults true) — needed before interacting with anything behind it
 			 * (e.g. the tab segment), which Cypress otherwise reports as covered. */
 			closeModStoreModal(): Chainable<void>
+			/** Every successful install/update/remove/enable/disable asks to restart
+			 * the app (src/mods/reloadState.ts). 'later' dismisses the prompt and
+			 * stays in-session; 'now' reloads the page. */
+			answerModReloadPrompt(answer: 'later' | 'now'): Chainable<void>
 		}
 	}
 }
@@ -181,6 +189,14 @@ Cypress.Commands.add('closeModStoreModal', () => {
 	cy.get('ion-modal').should('have.class', 'overlay-hidden')
 })
 
+Cypress.Commands.add('answerModReloadPrompt', (answer: 'later' | 'now') => {
+	cy.get('[data-testid="mod-reload-alert"]').should('be.visible')
+	cy.get(`[data-testid="mod-reload-${answer}"]`).click()
+	if (answer === 'later') {
+		cy.get('[data-testid="mod-reload-alert"]').should('not.exist')
+	}
+})
+
 Cypress.Commands.add('triggerModStoreRefresh', () => {
 	cy.get('[data-testid="mod-store-refresher"]').then($el => {
 		$el[0].dispatchEvent(new CustomEvent('ionRefresh', { detail: { complete: () => {} } }))
@@ -262,6 +278,22 @@ Cypress.Commands.add('addCharacterModuleReference', (characterName: string, modu
 		}
 		character._modules = { ...character._modules, [moduleId]: { version } }
 		await putRecord(win, 'characters', character)
+	})
+})
+
+Cypress.Commands.add('waitForStoredMod', (id: string, predicate: (row: StoredMod | undefined) => boolean, timeout = 4000) => {
+	cy.window().then({ timeout: timeout + 1000 }, async win => {
+		const deadline = Date.now() + timeout
+		for (;;) {
+			const rows = await getAllRecords<StoredMod>(win, 'mods')
+			if (predicate(rows.find(row => row.id === id))) {
+				return
+			}
+			if (Date.now() > deadline) {
+				throw new Error(`stored mod "${id}" never reached the expected state`)
+			}
+			await new Promise(resolve => setTimeout(resolve, 100))
+		}
 	})
 })
 

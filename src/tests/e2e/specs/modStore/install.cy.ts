@@ -10,6 +10,7 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="mod-store-install-button"]').click()
 
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 
 		cy.closeModStoreModal()
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"] [data-testid="mod-store-installed-badge"]').should('contain.text', 'Installed')
@@ -27,6 +28,7 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="mod-store-install-button"]').should('contain.text', 'v1.0.0').click()
 
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')
@@ -41,10 +43,12 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 
 		cy.get('[data-testid="mod-store-version-button"]').click()
 		cy.get('[data-testid="mod-store-version-1.0.0"]').click()
 		cy.get('[data-testid="mod-store-update-button"]').should('contain.text', 'Downgrade').click()
+		cy.answerModReloadPrompt('later')
 
 		cy.closeModStoreModal()
 		cy.switchModStoreTab('installed')

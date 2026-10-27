@@ -40,6 +40,7 @@ describe('Mod Store - mod-not-installed guided install', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 
 		cy.visit('/tabs/character/list')
 		cy.get(`[data-testid="character-select"][data-testname="${character.name}"]`).click()

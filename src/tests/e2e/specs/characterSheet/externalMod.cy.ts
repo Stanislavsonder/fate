@@ -15,13 +15,14 @@ describe('External mod on the character sheet', () => {
 		cy.get('[data-testid="create-character-button"]').click()
 		cy.get('[data-testid="character-name-input"]').type(characterName)
 
-		// Listed with its resolved (translated) name and the External badge
+		// Listed with its resolved (translated) name
 		cy.contains('[data-testid="module-list-item"]', 'Example Mod').should('exist')
-		cy.contains('[data-testid="module-list-item"]', 'Example Mod').find('ion-badge').contains('External').should('exist')
 
-		// Its config modal renders from manifest.json, translations resolved
+		// Its config modal renders from manifest.json, translations resolved, and
+		// carries the External badge (ModuleInfo.vue)
 		cy.get('[data-testid="module-settings-button"][data-testname="sonder@example"]').click()
 		cy.contains('Max note length').should('exist')
+		cy.get('ion-modal').find('ion-badge').contains('External').should('exist')
 		cy.get('ion-modal ion-buttons[slot="start"] ion-button').click({ force: true })
 		cy.get('ion-modal').should('have.class', 'overlay-hidden')
 

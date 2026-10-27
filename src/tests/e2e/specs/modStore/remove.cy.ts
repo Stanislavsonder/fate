@@ -3,6 +3,7 @@ import character from '@/tests/e2e/fixtures/character.json'
 function confirmRemoveAlert() {
 	cy.get('[data-testid="remove-mod-alert"]').should('be.visible')
 	cy.get('[data-testid="remove-mod-confirm"]').click()
+	cy.answerModReloadPrompt('later')
 }
 
 describe('Mod Store - Remove', () => {
@@ -14,6 +15,7 @@ describe('Mod Store - Remove', () => {
 		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
 		cy.get('[data-testid="mod-store-install-button"]').click()
 		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
 	})
 
 	it('removes an installed mod from the detail modal after confirming', () => {
@@ -53,8 +55,10 @@ describe('Mod Store - Remove', () => {
 		cy.switchModStoreTab('installed')
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"] [data-testid="installed-mod-remove"]').click()
 
-		cy.get('[data-testid="remove-mod-alert"]').shadow().should('contain.text', character.name)
+		// ion-alert renders scoped, not in a shadow root.
+		cy.get('[data-testid="remove-mod-alert"]').should('contain.text', character.name)
 		cy.get('[data-testid="remove-mod-confirm"]').click()
+		cy.answerModReloadPrompt('later')
 
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('not.exist')
 		cy.getStoredCharacter(character.name).should(stored => {

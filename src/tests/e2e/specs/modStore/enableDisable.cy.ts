@@ -16,28 +16,28 @@ describe('Installed mods - enable/disable', () => {
 		cy.contains('.example-section', 'Example Section').should('exist')
 	})
 
-	it('disabling removes the sheet section in-session; re-enabling brings it back', () => {
+	it('disabling asks to restart and drops the sheet section after it; re-enabling brings it back', () => {
 		cy.visit('/tabs/settings/mods', { onBeforeLoad: seedE2ELocalStorage })
 		cy.switchModStoreTab('installed')
 
 		cy.get('[data-testid="installed-mod-row"][data-testname="sonder@example"] [data-testid="installed-mod-enable-toggle"]').click()
 
-		// Client-side navigation (no reboot) — the section must already be gone
+		// Mod changes are applied by a restart (src/mods/reloadState.ts) — take it.
+		cy.answerModReloadPrompt('now')
+		cy.switchModStoreTab('installed')
+		cy.get('[data-testid="installed-mod-row"][data-testname="sonder@example"]').should('contain.text', 'Disabled')
+
 		// ion-tab-button's `tab` prop is not reflected as an HTML attribute (same
 		// quirk as ion-segment-button — see switchModStoreTab) — match by label.
 		cy.contains('ion-tab-button', 'Character').click({ force: true })
 		cy.url().should('include', '/tabs/character')
 		cy.get('.example-section').should('not.exist')
-		cy.get('ion-toast').should('not.exist')
 
-		// Re-enable loads it back in-session (this boot started with it disabled,
-		// so setEnabled(true) must live-load the bundle, not rely on a reboot)
 		cy.visit('/tabs/settings/mods', { onBeforeLoad: seedE2ELocalStorage })
 		cy.switchModStoreTab('installed')
 		cy.get('[data-testid="installed-mod-row"][data-testname="sonder@example"] [data-testid="installed-mod-enable-toggle"]').click()
+		cy.answerModReloadPrompt('now')
 
-		// ion-tab-button's `tab` prop is not reflected as an HTML attribute (same
-		// quirk as ion-segment-button — see switchModStoreTab) — match by label.
 		cy.contains('ion-tab-button', 'Character').click({ force: true })
 		cy.url().should('include', '/tabs/character')
 		cy.contains('.example-section', 'Example Section').should('exist')
