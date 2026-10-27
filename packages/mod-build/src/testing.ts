@@ -40,6 +40,7 @@ export interface StubFateSDK {
 	ionicVue: Record<string, unknown>
 	ionicons: Record<string, unknown>
 	dice: { three: typeof ThreeModule; cannonEs: typeof CannonEsModule }
+	components: { SheetSection: unknown }
 	api: {
 		toast: { error(key: string, opts?: Record<string, unknown>): Promise<void>; success(key: string, opts?: Record<string, unknown>): Promise<void> }
 		getModData<T>(character: unknown, modId: string, key: string): T | undefined
@@ -86,6 +87,19 @@ export async function stubFateSDK(): Promise<StubFateSDK> {
 		ionicVue: stubModule(vue, 'component'),
 		ionicons: stubModule(vue, 'icon'),
 		dice: { three, cannonEs },
+		// Shared host components (FateSDK.components, SDK >= 2.1.0). A mod's
+		// sections render inside them, so the stub must render the default and
+		// header slots — a passthrough that dropped them would skip the very
+		// markup the smoke-load is meant to exercise.
+		components: {
+			SheetSection: vue.defineComponent({
+				name: 'Stub_SheetSection',
+				props: { title: { type: String, default: '' } },
+				setup(_props, { slots }) {
+					return () => vue.h('section', [slots.header?.(), slots.default?.()])
+				}
+			})
+		},
 		api: {
 			toast: { error: async () => {}, success: async () => {} },
 			getModData: () => undefined,
@@ -198,7 +212,8 @@ export async function smokeLoad(bundlePath: string, manifest: { capabilities?: F
 
 	const globalTarget = globalThis as Record<string, unknown>
 	const previousSDK = globalTarget.FateSDK
-	globalTarget.FateSDK = await stubFateSDK()
+	const sdk = await stubFateSDK()
+	globalTarget.FateSDK = sdk
 
 	try {
 		const imported = (await import(pathToFileURL(resolve(bundlePath)).href)) as { default: unknown }
@@ -207,6 +222,10 @@ export async function smokeLoad(bundlePath: string, manifest: { capabilities?: F
 
 		if (manifest.capabilities?.includes('sheetComponents') && Array.isArray(bundle.components)) {
 			const { mount } = await import('@vue/test-utils')
+			// A real (empty) i18n instance from the same vue-i18n copy the mod
+			// imports through FateSDK.vueI18n, so both $t() in templates and
+			// useI18n() in setup work — a missing key simply renders the key.
+			const i18n = sdk.vueI18n.createI18n({ legacy: false, locale: 'en', missingWarn: false, fallbackWarn: false, messages: { en: {} } })
 			for (const entry of bundle.components as Array<{ id: string; component: unknown }>) {
 				// The component's real prop shape isn't known statically (it comes
 				// from a dynamically imported, untyped bundle) — `as never` opts out
@@ -218,11 +237,7 @@ export async function smokeLoad(bundlePath: string, manifest: { capabilities?: F
 						props: { modelValue: stubCharacter() },
 						global: {
 							provide: { context: stubContext() },
-							// Real mods use $t() in templates via the host's real vue-i18n
-							// instance (FateSDK.vueI18n) — no i18n plugin is installed here,
-							// so stub $t as an identity function rather than failing a
-							// legitimate call with "$t is not a function".
-							mocks: { $t: (key: string) => key }
+							plugins: [i18n]
 						}
 					} as never
 				)
