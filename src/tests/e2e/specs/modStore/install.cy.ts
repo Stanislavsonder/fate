@@ -18,6 +18,20 @@ describe('Mod Store - Install', () => {
 		cy.get('[data-testid="installed-mod-row"][data-testname="e2e@fixture-mod"]').should('exist').and('contain.text', 'v1.0.0')
 	})
 
+	it('shows install progress on the button while the download is in flight', () => {
+		cy.intercept('GET', '**/mods/e2e@fixture-mod/1.0.0/bundle.mjs', { fixture: 'mods/fixture-mod/1.0.0/bundle.mjs,utf-8', delay: 1500 })
+
+		cy.get('[data-testid="mod-store-entry"][data-testname="e2e@fixture-mod"]').click()
+		cy.get('[data-testid="mod-store-install-button"]').click()
+
+		cy.get('[data-testid="mod-store-install-button"]').should('contain.text', 'Installing…').and('have.attr', 'disabled')
+		cy.get('[data-testid="mod-store-install-button"] ion-spinner').should('exist')
+
+		cy.getToast().should('contain.text', '"E2E Fixture Mod" installed')
+		cy.answerModReloadPrompt('later')
+		cy.get('[data-testid="mod-store-update-button"] ion-spinner').should('not.exist')
+	})
+
 	it('installs a selected older hash-pinned version', () => {
 		cy.visitModStore('registry.v2-update.json')
 		cy.interceptModFiles('e2e@fixture-mod', '1.0.0')

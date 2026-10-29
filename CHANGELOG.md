@@ -9,6 +9,7 @@
 - Mods: a remote blocklist (plus a list compiled into the app) disables mod versions flagged as unsafe
 - Mods: characters that use a mod you do not have offer to install it from the Mod Store
 - Mods: the app asks to restart after a mod change, so the change applies fully
+- Mods: install, update and remove buttons show a spinner and status text while the action runs
 - Developer Mode: install a mod from a URL (behind a typed confirmation) and live-reload a mod from a local dev server
 - Mod SDK 3.0 for authors: `@fate-app/mod-types`, `@fate-app/mod-build` and `create-fate-mod` on npm; mods can add character-sheet sections, dice and app themes
 - The D20 die is now a mod in the Mod Store (`sonder@dice-d20`); the Fudge die stays built in

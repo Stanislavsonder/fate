@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { IonBadge, IonButton, IonButtons, IonItem, IonLabel, IonList, IonNote } from '@ionic/vue'
+import { IonBadge, IonButton, IonButtons, IonItem, IonLabel, IonList, IonNote, IonSpinner } from '@ionic/vue'
 import { onMounted, ref } from 'vue'
 import { ModRegistry, type ModSource, type ModStatus } from '@/mods/modRegistry'
 import { safeManifest } from '@/mods/loader'
@@ -27,6 +27,7 @@ interface ModRow {
 
 const rows = ref<ModRow[]>([])
 const busyId = ref<string | null>(null)
+const updatingId = ref<string | null>(null)
 
 async function refresh() {
 	try {
@@ -99,6 +100,7 @@ async function retry(row: ModRow) {
 
 async function updateMod(row: ModRow) {
 	busyId.value = row.id
+	updatingId.value = row.id
 	try {
 		const result = row.source === 'registry' ? await updateFromRegistry(row.id) : await update(row.id)
 		if (result.ok) {
@@ -108,6 +110,7 @@ async function updateMod(row: ModRow) {
 		}
 	} finally {
 		busyId.value = null
+		updatingId.value = null
 		await refresh()
 	}
 }
@@ -188,7 +191,13 @@ async function removeMod(row: ModRow) {
 					:disabled="busyId === row.id"
 					@click="updateMod(row)"
 				>
-					{{ $t('settings.mods.actions.update') }}
+					<ion-spinner
+						v-if="updatingId === row.id"
+						name="crescent"
+						class="me-1 size-4"
+						aria-hidden="true"
+					/>
+					{{ $t(updatingId === row.id ? 'settings.mods.detail.updating' : 'settings.mods.actions.update') }}
 				</ion-button>
 				<ion-button
 					color="danger"

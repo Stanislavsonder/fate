@@ -3,7 +3,7 @@ import semver from 'semver'
 import { chevronDown } from 'ionicons/icons'
 import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { IonBadge, IonButton, IonChip, IonIcon, IonItem, IonLabel, IonList, IonNote, IonPopover } from '@ionic/vue'
+import { IonBadge, IonButton, IonChip, IonIcon, IonItem, IonLabel, IonList, IonNote, IonPopover, IonSpinner } from '@ionic/vue'
 import ModalWindow from '@/components/ui/ModalWindow.vue'
 import useRegistryBase from '@/composables/useRegistryBase'
 import { modsService } from '@/db/tables/mods'
@@ -33,7 +33,8 @@ const { t } = i18n.global
 const { getRegistryBase } = useRegistryBase()
 const characterStore = useCharacter()
 
-const busy = ref(false)
+const pending = ref<'installing' | 'updating' | 'removing' | null>(null)
+const busy = computed(() => pending.value !== null)
 const installedVersion = ref<string | null>(null)
 const selectedVersion = ref(entry.latestVersion)
 const blocklist = ref<Record<string, string[]>>({})
@@ -84,7 +85,7 @@ watch(
 )
 
 async function performVersionAction() {
-	busy.value = true
+	pending.value = installedVersion.value ? 'updating' : 'installing'
 	try {
 		const result = installedVersion.value
 			? await changeRegistryVersion(entry.id, selectedVersion.value)
@@ -97,7 +98,7 @@ async function performVersionAction() {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
 		}
 	} finally {
-		busy.value = false
+		pending.value = null
 	}
 }
 
@@ -116,7 +117,7 @@ async function performRemove() {
 	) {
 		return
 	}
-	busy.value = true
+	pending.value = 'removing'
 	try {
 		const result = await remove(entry.id)
 		if (result.ok) {
@@ -130,7 +131,7 @@ async function performRemove() {
 			await showErrorToast('settings.mods.errors.action', { error: result.error })
 		}
 	} finally {
-		busy.value = false
+		pending.value = null
 	}
 }
 </script>
@@ -170,7 +171,15 @@ async function performRemove() {
 					style="--border-radius: 4px 0 0 4px"
 					@click="performVersionAction"
 				>
-					{{ $t(actionKey) }} {{ versionLabel(selectedVersion) }}
+					<template v-if="pending === 'installing' || pending === 'updating'">
+						<ion-spinner
+							name="crescent"
+							class="me-2 size-5"
+							aria-hidden="true"
+						/>
+						{{ $t(`settings.mods.detail.${pending}`) }}
+					</template>
+					<template v-else>{{ $t(actionKey) }} {{ versionLabel(selectedVersion) }}</template>
 				</ion-button>
 				<ion-button
 					id="mod-version-trigger"
@@ -221,7 +230,13 @@ async function performRemove() {
 				expand="block"
 				@click="performRemove"
 			>
-				{{ $t('settings.mods.detail.remove') }}
+				<ion-spinner
+					v-if="pending === 'removing'"
+					name="crescent"
+					class="me-2 size-5"
+					aria-hidden="true"
+				/>
+				{{ $t(pending === 'removing' ? 'settings.mods.detail.removing' : 'settings.mods.detail.remove') }}
 			</ion-button>
 
 			<div class="my-6 h-px bg-[var(--ion-color-step-200)]" />
