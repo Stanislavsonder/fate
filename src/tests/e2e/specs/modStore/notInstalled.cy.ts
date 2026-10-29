@@ -33,7 +33,9 @@ describe('Mod Store - mod-not-installed guided install', () => {
 		// Let both toasts from the previous step fully clear before installing —
 		// otherwise their still-present text gets swept into the next
 		// contain.text check against whichever ion-toast cy.get() first matches.
-		cy.get('ion-toast', { timeout: 8000 }).should('not.exist')
+		// The toast helper queues them one after another (the guided toast alone
+		// is 6s), so 8s was too tight under a loaded full-suite run.
+		cy.get('ion-toast', { timeout: 15000 }).should('not.exist')
 
 		cy.interceptRegistry('registry.v1.json')
 		cy.interceptModFiles('e2e@fixture-mod', '1.0.0')

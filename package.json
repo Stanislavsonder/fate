@@ -62,7 +62,7 @@
 		"@capacitor/share": "8.0.1",
 		"@capacitor/status-bar": "8.0.3",
 		"@fate-app/mod-types": "workspace:*",
-		"@intlify/core-base": "11.4.7",
+		"@intlify/core-base": "11.4.14",
 		"@ionic/pwa-elements": "3.4.0",
 		"@ionic/vue": "8.8.15",
 		"@ionic/vue-router": "8.8.15",
@@ -77,7 +77,7 @@
 		"semver": "7.8.5",
 		"three": "0.185.1",
 		"vue": "3.5.44",
-		"vue-i18n": "11.4.7",
+		"vue-i18n": "11.4.14",
 		"vue-router": "5.2.0"
 	},
 	"devDependencies": {
