@@ -1,5 +1,8 @@
 {
 	"addNew": "Přidat kousek",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Přidejte Kaskadérské kousky Fate Core",
 		"short": "Přidejte Kaskadérské kousky Fate Core."

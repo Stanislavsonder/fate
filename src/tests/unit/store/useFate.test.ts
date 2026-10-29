@@ -10,6 +10,10 @@ vi.mock('@/modules/utils/installModules', () => ({
 	installModules: vi.fn()
 }))
 
+vi.mock('@/modules/utils/buildStaticContext', () => ({
+	buildStaticContext: vi.fn(context => context)
+}))
+
 vi.mock('@/modules/utils/updateModules', () => ({
 	updateModules: vi.fn().mockResolvedValue(undefined)
 }))
@@ -59,7 +63,7 @@ describe('useFate installCharacterModules', () => {
 		vi.mocked(characterService.updateCharacter).mockRejectedValue(new Error('quota'))
 
 		const store = useFate()
-		const character: Character = { id: 1, name: 'Test', _modules: {} }
+		const character: Character = { id: 1, name: 'Test', avatar: '', _modules: {} }
 		const result = await store.installCharacterModules(character)
 
 		expect(showErrorToast).toHaveBeenCalledWith('errors.character.save', { error: 'quota' })

@@ -1,5 +1,8 @@
 {
 	"addNew": "স্টান্ট যোগ করুন",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Fate Core স্টান্ট যোগ করুন",
 		"short": "Fate Core স্টান্ট যোগ করুন."

@@ -37,11 +37,11 @@ import {
 import { createPhysicsWorld, createBoundaries, placeDiceInCenter, updateDiceMeshes, areDiceStopped, getWallEscapeVector } from './useDicePhysics'
 import { setupAccelerationListener, applyShakeImpulse, handleDiceCollision } from './useDiceMotion'
 import { calculateDiceResult } from './useDiceResult'
-import FudgeDice from '../shapes/fudge/fudge'
+import { registerBuiltinDice } from '@/dice/registerBuiltinDice'
 import type { Dice, DiceConstructor } from '../shapes'
 import type { DiceResult } from '../types'
 import whiteDefault from '../materials/whiteDefault'
-import type { ICollisionEvent } from 'cannon'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 
 // Re-export constants, types, and enums
 export { MIN_NUMBER_OF_DICE, MAX_NUMBER_OF_DICE, MIN_GRAVITY, MAX_GRAVITY, MIN_SCALE, MAX_SCALE, MIN_FORCE, MAX_FORCE, DEFAULT_DICE_SCENE_CONFIG }
@@ -50,6 +50,8 @@ export type { DiceSceneConfig }
 const wallHeight = 50 // Add wallHeight constant at the top level
 
 export default function useDiceScene(config: Ref<DiceSceneConfig>, canvas: Ref<HTMLCanvasElement | null>) {
+	registerBuiltinDice()
+
 	const { hasMotionPermission } = usePermission()
 	const { isDebug } = useDebug()
 
@@ -175,15 +177,25 @@ export default function useDiceScene(config: Ref<DiceSceneConfig>, canvas: Ref<H
 		}
 
 		// Handle collision events
-		const onCollide = (event: ICollisionEvent) => {
+		const onCollide = (event: DiceCollisionEvent) => {
 			handleDiceCollision(event, config.value.haptic, COLLISION_VELOCITY_THRESHOLD, lastCollisionTime, COLLISION_COOLDOWN)
 		}
 
-		// Create dice
+		// Create dice. A persisted shape/material key can go stale (e.g. the mod
+		// that provided it was uninstalled) — fall back to Fudge/white AND write
+		// the fallback back into config so the UI (DiceTypeSelect) and
+		// localStorage stop pointing at a since-removed key.
 		const amount = config.value.numberOfDice
-		const diceType = config.value.dice.shape
-		const diceMaterial = DICE_MATERIALS.get(config.value.dice.material) || whiteDefault
-		const diceConstructor: DiceConstructor = DICE_SHAPES.get(diceType) || FudgeDice
+		let diceConstructor: DiceConstructor | undefined = DICE_SHAPES.get(config.value.dice.shape)
+		if (!diceConstructor) {
+			diceConstructor = DICE_SHAPES.get('Fudge')!
+			config.value.dice.shape = 'Fudge'
+		}
+		let diceMaterial = DICE_MATERIALS.get(config.value.dice.material)
+		if (!diceMaterial) {
+			diceMaterial = whiteDefault
+			config.value.dice.material = 'white'
+		}
 		// Create template dice with proper size and mass
 		const diceTemplate = new diceConstructor(
 			diceMaterial,

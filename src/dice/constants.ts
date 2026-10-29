@@ -2,8 +2,6 @@ import type { DiceMaterial } from './materials'
 import blackDefault from './materials/blackDefault'
 import whiteDefault from './materials/whiteDefault'
 import type { DiceConstructor } from './shapes'
-import FudgeDice from './shapes/fudge/fudge'
-import D20Dice from './shapes/d20/d20'
 import type { DiceSceneConfig } from './types'
 
 // Scene constants
@@ -40,10 +38,9 @@ export const MAX_SCALE = 16
 export const MIN_FORCE = 10
 export const MAX_FORCE = 100
 
-export const DICE_SHAPES: Map<string, DiceConstructor> = new Map([
-	[FudgeDice.name, FudgeDice],
-	[D20Dice.name, D20Dice]
-] as Array<[string, DiceConstructor]>)
+// Populated by src/dice/registerBuiltinDice.ts from the built-in Fudge mod
+// and loaded external mods that declare the 'dice' capability.
+export const DICE_SHAPES: Map<string, DiceConstructor> = new Map()
 
 export const DICE_MATERIALS: Map<string, DiceMaterial> = new Map([
 	[whiteDefault.name, whiteDefault],
@@ -59,7 +56,9 @@ export const DEFAULT_DICE_SCENE_CONFIG: DiceSceneConfig = {
 	haptic: true,
 	showResult: true,
 	dice: {
-		shape: FudgeDice.name,
+		// Matches FudgeDice.name (src/modules/sonder@dice-fudge/src/fudge.ts) — kept
+		// as a literal to avoid re-introducing the circular import this file used to have.
+		shape: 'Fudge',
 		material: 'white'
 	}
 }

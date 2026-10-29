@@ -17,18 +17,39 @@ vi.mock('@/modules/utils/showIssuesMessage', () => ({
 	showIssuesMessage: mocks.showIssuesMessage
 }))
 
-vi.mock('@/modules', () => ({
-	default: new Map([
-		[
-			'test@module',
-			{
-				id: 'test@module',
-				name: 'Test Module',
-				version: '2.0.0',
-				patches: [{ version: '2.0.0', action: mocks.patchAction }]
-			}
-		]
-	])
+const { getIndex, isEntryPublished } = vi.hoisted(() => ({
+	getIndex: vi.fn().mockResolvedValue({ index: null, stale: true, fetchedAt: null }),
+	isEntryPublished: (entry: { published?: boolean }) => entry.published !== false
+}))
+vi.mock('@/mods/registryClient', () => ({ getIndex, isEntryPublished }))
+
+const testModuleRecords = vi.hoisted(
+	() =>
+		new Map([
+			[
+				'test@module',
+				{
+					manifest: {
+						id: 'test@module',
+						name: 'Test Module',
+						version: '2.0.0',
+						patches: [{ version: '2.0.0', action: mocks.patchAction }]
+					},
+					source: 'builtin',
+					status: 'loaded'
+				}
+			]
+		])
+)
+
+vi.mock('@/mods/modRegistry', () => ({
+	ModRegistry: {
+		get: vi.fn((id: string) => testModuleRecords.get(id)),
+		getLoadedManifests: vi.fn(() => new Map([...testModuleRecords].map(([id, r]) => [id, r.manifest]))),
+		getAll: vi.fn(() => [...testModuleRecords.values()]),
+		register: vi.fn(),
+		remove: vi.fn()
+	}
 }))
 
 vi.mock('@/utils/helpers/toast', () => ({
@@ -72,6 +93,7 @@ function createCharacter(overrides: Partial<Character> = {}): Character {
 	return {
 		id: 1,
 		name: 'Test',
+		avatar: '',
 		_modules: {},
 		...overrides
 	}
@@ -256,6 +278,41 @@ describe('installModule', () => {
 		expect(callOrder).toEqual(['updateModule', 'onInstall'])
 	})
 
+	it('leaves the module out of the context and skips onInstall when an incompatible patch aborts the update', async () => {
+		vi.spyOn(updateModulesModule, 'updateModule').mockImplementation(async (_ctx, char, id) => {
+			delete char._modules[id]
+			return false
+		})
+
+		const existing = { id: 'keep', component: {}, order: 0 }
+		const context = createContext({
+			constants: { OTHER: 'keep' } as unknown as FateContext['constants'],
+			components: [existing]
+		})
+		const constantsRef = context.constants
+		const character = createCharacter({
+			_modules: { 'test@module': { version: '1.0.0' } }
+		})
+		const onInstall = vi.fn()
+		const module = createModule({
+			version: '2.0.0',
+			onInstall,
+			shared: { bag: true } as FateModuleManifest['shared'],
+			constants: { MAX_TOKENS: 9 } as FateModuleManifest['constants'],
+			components: [{ id: 'module-ui', component: {}, order: 1 }]
+		})
+
+		await installModule(module, context, character)
+
+		expect(onInstall).not.toHaveBeenCalled()
+		expect(context.modules['test@module']).toBeUndefined()
+		expect(context.shared).toEqual({})
+		expect(context.constants).toBe(constantsRef)
+		expect(context.constants).toEqual({ OTHER: 'keep' })
+		expect(context.components).toEqual([existing])
+		expect(character._modules['test@module']).toBeUndefined()
+	})
+
 	it('skips version update when versions match', async () => {
 		const updateModuleSpy = vi.spyOn(updateModulesModule, 'updateModule')
 		const context = createContext()
@@ -275,6 +332,7 @@ describe('installModules', () => {
 		vi.mocked(getModules).mockReset()
 		mocks.patchAction.mockClear()
 		mocks.showIssuesMessage.mockClear()
+		getIndex.mockReset().mockResolvedValue({ index: null, stale: true, fetchedAt: null })
 	})
 
 	afterEach(() => {
@@ -325,6 +383,65 @@ describe('installModules', () => {
 
 		expect(getModules).toHaveBeenCalledWith(character._modules)
 		expect(module.onInstall).toHaveBeenCalledWith(context, character)
+	})
+
+	it('raises a mod-not-installed issue for a character module id that is absent from ModRegistry but present in the registry index', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'community@mod': { version: '1.0.0' } }
+		})
+		vi.mocked(getModules).mockReturnValue([]) // ModRegistry.get('community@mod') is undefined too (not in testModuleRecords)
+		getIndex.mockResolvedValue({
+			index: { schemaVersion: 1, generatedAt: '', blocklist: {}, mods: [{ id: 'community@mod' }] },
+			stale: false,
+			fetchedAt: Date.now()
+		})
+
+		await installModules(context, character)
+
+		expect(mocks.showIssuesMessage).toHaveBeenCalledWith([expect.objectContaining({ type: 'mod-not-installed', moduleId: 'community@mod' })])
+	})
+
+	it('does not raise mod-not-installed for an id absent from both ModRegistry and the registry index', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'nowhere@mod': { version: '1.0.0' } }
+		})
+		vi.mocked(getModules).mockReturnValue([])
+		getIndex.mockResolvedValue({ index: { schemaVersion: 1, generatedAt: '', blocklist: {}, mods: [] }, stale: false, fetchedAt: Date.now() })
+
+		await installModules(context, character)
+
+		expect(mocks.showIssuesMessage).toHaveBeenCalledWith([])
+	})
+
+	it('does not raise mod-not-installed for an id that already has a ModRegistry record (e.g. disabled/errored)', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'test@module': { version: '1.0.0' } } // present in testModuleRecords via ModRegistry.get mock
+		})
+		vi.mocked(getModules).mockReturnValue([]) // simulates the record being loaded but not resolvable (e.g. disabled)
+		getIndex.mockResolvedValue({
+			index: { schemaVersion: 1, generatedAt: '', blocklist: {}, mods: [{ id: 'test@module' }] },
+			stale: false,
+			fetchedAt: Date.now()
+		})
+
+		await installModules(context, character)
+
+		expect(mocks.showIssuesMessage).toHaveBeenCalledWith([])
+	})
+
+	it('does not check the registry index when an explicit modules list is provided', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'mod-a': { version: '1.0.0' } }
+		})
+		const module = createModule({ id: 'mod-a' })
+
+		await installModules(context, character, [module])
+
+		expect(getIndex).not.toHaveBeenCalled()
 	})
 
 	it('does not install modules disabled by resolution and surfaces issues', async () => {

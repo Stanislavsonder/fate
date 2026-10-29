@@ -1,0 +1,19 @@
+{
+	"author": {
+		"email": "stanislavsonder@gmail.com",
+		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["theme"],
+	"description": {
+		"full": "A dummy pink accent skin proving out the built-in theme-mod mechanism.",
+		"short": "A pink accent skin."
+	},
+	"entry": "bundle.mjs",
+	"id": "sonder@theme-pink",
+	"languages": ["en"],
+	"loadPriority": 1000,
+	"name": "Pink",
+	"sdk": "^3.0.0",
+	"tags": ["theme"],
+	"version": "1.0.0"
+}

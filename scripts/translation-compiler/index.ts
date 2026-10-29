@@ -2,27 +2,17 @@ import fs from 'fs'
 import path from 'path'
 import type { Translation } from '@/types'
 
+// Modules 2.0 (Phase 1): this compiler only bakes CORE app strings into
+// languages.json at build time. Each built-in/external mod ships its own
+// translations/<lang>.json and merges them into i18n at runtime via
+// src/mods/registerModTranslations.ts (see src/mods/builtins.ts) — see
+// planning/modules-2-0/phase-1-builtins-migration.md Step 2.
 const coreLangDir = path.join(process.cwd(), 'src', 'i18n', 'translations')
-const modulesDir = path.join(process.cwd(), 'src', 'modules')
-const modulesLocalesDir = 'translations'
-const moduleManifestFilename = 'manifest.json'
 const outputLocation = path.join(process.cwd(), 'src', 'i18n')
 const outputFilename = 'languages.json'
-const ignoredDirectories = ['utils']
 
 function loadJson(filePath: string) {
 	return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-}
-
-function installModulesTranslation(coreTranslation: Record<string, Translation>, moduleTranslation: Record<string, Translation>, moduleId: string) {
-	for (const lang in moduleTranslation) {
-		if (!coreTranslation[lang]) {
-			console.warn('Language is not supported by the application: ', lang, ' for module: ', moduleId, ' skipping...')
-			continue
-		}
-		coreTranslation[lang][moduleId] = moduleTranslation[lang]
-	}
-	return coreTranslation
 }
 
 function compileTranslations() {
@@ -31,52 +21,12 @@ function compileTranslations() {
 		process.exit(1)
 	}
 
-	let coreTranslation: Record<string, Translation> = {}
+	const coreTranslation: Record<string, Translation> = {}
 
 	for (const file of fs.readdirSync(coreLangDir)) {
 		const langKey = path.parse(file).name
 		const filePath = path.join(coreLangDir, file)
 		coreTranslation[langKey] = loadJson(filePath)
-	}
-
-	for (const moduleName of fs.readdirSync(modulesDir)) {
-		const modulePath = path.join(modulesDir, moduleName)
-		if (!fs.statSync(modulePath).isDirectory()) {
-			continue
-		}
-
-		if (ignoredDirectories.includes(moduleName)) {
-			console.log('Ignoring directory: ', moduleName)
-			continue
-		}
-
-		const translationsPath = path.join(modulePath, modulesLocalesDir)
-		const manifestPath = path.join(modulePath, moduleManifestFilename)
-
-		if (!fs.existsSync(translationsPath)) {
-			console.warn('Module does not have translations folder: ', moduleName)
-			continue
-		}
-
-		if (!fs.existsSync(manifestPath)) {
-			console.warn('Module does not have manifest file: ', moduleName)
-			continue
-		}
-
-		const moduleId = JSON.parse(fs.readFileSync(manifestPath, 'utf-8')).id
-		const moduleTranslation: Record<string, Translation> = {}
-
-		for (const file of fs.readdirSync(translationsPath)) {
-			if (!file.endsWith('.json')) {
-				console.warn('Module translations file is not a json file: ', translationsPath)
-				continue
-			}
-
-			const langKey = path.parse(file).name
-			const filePath = path.join(translationsPath, file)
-			moduleTranslation[langKey] = loadJson(filePath)
-		}
-		coreTranslation = installModulesTranslation(coreTranslation, moduleTranslation, moduleId)
 	}
 
 	const outputFilePath = path.join(outputLocation, outputFilename)

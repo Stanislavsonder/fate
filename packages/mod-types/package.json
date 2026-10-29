@@ -1,0 +1,57 @@
+{
+	"name": "@fate-app/mod-types",
+	"version": "3.0.0",
+	"description": "Shared TypeScript types and runtime helpers for Assistant for Fate mods — the single source of truth for the mod manifest/bundle shape, consumed by both the app and community mod authors.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Stanislavsonder/fate.git",
+		"directory": "packages/mod-types"
+	},
+	"type": "module",
+	"types": "./src/index.ts",
+	"exports": {
+		".": {
+			"types": "./src/index.ts",
+			"import": "./src/index.ts"
+		},
+		"./registry.schema.json": "./registry.schema.json"
+	},
+	"files": [
+		"dist",
+		"registry.schema.json"
+	],
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"prepack": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public",
+		"types": "./dist/index.d.ts",
+		"exports": {
+			".": {
+				"types": "./dist/index.d.ts",
+				"import": "./dist/index.js"
+			},
+			"./registry.schema.json": "./registry.schema.json"
+		}
+	},
+	"devDependencies": {
+		"cannon-es": "^0.20.0",
+		"three": "^0.185.0",
+		"vue": "^3.5.0"
+	},
+	"peerDependencies": {
+		"cannon-es": "^0.20.0",
+		"three": "^0.185.0",
+		"vue": "^3.5.0"
+	},
+	"peerDependenciesMeta": {
+		"cannon-es": {
+			"optional": true
+		},
+		"three": {
+			"optional": true
+		}
+	}
+}

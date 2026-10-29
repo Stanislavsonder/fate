@@ -1,0 +1,10 @@
+{
+	"compilerOptions": {
+		"declaration": true,
+		"noEmit": false,
+		"outDir": "dist",
+		"rewriteRelativeImportExtensions": true,
+		"rootDir": "src"
+	},
+	"extends": "./tsconfig.json"
+}

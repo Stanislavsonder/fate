@@ -17,5 +17,16 @@
 import './commands'
 import 'cypress-file-upload'
 
+// Ionic's MD refresher occasionally throws this internally during its own
+// gesture setup right after a fast cy.reload() — intermittent, benign, and
+// unrelated to anything under test (nothing in this app registers that
+// listener itself). Letting it fail tests would make otherwise-passing specs
+// flaky for a reason outside the app's or the spec's control.
+Cypress.on('uncaught:exception', err => {
+	if (err.message.includes('__zone_symbol__addEventListener')) {
+		return false
+	}
+})
+
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

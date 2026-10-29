@@ -1,5 +1,8 @@
 {
 	"addNew": "افزودن شیرین‌کاری",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "افزودن بدلکاری‌های Fate Core",
 		"short": "افزودن بدلکاری‌های Fate Core."

@@ -1,0 +1,23 @@
+# Normalize all text files to LF in the repository and on checkout, matching
+# this project's Prettier config (endOfLine: "lf" in .prettierrc.json).
+# Without this, core.autocrlf=true (the Windows default) checks files out
+# with CRLF while Prettier/scripts write LF, so every format/build/lint run
+# makes git status flag hundreds of files as "modified" with zero real diff.
+* text=auto eol=lf
+
+# Keep Windows-specific scripts CRLF regardless of the above, if any are added later.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files — never touch line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary

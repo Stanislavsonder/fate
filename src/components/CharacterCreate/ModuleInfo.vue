@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { FateModuleConfigGroup, FateModuleConfigOption, FateModuleManifest } from '@/modules/utils/types'
 import { computed } from 'vue'
-import { IonList, IonItem, IonLabel, IonIcon, IonButton, IonAccordion, IonAccordionGroup } from '@ionic/vue'
+import { IonList, IonItem, IonLabel, IonIcon, IonButton, IonAccordion, IonAccordionGroup, IonBadge } from '@ionic/vue'
 import ModuleConfigOption from '@/components/CharacterCreate/ModuleConfigOption.vue'
 import { LANGUAGES } from '@/i18n/constants'
 import { openOutline } from 'ionicons/icons'
+import { ModRegistry } from '@/mods/modRegistry'
 
 const { fateModule } = defineProps<{
 	fateModule: FateModuleManifest
@@ -13,6 +14,8 @@ const { fateModule } = defineProps<{
 const moduleConfig = defineModel<Record<string, unknown>>({
 	default: () => ({})
 })
+
+const isExternal = computed(() => ModRegistry.get(fateModule.id)?.source !== 'builtin')
 
 const configStructure = computed(() => {
 	if (!fateModule?.config?.options) return []
@@ -56,7 +59,15 @@ function resetConfig() {
 		<ion-item>
 			<ion-label>
 				<h3>{{ $t('modules.configuration.name') }}</h3>
-				<p>{{ $t(fateModule.name) }}</p>
+				<p class="flex items-center gap-2">
+					{{ $t(fateModule.name) }}
+					<ion-badge
+						v-if="isExternal"
+						color="tertiary"
+					>
+						{{ $t('modules.external') }}
+					</ion-badge>
+				</p>
 			</ion-label>
 		</ion-item>
 		<ion-item>

@@ -1,0 +1,31 @@
+{
+	"name": "create-fate-mod",
+	"version": "1.3.0",
+	"description": "Scaffolder for Assistant for Fate mod projects — run with `pnpm create fate-mod` (or `npm create fate-mod`).",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Stanislavsonder/fate.git",
+		"directory": "packages/create-fate-mod"
+	},
+	"type": "module",
+	"bin": {
+		"create-fate-mod": "./dist/index.js"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc -p tsconfig.build.json",
+		"prepack": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"prompts": "^2.4.2"
+	},
+	"devDependencies": {
+		"@types/prompts": "^2.4.9"
+	}
+}

@@ -1,13 +1,889 @@
 {
-	"appVersion": "^1.2.0",
+	"appVersion": ">=2.0.0",
 	"author": {
 		"email": "stanislavsonder@gmail.com",
 		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["sheetComponents"],
+	"config": {
+		"groups": [
+			{
+				"description": "sonder@core-skills.config.customSkills.groupDescription",
+				"id": "custom-skills",
+				"name": "sonder@core-skills.config.customSkills.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.athletics.description",
+				"id": "sonder@core-skills.athletics",
+				"name": "sonder@core-skills.skills.athletics.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.rapport.description",
+				"id": "sonder@core-skills.rapport",
+				"name": "sonder@core-skills.skills.rapport.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.notice.description",
+				"id": "sonder@core-skills.notice",
+				"name": "sonder@core-skills.skills.notice.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.drive.description",
+				"id": "sonder@core-skills.drive",
+				"name": "sonder@core-skills.skills.drive.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.will.description",
+				"id": "sonder@core-skills.will",
+				"name": "sonder@core-skills.skills.will.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.burglary.description",
+				"id": "sonder@core-skills.burglary",
+				"name": "sonder@core-skills.skills.burglary.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.fight.description",
+				"id": "sonder@core-skills.fight",
+				"name": "sonder@core-skills.skills.fight.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.lore.description",
+				"id": "sonder@core-skills.lore",
+				"name": "sonder@core-skills.skills.lore.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.contacts.description",
+				"id": "sonder@core-skills.contacts",
+				"name": "sonder@core-skills.skills.contacts.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.deceive.description",
+				"id": "sonder@core-skills.deceive",
+				"name": "sonder@core-skills.skills.deceive.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.provoke.description",
+				"id": "sonder@core-skills.provoke",
+				"name": "sonder@core-skills.skills.provoke.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.investigate.description",
+				"id": "sonder@core-skills.investigate",
+				"name": "sonder@core-skills.skills.investigate.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.craft.description",
+				"id": "sonder@core-skills.craft",
+				"name": "sonder@core-skills.skills.craft.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.resources.description",
+				"id": "sonder@core-skills.resources",
+				"name": "sonder@core-skills.skills.resources.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.stealth.description",
+				"id": "sonder@core-skills.stealth",
+				"name": "sonder@core-skills.skills.stealth.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.shoot.description",
+				"id": "sonder@core-skills.shoot",
+				"name": "sonder@core-skills.skills.shoot.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.physique.description",
+				"id": "sonder@core-skills.physique",
+				"name": "sonder@core-skills.skills.physique.name"
+			},
+			{
+				"description": "sonder@core-skills.skills.empathy.description",
+				"id": "sonder@core-skills.empathy",
+				"name": "sonder@core-skills.skills.empathy.name"
+			}
+		],
+		"options": [
+			{
+				"default": [],
+				"groupId": "custom-skills",
+				"id": "custom-skills",
+				"itemTemplate": {
+					"fields": [
+						{
+							"default": "",
+							"id": "id",
+							"name": "sonder@core-skills.config.customSkills.id",
+							"type": "string"
+						},
+						{
+							"default": "",
+							"id": "name",
+							"name": "sonder@core-skills.config.customSkills.skillName",
+							"type": "string"
+						},
+						{
+							"default": "",
+							"id": "description",
+							"name": "sonder@core-skills.config.customSkills.description",
+							"type": "string"
+						},
+						{
+							"default": true,
+							"id": "overcome",
+							"name": "sonder@core-skills.config.overcome.name",
+							"type": "boolean"
+						},
+						{
+							"default": true,
+							"id": "advantage",
+							"name": "sonder@core-skills.config.advantage.name",
+							"type": "boolean"
+						},
+						{
+							"default": true,
+							"id": "attack",
+							"name": "sonder@core-skills.config.attack.name",
+							"type": "boolean"
+						},
+						{
+							"default": true,
+							"id": "defend",
+							"name": "sonder@core-skills.config.defend.name",
+							"type": "boolean"
+						}
+					]
+				},
+				"name": "sonder@core-skills.config.customSkills.name",
+				"type": "custom-list"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.athletics",
+				"id": "sonder@core-skills.athletics-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.athletics",
+				"id": "sonder@core-skills.athletics-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.athletics",
+				"id": "sonder@core-skills.athletics-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.athletics",
+				"id": "sonder@core-skills.athletics-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.athletics",
+				"id": "sonder@core-skills.athletics-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.rapport",
+				"id": "sonder@core-skills.rapport-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.rapport",
+				"id": "sonder@core-skills.rapport-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.rapport",
+				"id": "sonder@core-skills.rapport-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.rapport",
+				"id": "sonder@core-skills.rapport-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.rapport",
+				"id": "sonder@core-skills.rapport-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.notice",
+				"id": "sonder@core-skills.notice-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.notice",
+				"id": "sonder@core-skills.notice-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.notice",
+				"id": "sonder@core-skills.notice-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.notice",
+				"id": "sonder@core-skills.notice-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.notice",
+				"id": "sonder@core-skills.notice-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.drive",
+				"id": "sonder@core-skills.drive-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.drive",
+				"id": "sonder@core-skills.drive-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.drive",
+				"id": "sonder@core-skills.drive-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.drive",
+				"id": "sonder@core-skills.drive-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.drive",
+				"id": "sonder@core-skills.drive-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.will",
+				"id": "sonder@core-skills.will-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.will",
+				"id": "sonder@core-skills.will-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.will",
+				"id": "sonder@core-skills.will-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.will",
+				"id": "sonder@core-skills.will-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.will",
+				"id": "sonder@core-skills.will-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.burglary",
+				"id": "sonder@core-skills.burglary-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.burglary",
+				"id": "sonder@core-skills.burglary-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.burglary",
+				"id": "sonder@core-skills.burglary-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.burglary",
+				"id": "sonder@core-skills.burglary-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.burglary",
+				"id": "sonder@core-skills.burglary-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.fight",
+				"id": "sonder@core-skills.fight-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.fight",
+				"id": "sonder@core-skills.fight-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.fight",
+				"id": "sonder@core-skills.fight-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.fight",
+				"id": "sonder@core-skills.fight-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.fight",
+				"id": "sonder@core-skills.fight-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.lore",
+				"id": "sonder@core-skills.lore-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.lore",
+				"id": "sonder@core-skills.lore-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.lore",
+				"id": "sonder@core-skills.lore-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.lore",
+				"id": "sonder@core-skills.lore-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.lore",
+				"id": "sonder@core-skills.lore-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.contacts",
+				"id": "sonder@core-skills.contacts-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.contacts",
+				"id": "sonder@core-skills.contacts-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.contacts",
+				"id": "sonder@core-skills.contacts-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.contacts",
+				"id": "sonder@core-skills.contacts-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.contacts",
+				"id": "sonder@core-skills.contacts-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.deceive",
+				"id": "sonder@core-skills.deceive-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.deceive",
+				"id": "sonder@core-skills.deceive-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.deceive",
+				"id": "sonder@core-skills.deceive-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.deceive",
+				"id": "sonder@core-skills.deceive-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.deceive",
+				"id": "sonder@core-skills.deceive-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.provoke",
+				"id": "sonder@core-skills.provoke-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.provoke",
+				"id": "sonder@core-skills.provoke-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.provoke",
+				"id": "sonder@core-skills.provoke-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.provoke",
+				"id": "sonder@core-skills.provoke-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.provoke",
+				"id": "sonder@core-skills.provoke-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.investigate",
+				"id": "sonder@core-skills.investigate-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.investigate",
+				"id": "sonder@core-skills.investigate-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.investigate",
+				"id": "sonder@core-skills.investigate-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.investigate",
+				"id": "sonder@core-skills.investigate-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.investigate",
+				"id": "sonder@core-skills.investigate-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.craft",
+				"id": "sonder@core-skills.craft-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.craft",
+				"id": "sonder@core-skills.craft-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.craft",
+				"id": "sonder@core-skills.craft-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.craft",
+				"id": "sonder@core-skills.craft-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.craft",
+				"id": "sonder@core-skills.craft-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.resources",
+				"id": "sonder@core-skills.resources-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.resources",
+				"id": "sonder@core-skills.resources-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.resources",
+				"id": "sonder@core-skills.resources-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.resources",
+				"id": "sonder@core-skills.resources-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.resources",
+				"id": "sonder@core-skills.resources-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.stealth",
+				"id": "sonder@core-skills.stealth-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.stealth",
+				"id": "sonder@core-skills.stealth-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.stealth",
+				"id": "sonder@core-skills.stealth-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.stealth",
+				"id": "sonder@core-skills.stealth-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.stealth",
+				"id": "sonder@core-skills.stealth-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.shoot",
+				"id": "sonder@core-skills.shoot-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.shoot",
+				"id": "sonder@core-skills.shoot-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.shoot",
+				"id": "sonder@core-skills.shoot-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.shoot",
+				"id": "sonder@core-skills.shoot-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.shoot",
+				"id": "sonder@core-skills.shoot-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.physique",
+				"id": "sonder@core-skills.physique-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.physique",
+				"id": "sonder@core-skills.physique-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.physique",
+				"id": "sonder@core-skills.physique-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.physique",
+				"id": "sonder@core-skills.physique-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.physique",
+				"id": "sonder@core-skills.physique-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.empathy",
+				"id": "sonder@core-skills.empathy-enabled",
+				"name": "sonder@core-skills.config.enabled.name",
+				"tooltip": "sonder@core-skills.config.enabled.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.empathy",
+				"id": "sonder@core-skills.empathy-overcome",
+				"name": "sonder@core-skills.config.overcome.name",
+				"tooltip": "sonder@core-skills.config.overcome.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.empathy",
+				"id": "sonder@core-skills.empathy-advantage",
+				"name": "sonder@core-skills.config.advantage.name",
+				"tooltip": "sonder@core-skills.config.advantage.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": false,
+				"groupId": "sonder@core-skills.empathy",
+				"id": "sonder@core-skills.empathy-attack",
+				"name": "sonder@core-skills.config.attack.name",
+				"tooltip": "sonder@core-skills.config.attack.tooltip",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"groupId": "sonder@core-skills.empathy",
+				"id": "sonder@core-skills.empathy-defend",
+				"name": "sonder@core-skills.config.defend.name",
+				"tooltip": "sonder@core-skills.config.defend.tooltip",
+				"type": "boolean"
+			}
+		]
 	},
 	"description": {
 		"full": "t.description.full",
 		"short": "t.description.short"
 	},
+	"entry": "bundle.mjs",
 	"id": "sonder@core-skills",
 	"languages": [
 		"en",
@@ -43,6 +919,7 @@
 	],
 	"loadPriority": 1000,
 	"name": "t.name",
+	"sdk": "^3.0.0",
 	"tags": ["core", "character-sheet"],
 	"version": "1.1.1"
 }

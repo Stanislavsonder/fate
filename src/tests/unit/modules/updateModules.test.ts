@@ -10,30 +10,66 @@ const mocks = vi.hoisted(() => ({
 	showWarningToast: vi.fn()
 }))
 
-vi.mock('@/modules', () => ({
-	default: new Map([
-		[
-			'test@module',
-			{
-				id: 'test@module',
-				name: 'Test Module',
-				version: '2.0.0',
-				patches: [{ version: '2.0.0', action: mocks.patchAction, note: 'Updated' }]
-			}
-		],
-		[
-			'test@incompatible',
-			{
-				id: 'test@incompatible',
-				name: 'Incompatible Module',
-				version: '2.0.0',
-				patches: [
-					{ version: '1.5.0', action: mocks.patchAction, note: 'Partial' },
-					{ version: '2.0.0', action: mocks.patchAction, incompatible: true, note: 'Broken' }
-				]
-			}
-		]
-	])
+const testModuleRecords = vi.hoisted(
+	() =>
+		new Map([
+			[
+				'test@module',
+				{
+					manifest: {
+						id: 'test@module',
+						name: 'Test Module',
+						version: '2.0.0',
+						patches: [{ version: '2.0.0', action: mocks.patchAction, note: 'Updated' }]
+					},
+					source: 'builtin',
+					status: 'loaded'
+				}
+			],
+			[
+				'test@incompatible',
+				{
+					manifest: {
+						id: 'test@incompatible',
+						name: 'Incompatible Module',
+						version: '2.0.0',
+						patches: [
+							{ version: '1.5.0', action: mocks.patchAction, note: 'Partial' },
+							{ version: '2.0.0', action: mocks.patchAction, incompatible: true, note: 'Broken' }
+						]
+					},
+					source: 'builtin',
+					status: 'loaded'
+				}
+			],
+			[
+				'off@mod',
+				{
+					manifest: { id: 'off@mod', name: 'Off', version: '2.0.0' },
+					source: 'url',
+					status: 'disabled'
+				}
+			],
+			[
+				'broken@mod',
+				{
+					manifest: { id: 'broken@mod', name: 'Broken', version: '2.0.0' },
+					source: 'url',
+					status: 'errored',
+					error: 'load failed'
+				}
+			]
+		])
+)
+
+vi.mock('@/mods/modRegistry', () => ({
+	ModRegistry: {
+		get: vi.fn((id: string) => testModuleRecords.get(id)),
+		getLoadedManifests: vi.fn(() => new Map([...testModuleRecords].map(([id, r]) => [id, r.manifest]))),
+		getAll: vi.fn(() => [...testModuleRecords.values()]),
+		register: vi.fn(),
+		remove: vi.fn()
+	}
 }))
 
 vi.mock('@/utils/helpers/toast', () => ({
@@ -57,6 +93,7 @@ function createCharacter(overrides: Partial<Character> = {}): Character {
 	return {
 		id: 1,
 		name: 'Test',
+		avatar: '',
 		_modules: {},
 		...overrides
 	}
@@ -79,7 +116,7 @@ describe('updateModule', () => {
 
 		expect(result).toBe(false)
 		expect(character._modules['missing@module']).toEqual({ version: '1.0.0', config: { keep: true } })
-		expect(mocks.showErrorToast).toHaveBeenCalledWith('modules.notFound', { module: 'missing@module' })
+		expect(mocks.showErrorToast).toHaveBeenCalledWith('errors.module.notFound', { module: 'missing@module' })
 	})
 
 	it('applies version patches for a registered module', async () => {
@@ -123,6 +160,33 @@ describe('updateModule', () => {
 		})
 		expect(mocks.showSuccessToast).not.toHaveBeenCalled()
 	})
+
+	it('skips quietly when the module is installed but disabled', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'off@mod': { version: '1.0.0', config: { keep: true } } }
+		})
+
+		const result = await updateModule(context, character, 'off@mod', character._modules['off@mod'])
+
+		expect(result).toBe(true)
+		expect(character._modules['off@mod']).toEqual({ version: '1.0.0', config: { keep: true } })
+		expect(mocks.showErrorToast).not.toHaveBeenCalled()
+		expect(mocks.patchAction).not.toHaveBeenCalled()
+	})
+
+	it('skips quietly when the module is registered but errored', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'broken@mod': { version: '1.0.0' } }
+		})
+
+		const result = await updateModule(context, character, 'broken@mod', character._modules['broken@mod'])
+
+		expect(result).toBe(true)
+		expect(character._modules['broken@mod']).toEqual({ version: '1.0.0' })
+		expect(mocks.showErrorToast).not.toHaveBeenCalled()
+	})
 })
 
 describe('updateModules', () => {
@@ -148,6 +212,6 @@ describe('updateModules', () => {
 		expect(result).toBe(true)
 		expect(character._modules['missing@module']).toEqual({ version: '1.0.0', config: { keep: true } })
 		expect(character._modules['test@module'].version).toBe('2.0.0')
-		expect(mocks.showErrorToast).toHaveBeenCalledWith('modules.notFound', { module: 'missing@module' })
+		expect(mocks.showErrorToast).toHaveBeenCalledWith('errors.module.notFound', { module: 'missing@module' })
 	})
 })

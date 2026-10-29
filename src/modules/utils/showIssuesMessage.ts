@@ -1,12 +1,44 @@
 import type { ModuleResolutionIssue } from './types'
-import { showToast } from '@/utils/helpers/toast'
+import { getToastPositionAnchor, showToast } from '@/utils/helpers/toast'
+import { toastController } from '@ionic/vue'
+import router, { ROUTES } from '@/router'
 import i18n from '@/i18n'
 
 const { t } = i18n.global
 
+/** mod-not-installed gets its own actionable toast (a real "Open Mod Store"
+ * button via toastController) rather than being folded into the generic
+ * concatenated danger-toast below — it's not an error, it's a "here's
+ * something you can do" nudge (README.md Step 8: guided install for a
+ * .fchar/character referencing a community mod you don't have yet). */
+async function showNotInstalledToast(issue: ModuleResolutionIssue): Promise<void> {
+	const toast = await toastController.create({
+		message: t('suggestions.modules.notInstalled', { module: issue.moduleId }),
+		color: 'warning',
+		duration: 6000,
+		position: 'top',
+		positionAnchor: getToastPositionAnchor(),
+		buttons: [
+			{
+				text: t('suggestions.modules.openModStore'),
+				handler: () => {
+					router.push(ROUTES.SETTINGS_MODS)
+				}
+			}
+		]
+	})
+	await toast.present()
+}
+
 export function showIssuesMessage(issues: ModuleResolutionIssue[]) {
 	let message = ''
+
 	issues.forEach(issue => {
+		if (issue.type === 'mod-not-installed') {
+			showNotInstalledToast(issue)
+			return
+		}
+
 		let messageKey: string
 		let params: Record<string, unknown> = {}
 

@@ -1,5 +1,8 @@
 {
 	"addNew": "Lägg till stunt",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Lägg till Fate Core Stunts",
 		"short": "Lägg till Fate Core Stunts."

@@ -17,6 +17,12 @@ const toastQueue: ToastItem[] = []
 let currentToast: ToastItem | null = null
 let isProcessingQueue = false
 
+export function getToastPositionAnchor(): HTMLElement | undefined {
+	return Array.from(document.querySelectorAll<HTMLElement>('ion-header:not([collapse])'))
+		.reverse()
+		.find(header => !header.closest('.ion-page-hidden, .overlay-hidden, [aria-hidden="true"]') && header.getClientRects().length > 0)
+}
+
 function isSameToast(a: ToastItem, b: Pick<ToastItem, 'message' | 'color'>): boolean {
 	return a.message === b.message && a.color === b.color
 }
@@ -35,7 +41,8 @@ async function processToastQueue(): Promise<void> {
 			message: item.message,
 			duration: item.duration,
 			color: item.color,
-			position: 'top'
+			position: 'top',
+			positionAnchor: getToastPositionAnchor()
 		})
 
 		await toast.present()

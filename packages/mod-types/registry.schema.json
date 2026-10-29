@@ -1,0 +1,100 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"$id": "https://stanislavsonder.github.io/fate-mods/registry.schema.json",
+	"title": "Assistant for Fate mod manifest.json",
+	"description": "Static, non-executable metadata for a mod submitted to fate-mods. Anything executable belongs in bundle.mjs, never here.",
+	"type": "object",
+	"required": ["id", "version", "name", "author", "description", "languages", "tags", "loadPriority", "sdk", "entry", "capabilities"],
+	"additionalProperties": false,
+	"properties": {
+		"id": {
+			"type": "string",
+			"pattern": "^[a-z0-9-]+@[a-z0-9-]+$",
+			"description": "\"author@name\", globally unique, lowercase kebab-case on both sides of the @."
+		},
+		"version": {
+			"type": "string",
+			"pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$",
+			"description": "Semver."
+		},
+		"name": {
+			"type": "string",
+			"minLength": 1,
+			"description": "\"t.name\" i18n key (resolved via signRecord) or a plain string."
+		},
+		"author": {
+			"type": "object",
+			"required": ["name", "github"],
+			"additionalProperties": false,
+			"properties": {
+				"name": { "type": "string", "minLength": 1 },
+				"email": { "type": "string", "format": "email" },
+				"url": { "type": "string", "format": "uri" },
+				"github": { "type": "string", "pattern": "^[A-Za-z0-9-]+$", "description": "GitHub handle — CI binds this to the PR author." }
+			}
+		},
+		"description": {
+			"type": "object",
+			"required": ["short"],
+			"additionalProperties": false,
+			"properties": {
+				"short": { "type": "string", "minLength": 1, "maxLength": 160 },
+				"full": { "type": "string" }
+			}
+		},
+		"image": {
+			"type": "string",
+			"pattern": "^[A-Za-z0-9][A-Za-z0-9._-]*\\.(png|jpe?g|webp)$",
+			"description": "Optional square artwork filename in the mod directory (png, jpg/jpeg, or webp; max 512×512). CI rejects non-square or oversized files."
+		},
+		"languages": {
+			"type": "array",
+			"items": { "type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$" },
+			"minItems": 1,
+			"description": "Must match the files present under translations/."
+		},
+		"tags": {
+			"type": "array",
+			"items": { "type": "string", "minLength": 1 }
+		},
+		"dependencies": {
+			"type": "object",
+			"additionalProperties": { "type": "string" },
+			"description": "{ [modId]: semverRange }"
+		},
+		"incompatibleWith": {
+			"type": "array",
+			"items": { "type": "string" }
+		},
+		"appVersion": {
+			"type": "string",
+			"description": "Semver range gating the app version."
+		},
+		"loadPriority": {
+			"type": "number"
+		},
+		"published": {
+			"type": "boolean",
+			"description": "Whether the mod appears in the app's Mod Store. Defaults to true when omitted. Unpublished mods are still built and published to gh-pages for dev-mode and install-from-URL use, but are omitted from registry.json."
+		},
+		"sdk": {
+			"type": "string",
+			"description": "Semver range gating FateSDK.version (the ABI)."
+		},
+		"entry": {
+			"type": "string",
+			"const": "bundle.mjs"
+		},
+		"capabilities": {
+			"type": "array",
+			"minItems": 1,
+			"items": { "type": "string", "enum": ["sheetComponents", "dice", "theme"] },
+			"description": "What the mod extends. The bundle may only export the sections of the capabilities declared here (SDK >= 3.0.0 refuses anything else)."
+		},
+		"config": {
+			"type": "object",
+			"additionalProperties": true,
+			"description": "{ groups: [], options: [] } — declarative settings schema, structurally validated by the host app, not by this schema."
+		}
+	}
+}

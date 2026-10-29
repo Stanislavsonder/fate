@@ -30,6 +30,21 @@
 		"remove-message": "이 캐릭터를 삭제하시겠습니까?",
 		"save": "캐릭터 저장",
 		"share": "캐릭터 공유",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "캐릭터 버전이 오래되었습니다. 업데이트하시겠습니까?",
 		"updated": "캐릭터가 v{from}에서 v{to}로 성공적으로 업데이트되었습니다!",
 		"your-characters": "당신의 캐릭터"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "테스트 캐릭터 추가",
-		"enabled": "디버그 모드 활성화됨"
+		"add-mock-character": "테스트 캐릭터 추가"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "모듈 설정 내보내기",
 		"exportSuccess": "모듈이 성공적으로 내보내졌습니다!",
+		"external": "외부",
 		"import": {
 			"error": {
 				"extension": "모듈을 가져올 수 없습니다. 파일 확장자는 .fmod이어야 합니다",
-				"parse": "캐릭터 파일을 구문 분석할 수 없습니다. 잘못된 JSON 형식입니다.",
-				"read": "캐릭터 파일을 읽는 중 오류가 발생했습니다.",
 				"validation": "모듈을 가져올 수 없습니다. 파일이 잘못되었습니다.",
 				"version": "모듈을 가져올 수 없습니다. 모듈 버전이 오래되었습니다."
 			},
@@ -188,24 +201,134 @@
 				"title": "법적 고지 및 저작자 표시"
 			},
 			"license": "라이선스",
-			"original-author": "Fate Core의 창작자",
 			"privacy-policy": {
 				"accept-policy": "개인정보 보호정책을 읽고 동의합니다",
 				"acceptance-date": "동의 날짜: {value}",
 				"not-accepted": "개인정보 보호정책에 동의하지 않았습니다. 설정으로 이동하여 읽고 동의하세요. 그렇지 않으면 앱을 사용할 수 없습니다.",
 				"title": "개인정보 보호정책",
-				"updated": "개인정보 보호정책이 {value}에 업데이트되었습니다. 읽고 동의하세요. 그렇지 않으면 앱을 사용할 수 없습니다."
+				"updated": "다시 오신 것을 환영합니다! 약관을 조금 업데이트했으니 한 번 더 확인해 주세요."
 			},
 			"source-code": "소스 코드",
 			"title": "앱 정보",
 			"version": "버전"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "디버그 정보 표시",
+				"toggleDescription": "앱 전체에 추가 디버그 도구를 표시합니다 — 주사위 물리 디버거와 숨겨진 개발자 페이지."
+			},
+			"devMod": {
+				"connect": "연결",
+				"connected": "\"{id}\"에 연결됨",
+				"disconnect": "연결 해제",
+				"error": "개발 모드에 연결할 수 없습니다. {error}",
+				"title": "개발 모드 연결",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "검토된 레지스트리 외부에서 \"{id}\"를 설치합니다. 앱과 캐릭터 데이터에 대한 전체 접근 권한으로 실행됩니다. 확인하려면 \"{id}\" 또는 \"install\"을 입력하세요.",
+				"confirmPlaceholder": "확인하려면 입력",
+				"confirmTitle": "외부 코드를 설치할까요?",
+				"error": "모드를 설치할 수 없습니다. {error}",
+				"install": "설치",
+				"success": "\"{id}\" 설치됨",
+				"title": "URL에서 설치",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store를 실제 대신 스테이징 레지스트리로 지정합니다. 기본값을 쓰려면 비워 두세요.",
+				"save": "저장",
+				"title": "레지스트리 기본 URL 재정의"
+			},
+			"title": "개발자",
+			"toggle": "개발자 모드",
+			"toggleDescription": "URL에서 모드를 설치할 수 있게 합니다. 작성자와 테스터 전용 — 모드는 앱에 대한 전체 접근 권한으로 실행됩니다."
+		},
 		"language": "언어",
+		"mods": {
+			"actions": {
+				"disable": "비활성화",
+				"enable": "활성화",
+				"remove": "제거",
+				"removeAnyway": "그래도 제거",
+				"retry": "다시 시도",
+				"update": "업데이트"
+			},
+			"blocked": "\"{id}\"가 비활성화되었습니다 — 이 버전이 안전하지 않은 것으로 표시되었습니다. Mod Store에서 업데이트를 확인하세요.",
+			"browse": {
+				"compatibleOnly": "이 앱과 호환되는 항목만",
+				"empty": "모드를 찾을 수 없음",
+				"incompatible": "이 앱 버전과 호환되지 않음",
+				"loadError": "Mod Store를 불러올 수 없습니다. {error}",
+				"offline": "새로고침할 수 없음 — 캐시된 결과 표시 중",
+				"searchPlaceholder": "모드 검색",
+				"stale": "캐시된 결과 표시 중 — 당겨서 새로고침"
+			},
+			"detail": {
+				"author": "{name}",
+				"blocked": "이 버전은 차단되었습니다",
+				"config": "구성 옵션",
+				"downgrade": "다운그레이드",
+				"install": "설치",
+				"installed": "설치됨",
+				"installing": "설치 중…",
+				"latest": "최신",
+				"readme": "정보",
+				"remove": "제거",
+				"removing": "제거 중…",
+				"update": "업데이트",
+				"updateAvailable": "업데이트 가능",
+				"updating": "업데이트 중…",
+				"versions": "버전"
+			},
+			"empty": "설치된 모드 없음",
+			"errors": {
+				"action": "작업을 완료할 수 없습니다. {error}",
+				"list": "설치된 모드를 불러올 수 없습니다. {error}",
+				"uninstallPartial": "제거했지만 모드가 다음 캐릭터의 데이터를 정리하지 못했습니다: {characters}"
+			},
+			"installSuccess": "\"{id}\" 설치됨",
+			"reloadPrompt": {
+				"later": "나중에",
+				"message": "모드 변경 사항은 앱을 다시 시작한 후 적용됩니다.",
+				"now": "지금 다시 시작",
+				"title": "다시 시작 필요"
+			},
+			"removeConfirm": {
+				"inUse": "아직 사용 중: {characters}",
+				"willUninstall": "제거하면 해당 캐릭터에서 이 모드가 삭제됩니다."
+			},
+			"restartToApply": "변경 사항을 적용하려면 다시 시작",
+			"source": {
+				"dev": "Dev",
+				"registry": "레지스트리",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "비활성화됨",
+				"errored": "오류",
+				"loaded": "로드됨"
+			},
+			"tabs": {
+				"browse": "둘러보기",
+				"installed": "설치됨"
+			},
+			"title": "모드",
+			"updateSuccess": "\"{id}\" 업데이트됨"
+		},
 		"theme": {
 			"dark": "다크",
+			"defaultSkin": "기본",
 			"light": "라이트",
 			"system": "시스템",
 			"title": "테마"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store에서 \"{module}\" 설치",
+			"notInstalled": "\"{module}\"이(가) 설치되어 있지 않음",
+			"openModStore": "Mod Store 열기"
 		}
 	},
 	"tabs": {

@@ -6,6 +6,7 @@ import { storeToRefs } from 'pinia'
 import { ROUTES } from '@/router'
 import type { FateModuleComponent } from '@/modules/utils/types'
 import { computed, provide } from 'vue'
+import CharacterIdentity from './parts/CharacterIdentity.vue'
 
 const fate = useFate()
 const { context } = storeToRefs(fate)
@@ -23,6 +24,7 @@ const components = computed<FateModuleComponent[]>(() => fate.getModuleComponent
 		v-if="isLoaded && character && fate.isReady"
 		class="flex flex-col p-2 gap-8"
 	>
+		<CharacterIdentity v-model="character" />
 		<component
 			:is="component.component"
 			v-for="component in components"

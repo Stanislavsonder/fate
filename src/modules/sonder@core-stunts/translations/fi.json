@@ -1,5 +1,8 @@
 {
 	"addNew": "Lisää temppu",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Lisää Fate Core Stunts",
 		"short": "Lisää Fate Core Stunts."

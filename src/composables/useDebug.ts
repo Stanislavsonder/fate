@@ -1,21 +1,25 @@
-import { showInfoToast } from '@/utils/helpers/toast'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
-const isDebug = ref<boolean>(false)
-const debugClickCounter = ref<number>(5)
+const STORAGE_KEY = 'debugMode'
 
+function getSavedValue(): boolean {
+	return localStorage.getItem(STORAGE_KEY) === 'true'
+}
+
+const isDebug = ref<boolean>(getSavedValue())
+
+watch(isDebug, value => {
+	if (value) {
+		localStorage.setItem(STORAGE_KEY, 'true')
+	} else {
+		localStorage.removeItem(STORAGE_KEY)
+	}
+})
+
+/** Persistent — a toggle in Settings -> Developer ("Show debug information"), not the old tap-the-version-5x gesture. */
 function useDebug() {
-	function enableDebugMode() {
-		if (isDebug.value) {
-			return
-		}
-
-		if (--debugClickCounter.value > 0) {
-			return
-		}
-
-		isDebug.value = true
-		showInfoToast('debug.enabled')
+	function setDebugMode(value: boolean) {
+		isDebug.value = value
 	}
 
 	function debug(message: string, ...args: unknown[]) {
@@ -28,7 +32,7 @@ function useDebug() {
 	return {
 		isDebug,
 		debug,
-		enableDebugMode
+		setDebugMode
 	}
 }
 

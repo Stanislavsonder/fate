@@ -30,6 +30,21 @@
 		"remove-message": "Bist du sicher, dass du diesen Charakter löschen möchtest?",
 		"save": "Charakter speichern",
 		"share": "Charakter teilen",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Die Version des Charakters ist veraltet. Möchtest du sie aktualisieren?",
 		"updated": "Charakter erfolgreich von v{from} auf v{to} aktualisiert!",
 		"your-characters": "Deine Charaktere"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Testcharakter hinzufügen",
-		"enabled": "Debug-Modus aktiviert"
+		"add-mock-character": "Testcharakter hinzufügen"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Modulkonfiguration exportieren",
 		"exportSuccess": "Module erfolgreich exportiert!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Module konnten nicht importiert werden. Die Dateiendung muss .fmod sein.",
-				"parse": "Konnte Charakterdatei nicht analysieren. Ungültiges JSON-Format.",
-				"read": "Fehler beim Lesen der Charakterdatei.",
 				"validation": "Module konnten nicht importiert werden. Die Datei ist ungültig.",
 				"version": "Module konnten nicht importiert werden. Die Version der Module ist veraltet."
 			},
@@ -188,24 +201,134 @@
 				"title": "Rechtliches und Namensnennung"
 			},
 			"license": "Lizenz",
-			"original-author": "Schöpfer von Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Ich habe die Datenschutzrichtlinie gelesen und akzeptiere sie",
 				"acceptance-date": "Akzeptanzdatum: {value}",
 				"not-accepted": "Datenschutzrichtlinie nicht akzeptiert. Gehen Sie zu den Einstellungen, lesen und akzeptieren Sie sie. Andernfalls können Sie die App nicht verwenden.",
 				"title": "Datenschutzrichtlinie",
-				"updated": "Datenschutzrichtlinie aktualisiert am {value}. Bitte lesen und akzeptieren Sie sie. Andernfalls können Sie die App nicht verwenden."
+				"updated": "Willkommen zurück! Wir haben unsere Bedingungen etwas aktualisiert und brauchen deine erneute Bestätigung."
 			},
 			"source-code": "Quellcode",
 			"title": "Über die App",
 			"version": "Version"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Debug-Informationen anzeigen",
+				"toggleDescription": "Zeigt zusätzliche Debug-Werkzeuge in der App — den Würfelphysik-Debugger und versteckte Entwicklerseiten."
+			},
+			"devMod": {
+				"connect": "Verbinden",
+				"connected": "Verbunden mit „{id}“",
+				"disconnect": "Trennen",
+				"error": "Verbindung zum Dev-Mod fehlgeschlagen. {error}",
+				"title": "Dev-Mod verbinden",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Du installierst „{id}“ außerhalb der geprüften Registry. Es läuft mit vollem Zugriff auf die App und deine Charakterdaten. Tippe „{id}“ oder „install“ zur Bestätigung.",
+				"confirmPlaceholder": "Zur Bestätigung eingeben",
+				"confirmTitle": "Externen Code installieren?",
+				"error": "Mod konnte nicht installiert werden. {error}",
+				"install": "Installieren",
+				"success": "„{id}“ installiert",
+				"title": "Von URL installieren",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Leite den Mod Store auf eine Staging-Registry um. Leer lassen für die Standard-Registry.",
+				"save": "Speichern",
+				"title": "Registry-Basis-URL überschreiben"
+			},
+			"title": "Entwickler",
+			"toggle": "Entwicklermodus",
+			"toggleDescription": "Ermöglicht die Installation von Mods per URL. Nur für Mod-Autoren und Tester — Mods haben vollen Zugriff auf die App."
+		},
 		"language": "Sprache",
+		"mods": {
+			"actions": {
+				"disable": "Deaktivieren",
+				"enable": "Aktivieren",
+				"remove": "Entfernen",
+				"removeAnyway": "Trotzdem entfernen",
+				"retry": "Erneut versuchen",
+				"update": "Aktualisieren"
+			},
+			"blocked": "„{id}“ wurde deaktiviert — diese Version wurde als unsicher markiert. Prüfe den Mod Store auf ein Update.",
+			"browse": {
+				"compatibleOnly": "Nur mit dieser App kompatibel",
+				"empty": "Keine Mods gefunden",
+				"incompatible": "Nicht kompatibel mit dieser App-Version",
+				"loadError": "Mod Store konnte nicht geladen werden. {error}",
+				"offline": "Aktualisierung fehlgeschlagen — zwischengespeicherte Ergebnisse werden angezeigt",
+				"searchPlaceholder": "Mods suchen",
+				"stale": "Zwischengespeicherte Ergebnisse — zum Aktualisieren ziehen"
+			},
+			"detail": {
+				"author": "Von {name}",
+				"blocked": "Diese Version ist gesperrt",
+				"config": "Konfigurationsoptionen",
+				"downgrade": "Downgrade",
+				"install": "Installieren",
+				"installed": "Installiert",
+				"installing": "Wird installiert…",
+				"latest": "neueste",
+				"readme": "Über",
+				"remove": "Entfernen",
+				"removing": "Wird entfernt…",
+				"update": "Aktualisieren",
+				"updateAvailable": "Update verfügbar",
+				"updating": "Wird aktualisiert…",
+				"versions": "Versionen"
+			},
+			"empty": "Keine Mods installiert",
+			"errors": {
+				"action": "Aktion konnte nicht abgeschlossen werden. {error}",
+				"list": "Installierte Mods konnten nicht geladen werden. {error}",
+				"uninstallPartial": "Entfernt, aber die Mod konnte ihre Daten bei folgenden Charakteren nicht bereinigen: {characters}"
+			},
+			"installSuccess": "„{id}“ installiert",
+			"reloadPrompt": {
+				"later": "Später",
+				"message": "Änderungen an Mods werden nach einem Neustart der App wirksam.",
+				"now": "Jetzt neu starten",
+				"title": "Neustart erforderlich"
+			},
+			"removeConfirm": {
+				"inUse": "Noch verwendet von: {characters}",
+				"willUninstall": "Beim Entfernen wird dieser Mod von diesen Charakteren deinstalliert."
+			},
+			"restartToApply": "Neu starten, um Änderungen anzuwenden",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registry",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktiviert",
+				"errored": "Fehler",
+				"loaded": "Geladen"
+			},
+			"tabs": {
+				"browse": "Durchsuchen",
+				"installed": "Installiert"
+			},
+			"title": "Mods",
+			"updateSuccess": "„{id}“ aktualisiert"
+		},
 		"theme": {
 			"dark": "Dunkel",
+			"defaultSkin": "Standard",
 			"light": "Hell",
 			"system": "System",
 			"title": "Thema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "„{module}“ aus dem Mod Store installieren",
+			"notInstalled": "„{module}“ ist nicht installiert",
+			"openModStore": "Mod Store öffnen"
 		}
 	},
 	"tabs": {

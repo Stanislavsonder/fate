@@ -1,5 +1,8 @@
 {
 	"addNew": "Adaugă cascadorie",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Adăugați Cascadorii Fate Core",
 		"short": "Adăugați Cascadorii Fate Core."

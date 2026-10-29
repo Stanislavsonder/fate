@@ -1,13 +1,32 @@
 {
-	"appVersion": "^1.1.0",
+	"appVersion": ">=2.0.0",
 	"author": {
 		"email": "stanislavsonder@gmail.com",
 		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["sheetComponents"],
+	"config": {
+		"groups": [],
+		"options": [
+			{
+				"default": true,
+				"id": "sonder@core-stress.physical-enabled",
+				"name": "sonder@core-stress.config.physical.enabled.name",
+				"type": "boolean"
+			},
+			{
+				"default": true,
+				"id": "sonder@core-stress.mental-enabled",
+				"name": "sonder@core-stress.config.mental.enabled.name",
+				"type": "boolean"
+			}
+		]
 	},
 	"description": {
 		"full": "t.description.full",
 		"short": "t.description.short"
 	},
+	"entry": "bundle.mjs",
 	"id": "sonder@core-stress",
 	"languages": [
 		"en",
@@ -43,6 +62,7 @@
 	],
 	"loadPriority": 1000,
 	"name": "t.name",
+	"sdk": "^3.0.0",
 	"tags": ["core"],
 	"version": "1.0.1"
 }

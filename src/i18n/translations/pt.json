@@ -6,6 +6,9 @@
 		"validation-error": "Erro de validação"
 	},
 	"character": {
+		"configure": "Configurar",
+		"create": "Criar personagem",
+		"export": "Exportar personagem",
 		"exportSuccess": "Personagem exportado com sucesso!",
 		"import": {
 			"error": {
@@ -22,9 +25,26 @@
 		},
 		"name": "Nome do personagem",
 		"new-character": "Novo personagem",
+		"no-characters": "Nenhum personagem criado ainda. Crie um novo ou importe de um arquivo.",
+		"not-selected": "Personagem ainda não selecionado. Selecione um ou crie um novo!",
 		"remove-message": "Tem certeza de que deseja remover este personagem?",
 		"save": "Salvar personagem",
 		"share": "Compartilhar personagem",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "A versão do personagem está desatualizada. Deseja atualizá-la?",
 		"updated": "Personagem atualizado com sucesso da v{from} para a v{to}!",
 		"your-characters": "Seus personagens"
@@ -38,6 +58,7 @@
 			"confirm": "Confirmar",
 			"create": "Criar",
 			"decrease": "Diminuir",
+			"delete": "Excluir",
 			"edit": "Editar",
 			"finish": "Concluir",
 			"go": "Ir",
@@ -46,6 +67,7 @@
 			"remove": "Remover",
 			"reset": "Redefinir",
 			"save": "Salvar",
+			"select": "Selecionar",
 			"update": "Atualizar",
 			"upload": "Carregar",
 			"use": "Usar"
@@ -55,13 +77,14 @@
 			"remove": "Tem certeza de que deseja removê-lo?",
 			"remove-named": "Tem certeza de que deseja remover \"{value}\"?"
 		},
+		"or": "ou",
 		"state": {
 			"disabled": "Desativado",
 			"enabled": "Ativado"
 		}
 	},
 	"debug": {
-		"enabled": "Modo de depuração ativado"
+		"add-mock-character": "Adicionar personagem de teste"
 	},
 	"errors": {
 		"boundary": {
@@ -76,6 +99,13 @@
 			"load": "Não foi possível carregar o personagem. {error}",
 			"remove": "Não foi possível remover o personagem. {error}",
 			"save": "Não foi possível salvar o personagem. As alterações podem não ser salvas. {error}"
+		},
+		"module": {
+			"appVersionMismatch": "Requer a versão do aplicativo \"{requiredVersion}\", mas a atual é \"{appVersion}\"",
+			"incompatible": "Incompatível com \"{anotherModule}\"",
+			"missingDependencies": "Dependências ausentes: {modules}",
+			"notFound": "Módulo não encontrado: \"{module}\"",
+			"otherDependsOn": "Outro(s) módulo(s) dependem dele: {modules}"
 		},
 		"moduleResolution": {
 			"appVersionMismatch": "O módulo '{module}' requer a versão '{requiredAppVersion}' do aplicativo, mas a versão atual é '{currentAppVersion}'.",
@@ -112,18 +142,19 @@
 			"name": "Nome",
 			"version": "Versão"
 		},
+		"export": "Exportar configuração de módulos",
 		"exportSuccess": "Módulos exportados com sucesso!",
+		"external": "Externo",
 		"import": {
 			"error": {
 				"extension": "Não foi possível importar os módulos. A extensão do arquivo deve ser .fmod",
-				"parse": "Não foi possível analisar o arquivo de personagem. Formato JSON inválido.",
-				"read": "Erro ao ler o arquivo de personagem.",
 				"validation": "Não foi possível importar os módulos. O arquivo é inválido.",
 				"version": "Não foi possível importar os módulos. A versão dos módulos está desatualizada."
 			},
 			"success": "Módulos importados com sucesso!",
 			"title": "Importar módulos de arquivo"
 		},
+		"installed": "Módulos instalados ({value}):",
 		"save": "Salvar configuração de módulos",
 		"selected": "Módulos selecionados",
 		"share": "Compartilhar configuração de módulos",
@@ -170,24 +201,134 @@
 				"title": "Aviso legal e atribuição"
 			},
 			"license": "Licença",
-			"original-author": "Criadores de Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Li e aceito a política de privacidade",
 				"acceptance-date": "Data de aceitação: {value}",
 				"not-accepted": "Política de privacidade não aceita. Vá para as configurações, leia e aceite. Caso contrário, você não poderá usar o aplicativo.",
 				"title": "Política de privacidade",
-				"updated": "Política de privacidade atualizada em {value}. Por favor, leia e aceite. Caso contrário, você não poderá usar o aplicativo."
+				"updated": "Bem-vindo de volta! Fizemos algumas atualizações nos nossos termos e precisamos que os confirme novamente."
 			},
 			"source-code": "Código fonte",
 			"title": "Sobre o aplicativo",
 			"version": "Versão"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Mostrar informações de depuração",
+				"toggleDescription": "Mostra ferramentas extras de depuração no app — o depurador de física dos dados e páginas de desenvolvedor ocultas."
+			},
+			"devMod": {
+				"connect": "Conectar",
+				"connected": "Conectado a \"{id}\"",
+				"disconnect": "Desconectar",
+				"error": "Não foi possível conectar ao mod de desenvolvimento. {error}",
+				"title": "Conectar mod de desenvolvimento",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Você está instalando \"{id}\" fora do registro revisado. Ele terá acesso total ao app e aos dados dos personagens. Digite \"{id}\" ou \"install\" para confirmar.",
+				"confirmPlaceholder": "Digite para confirmar",
+				"confirmTitle": "Instalar código externo?",
+				"error": "Não foi possível instalar o mod. {error}",
+				"install": "Instalar",
+				"success": "\"{id}\" instalado",
+				"title": "Instalar a partir de URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Aponte a Mod Store para um registro de staging em vez do real. Deixe em branco para usar o padrão.",
+				"save": "Salvar",
+				"title": "Substituir URL base do registro"
+			},
+			"title": "Desenvolvedor",
+			"toggle": "Modo desenvolvedor",
+			"toggleDescription": "Permite instalar mods a partir de uma URL. Apenas para autores e testadores — os mods têm acesso total ao app."
+		},
 		"language": "Idioma",
+		"mods": {
+			"actions": {
+				"disable": "Desativar",
+				"enable": "Ativar",
+				"remove": "Remover",
+				"removeAnyway": "Remover mesmo assim",
+				"retry": "Tentar novamente",
+				"update": "Atualizar"
+			},
+			"blocked": "\"{id}\" foi desativado — esta versão foi marcada como insegura. Verifique a Mod Store por uma atualização.",
+			"browse": {
+				"compatibleOnly": "Apenas compatíveis com este app",
+				"empty": "Nenhum mod encontrado",
+				"incompatible": "Não compatível com esta versão do app",
+				"loadError": "Não foi possível carregar a Mod Store. {error}",
+				"offline": "Não foi possível atualizar — mostrando resultados em cache",
+				"searchPlaceholder": "Pesquisar mods",
+				"stale": "Mostrando resultados em cache — puxe para atualizar"
+			},
+			"detail": {
+				"author": "Por {name}",
+				"blocked": "Esta versão está bloqueada",
+				"config": "Opções de configuração",
+				"downgrade": "Reverter versão",
+				"install": "Instalar",
+				"installed": "Instalado",
+				"installing": "Instalando…",
+				"latest": "mais recente",
+				"readme": "Sobre",
+				"remove": "Remover",
+				"removing": "Removendo…",
+				"update": "Atualizar",
+				"updateAvailable": "Atualização disponível",
+				"updating": "Atualizando…",
+				"versions": "Versões"
+			},
+			"empty": "Nenhum mod instalado",
+			"errors": {
+				"action": "Não foi possível concluir a ação. {error}",
+				"list": "Não foi possível carregar os mods instalados. {error}",
+				"uninstallPartial": "Removido, mas o mod não conseguiu limpar seus dados em: {characters}"
+			},
+			"installSuccess": "\"{id}\" instalado",
+			"reloadPrompt": {
+				"later": "Mais tarde",
+				"message": "As alterações nos mods entram em vigor após reiniciar o aplicativo.",
+				"now": "Reiniciar agora",
+				"title": "Reinício necessário"
+			},
+			"removeConfirm": {
+				"inUse": "Ainda usado por: {characters}",
+				"willUninstall": "Removê-lo o desinstalará desses personagens."
+			},
+			"restartToApply": "Reiniciar para aplicar as alterações",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registro",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Desativado",
+				"errored": "Erro",
+				"loaded": "Carregado"
+			},
+			"tabs": {
+				"browse": "Explorar",
+				"installed": "Instalados"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" atualizado"
+		},
 		"theme": {
 			"dark": "Escuro",
+			"defaultSkin": "Padrão",
 			"light": "Claro",
 			"system": "Sistema",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Instalar \"{module}\" na Mod Store",
+			"notInstalled": "\"{module}\" não está instalado",
+			"openModStore": "Abrir Mod Store"
 		}
 	},
 	"tabs": {

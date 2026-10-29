@@ -26,7 +26,8 @@ pnpm lint             # ESLint with auto-fix
 pnpm format           # Prettier formatting
 
 pnpm translate        # Run localization script
-pnpm module:generate  # Scaffold a new module
+pnpm module:generate  # Scaffold a new built-in module
+pnpm fixtures:mods    # Rebuild the committed e2e fixture copies of the example mod packages
 ```
 
 Unit test files live in `src/tests/unit/**/*.test.ts`. To run a single test file:
@@ -80,6 +81,15 @@ Module lifecycle:
 - **`patches`** — versioned migration functions (`FatePatch`) that update character data across module versions
 
 Modules declare `loadPriority` (higher = loads first), `dependencies` (semver), and `incompatibleWith` lists. Resolution logic is in `src/modules/utils/resolveModules.ts`.
+
+### External Mods (Modules 2.0)
+
+Beyond the built-ins above, the app loads **externally authored mods** at runtime — from the public registry (Mod Store), from a user-supplied URL, or from a local dev server. Full design history lives in `planning/modules-2-0/`; the author-facing API reference is `docs/MOD_API.md`.
+
+- **Runtime plumbing** is in `src/mods/`: `ModRegistry` (single source of truth for every mod, built-in or external, and its status), `loader.ts` (ABI/integrity/import/shape gates; failed mods are quarantined, never crash boot), `installService.ts` (install/update/remove/enable), `registryClient.ts` (fetches the public registry index from GitHub Pages on boot), `sdk.ts` (`FateSDK` — the frozen global external bundles import the host's vue/vue-i18n/@ionic/vue/ionicons through; `SDK_VERSION` is the mod ABI version).
+- **SDK packages** live in `packages/` as pnpm workspace packages published to npm: `@fate-app/mod-types` (types + tiny runtime helpers, including the `Dice`/`DiceMaterial` base classes), `@fate-app/mod-build` (Vite preset that externalizes host libraries into `FateSDK.*` reads), and `create-fate-mod` (scaffolder). Published via the `mod-sdk-v*` tag workflow (`.github/workflows/publish-sdk.yml`). Keep package versions in lockstep with `SDK_VERSION` — `src/tests/unit/mods/sdkSurface.test.ts` guards the exported surface.
+- **`packages/example-mod`** and **`packages/example-dice-mod`** are never-published worked examples; their build output is snapshotted into `src/tests/e2e/fixtures/mods/` by `pnpm fixtures:mods` (see the README there).
+- The **mod registry itself** is a separate repo (`Stanislavsonder/fate-mods`); `packages/mod-types/registry.schema.json` is a vendored copy of its schema, kept in sync by `pnpm check-registry-schema`. Never push there without explicit per-action approval.
 
 ### State & Persistence
 

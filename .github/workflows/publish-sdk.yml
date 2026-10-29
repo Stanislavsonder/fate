@@ -1,0 +1,57 @@
+name: Publish mod SDK packages
+
+# Publishes @fate-app/mod-types, @fate-app/mod-build, and create-fate-mod to
+# npm with provenance. Real publishes are tag-triggered (mod-sdk-v*) — the
+# tag is just a trigger, not a package version (each package's own
+# package.json version is what gets published). workflow_dispatch supports a
+# dry run (npm pack + `publish --dry-run`, no real publish) to verify the
+# pipeline without cutting a release.
+#
+# Auth is npm Trusted Publisher (OIDC) — configured per-package on npmjs.com
+# (GitHub Actions publisher, this repo, this workflow file). No npm token
+# involved; id-token: write below is what lets pnpm mint the OIDC token.
+
+on:
+  push:
+    tags:
+      - 'mod-sdk-v*'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Dry run (build + pack only, no real npm publish)'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+  id-token: write # required for npm provenance
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: 'package.json'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build packages
+        run: pnpm --filter "./packages/mod-types" --filter "./packages/mod-build" --filter "./packages/create-fate-mod" run build
+
+      - name: Publish (dry run)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry-run
+        run: pnpm --filter "./packages/mod-types" --filter "./packages/mod-build" --filter "./packages/create-fate-mod" publish --access public --no-git-checks --dry-run
+
+      - name: Publish
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry-run)
+        run: pnpm --filter "./packages/mod-types" --filter "./packages/mod-build" --filter "./packages/create-fate-mod" publish --access public --no-git-checks --provenance

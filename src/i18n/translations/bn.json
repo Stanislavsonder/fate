@@ -30,6 +30,21 @@
 		"remove-message": "আপনি কি নিশ্চিত যে আপনি এই চরিত্রটি মুছে ফেলতে চান?",
 		"save": "চরিত্র সংরক্ষণ করুন",
 		"share": "চরিত্র শেয়ার করুন",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "চরিত্রের সংস্করণ পুরানো। আপনি কি এটি আপডেট করতে চান?",
 		"updated": "চরিত্র সফলভাবে v{from} থেকে v{to} তে আপডেট হয়েছে!",
 		"your-characters": "আপনার চরিত্রগুলি"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "নকল চরিত্র যোগ করুন",
-		"enabled": "ডিবাগ মোড সক্রিয় করা হয়েছে"
+		"add-mock-character": "নকল চরিত্র যোগ করুন"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "মডিউল কনফিগারেশন রপ্তানি করুন",
 		"exportSuccess": "মডিউল সফলভাবে রপ্তানি করা হয়েছে!",
+		"external": "বাহ্যিক",
 		"import": {
 			"error": {
 				"extension": "মডিউল আমদানি করা যায়নি। ফাইল এক্সটেনশন .fmod হতে হবে",
-				"parse": "চরিত্র ফাইল পার্স করা সম্ভব নয়। অবৈধ JSON ফরম্যাট।",
-				"read": "চরিত্র ফাইল পড়তে সমস্যা।",
 				"validation": "মডিউল আমদানি করা যায়নি। ফাইলটি অবৈধ।",
 				"version": "মডিউল আমদানি করা যায়নি। মডিউলের সংস্করণ পুরানো।"
 			},
@@ -188,24 +201,134 @@
 				"title": "আইনি তথ্য ও স্বীকৃতি"
 			},
 			"license": "লাইসেন্স",
-			"original-author": "Fate Core-এর স্রষ্টারা",
 			"privacy-policy": {
 				"accept-policy": "আমি গোপনীয়তা নীতি পড়েছি এবং গ্রহণ করেছি",
 				"acceptance-date": "গ্রহণের তারিখ: {value}",
 				"not-accepted": "গোপনীয়তা নীতি গ্রহণ করা হয়নি। সেটিংসে যান, এটি পড়ুন এবং গ্রহণ করুন। অন্যথায় আপনি অ্যাপটি ব্যবহার করতে পারবেন না।",
 				"title": "গোপনীয়তা নীতি",
-				"updated": "গোপনীয়তা নীতি {value}-এ আপডেট করা হয়েছে। এটি পড়ুন এবং গ্রহণ করুন। অন্যথায় আপনি অ্যাপটি ব্যবহার করতে পারবেন না।"
+				"updated": "ফিরে আসার জন্য স্বাগতম! আমরা শর্তাবলীতে কিছু আপডেট করেছি, তাই একবার আবার নিশ্চিত করতে হবে।"
 			},
 			"source-code": "সোর্স কোড",
 			"title": "অ্যাপ সম্পর্কে",
 			"version": "সংস্করণ"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "ডিবাগ তথ্য দেখান",
+				"toggleDescription": "অ্যাপে অতিরিক্ত ডিবাগ টুল দেখায় — ডাইস ফিজিক্স ডিবাগার এবং লুকানো ডেভেলপার পেজ।"
+			},
+			"devMod": {
+				"connect": "সংযোগ করুন",
+				"connected": "\"{id}\"-এ সংযুক্ত",
+				"disconnect": "সংযোগ বিচ্ছিন্ন করুন",
+				"error": "ডেভ মডে সংযোগ করা যায়নি। {error}",
+				"title": "ডেভ মড সংযুক্ত করুন",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "আপনি পর্যালোচিত রেজিস্ট্রির বাইরে থেকে \"{id}\" ইনস্টল করছেন। এটি অ্যাপ ও আপনার চরিত্রের ডেটায় পূর্ণ অ্যাক্সেস নিয়ে চলবে। নিশ্চিত করতে \"{id}\" বা \"install\" টাইপ করুন।",
+				"confirmPlaceholder": "নিশ্চিত করতে টাইপ করুন",
+				"confirmTitle": "বাহ্যিক কোড ইনস্টল করবেন?",
+				"error": "মড ইনস্টল করা যায়নি। {error}",
+				"install": "ইনস্টল",
+				"success": "\"{id}\" ইনস্টল হয়েছে",
+				"title": "URL থেকে ইনস্টল",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Mod Store-কে আসলটির বদলে স্টেজিং রেজিস্ট্রিতে নির্দেশ করুন। ডিফল্টের জন্য খালি রাখুন।",
+				"save": "সংরক্ষণ",
+				"title": "রেজিস্ট্রি বেস URL ওভাররাইড"
+			},
+			"title": "ডেভেলপার",
+			"toggle": "ডেভেলপার মোড",
+			"toggleDescription": "URL থেকে মড ইনস্টল সক্ষম করে। শুধুমাত্র লেখক ও পরীক্ষকদের জন্য — মডগুলো অ্যাপে পূর্ণ অ্যাক্সেস পায়।"
+		},
 		"language": "ভাষা",
+		"mods": {
+			"actions": {
+				"disable": "নিষ্ক্রিয় করুন",
+				"enable": "সক্রিয় করুন",
+				"remove": "সরান",
+				"removeAnyway": "তবুও সরান",
+				"retry": "আবার চেষ্টা",
+				"update": "আপডেট"
+			},
+			"blocked": "\"{id}\" নিষ্ক্রিয় করা হয়েছে — এই সংস্করণটি অনিরাপদ হিসেবে চিহ্নিত। আপডেটের জন্য Mod Store দেখুন।",
+			"browse": {
+				"compatibleOnly": "শুধুমাত্র এই অ্যাপের সাথে সামঞ্জস্যপূর্ণ",
+				"empty": "কোনো মড পাওয়া যায়নি",
+				"incompatible": "এই অ্যাপ সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়",
+				"loadError": "Mod Store লোড করা যায়নি। {error}",
+				"offline": "রিফ্রেশ করা যায়নি — ক্যাশ করা ফলাফল দেখানো হচ্ছে",
+				"searchPlaceholder": "মড খুঁজুন",
+				"stale": "ক্যাশ করা ফলাফল দেখানো হচ্ছে — রিফ্রেশ করতে টানুন"
+			},
+			"detail": {
+				"author": "{name} কর্তৃক",
+				"blocked": "এই সংস্করণটি ব্লক করা হয়েছে",
+				"config": "কনফিগারেশন অপশন",
+				"downgrade": "পুরোনো সংস্করণে যান",
+				"install": "ইনস্টল",
+				"installed": "ইনস্টল করা",
+				"installing": "ইনস্টল হচ্ছে…",
+				"latest": "সর্বশেষ",
+				"readme": "সম্পর্কে",
+				"remove": "সরান",
+				"removing": "সরানো হচ্ছে…",
+				"update": "আপডেট",
+				"updateAvailable": "আপডেট উপলব্ধ",
+				"updating": "আপডেট হচ্ছে…",
+				"versions": "সংস্করণ"
+			},
+			"empty": "কোনো মড ইনস্টল নেই",
+			"errors": {
+				"action": "কাজ সম্পন্ন করা যায়নি। {error}",
+				"list": "ইনস্টল করা মড লোড করা যায়নি। {error}",
+				"uninstallPartial": "সরানো হয়েছে, কিন্তু মডটি এদের ডেটা পরিষ্কার করতে পারেনি: {characters}"
+			},
+			"installSuccess": "\"{id}\" ইনস্টল হয়েছে",
+			"reloadPrompt": {
+				"later": "পরে",
+				"message": "অ্যাপ পুনরায় চালু হওয়ার পর মডের পরিবর্তন কার্যকর হবে।",
+				"now": "এখনই পুনরায় চালু করুন",
+				"title": "পুনরায় চালু করা প্রয়োজন"
+			},
+			"removeConfirm": {
+				"inUse": "এখনও ব্যবহার করছে: {characters}",
+				"willUninstall": "সরালে এই মড সেই চরিত্রগুলো থেকে আনইনস্টল হবে।"
+			},
+			"restartToApply": "পরিবর্তনগুলি প্রয়োগ করতে পুনরায় চালু করুন",
+			"source": {
+				"dev": "Dev",
+				"registry": "রেজিস্ট্রি",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "নিষ্ক্রিয়",
+				"errored": "ত্রুটি",
+				"loaded": "লোড হয়েছে"
+			},
+			"tabs": {
+				"browse": "ব্রাউজ",
+				"installed": "ইনস্টল করা"
+			},
+			"title": "মডস",
+			"updateSuccess": "\"{id}\" আপডেট হয়েছে"
+		},
 		"theme": {
 			"dark": "ডার্ক",
+			"defaultSkin": "ডিফল্ট",
 			"light": "লাইট",
 			"system": "সিস্টেম",
 			"title": "থিম"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Mod Store থেকে \"{module}\" ইনস্টল করুন",
+			"notInstalled": "\"{module}\" ইনস্টল নেই",
+			"openModStore": "Mod Store খুলুন"
 		}
 	},
 	"tabs": {

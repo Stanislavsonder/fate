@@ -1,5 +1,8 @@
 {
 	"addNew": "הוסף תעלול",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "הוסף תעלולים של Fate Core",
 		"short": "הוסף תעלולים של Fate Core."

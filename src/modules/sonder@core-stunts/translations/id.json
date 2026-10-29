@@ -1,5 +1,8 @@
 {
 	"addNew": "Tambahkan aksi",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Tambahkan Stunts Fate Core",
 		"short": "Tambahkan Stunts Fate Core."

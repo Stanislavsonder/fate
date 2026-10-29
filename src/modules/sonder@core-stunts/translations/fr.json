@@ -1,5 +1,8 @@
 {
 	"addNew": "Ajouter un exploit",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Ajoutez les Cascades de Fate Core",
 		"short": "Ajoutez les Cascades de Fate Core."

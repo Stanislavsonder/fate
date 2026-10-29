@@ -1,5 +1,8 @@
 {
 	"addNew": "添加特技",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "添加 Fate Core 特技",
 		"short": "添加 Fate Core 特技."

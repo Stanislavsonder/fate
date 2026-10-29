@@ -30,6 +30,21 @@
 		"remove-message": "Opravdu chcete tuto postavu odstranit?",
 		"save": "Uložit postavu",
 		"share": "Sdílet postavu",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Verze postavy je zastaralá. Chcete ji aktualizovat?",
 		"updated": "Postava byla úspěšně aktualizována z v{from} na v{to}!",
 		"your-characters": "Vaše postavy"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Přidat testovací postavu",
-		"enabled": "Režim ladění aktivován"
+		"add-mock-character": "Přidat testovací postavu"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Exportovat konfiguraci modulů",
 		"exportSuccess": "Moduly byly úspěšně exportovány!",
+		"external": "Externí",
 		"import": {
 			"error": {
 				"extension": "Nelze importovat moduly. Přípona souboru musí být .fmod",
-				"parse": "Nepodařilo se analyzovat soubor postavy. Neplatný formát JSON.",
-				"read": "Chyba při čtení souboru postavy.",
 				"validation": "Nelze importovat moduly. Soubor je neplatný.",
 				"version": "Nelze importovat moduly. Verze modulů je zastaralá."
 			},
@@ -188,24 +201,134 @@
 				"title": "Právní informace a uvedení autorů"
 			},
 			"license": "Licence",
-			"original-author": "Tvůrci Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Přečetl(a) jsem si a přijímám zásady ochrany osobních údajů",
 				"acceptance-date": "Datum přijetí: {value}",
 				"not-accepted": "Zásady ochrany osobních údajů nebyly přijaty. Přejděte do nastavení, přečtěte si je a přijměte. Jinak nemůžete aplikaci používat.",
 				"title": "Zásady ochrany osobních údajů",
-				"updated": "Zásady ochrany osobních údajů byly aktualizovány {value}. Přečtěte si je a přijměte. Jinak nemůžete aplikaci používat."
+				"updated": "Vítejte zpět! Trochu jsme aktualizovali podmínky, proto je potřeba je znovu potvrdit."
 			},
 			"source-code": "Zdrojový kód",
 			"title": "O aplikaci",
 			"version": "Verze"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Zobrazit ladicí informace",
+				"toggleDescription": "Zobrazí další ladicí nástroje v aplikaci — debugger fyziky kostek a skryté vývojářské stránky."
+			},
+			"devMod": {
+				"connect": "Připojit",
+				"connected": "Připojeno k „{id}“",
+				"disconnect": "Odpojit",
+				"error": "Nepodařilo se připojit k vývojářskému modu. {error}",
+				"title": "Připojit vývojářský mod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Instalujete „{id}“ mimo ověřený registr. Bude mít plný přístup k aplikaci a datům postav. Pro potvrzení zadejte „{id}“ nebo „install“.",
+				"confirmPlaceholder": "Zadejte pro potvrzení",
+				"confirmTitle": "Nainstalovat externí kód?",
+				"error": "Mod se nepodařilo nainstalovat. {error}",
+				"install": "Nainstalovat",
+				"success": "„{id}“ nainstalován",
+				"title": "Nainstalovat z URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Nasměrujte Mod Store na staging registr místo ostrého. Nechte prázdné pro výchozí.",
+				"save": "Uložit",
+				"title": "Přepsat základní URL registru"
+			},
+			"title": "Vývojář",
+			"toggle": "Vývojářský režim",
+			"toggleDescription": "Umožňuje instalovat mody z URL. Pouze pro autory a testery — mody mají plný přístup k aplikaci."
+		},
 		"language": "Jazyk",
+		"mods": {
+			"actions": {
+				"disable": "Deaktivovat",
+				"enable": "Aktivovat",
+				"remove": "Odebrat",
+				"removeAnyway": "Přesto odebrat",
+				"retry": "Zkusit znovu",
+				"update": "Aktualizovat"
+			},
+			"blocked": "„{id}“ byl deaktivován — tato verze byla označena jako nebezpečná. Zkontrolujte aktualizaci v Mod Store.",
+			"browse": {
+				"compatibleOnly": "Pouze kompatibilní s touto aplikací",
+				"empty": "Žádné mody nenalezeny",
+				"incompatible": "Nekompatibilní s touto verzí aplikace",
+				"loadError": "Nepodařilo se načíst Mod Store. {error}",
+				"offline": "Obnovení selhalo — zobrazují se výsledky z mezipaměti",
+				"searchPlaceholder": "Hledat mody",
+				"stale": "Výsledky z mezipaměti — potáhněte pro obnovení"
+			},
+			"detail": {
+				"author": "Autor: {name}",
+				"blocked": "Tato verze je zablokovaná",
+				"config": "Možnosti konfigurace",
+				"downgrade": "Přejít na starší verzi",
+				"install": "Nainstalovat",
+				"installed": "Nainstalováno",
+				"installing": "Instaluje se…",
+				"latest": "nejnovější",
+				"readme": "O modu",
+				"remove": "Odebrat",
+				"removing": "Odebírá se…",
+				"update": "Aktualizovat",
+				"updateAvailable": "Dostupná aktualizace",
+				"updating": "Aktualizuje se…",
+				"versions": "Verze"
+			},
+			"empty": "Žádné nainstalované mody",
+			"errors": {
+				"action": "Akci se nepodařilo dokončit. {error}",
+				"list": "Nepodařilo se načíst nainstalované mody. {error}",
+				"uninstallPartial": "Odebráno, ale mod nedokázal vyčistit svá data u: {characters}"
+			},
+			"installSuccess": "„{id}“ nainstalován",
+			"reloadPrompt": {
+				"later": "Později",
+				"message": "Změny modů se projeví po restartu aplikace.",
+				"now": "Restartovat nyní",
+				"title": "Je potřeba restart"
+			},
+			"removeConfirm": {
+				"inUse": "Stále používáno: {characters}",
+				"willUninstall": "Odebráním se tento mod odinstaluje z těchto postav."
+			},
+			"restartToApply": "Restartovat a použít změny",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registr",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktivováno",
+				"errored": "Chyba",
+				"loaded": "Načteno"
+			},
+			"tabs": {
+				"browse": "Procházet",
+				"installed": "Nainstalované"
+			},
+			"title": "Mody",
+			"updateSuccess": "„{id}“ aktualizován"
+		},
 		"theme": {
 			"dark": "Tmavé",
+			"defaultSkin": "Výchozí",
 			"light": "Světlé",
 			"system": "Systém",
 			"title": "Téma"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Nainstalovat „{module}“ z Mod Store",
+			"notInstalled": "„{module}“ není nainstalován",
+			"openModStore": "Otevřít Mod Store"
 		}
 	},
 	"tabs": {

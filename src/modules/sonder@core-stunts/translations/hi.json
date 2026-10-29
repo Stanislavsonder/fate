@@ -1,5 +1,8 @@
 {
 	"addNew": "नया स्टंट जोड़ें",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Fate Core स्टंट जोड़ें",
 		"short": "Fate Core स्टंट जोड़ें."

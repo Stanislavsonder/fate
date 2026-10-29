@@ -1,0 +1,33 @@
+{
+	"appVersion": ">=2.0.0",
+	"author": {
+		"email": "stanislavsonder@gmail.com",
+		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["sheetComponents"],
+	"config": {
+		"groups": [],
+		"options": [
+			{
+				"default": 200,
+				"id": "max-note-length",
+				"limits": { "max": 1000, "min": 10, "step": 10 },
+				"name": "t.config.maxNoteLength.name",
+				"tooltip": "t.config.maxNoteLength.tooltip",
+				"type": "number"
+			}
+		]
+	},
+	"description": {
+		"full": "t.description.full",
+		"short": "t.description.short"
+	},
+	"entry": "bundle.mjs",
+	"id": "sonder@example",
+	"languages": ["en"],
+	"loadPriority": 100,
+	"name": "t.name",
+	"sdk": "^3.0.0",
+	"tags": ["example"],
+	"version": "1.0.0"
+}

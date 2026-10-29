@@ -3,12 +3,9 @@ export interface DiceFaceConfig {
 	sides: number
 }
 
-export type DiceResult = {
-	value: number
-	values: number[]
-	text: string
-	color: 'success' | 'danger' | 'medium'
-}
+// Single source of truth is @fate-app/mod-types (decision D7) — see
+// src/dice/shapes/index.ts for the same rationale.
+export type { DiceResult } from '@fate-app/mod-types'
 
 export type DiceSceneConfig = {
 	numberOfDice: number

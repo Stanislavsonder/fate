@@ -1,5 +1,8 @@
 {
 	"addNew": "Ongeza hila",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Ongeza Mbinu za Fate Core",
 		"short": "Ongeza Mbinu za Fate Core."

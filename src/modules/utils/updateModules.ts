@@ -1,4 +1,4 @@
-import Modules from '@/modules'
+import { ModRegistry } from '@/mods/modRegistry'
 import type { FateContext, Character, CharacterModule } from '@/types'
 import semver from 'semver'
 import { getPatches } from '@/utils/helpers/getPatches'
@@ -8,12 +8,19 @@ import i18n from '@/i18n'
 const { t } = i18n.global
 
 export async function updateModule(context: FateContext, character: Character, id: string, module: CharacterModule): Promise<boolean> {
-	const moduleManifest = Modules.get(id)
+	const record = ModRegistry.get(id)
 
-	if (!moduleManifest) {
-		showErrorToast(`modules.notFound`, { module: id })
+	if (!record) {
+		showErrorToast(`errors.module.notFound`, { module: id })
 		return false
 	}
+
+	// Disabled/errored mods stay on the character; don't patch or toast.
+	if (record.status !== 'loaded') {
+		return true
+	}
+
+	const moduleManifest = record.manifest
 
 	const latestVersion = moduleManifest.version
 	const installedVersion = module.version

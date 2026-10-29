@@ -1,0 +1,633 @@
+import semver from 'semver'
+import { ModRegistry } from './modRegistry'
+import { loadExternalMod, safeManifest } from './loader'
+import { SDK_VERSION } from './sdk'
+import { getIndex, getRegistryRelease, isEntryPublished, type RegistryFileEntry, type RegistryModEntry, type RegistryReleaseEntry } from './registryClient'
+import { isSeedBlocked, isVersionBlocked } from './blocklist'
+import { invalidModIdMessage, isValidModId } from './modId'
+import { modsService, type StoredMod } from '@/db/tables/mods'
+import characterService from '@/service/character.service'
+import useRegistryBase from '@/composables/useRegistryBase'
+import appVersion from '@/utils/helpers/appVersion'
+import { markModReloadRequired } from '@/mods/reloadState'
+import { uninstallModule } from '@/modules/utils/uninstallModules'
+import { buildStaticContext } from '@/modules/utils/buildStaticContext'
+import { safeClone } from '@/utils/helpers/clone'
+import { constants, templates } from '@/utils/config'
+import type { Character, FateContext } from '@/types'
+import { deleteModData, type FateModuleManifest } from '@fate-app/mod-types'
+
+export type InstallOutcome = { ok: true; manifest: FateModuleManifest } | { ok: false; error: string }
+export type SimpleOutcome = { ok: true } | { ok: false; error: string }
+export type RemoveOutcome = { ok: true; uninstallFailures?: string[] } | { ok: false; reason: 'error'; error: string }
+
+function emptyFateContext(): FateContext {
+	return {
+		modules: {},
+		constants: safeClone(constants),
+		components: [],
+		templates: safeClone(templates),
+		shared: {}
+	}
+}
+
+function errorMessage(e: unknown): string {
+	return e instanceof Error ? e.message : String(e)
+}
+
+export interface FetchedModFiles {
+	manifest: Record<string, unknown>
+	bundleCode: string
+	translationsJson: string
+	sha256: string
+}
+
+export type FetchResult<T> = { ok: true; data: T } | { ok: false; error: string }
+
+/** Exported for reuse by devMode.ts, which needs the same fetch logic tagged `source: 'dev'` instead of persisted through installFromUrl's built-in/duplicate checks. */
+export async function fetchManifest(baseUrl: string): Promise<FetchResult<Record<string, unknown>>> {
+	const url = baseUrl.replace(/\/+$/, '')
+	try {
+		const res = await fetch(`${url}/manifest.json`)
+		if (!res.ok) {
+			throw new Error(`manifest.json request failed (${res.status})`)
+		}
+		const manifest = (await res.json()) as Record<string, unknown>
+		if (typeof manifest.id !== 'string' || typeof manifest.version !== 'string') {
+			return { ok: false, error: 'manifest.json is missing required "id"/"version" fields' }
+		}
+		// Every install path funnels through here, so this is the one place the
+		// id shape has to be checked before anything is stored under it.
+		if (!isValidModId(manifest.id)) {
+			return { ok: false, error: invalidModIdMessage(manifest.id) }
+		}
+		return { ok: true, data: manifest }
+	} catch (e) {
+		return { ok: false, error: `Could not fetch manifest: ${errorMessage(e)}` }
+	}
+}
+
+/** Fetches the bundle + translations for an already-fetched, already-validated manifest. */
+export async function fetchBundleAndTranslations(baseUrl: string, manifest: Record<string, unknown>): Promise<FetchResult<FetchedModFiles>> {
+	const url = baseUrl.replace(/\/+$/, '')
+	const entry = typeof manifest.entry === 'string' ? manifest.entry : 'bundle.mjs'
+
+	let bundleCode: string
+	try {
+		const res = await fetch(`${url}/${entry}`)
+		if (!res.ok) {
+			throw new Error(`${entry} request failed (${res.status})`)
+		}
+		bundleCode = await res.text()
+	} catch (e) {
+		return { ok: false, error: `Could not fetch bundle: ${errorMessage(e)}` }
+	}
+
+	const languages = Array.isArray(manifest.languages) ? manifest.languages.filter((lang): lang is string => typeof lang === 'string') : []
+	const translations: Record<string, unknown> = {}
+	for (const lang of languages) {
+		try {
+			const res = await fetch(`${url}/translations/${lang}.json`)
+			if (res.ok) {
+				translations[lang] = await res.json()
+			}
+		} catch {
+			// A missing/unreachable translation file is tolerated — the mod just isn't localized for that language.
+		}
+	}
+
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(bundleCode))
+	const sha256 = [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('')
+
+	return { ok: true, data: { manifest, bundleCode, translationsJson: JSON.stringify(translations), sha256 } }
+}
+
+/**
+ * Fetches just manifest.json's id — used by the UI to show a typed-
+ * confirmation prompt (decision D10) before installFromUrl actually persists
+ * or loads anything.
+ */
+export async function previewManifestId(baseUrl: string): Promise<{ ok: true; id: string } | { ok: false; error: string }> {
+	const fetched = await fetchManifest(baseUrl)
+	return fetched.ok ? { ok: true, id: fetched.data.id as string } : { ok: false, error: fetched.error }
+}
+
+/**
+ * Fetches a mod's manifest.json + bundle + translations from `baseUrl`,
+ * stores it, and loads it. This phase's only install entry point — Phase 3
+ * adds installFromRegistry. Refuses ids that collide with a built-in or an
+ * already-installed mod (use update() instead).
+ */
+export async function installFromUrl(baseUrl: string): Promise<InstallOutcome> {
+	const fetchedManifest = await fetchManifest(baseUrl)
+	if (!fetchedManifest.ok) {
+		return { ok: false, error: fetchedManifest.error }
+	}
+
+	const id = fetchedManifest.data.id as string
+
+	// Checked before fetching the (potentially large) bundle — no point downloading
+	// it just to reject the install for an id we already know conflicts.
+	if (ModRegistry.get(id)?.source === 'builtin') {
+		return { ok: false, error: `"${id}" conflicts with a built-in mod` }
+	}
+	if (await modsService.get(id)) {
+		return { ok: false, error: `"${id}" is already installed — use update instead` }
+	}
+
+	// A blocklisted id/version is refused whatever the source — coming from
+	// outside the registry is not a way around the kill switch.
+	const version = fetchedManifest.data.version as string
+	if (await isBlockedVersion(id, version)) {
+		return { ok: false, error: blockedError(id, version) }
+	}
+
+	const fetched = await fetchBundleAndTranslations(baseUrl, fetchedManifest.data)
+	if (!fetched.ok) {
+		return { ok: false, error: fetched.error }
+	}
+
+	const now = Date.now()
+	const row: StoredMod = {
+		id,
+		version: fetched.data.manifest.version as string,
+		source: 'url',
+		enabled: true,
+		manifestJson: JSON.stringify(fetched.data.manifest),
+		bundleCode: fetched.data.bundleCode,
+		translationsJson: fetched.data.translationsJson,
+		sha256: fetched.data.sha256,
+		sourceUrl: baseUrl,
+		installedAt: now,
+		updatedAt: now
+	}
+
+	// Fresh install: persist first, then validate — never persist an unloadable
+	// install, so on failure the row is rolled back rather than left dangling.
+	try {
+		await modsService.put(row)
+		const manifest = await loadExternalMod(row)
+		ModRegistry.register({ manifest, source: 'url', status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true, manifest }
+	} catch (e) {
+		await modsService.delete(id).catch(() => {})
+		return { ok: false, error: `Installed but failed to load: ${errorMessage(e)}` }
+	}
+}
+
+/**
+ * Refetches an already-installed mod (from `baseUrl`, or its original
+ * sourceUrl if omitted) and reloads it. Unlike installFromUrl, the new bundle
+ * is validated BEFORE the stored row is overwritten — a bad update leaves the
+ * previously working version installed instead of bricking the mod.
+ */
+export async function update(id: string, baseUrl?: string): Promise<InstallOutcome> {
+	const existingRow = await modsService.get(id)
+	if (!existingRow) {
+		return { ok: false, error: `"${id}" is not installed` }
+	}
+
+	const url = baseUrl ?? existingRow.sourceUrl
+	const fetchedManifest = await fetchManifest(url)
+	if (!fetchedManifest.ok) {
+		return { ok: false, error: fetchedManifest.error }
+	}
+	if (fetchedManifest.data.id !== id) {
+		return { ok: false, error: `fetched manifest id "${String(fetchedManifest.data.id)}" does not match installed id "${id}"` }
+	}
+
+	const version = fetchedManifest.data.version as string
+	if (await isBlockedVersion(id, version)) {
+		return { ok: false, error: blockedError(id, version) }
+	}
+
+	const fetched = await fetchBundleAndTranslations(url, fetchedManifest.data)
+	if (!fetched.ok) {
+		return { ok: false, error: fetched.error }
+	}
+
+	const row: StoredMod = {
+		id,
+		version: fetched.data.manifest.version as string,
+		source: existingRow.source,
+		enabled: existingRow.enabled,
+		manifestJson: JSON.stringify(fetched.data.manifest),
+		bundleCode: fetched.data.bundleCode,
+		translationsJson: fetched.data.translationsJson,
+		sha256: fetched.data.sha256,
+		sourceUrl: url,
+		installedAt: existingRow.installedAt,
+		updatedAt: Date.now()
+	}
+
+	try {
+		const manifest = await loadExternalMod(row)
+		await modsService.put(row)
+		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true, manifest }
+	} catch (e) {
+		return { ok: false, error: `Update failed to load — keeping the previously installed version: ${errorMessage(e)}` }
+	}
+}
+
+export async function getCharactersUsingMod(id: string): Promise<{ id: number; name: string }[]> {
+	const characters = await characterService.getCharacters()
+	return characters.filter(character => id in character._modules).map(character => ({ id: character.id, name: character.name }))
+}
+
+async function uninstallModFromCharacter(id: string, character: Character, manifest: FateModuleManifest | undefined): Promise<string | null> {
+	const next = safeClone(character)
+	let failure: string | null = null
+	if (typeof manifest?.onUninstall === 'function') {
+		// onUninstall gets the context this character's modules would really
+		// produce, so a hook that reads its own or another mod's shared slice
+		// works the same as when the user removes it from the sheet.
+		const context = buildStaticContext(emptyFateContext(), next._modules)
+		try {
+			await uninstallModule(manifest, context, next)
+		} catch (e) {
+			// A throwing hook must not strand the removal halfway through the
+			// character list. The reference is still dropped below; whatever
+			// the hook did not clean up stays on the character as orphaned data.
+			console.error(`[mods] onUninstall of "${id}" failed for character ${character.id}`, e)
+			failure = character.name || String(character.id)
+		}
+	}
+	// Runs even when there is no hook to call (the mod is disabled, errored,
+	// or its manifest is gone): data stored through setModData is prefixed
+	// with the mod id, so it is removable without the mod's cooperation.
+	deleteModData(next, id)
+	delete next._modules[id]
+	await characterService.updateCharacter(next)
+	return failure
+}
+
+/**
+ * Removes an installed mod. Uninstalls it from every character that still
+ * references it (running onUninstall when a manifest is registered), then
+ * deletes the stored mod. A failing onUninstall is reported in
+ * `uninstallFailures` rather than aborting; a failing character write aborts
+ * before the mod itself is deleted.
+ */
+export async function remove(id: string): Promise<RemoveOutcome> {
+	try {
+		const characters = await characterService.getCharacters()
+		const manifest = ModRegistry.get(id)?.manifest
+		const uninstallFailures: string[] = []
+
+		for (const character of characters) {
+			if (!(id in character._modules)) continue
+			const failure = await uninstallModFromCharacter(id, character, manifest)
+			if (failure) {
+				uninstallFailures.push(failure)
+			}
+		}
+
+		await modsService.delete(id)
+		ModRegistry.remove(id)
+		markModReloadRequired()
+		return uninstallFailures.length > 0 ? { ok: true, uninstallFailures } : { ok: true }
+	} catch (e) {
+		return { ok: false, reason: 'error', error: errorMessage(e) }
+	}
+}
+
+/**
+ * Enables/disables an installed mod. Disabling takes effect immediately in
+ * the current session (flips the in-memory ModRegistry status so
+ * getLoadedManifests()/getSheetModules() stop seeing it right away) as well
+ * as on next launch (initMods registers it as a disabled stub). Enabling reloads
+ * the bundle if it wasn't already registered this session.
+ */
+export async function setEnabled(id: string, enabled: boolean): Promise<SimpleOutcome> {
+	const row = await modsService.get(id)
+	if (!row) {
+		return { ok: false, error: `"${id}" is not installed` }
+	}
+
+	// The flag clears by itself on a successful update: every install path
+	// refuses a blocked version, and the rewritten row carries no flag.
+	if (enabled && (row.blocked || isSeedBlocked(id, row.version))) {
+		return { ok: false, error: `"${id}"@${row.version} is blocked and cannot be enabled — update it instead` }
+	}
+
+	await modsService.setEnabled(id, enabled)
+
+	const record = ModRegistry.get(id)
+
+	if (!enabled) {
+		if (record && record.status !== 'errored') {
+			ModRegistry.register({ ...record, status: 'disabled' })
+		}
+		markModReloadRequired()
+		return { ok: true }
+	}
+
+	if (record && record.status === 'disabled') {
+		ModRegistry.register({ ...record, status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true }
+	}
+
+	try {
+		const manifest = await loadExternalMod({ ...row, enabled: true })
+		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true }
+	} catch (e) {
+		ModRegistry.register({ manifest: safeManifest(row), source: row.source, status: 'errored', error: errorMessage(e) })
+		return { ok: false, error: errorMessage(e) }
+	}
+}
+
+// --- Registry installs (Phase 3) ---
+// Differences from installFromUrl/update above (README.md decision D10, Phase
+// 3 doc Step 6): every file is verified against the *registry index's* pinned
+// sha256 (provenance, not just self-consistency), source is tagged
+// 'registry', and there's no confirmInstallFromUrl typed-confirmation modal —
+// the registry is the trusted path, install-from-URL is the unreviewed one.
+
+/** Exported for reuse by the Mod Store's Browse tab ("compatible with my app version" filter/badges). */
+export function isEntryCompatible(entry: RegistryModEntry): boolean {
+	return isRegistryReleaseCompatible(entry, entry.latestVersion)
+}
+
+/** Exported for reuse by the Mod Store's Browse tab (published vs draft visibility). */
+export { isEntryPublished, getRegistryRelease } from './registryClient'
+
+export const MOD_STORE_FALLBACK_IMAGE = '/web-app-manifest-192x192.png'
+
+export function getModStoreImageUrl(entry: RegistryModEntry, registryBase: string): string {
+	if (typeof entry.image === 'string') {
+		const imageFile = getRegistryRelease(entry, entry.latestVersion)?.files[entry.image]
+		if (imageFile) {
+			return `${registryBase}/${imageFile.url}`
+		}
+	}
+	return MOD_STORE_FALLBACK_IMAGE
+}
+
+export function fallbackModStoreImage(event: Event) {
+	const image = event.target as HTMLImageElement
+	if (image.src !== new URL(MOD_STORE_FALLBACK_IMAGE, window.location.origin).href) {
+		image.src = MOD_STORE_FALLBACK_IMAGE
+	}
+}
+
+export function isRegistryReleaseCompatible(entry: RegistryModEntry, version: string): boolean {
+	const release = getRegistryRelease(entry, version)
+	if (!release) {
+		return false
+	}
+	if (typeof release.appVersion === 'string' && !semver.satisfies(appVersion, release.appVersion)) {
+		return false
+	}
+	if (typeof release.sdk === 'string' && !semver.satisfies(SDK_VERSION, release.sdk)) {
+		return false
+	}
+	return true
+}
+
+export function isRegistryVersionBlocked(blocklist: Record<string, string[]>, id: string, version: string): boolean {
+	return isVersionBlocked(blocklist, id, version) || isSeedBlocked(id, version)
+}
+
+/** Blocklist check for the paths that don't already hold an index (install
+ * from URL, URL updates). Cache-only, so it never blocks on the network — the
+ * seed list still applies when there's no cached index at all. */
+async function isBlockedVersion(id: string, version: string): Promise<boolean> {
+	if (isSeedBlocked(id, version)) {
+		return true
+	}
+	const cached = await getIndex()
+	return !!cached?.index && isVersionBlocked(cached.index.blocklist, id, version)
+}
+
+function blockedError(id: string, version: string): string {
+	return `"${id}"@${version} is blocked and cannot be installed`
+}
+
+async function hashFile(text: string): Promise<string> {
+	const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
+	return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, '0')).join('')
+}
+
+async function verifyFileHash(url: string, expected: RegistryFileEntry | undefined): Promise<SimpleOutcome> {
+	if (!expected) {
+		return { ok: false, error: `${url} is not hash-pinned in the registry index — refusing to install.` }
+	}
+	let text: string
+	try {
+		const res = await fetch(url)
+		if (!res.ok) {
+			return { ok: false, error: `${url} request failed (${res.status})` }
+		}
+		text = await res.text()
+	} catch (e) {
+		return { ok: false, error: `Could not fetch ${url}: ${errorMessage(e)}` }
+	}
+	const actual = await hashFile(text)
+	if (actual !== expected.sha256) {
+		return { ok: false, error: `${url} does not match the registry index hash — refusing to install (possible tampering).` }
+	}
+	return { ok: true }
+}
+
+async function fetchRegistryRelease(entry: RegistryModEntry, release: RegistryReleaseEntry): Promise<FetchResult<FetchedModFiles>> {
+	const { getRegistryBase } = useRegistryBase()
+	const registryBase = getRegistryBase()
+	const versionBaseUrl = `${registryBase}/mods/${entry.id}/${release.version}`
+	const manifestFile = release.files['manifest.json']
+	const manifestUrl = `${registryBase}/${manifestFile?.url ?? `mods/${entry.id}/${release.version}/manifest.json`}`
+	const manifestHashResult = await verifyFileHash(manifestUrl, manifestFile)
+	if (!manifestHashResult.ok) {
+		return manifestHashResult
+	}
+
+	const fetchedManifest = await fetchManifest(versionBaseUrl)
+	if (!fetchedManifest.ok) {
+		return fetchedManifest
+	}
+	if (fetchedManifest.data.id !== entry.id || fetchedManifest.data.version !== release.version) {
+		return { ok: false, error: `Registry manifest does not match "${entry.id}"@${release.version}` }
+	}
+
+	const fetched = await fetchBundleAndTranslations(versionBaseUrl, fetchedManifest.data)
+	if (!fetched.ok) {
+		return fetched
+	}
+
+	const entryFile = typeof fetchedManifest.data.entry === 'string' ? fetchedManifest.data.entry : 'bundle.mjs'
+	const bundleFile = release.files[entryFile]
+	if (!bundleFile) {
+		return { ok: false, error: `${entryFile} is not hash-pinned in the registry index — refusing to install.` }
+	}
+	if (bundleFile.sha256 !== fetched.data.sha256) {
+		return { ok: false, error: `${entryFile} does not match the registry index hash — refusing to install (possible tampering).` }
+	}
+
+	return fetched
+}
+
+export async function installFromRegistry(id: string, version?: string): Promise<InstallOutcome> {
+	if (ModRegistry.get(id)?.source === 'builtin') {
+		return { ok: false, error: `"${id}" conflicts with a built-in mod` }
+	}
+	if (await modsService.get(id)) {
+		return { ok: false, error: `"${id}" is already installed — use update instead` }
+	}
+
+	const { index } = await getIndex()
+	if (!index) {
+		return { ok: false, error: 'Registry index is not available — try refreshing the Mod Store' }
+	}
+	const entry = index.mods.find(m => m.id === id)
+	if (!entry) {
+		return { ok: false, error: `"${id}" was not found in the registry` }
+	}
+	if (!isEntryPublished(entry)) {
+		return { ok: false, error: `"${id}" is not published in the Mod Store` }
+	}
+	const selectedVersion = version ?? entry.latestVersion
+	const release = getRegistryRelease(entry, selectedVersion)
+	if (!release) {
+		return { ok: false, error: `"${id}"@${selectedVersion} has no hash-pinned release metadata` }
+	}
+	if (isRegistryVersionBlocked(index.blocklist, id, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is blocked and cannot be installed` }
+	}
+	if (!isRegistryReleaseCompatible(entry, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is not compatible with this app version` }
+	}
+
+	const fetched = await fetchRegistryRelease(entry, release)
+	if (!fetched.ok) {
+		return { ok: false, error: fetched.error }
+	}
+
+	const now = Date.now()
+	const row: StoredMod = {
+		id,
+		version: selectedVersion,
+		source: 'registry',
+		enabled: true,
+		manifestJson: JSON.stringify(fetched.data.manifest),
+		bundleCode: fetched.data.bundleCode,
+		translationsJson: fetched.data.translationsJson,
+		sha256: fetched.data.sha256,
+		sourceUrl: `${useRegistryBase().getRegistryBase()}/mods/${id}/${selectedVersion}`,
+		installedAt: now,
+		updatedAt: now
+	}
+
+	try {
+		await modsService.put(row)
+		const manifest = await loadExternalMod(row)
+		ModRegistry.register({ manifest, source: 'registry', status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true, manifest }
+	} catch (e) {
+		await modsService.delete(id).catch(() => {})
+		return { ok: false, error: `Installed but failed to load: ${errorMessage(e)}` }
+	}
+}
+
+export async function changeRegistryVersion(id: string, version?: string): Promise<InstallOutcome> {
+	const existingRow = await modsService.get(id)
+	if (!existingRow) {
+		return { ok: false, error: `"${id}" is not installed` }
+	}
+
+	const { index } = await getIndex()
+	if (!index) {
+		return { ok: false, error: 'Registry index is not available — try refreshing the Mod Store' }
+	}
+	const entry = index.mods.find(m => m.id === id)
+	if (!entry) {
+		return { ok: false, error: `"${id}" was not found in the registry` }
+	}
+	if (!isEntryPublished(entry)) {
+		return { ok: false, error: `"${id}" is not published in the Mod Store` }
+	}
+	const selectedVersion = version ?? entry.latestVersion
+	const release = getRegistryRelease(entry, selectedVersion)
+	if (!release) {
+		return { ok: false, error: `"${id}"@${selectedVersion} has no hash-pinned release metadata` }
+	}
+	if (isRegistryVersionBlocked(index.blocklist, id, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is blocked and cannot be installed` }
+	}
+	if (!isRegistryReleaseCompatible(entry, selectedVersion)) {
+		return { ok: false, error: `"${id}"@${selectedVersion} is not compatible with this app version` }
+	}
+
+	const fetched = await fetchRegistryRelease(entry, release)
+	if (!fetched.ok) {
+		return { ok: false, error: fetched.error }
+	}
+
+	const row: StoredMod = {
+		id,
+		version: selectedVersion,
+		source: 'registry',
+		enabled: existingRow.enabled,
+		manifestJson: JSON.stringify(fetched.data.manifest),
+		bundleCode: fetched.data.bundleCode,
+		translationsJson: fetched.data.translationsJson,
+		sha256: fetched.data.sha256,
+		sourceUrl: `${useRegistryBase().getRegistryBase()}/mods/${id}/${selectedVersion}`,
+		installedAt: existingRow.installedAt,
+		updatedAt: Date.now()
+	}
+
+	try {
+		const manifest = await loadExternalMod(row)
+		await modsService.put(row)
+		ModRegistry.register({ manifest, source: row.source, status: 'loaded' })
+		markModReloadRequired()
+		return { ok: true, manifest }
+	} catch (e) {
+		return { ok: false, error: `Update failed to load — keeping the previously installed version: ${errorMessage(e)}` }
+	}
+}
+
+export async function updateFromRegistry(id: string): Promise<InstallOutcome> {
+	return changeRegistryVersion(id)
+}
+
+export interface AvailableUpdate {
+	id: string
+	installedVersion: string
+	latestCompatibleVersion: string
+}
+
+/** Diffs installed registry-sourced mods against the cached index for
+ * Settings→Mod Store update badges. Reads the cache only — never fetches
+ * (call registryClient.refreshIndex() first if a fresh check is needed). */
+export async function checkForUpdates(): Promise<AvailableUpdate[]> {
+	const { index } = await getIndex()
+	if (!index) {
+		return []
+	}
+
+	const installed = await modsService.getAll()
+	const updates: AvailableUpdate[] = []
+
+	for (const row of installed) {
+		if (row.source !== 'registry') continue
+		const entry = index.mods.find(m => m.id === row.id)
+		if (!entry) continue
+		if (
+			isEntryPublished(entry) &&
+			isEntryCompatible(entry) &&
+			!isRegistryVersionBlocked(index.blocklist, entry.id, entry.latestVersion) &&
+			semver.gt(entry.latestVersion, row.version)
+		) {
+			updates.push({ id: row.id, installedVersion: row.version, latestCompatibleVersion: entry.latestVersion })
+		}
+	}
+
+	return updates
+}

@@ -1,5 +1,8 @@
 {
 	"addNew": "إضافة خدعة",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "أضف حيل Fate Core",
 		"short": "أضف حيل Fate Core."

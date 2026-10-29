@@ -11,6 +11,7 @@ export default defineConfig({
 		viewportWidth: 375,
 		viewportHeight: 667,
 		video: true,
+		includeShadowDom: true,
 		setupNodeEvents(_on, _config) {
 			// implement node event listeners here
 		}

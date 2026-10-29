@@ -47,13 +47,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -67,6 +68,9 @@ jobs:
       - name: Compile translations
         run: pnpm compile-translation
 
+      - name: Check registry schema drift
+        run: pnpm check-registry-schema
+
       - name: Type check
         run: pnpm exec vue-tsc --noEmit
 
@@ -76,13 +80,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -96,13 +101,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
@@ -116,16 +122,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install
+
+      # integration.exampleMod.test.ts loads the real built example mod
+      # through the real loader, so its bundle has to exist first.
+      - name: Build the example mod
+        run: pnpm --filter example-mod build
 
       - name: Run unit tests
         run: pnpm test:unit
@@ -136,13 +148,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
           node-version-file: 'package.json'
-
-      - name: Install PNPM
-        run: npm install -g pnpm
+          cache: pnpm
 
       - name: Install dependencies
         run: pnpm install

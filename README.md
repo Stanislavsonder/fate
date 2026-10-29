@@ -14,14 +14,22 @@ This is an independent project. It is not published, sponsored or endorsed by Ev
 - Character sheets assembled from modules (aspects, skills, stunts, stress, consequences, Fate points, inventory, notebook, identity)
 - 3D Fate dice with physics
 - Import / export characters as `.fchar` files
-- Works fully offline; all character data stays on the device
+- Community mods, installable from the in-app Mod Store
+- Works offline; all character data stays on the device
 - Light / dark theme and many UI languages
+
+## Mods
+
+The character sheet is fully modular. Built-in modules (aspects, skills, stress, dice, â¦) live in `src/modules/`, and the app also loads community-made mods at runtime:
+
+- **Mod Store** â browse and install mods from the public registry, right in the app (Settings â Mods). The registry lives in its own repo: [fate-mods](https://github.com/Stanislavsonder/fate-mods).
+- **Write your own** â scaffold a mod project with `create-fate-mod`, build it against the `@fate-app/mod-types` / `@fate-app/mod-build` SDK, and live-reload it in the app via Developer Mode. See [docs/MOD_API.md](./docs/MOD_API.md) for the full author guide.
 
 ## Install the app
 
 ### Web
 
-Open [fate.stanislavsonder.com](https://fate.stanislavsonder.com) in a modern browser. The site is a PWA: on supported browsers you can install it to the home screen from the browser’s install / Add to Home Screen prompt.
+Open [fate.stanislavsonder.com](https://fate.stanislavsonder.com) in a modern browser. The site is a PWA: on supported browsers you can install it to the home screen from the browserâs install / Add to Home Screen prompt.
 
 ### Android
 
@@ -64,7 +72,9 @@ pnpm dev
 | `pnpm lint` | ESLint with auto-fix |
 | `pnpm format` | Prettier |
 | `pnpm translate` | Localization script |
-| `pnpm module:generate` | Scaffold a new module (`pnpm module:generate author@name`) |
+| `pnpm module:generate` | Scaffold a new built-in module (`pnpm module:generate author@name`) |
+| `pnpm check-registry-schema` | Check the vendored mod-registry schema for drift |
+| `pnpm fixtures:mods` | Rebuild the committed e2e fixtures of the example mods |
 | `pnpm build:android` | Web build, Capacitor sync, open Android Studio |
 | `pnpm build:ios` | Web build, Capacitor sync, open Xcode |
 
@@ -85,7 +95,9 @@ pnpm build:ios       # needs Xcode on macOS
 
 ## Privacy
 
-The app is designed to work **offline**. It does not collect personal data and does not call third-party APIs. Character sheets and settings stay in local storage / IndexedDB on the device.
+Character sheets and settings stay in local storage / IndexedDB on the device — they are never uploaded, and the app collects no personal data, has no analytics and no ads.
+
+The app works offline. Its only network use is the optional mod system: it refreshes the public mod catalog on start and downloads mods you choose to install. Those requests carry no character data. See section 5 of the privacy policy for details.
 
 Full policy (many languages): [privacy-policy/index.md](./privacy-policy/index.md). English: [privacy-policy/languages/en.md](./privacy-policy/languages/en.md).
 
@@ -109,14 +121,14 @@ and is *not* covered by the MIT License. The license requires:
 
 > This work is based on Fate Condensed (found at https://www.faterpg.com/), a product of Evil
 > Hat Productions, LLC, developed, authored, and edited by PK Sullivan, Lara Turner, Fred
-> Hicks, Richard Bellingham, Robert Hanz, and Sophie Lagacé, and licensed for our use under
+> Hicks, Richard Bellingham, Robert Hanz, and Sophie LagacÃ©, and licensed for our use under
 > the Creative Commons Attribution 3.0 Unported license.
 
 **Trademarks** belong to Evil Hat Productions, LLC and are not licensed under MIT or CC BY:
 
-> Fate™ is a trademark of Evil Hat Productions, LLC. The Powered by Fate logo is © Evil Hat
+> Fateâ¢ is a trademark of Evil Hat Productions, LLC. The Powered by Fate logo is Â© Evil Hat
 > Productions, LLC and is used with permission.
 
 The Fate Core logo is a trademark of Evil Hat Productions, LLC and is not used in this project.
 
-See [ATTRIBUTION.md](./ATTRIBUTION.md) for the full notice (this is also what the in-app Legal page shows).
+Full notice (many languages): [attribution/index.md](./attribution/index.md). English: [attribution/languages/en.md](./attribution/languages/en.md) (also what the in-app Legal page shows). Mandatory CC-BY and trademark notices remain in English in every locale.

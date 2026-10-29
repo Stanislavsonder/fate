@@ -30,6 +30,21 @@
 		"remove-message": "Are you sure you want to remove this character?",
 		"save": "Save character",
 		"share": "Share character",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Character version is outdated. Do you want to update it?",
 		"updated": "Character updated successfully from v{from} to v{to}!",
 		"your-characters": "Your characters"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Add mock character",
-		"enabled": "Debug mode enabled"
+		"add-mock-character": "Add mock character"
 	},
 	"errors": {
 		"boundary": {
@@ -129,6 +143,7 @@
 		},
 		"export": "Export modules configuration",
 		"exportSuccess": "Modules exported successfully!",
+		"external": "External",
 		"import": {
 			"error": {
 				"extension": "Could not import modules. File extension must end with .fmod",
@@ -185,24 +200,134 @@
 				"title": "Legal & Attribution"
 			},
 			"license": "License",
-			"original-author": "Creators of Fate Core",
 			"privacy-policy": {
 				"accept-policy": "I've read and accept the privacy policy",
 				"acceptance-date": "Acceptance date: {value}",
 				"not-accepted": "Privacy policy not accepted. Go to settings, read and accept it. Otherwise you can't use the app.",
 				"title": "Privacy policy",
-				"updated": "Privacy policy updated on {value}. Please read and accept it. Otherwise you can't use the app."
+				"updated": "Welcome Back! We've made a few updates to our terms, so we need you to confirm them once more."
 			},
 			"source-code": "Source code",
 			"title": "About the app",
 			"version": "Version"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Show debug information",
+				"toggleDescription": "Shows extra debug tools across the app — the dice physics debugger and hidden developer pages."
+			},
+			"devMod": {
+				"connect": "Connect",
+				"connected": "Connected to \"{id}\"",
+				"disconnect": "Disconnect",
+				"error": "Could not connect to dev mod. {error}",
+				"title": "Connect dev mod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "You are installing \"{id}\" from outside the reviewed registry. It will run with full access to the app and your character data. Type \"{id}\" or \"install\" to confirm.",
+				"confirmPlaceholder": "Type to confirm",
+				"confirmTitle": "Install external code?",
+				"error": "Could not install mod. {error}",
+				"install": "Install",
+				"success": "\"{id}\" installed",
+				"title": "Install from URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Point the Mod Store at a staging registry instead of the real one. Leave blank to use the default.",
+				"save": "Save",
+				"title": "Registry base URL override"
+			},
+			"title": "Developer",
+			"toggle": "Developer Mode",
+			"toggleDescription": "Enables installing mods from a URL. Only for mod authors and testers — mods run with full access to the app."
+		},
 		"language": "Language",
+		"mods": {
+			"actions": {
+				"disable": "Disable",
+				"enable": "Enable",
+				"remove": "Remove",
+				"removeAnyway": "Remove anyway",
+				"retry": "Retry",
+				"update": "Update"
+			},
+			"blocked": "\"{id}\" was disabled — its version was flagged as unsafe. Check the Mod Store for an update.",
+			"browse": {
+				"compatibleOnly": "Compatible with this app only",
+				"empty": "No mods found",
+				"incompatible": "Not compatible with this app version",
+				"loadError": "Could not load the mod store. {error}",
+				"offline": "Could not refresh - showing cached results",
+				"searchPlaceholder": "Search mods",
+				"stale": "Showing cached results - pull to refresh"
+			},
+			"detail": {
+				"author": "By {name}",
+				"blocked": "This version is blocked",
+				"config": "Configuration options",
+				"downgrade": "Downgrade",
+				"install": "Install",
+				"installed": "Installed",
+				"installing": "Installing…",
+				"latest": "latest",
+				"readme": "About",
+				"remove": "Remove",
+				"removing": "Removing…",
+				"update": "Update",
+				"updateAvailable": "Update available",
+				"updating": "Updating…",
+				"versions": "Versions"
+			},
+			"empty": "No mods installed",
+			"errors": {
+				"action": "Could not complete the action. {error}",
+				"list": "Could not load installed mods. {error}",
+				"uninstallPartial": "Removed, but the mod could not clean up its data on: {characters}"
+			},
+			"installSuccess": "\"{id}\" installed",
+			"reloadPrompt": {
+				"later": "Later",
+				"message": "Mod changes take effect after the app restarts.",
+				"now": "Restart now",
+				"title": "Restart required"
+			},
+			"removeConfirm": {
+				"inUse": "Used by: {characters}",
+				"willUninstall": "Removing it will uninstall this mod from those characters."
+			},
+			"restartToApply": "Restart to apply changes",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registry",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Disabled",
+				"errored": "Error",
+				"loaded": "Loaded"
+			},
+			"tabs": {
+				"browse": "Browse",
+				"installed": "Installed"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" updated"
+		},
 		"theme": {
 			"dark": "Dark",
+			"defaultSkin": "Default",
 			"light": "Light",
 			"system": "System",
 			"title": "Theme"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Install \"{module}\" from the Mod Store",
+			"notInstalled": "\"{module}\" is not installed",
+			"openModStore": "Open Mod Store"
 		}
 	},
 	"tabs": {

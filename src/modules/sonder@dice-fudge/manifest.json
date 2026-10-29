@@ -1,0 +1,19 @@
+{
+	"author": {
+		"email": "stanislavsonder@gmail.com",
+		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["dice"],
+	"description": {
+		"full": "Standard 4dF Fudge/Fate dice, with +, -, and blank faces.",
+		"short": "Standard 4dF Fudge/Fate dice."
+	},
+	"entry": "bundle.mjs",
+	"id": "sonder@dice-fudge",
+	"languages": ["en"],
+	"loadPriority": 1000,
+	"name": "Fudge Dice",
+	"sdk": "^3.0.0",
+	"tags": ["dice"],
+	"version": "1.0.0"
+}

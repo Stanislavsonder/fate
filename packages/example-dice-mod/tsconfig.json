@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		// Required because vite.config.ts imports @fate-app/mod-build, whose
+		// relative imports use explicit .ts extensions (needed for Node's native
+		// ESM loader when Vite loads a *consuming* config file — see
+		// mod-build/src/index.ts). Any project depending on mod-build needs this.
+		"allowImportingTsExtensions": true,
+		"esModuleInterop": true,
+		"isolatedModules": true,
+		"lib": ["ESNext", "DOM"],
+		"module": "ESNext",
+		"moduleResolution": "bundler",
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"types": ["vite/client"],
+		"useDefineForClassFields": true
+	},
+	"exclude": ["dist"],
+	"include": ["**/*.ts"]
+}

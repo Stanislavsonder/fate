@@ -1,6 +1,6 @@
-import type { Character as _Character } from '@/types'
+import type { Character as _Character } from '@fate-app/mod-types'
 
-declare module '@/types' {
+declare module '@fate-app/mod-types' {
 	interface Character {
 		notes?: string
 	}

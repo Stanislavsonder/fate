@@ -5,7 +5,8 @@ const character: Character = {
 	_modules: {},
 	id: -1,
 	_version: version,
-	name: ''
+	name: '',
+	avatar: ''
 }
 
 export default {

@@ -27,9 +27,9 @@ console.log(`Module root folder: ${moduleRootFolder}`)
 function generateTypeExtensions() {
 	console.log('Generating type extensions...')
 
-	const content = `import type { Character as _Character, FateConstants as _FateConstants } from '@/types'
+	const content = `import type { Character as _Character, FateConstants as _FateConstants } from '@fate-app/mod-types'
 
-declare module '@/types' {
+declare module '@fate-app/mod-types' {
 	interface Character {
 		// Add your custom properties here
 	}
@@ -61,27 +61,6 @@ export function onReconfigure(context: FateContext, character: Character): Promi
 	const actionsPath = path.join(moduleRootFolder, 'src', 'actions.ts')
 	fs.writeFileSync(actionsPath, content)
 	console.log('Actions generated.')
-}
-
-function generateConfigs() {
-	console.log('Generating configs...')
-	const content = `import type { FateModuleConfig, FateModuleConfigGroup, FateModuleConfigOption } from '@/modules/utils/types'
-import manifest from '../manifest.json'
-import { signRecord } from '@/modules/utils/localizationSigners'
-
-const groups: FateModuleConfigGroup[] = signRecord([], manifest.id)
-
-const options: FateModuleConfigOption[] = signRecord([], manifest.id)
-
-export default {
-	options,
-	groups
-} as FateModuleConfig
-	`
-
-	const configsPath = path.join(moduleRootFolder, 'src', 'config.ts')
-	fs.writeFileSync(configsPath, content)
-	console.log('Configs generated.')
 }
 
 function generateFolderStructure() {
@@ -205,7 +184,14 @@ function generateManifestJson() {
 		loadPriority: 1,
 		tags: [],
 		name: 't.name',
-		version: '1.0.0'
+		version: '1.0.0',
+		sdk: '^3.0.0',
+		entry: 'bundle.mjs',
+		capabilities: ['sheetComponents'],
+		config: {
+			groups: [],
+			options: []
+		}
 	}
 
 	const manifestJsonPath = path.join(moduleRootFolder, 'manifest.json')
@@ -213,33 +199,54 @@ function generateManifestJson() {
 	console.log(`Manifest file generated: ${manifestJsonPath}`)
 }
 
-function generateIndexFile() {
-	console.log('Generating index file...')
-	const indexContent = `import type { FateModuleManifest } from '@/modules/utils/types'
-import { signRecord } from '@/modules/utils/localizationSigners'
-import manifest from './manifest.json'
-import config from './src/config'
+function generateBundleFile() {
+	console.log('Generating bundle file...')
+	const bundleContent = `import { defineFateMod } from '@fate-app/mod-types'
 import constants from './src/constants'
 import templates from './src/templates'
 import components from './src/components'
 import { onInstall, onReconfigure, onUninstall } from './src/actions'
 
-// Don't forget to update manifest.json and import file in modules index file!
-export default {
-	...signRecord(manifest, manifest.id),
-	config,
+export default defineFateMod({
 	constants,
-	components,
 	templates,
+	components,
 	onInstall,
 	onReconfigure,
 	onUninstall
-} as FateModuleManifest
+})
+	`
+
+	const bundlePath = path.join(moduleRootFolder, 'bundle.ts')
+	fs.writeFileSync(bundlePath, bundleContent)
+	console.log('Bundle file generated.')
+}
+
+function generateIndexFile() {
+	console.log('Generating index file...')
+	// Don't forget to add this module to the BUILTIN_MODS list in src/mods/builtins.ts!
+	const indexContent = `import manifest from './manifest.json'
+import bundle from './bundle'
+import { assembleMod } from '@/mods/assembleMod'
+
+export default assembleMod(manifest, bundle)
 	`
 
 	const indexPath = path.join(moduleRootFolder, 'index.ts')
 	fs.writeFileSync(indexPath, indexContent)
 	console.log('Index file generated.')
+}
+
+function generateTranslationsFile() {
+	console.log('Generating translations loader...')
+	const content = `const files = import.meta.glob<Record<string, unknown>>('./translations/*.json', { eager: true, import: 'default' })
+
+export default Object.fromEntries(Object.entries(files).map(([path, messages]) => [path.match(/([\\w-]+)\\.json$/)![1], messages]))
+	`
+
+	const translationsPath = path.join(moduleRootFolder, 'translations.ts')
+	fs.writeFileSync(translationsPath, content)
+	console.log('Translations loader generated.')
 }
 
 function main() {
@@ -248,12 +255,13 @@ function main() {
 	generateFolderStructure()
 	generateManifestJson()
 	generateTranslationFile()
+	generateTranslationsFile()
 	generateTypeExtensions()
 	generateActions()
-	generateConfigs()
 	generateComponents()
 	generateConstants()
 	generateTemplates()
+	generateBundleFile()
 	generateIndexFile()
 
 	console.log('Module generation complete.')

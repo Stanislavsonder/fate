@@ -1,6 +1,6 @@
-import type { Character as _Character, FateConstants as _FateConstants, FateShared as _FateShared } from '@/types'
+import type { Character as _Character, FateConstants as _FateConstants, FateShared as _FateShared } from '@fate-app/mod-types'
 
-declare module '@/types' {
+declare module '@fate-app/mod-types' {
 	interface Character {
 		skills?: {
 			[key: string]: number

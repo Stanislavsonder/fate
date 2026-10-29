@@ -3,10 +3,7 @@ import { IonPage, IonItem, IonNote, IonLabel, IonIcon, IonList, IonContent, IonH
 import { version, author } from '@/../package.json'
 import { openOutline } from 'ionicons/icons'
 import { isIos } from '@/utils/helpers/platform'
-import useDebug from '@/composables/useDebug'
 import { ROUTES } from '@/router'
-
-const { enableDebugMode, isDebug } = useDebug()
 
 const ABOUT_APP = {
 	version,
@@ -24,10 +21,6 @@ const ABOUT_APP = {
 	},
 	legal: {
 		url: ROUTES.SETTINGS_LEGAL
-	},
-	evilHat: {
-		title: 'Evil Hat Productions',
-		url: 'https://evilhat.com/product/fate-core-system/'
 	}
 }
 </script>
@@ -49,11 +42,7 @@ const ABOUT_APP = {
 		</ion-header>
 		<ion-content>
 			<ion-list :inset="true">
-				<ion-item
-					:button="!isDebug"
-					:detail="false"
-					@click="enableDebugMode"
-				>
+				<ion-item :detail="false">
 					<ion-label>{{ $t('settings.about-app.version') }}</ion-label>
 					<ion-note
 						slot="end"
@@ -108,23 +97,6 @@ const ABOUT_APP = {
 						class="text-sm self-center flex gap-1 items-center"
 					>
 						{{ ABOUT_APP.license.title }}
-						<ion-icon
-							class="text-lg"
-							:icon="openOutline"
-						/>
-					</ion-note>
-				</ion-item>
-
-				<ion-item
-					:href="ABOUT_APP.evilHat.url"
-					:detail="false"
-				>
-					<ion-label>{{ $t('settings.about-app.original-author') }}</ion-label>
-					<ion-note
-						slot="end"
-						class="text-sm self-center flex gap-1 items-center"
-					>
-						{{ ABOUT_APP.evilHat.title }}
 						<ion-icon
 							class="text-lg"
 							:icon="openOutline"

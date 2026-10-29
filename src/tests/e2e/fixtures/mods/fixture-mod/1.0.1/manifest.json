@@ -1,0 +1,13 @@
+{
+	"author": { "name": "Cypress Fixtures" },
+	"capabilities": ["sheetComponents"],
+	"description": { "short": "A mod that exists only to be installed by Cypress specs." },
+	"entry": "bundle.mjs",
+	"id": "e2e@fixture-mod",
+	"languages": ["en"],
+	"loadPriority": 100,
+	"name": "Fixture Mod",
+	"sdk": ">=1.0.0",
+	"tags": ["fixture"],
+	"version": "1.0.1"
+}

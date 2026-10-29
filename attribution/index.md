@@ -1,0 +1,36 @@
+# Legal & Attribution Index
+
+Below you will find links to the Legal & Attribution notice in various languages. Click on a language to view the document.
+
+The mandatory Creative Commons Attribution notices and trademark text appear in English in every language version, as required by Evil Hat Productions.
+
+- [English](languages/en.md)
+- [Français](languages/fr.md)
+- [Español](languages/es.md)
+- [Português](languages/pt.md)
+- [Italiano](languages/it.md)
+- [Deutsch](languages/de.md)
+- [Nederlands](languages/nl.md)
+- [Svenska](languages/sv.md)
+- [Norsk](languages/no.md)
+- [Dansk](languages/da.md)
+- [Suomi](languages/fi.md)
+- [Русский](languages/ru.md)
+- [Беларуская](languages/be.md)
+- [Українська](languages/uk.md)
+- [Polski](languages/pl.md)
+- [Čeština](languages/cs.md)
+- [Română](languages/ro.md)
+- [Ελληνικά](languages/el.md)
+- [Türkçe](languages/tr.md)
+- [עברית](languages/he.md)
+- [العربية](languages/ar.md)
+- [فارسی](languages/fa.md)
+- [Kiswahili](languages/sw.md)
+- [简体中文](languages/zh.md)
+- [हिन्दी](languages/hi.md)
+- [বাংলা](languages/bn.md)
+- [日本語](languages/ja.md)
+- [한국어](languages/ko.md)
+- [Bahasa Indonesia](languages/id.md)
+- [ภาษาไทย](languages/th.md)

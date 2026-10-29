@@ -1,0 +1,57 @@
+{
+	"blocklist": {},
+	"generatedAt": "2026-01-01T00:00:00.000Z",
+	"mods": [
+		{
+			"author": { "name": "Cypress Fixtures" },
+			"description": { "short": "A mod that exists only to be installed by Cypress specs." },
+			"entry": "bundle.mjs",
+			"files": {
+				"bundle.mjs": {
+					"sha256": "a5e747a857be216d4c3586da6bfd4946aefd260f3d35dd684b0785d25278a41a",
+					"size": 100,
+					"url": "mods/e2e@fixture-mod/1.0.0/bundle.mjs"
+				},
+				"manifest.json": {
+					"sha256": "fe43365e8c8c19f9a38309c9e1e6e4ef6a343dada7bb78573f63c5ca6e347285",
+					"size": 353,
+					"url": "mods/e2e@fixture-mod/1.0.0/manifest.json"
+				},
+				"translations/en.json": {
+					"sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+					"size": 3,
+					"url": "mods/e2e@fixture-mod/1.0.0/translations/en.json"
+				}
+			},
+			"id": "e2e@fixture-mod",
+			"languages": ["en"],
+			"latestVersion": "1.0.0",
+			"loadPriority": 100,
+			"name": "Fixture Mod",
+			"publishedAt": "2026-01-01T00:00:00.000Z",
+			"sdk": ">=1.0.0",
+			"strings": { "en": { "name": "E2E Fixture Mod", "short": "A mod that exists only to be installed by Cypress specs." } },
+			"tags": ["fixture"],
+			"version": "1.0.0",
+			"versions": ["1.0.0"]
+		},
+		{
+			"author": { "name": "Cypress Fixtures" },
+			"description": { "short": "Never installable - used to test the compatibility filter." },
+			"entry": "bundle.mjs",
+			"files": {},
+			"id": "e2e@incompatible-mod",
+			"languages": ["en"],
+			"latestVersion": "1.0.0",
+			"loadPriority": 100,
+			"name": "Incompatible Mod",
+			"publishedAt": "2026-01-01T00:00:00.000Z",
+			"sdk": "<0.0.1",
+			"strings": { "en": { "name": "Incompatible Mod", "short": "Never installable - used to test the compatibility filter." } },
+			"tags": ["fixture"],
+			"version": "1.0.0",
+			"versions": ["1.0.0"]
+		}
+	],
+	"schemaVersion": 1
+}

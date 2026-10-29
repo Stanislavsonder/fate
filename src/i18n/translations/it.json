@@ -30,6 +30,21 @@
 		"remove-message": "Sei sicuro di voler rimuovere questo personaggio?",
 		"save": "Salva personaggio",
 		"share": "Condividi personaggio",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "La versione del personaggio è obsoleta. Vuoi aggiornarla?",
 		"updated": "Personaggio aggiornato con successo dalla v{from} alla v{to}!",
 		"your-characters": "I tuoi personaggi"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Aggiungi personaggio di prova",
-		"enabled": "Modalità debug attivata"
+		"add-mock-character": "Aggiungi personaggio di prova"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Esporta configurazione moduli",
 		"exportSuccess": "Moduli esportati con successo!",
+		"external": "Esterno",
 		"import": {
 			"error": {
 				"extension": "Impossibile importare i moduli. L'estensione del file deve essere .fmod",
-				"parse": "Impossibile analizzare il file del personaggio. Formato JSON non valido.",
-				"read": "Errore nella lettura del file del personaggio.",
 				"validation": "Impossibile importare i moduli. Il file non è valido.",
 				"version": "Impossibile importare i moduli. La versione dei moduli è obsoleta."
 			},
@@ -188,24 +201,134 @@
 				"title": "Note legali e attribuzioni"
 			},
 			"license": "Licenza",
-			"original-author": "Creatori di Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Ho letto e accetto la politica sulla privacy",
 				"acceptance-date": "Data di accettazione: {value}",
 				"not-accepted": "Politica sulla privacy non accettata. Vai alle impostazioni, leggila e accettala. Altrimenti non puoi usare l'app.",
 				"title": "Politica sulla privacy",
-				"updated": "Politica sulla privacy aggiornata il {value}. Si prega di leggerla e accettarla. Altrimenti non puoi usare l'app."
+				"updated": "Bentornato! Abbiamo aggiornato un po' i nostri termini, quindi dobbiamo chiederti di confermarli di nuovo."
 			},
 			"source-code": "Codice sorgente",
 			"title": "Informazioni sull'app",
 			"version": "Versione"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Mostra informazioni di debug",
+				"toggleDescription": "Mostra strumenti di debug aggiuntivi nell’app: il debugger della fisica dei dadi e le pagine sviluppatore nascoste."
+			},
+			"devMod": {
+				"connect": "Connetti",
+				"connected": "Connesso a \"{id}\"",
+				"disconnect": "Disconnetti",
+				"error": "Impossibile connettersi al mod di sviluppo. {error}",
+				"title": "Connetti mod di sviluppo",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Stai installando \"{id}\" fuori dal registro verificato. Avrà accesso completo all’app e ai dati dei personaggi. Digita \"{id}\" o \"install\" per confermare.",
+				"confirmPlaceholder": "Digita per confermare",
+				"confirmTitle": "Installare codice esterno?",
+				"error": "Impossibile installare il mod. {error}",
+				"install": "Installa",
+				"success": "\"{id}\" installato",
+				"title": "Installa da URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Punta la Mod Store a un registro di staging invece di quello reale. Lascia vuoto per usare il predefinito.",
+				"save": "Salva",
+				"title": "Sostituisci URL di base del registro"
+			},
+			"title": "Sviluppatore",
+			"toggle": "Modalità sviluppatore",
+			"toggleDescription": "Consente di installare mod da un URL. Solo per autori e tester: i mod hanno accesso completo all’app."
+		},
 		"language": "Lingua",
+		"mods": {
+			"actions": {
+				"disable": "Disattiva",
+				"enable": "Attiva",
+				"remove": "Rimuovi",
+				"removeAnyway": "Rimuovi comunque",
+				"retry": "Riprova",
+				"update": "Aggiorna"
+			},
+			"blocked": "\"{id}\" è stato disattivato: questa versione è stata segnalata come non sicura. Controlla la Mod Store per un aggiornamento.",
+			"browse": {
+				"compatibleOnly": "Solo compatibili con questa app",
+				"empty": "Nessun mod trovato",
+				"incompatible": "Non compatibile con questa versione dell’app",
+				"loadError": "Impossibile caricare la Mod Store. {error}",
+				"offline": "Aggiornamento non riuscito: mostro i risultati in cache",
+				"searchPlaceholder": "Cerca mod",
+				"stale": "Risultati in cache: scorri per aggiornare"
+			},
+			"detail": {
+				"author": "Di {name}",
+				"blocked": "Questa versione è bloccata",
+				"config": "Opzioni di configurazione",
+				"downgrade": "Esegui downgrade",
+				"install": "Installa",
+				"installed": "Installato",
+				"installing": "Installazione…",
+				"latest": "più recente",
+				"readme": "Informazioni",
+				"remove": "Rimuovi",
+				"removing": "Rimozione…",
+				"update": "Aggiorna",
+				"updateAvailable": "Aggiornamento disponibile",
+				"updating": "Aggiornamento…",
+				"versions": "Versioni"
+			},
+			"empty": "Nessun mod installato",
+			"errors": {
+				"action": "Impossibile completare l’azione. {error}",
+				"list": "Impossibile caricare i mod installati. {error}",
+				"uninstallPartial": "Rimosso, ma la mod non è riuscita a ripulire i suoi dati su: {characters}"
+			},
+			"installSuccess": "\"{id}\" installato",
+			"reloadPrompt": {
+				"later": "Più tardi",
+				"message": "Le modifiche alle mod hanno effetto dopo il riavvio dell'app.",
+				"now": "Riavvia ora",
+				"title": "Riavvio necessario"
+			},
+			"removeConfirm": {
+				"inUse": "Ancora usato da: {characters}",
+				"willUninstall": "Rimuoverlo lo disinstallerà da quei personaggi."
+			},
+			"restartToApply": "Riavvia per applicare le modifiche",
+			"source": {
+				"dev": "Dev",
+				"registry": "Registro",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Disattivato",
+				"errored": "Errore",
+				"loaded": "Caricato"
+			},
+			"tabs": {
+				"browse": "Sfoglia",
+				"installed": "Installati"
+			},
+			"title": "Mod",
+			"updateSuccess": "\"{id}\" aggiornato"
+		},
 		"theme": {
 			"dark": "Scuro",
+			"defaultSkin": "Predefinito",
 			"light": "Chiaro",
 			"system": "Sistema",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installa \"{module}\" dalla Mod Store",
+			"notInstalled": "\"{module}\" non è installato",
+			"openModStore": "Apri Mod Store"
 		}
 	},
 	"tabs": {

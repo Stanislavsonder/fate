@@ -1,0 +1,7 @@
+{
+	"description": {
+		"full": "Ships one extra die shape (a standard D6) and one extra dice material — the worked example for the Modules 2.0 `dice` capability.",
+		"short": "A worked example adding a D6 die and a gold dice material."
+	},
+	"name": "Example Dice Mod"
+}

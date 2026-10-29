@@ -30,6 +30,21 @@
 		"remove-message": "Oletko varma, että haluat poistaa tämän hahmon?",
 		"save": "Tallenna hahmo",
 		"share": "Jaa hahmo",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Hahmon versio on vanhentunut. Haluatko päivittää sen?",
 		"updated": "Hahmo päivitetty onnistuneesti versiosta v{from} versioon v{to}!",
 		"your-characters": "Hahmosi"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Lisää testihahmo",
-		"enabled": "Vianmääritystila käytössä"
+		"add-mock-character": "Lisää testihahmo"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Vie moduulikonfiguraatio",
 		"exportSuccess": "Moduulit vietiin onnistuneesti!",
+		"external": "Ulkoinen",
 		"import": {
 			"error": {
 				"extension": "Moduulien tuonti epäonnistui. Tiedostopäätteen tulee olla .fmod",
-				"parse": "Hahmotiedoston jäsentäminen epäonnistui. Virheellinen JSON-muoto.",
-				"read": "Virhe hahmotiedoston lukemisessa.",
 				"validation": "Moduulien tuonti epäonnistui. Tiedosto on virheellinen.",
 				"version": "Moduulien tuonti epäonnistui. Moduulien versio on vanhentunut."
 			},
@@ -188,24 +201,134 @@
 				"title": "Oikeudelliset tiedot ja lähdemerkinnät"
 			},
 			"license": "Lisenssi",
-			"original-author": "Fate Core -luojat",
 			"privacy-policy": {
 				"accept-policy": "Olen lukenut ja hyväksyn tietosuojakäytännön",
 				"acceptance-date": "Hyväksymispäivämäärä: {value}",
 				"not-accepted": "Tietosuojakäytäntöä ei ole hyväksytty. Siirry asetuksiin, lue ja hyväksy se. Muuten et voi käyttää sovellusta.",
 				"title": "Tietosuojakäytäntö",
-				"updated": "Tietosuojakäytäntö päivitetty {value}. Lue ja hyväksy se. Muuten et voi käyttää sovellusta."
+				"updated": "Tervetuloa takaisin! Olemme päivittäneet ehtojamme hieman, joten tarvitsemme vahvistuksesi uudelleen."
 			},
 			"source-code": "Lähdekoodi",
 			"title": "Tietoa sovelluksesta",
 			"version": "Versio"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Näytä virheenkorjaustiedot",
+				"toggleDescription": "Näyttää lisävirheenkorjaustyökaluja sovelluksessa — noppfysiikan debuggerin ja piilotetut kehittäjäsivut."
+			},
+			"devMod": {
+				"connect": "Yhdistä",
+				"connected": "Yhdistetty: \"{id}\"",
+				"disconnect": "Katkaise yhteys",
+				"error": "Yhteyttä kehitysmodiin ei voitu muodostaa. {error}",
+				"title": "Yhdistä kehitysmodi",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Asennat \"{id}\" tarkistetun rekisterin ulkopuolelta. Se saa täyden pääsyn sovellukseen ja hahmotietoihin. Vahvista kirjoittamalla \"{id}\" tai \"install\".",
+				"confirmPlaceholder": "Kirjoita vahvistaaksesi",
+				"confirmTitle": "Asennetaanko ulkoinen koodi?",
+				"error": "Modia ei voitu asentaa. {error}",
+				"install": "Asenna",
+				"success": "\"{id}\" asennettu",
+				"title": "Asenna URL-osoitteesta",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Osoita Mod Store staging-rekisteriin oikean sijaan. Jätä tyhjäksi käyttääksesi oletusta.",
+				"save": "Tallenna",
+				"title": "Korvaa rekisterin perus-URL"
+			},
+			"title": "Kehittäjä",
+			"toggle": "Kehittäjätila",
+			"toggleDescription": "Mahdollistaa modejen asennuksen URL-osoitteesta. Vain tekijöille ja testaajille — modit saavat täyden pääsyn sovellukseen."
+		},
 		"language": "Kieli",
+		"mods": {
+			"actions": {
+				"disable": "Poista käytöstä",
+				"enable": "Ota käyttöön",
+				"remove": "Poista",
+				"removeAnyway": "Poista silti",
+				"retry": "Yritä uudelleen",
+				"update": "Päivitä"
+			},
+			"blocked": "\"{id}\" poistettiin käytöstä — tämä versio merkittiin turvattomaksi. Tarkista päivitys Mod Storesta.",
+			"browse": {
+				"compatibleOnly": "Vain tämän sovelluksen kanssa yhteensopivat",
+				"empty": "Modeja ei löytynyt",
+				"incompatible": "Ei yhteensopiva tämän sovellusversion kanssa",
+				"loadError": "Mod Storea ei voitu ladata. {error}",
+				"offline": "Päivitys epäonnistui — näytetään välimuistin tulokset",
+				"searchPlaceholder": "Etsi modeja",
+				"stale": "Välimuistin tulokset — vedä päivittääksesi"
+			},
+			"detail": {
+				"author": "Tekijä: {name}",
+				"blocked": "Tämä versio on estetty",
+				"config": "Asetusvaihtoehdot",
+				"downgrade": "Vaihda vanhempaan versioon",
+				"install": "Asenna",
+				"installed": "Asennettu",
+				"installing": "Asennetaan…",
+				"latest": "uusin",
+				"readme": "Tietoja",
+				"remove": "Poista",
+				"removing": "Poistetaan…",
+				"update": "Päivitä",
+				"updateAvailable": "Päivitys saatavilla",
+				"updating": "Päivitetään…",
+				"versions": "Versiot"
+			},
+			"empty": "Ei asennettuja modeja",
+			"errors": {
+				"action": "Toimintoa ei voitu suorittaa. {error}",
+				"list": "Asennettuja modeja ei voitu ladata. {error}",
+				"uninstallPartial": "Poistettu, mutta modi ei pystynyt siivoamaan tietojaan hahmoilta: {characters}"
+			},
+			"installSuccess": "\"{id}\" asennettu",
+			"reloadPrompt": {
+				"later": "Myöhemmin",
+				"message": "Modimuutokset tulevat voimaan, kun sovellus käynnistetään uudelleen.",
+				"now": "Käynnistä uudelleen nyt",
+				"title": "Uudelleenkäynnistys tarvitaan"
+			},
+			"removeConfirm": {
+				"inUse": "Vielä käytössä: {characters}",
+				"willUninstall": "Poistaminen poistaa tämän modin niiltä hahmoilta."
+			},
+			"restartToApply": "Käynnistä uudelleen ottaaksesi muutokset käyttöön",
+			"source": {
+				"dev": "Dev",
+				"registry": "Rekisteri",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Pois käytöstä",
+				"errored": "Virhe",
+				"loaded": "Ladattu"
+			},
+			"tabs": {
+				"browse": "Selaa",
+				"installed": "Asennetut"
+			},
+			"title": "Modit",
+			"updateSuccess": "\"{id}\" päivitetty"
+		},
 		"theme": {
 			"dark": "Tumma",
+			"defaultSkin": "Oletus",
 			"light": "Vaalea",
 			"system": "Järjestelmä",
 			"title": "Teema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Asenna \"{module}\" Mod Storesta",
+			"notInstalled": "\"{module}\" ei ole asennettu",
+			"openModStore": "Avaa Mod Store"
 		}
 	},
 	"tabs": {

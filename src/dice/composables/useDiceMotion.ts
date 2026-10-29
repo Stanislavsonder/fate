@@ -4,7 +4,7 @@ import { Haptics, ImpactStyle } from '@capacitor/haptics'
 import type { AccelListenerEvent } from '@capacitor/motion'
 import { isIos } from '@/utils/helpers/platform'
 import { ACCEL_THRESHOLD, MAX_DICE_VELOCITY, WALL_PROXIMITY_THRESHOLD, WALL_CORRECTION_STRENGTH } from '@/dice/constants'
-import type { ICollisionEvent } from 'cannon'
+import type { DiceCollisionEvent } from '@fate-app/mod-types'
 import type { Dice } from '../shapes'
 import { getWallEscapeVector } from './useDicePhysics'
 
@@ -130,7 +130,7 @@ let hapticsSupported = true
  * Handles dice collision effects (haptic feedback)
  */
 export function handleDiceCollision(
-	event: ICollisionEvent,
+	event: DiceCollisionEvent,
 	isHapticEnabled: boolean,
 	velocityThreshold: number,
 	lastCollisionTime: { current: number },

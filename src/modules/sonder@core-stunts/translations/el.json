@@ -1,5 +1,8 @@
 {
 	"addNew": "Προσθήκη κόλπου",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Προσθέστε Κατορθώματα Fate Core",
 		"short": "Προσθέστε Κατορθώματα Fate Core."

@@ -1,10 +1,3 @@
-import type * as THREE from 'three'
-
-export class DiceMaterial {
-	constructor(
-		public readonly name: string,
-		public readonly faceMaterial: THREE.MeshStandardMaterial,
-		public readonly symbolMaterial: THREE.MeshStandardMaterial,
-		public readonly previewColor: string
-	) {}
-}
+// Single source of truth is @fate-app/mod-types (decision D7) — see
+// src/dice/shapes/index.ts for the same rationale.
+export { DiceMaterial } from '@fate-app/mod-types'

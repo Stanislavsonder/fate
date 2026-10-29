@@ -1,5 +1,8 @@
 {
 	"addNew": "Numara ekle",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Fate Core Akrobatik Hareketlerini Ekleyin",
 		"short": "Fate Core Akrobatik Hareketlerini Ekleyin."

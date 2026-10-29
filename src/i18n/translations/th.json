@@ -30,6 +30,21 @@
 		"remove-message": "คุณแน่ใจหรือว่าต้องการลบตัวละครนี้?",
 		"save": "บันทึกตัวละคร",
 		"share": "แชร์ตัวละคร",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "เวอร์ชันของตัวละครล้าสมัย คุณต้องการอัปเดตหรือไม่?",
 		"updated": "ตัวละครอัปเดตสำเร็จจาก v{from} เป็น v{to}!",
 		"your-characters": "ตัวละครของคุณ"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "เพิ่มตัวละครทดสอบ",
-		"enabled": "เปิดใช้งานโหมดดีบัก"
+		"add-mock-character": "เพิ่มตัวละครทดสอบ"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "ส่งออกการตั้งค่าโมดูล",
 		"exportSuccess": "โมดูลถูกส่งออกเรียบร้อยแล้ว!",
+		"external": "ภายนอก",
 		"import": {
 			"error": {
 				"extension": "ไม่สามารถนำเข้าโมดูลได้ ส่วนขยายไฟล์ต้องเป็น .fmod",
-				"parse": "ไม่สามารถแยกวิเคราะห์ไฟล์ตัวละครได้ รูปแบบ JSON ไม่ถูกต้อง",
-				"read": "เกิดข้อผิดพลาดในการอ่านไฟล์ตัวละคร",
 				"validation": "ไม่สามารถนำเข้าโมดูลได้ ไฟล์ไม่ถูกต้อง",
 				"version": "ไม่สามารถนำเข้าโมดูลได้ เวอร์ชันของโมดูลล้าสมัย"
 			},
@@ -188,24 +201,134 @@
 				"title": "ข้อมูลทางกฎหมายและการระบุแหล่งที่มา"
 			},
 			"license": "ใบอนุญาต",
-			"original-author": "ผู้สร้าง Fate Core",
 			"privacy-policy": {
 				"accept-policy": "ฉันได้อ่านและยอมรับนโยบายความเป็นส่วนตัวแล้ว",
 				"acceptance-date": "วันที่ยอมรับ: {value}",
 				"not-accepted": "นโยบายความเป็นส่วนตัวยังไม่ได้รับการยอมรับ ไปที่การตั้งค่า อ่านและยอมรับ มิฉะนั้นคุณจะไม่สามารถใช้แอปได้",
 				"title": "นโยบายความเป็นส่วนตัว",
-				"updated": "นโยบายความเป็นส่วนตัวได้รับการอัปเดตเมื่อ {value} กรุณาอ่านและยอมรับ มิฉะนั้นคุณจะไม่สามารถใช้แอปได้"
+				"updated": "ยินดีต้อนรับกลับ! เราได้อัปเดตข้อกำหนดเล็กน้อย จึงขอให้คุณยืนยันอีกครั้ง"
 			},
 			"source-code": "ซอร์สโค้ด",
 			"title": "เกี่ยวกับแอป",
 			"version": "เวอร์ชัน"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "แสดงข้อมูลดีบัก",
+				"toggleDescription": "แสดงเครื่องมือดีบักเพิ่มเติมในแอป — ดีบักเกอร์ฟิสิกส์ลูกเต๋าและหน้านักพัฒนาที่ซ่อนอยู่"
+			},
+			"devMod": {
+				"connect": "เชื่อมต่อ",
+				"connected": "เชื่อมต่อกับ \"{id}\" แล้ว",
+				"disconnect": "ตัดการเชื่อมต่อ",
+				"error": "เชื่อมต่อกับม็อดสำหรับนักพัฒนาไม่ได้ {error}",
+				"title": "เชื่อมต่อม็อดสำหรับนักพัฒนา",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "คุณกำลังติดตั้ง \"{id}\" จากนอกทะเบียนที่ผ่านการตรวจสอบ มันจะทำงานด้วยสิทธิ์เข้าถึงแอปและข้อมูลตัวละครเต็มรูปแบบ พิมพ์ \"{id}\" หรือ \"install\" เพื่อยืนยัน",
+				"confirmPlaceholder": "พิมพ์เพื่อยืนยัน",
+				"confirmTitle": "ติดตั้งโค้ดภายนอก?",
+				"error": "ติดตั้งม็อดไม่ได้ {error}",
+				"install": "ติดตั้ง",
+				"success": "ติดตั้ง \"{id}\" แล้ว",
+				"title": "ติดตั้งจาก URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "ชี้ Mod Store ไปยังทะเบียน staging แทนของจริง เว้นว่างเพื่อใช้ค่าเริ่มต้น",
+				"save": "บันทึก",
+				"title": "แทนที่ URL ฐานของทะเบียน"
+			},
+			"title": "นักพัฒนา",
+			"toggle": "โหมดนักพัฒนา",
+			"toggleDescription": "เปิดให้ติดตั้งม็อดจาก URL สำหรับผู้เขียนและผู้ทดสอบเท่านั้น — ม็อดทำงานด้วยสิทธิ์เข้าถึงแอปเต็มรูปแบบ"
+		},
 		"language": "ภาษา",
+		"mods": {
+			"actions": {
+				"disable": "ปิดใช้งาน",
+				"enable": "เปิดใช้งาน",
+				"remove": "ลบ",
+				"removeAnyway": "ลบอยู่ดี",
+				"retry": "ลองอีกครั้ง",
+				"update": "อัปเดต"
+			},
+			"blocked": "\"{id}\" ถูกปิดใช้งาน — เวอร์ชันนี้ถูกทำเครื่องหมายว่าไม่ปลอดภัย ตรวจสอบการอัปเดตใน Mod Store",
+			"browse": {
+				"compatibleOnly": "เฉพาะที่เข้ากันกับแอปนี้",
+				"empty": "ไม่พบม็อด",
+				"incompatible": "ไม่เข้ากันกับเวอร์ชันแอปนี้",
+				"loadError": "โหลด Mod Store ไม่ได้ {error}",
+				"offline": "รีเฟรชไม่ได้ — กำลังแสดงผลลัพธ์ที่แคชไว้",
+				"searchPlaceholder": "ค้นหาม็อด",
+				"stale": "กำลังแสดงผลลัพธ์ที่แคชไว้ — ดึงลงเพื่อรีเฟรช"
+			},
+			"detail": {
+				"author": "โดย {name}",
+				"blocked": "เวอร์ชันนี้ถูกบล็อก",
+				"config": "ตัวเลือกการตั้งค่า",
+				"downgrade": "ดาวน์เกรด",
+				"install": "ติดตั้ง",
+				"installed": "ติดตั้งแล้ว",
+				"installing": "กำลังติดตั้ง…",
+				"latest": "ล่าสุด",
+				"readme": "เกี่ยวกับ",
+				"remove": "ลบ",
+				"removing": "กำลังลบ…",
+				"update": "อัปเดต",
+				"updateAvailable": "มีอัปเดต",
+				"updating": "กำลังอัปเดต…",
+				"versions": "เวอร์ชัน"
+			},
+			"empty": "ไม่มีม็อดที่ติดตั้ง",
+			"errors": {
+				"action": "ดำเนินการไม่สำเร็จ {error}",
+				"list": "โหลดม็อดที่ติดตั้งไม่ได้ {error}",
+				"uninstallPartial": "ลบแล้ว แต่ม็อดไม่สามารถล้างข้อมูลของตนใน: {characters}"
+			},
+			"installSuccess": "ติดตั้ง \"{id}\" แล้ว",
+			"reloadPrompt": {
+				"later": "ภายหลัง",
+				"message": "การเปลี่ยนแปลงม็อดจะมีผลหลังจากรีสตาร์ทแอป",
+				"now": "รีสตาร์ทตอนนี้",
+				"title": "ต้องรีสตาร์ท"
+			},
+			"removeConfirm": {
+				"inUse": "ยังถูกใช้โดย: {characters}",
+				"willUninstall": "การลบจะถอนม็อดนี้ออกจากตัวละครเหล่านั้น"
+			},
+			"restartToApply": "เริ่มใหม่เพื่อใช้การเปลี่ยนแปลง",
+			"source": {
+				"dev": "Dev",
+				"registry": "ทะเบียน",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "ปิดใช้งาน",
+				"errored": "ข้อผิดพลาด",
+				"loaded": "โหลดแล้ว"
+			},
+			"tabs": {
+				"browse": "เรียกดู",
+				"installed": "ติดตั้งแล้ว"
+			},
+			"title": "ม็อด",
+			"updateSuccess": "อัปเดต \"{id}\" แล้ว"
+		},
 		"theme": {
 			"dark": "มืด",
+			"defaultSkin": "ค่าเริ่มต้น",
 			"light": "สว่าง",
 			"system": "ระบบ",
 			"title": "ธีม"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "ติดตั้ง \"{module}\" จาก Mod Store",
+			"notInstalled": "ยังไม่ได้ติดตั้ง \"{module}\"",
+			"openModStore": "เปิด Mod Store"
 		}
 	},
 	"tabs": {

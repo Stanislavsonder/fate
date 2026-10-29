@@ -30,6 +30,21 @@
 		"remove-message": "Er du sikker på, at du vil fjerne denne karakter?",
 		"save": "Gem karakter",
 		"share": "Del karakter",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "Karakterversionen er forældet. Vil du opdatere den?",
 		"updated": "Karakter opdateret succesfuldt fra v{from} til v{to}!",
 		"your-characters": "Dine karakterer"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Tilføj testkarakter",
-		"enabled": "Fejlretningstilstand aktiveret"
+		"add-mock-character": "Tilføj testkarakter"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Eksporter modulkonfiguration",
 		"exportSuccess": "Moduler eksporteret med succes!",
+		"external": "Ekstern",
 		"import": {
 			"error": {
 				"extension": "Kunne ikke importere moduler. Filtypen skal være .fmod",
-				"parse": "Kunne ikke fortolke karakterfil. Ugyldigt JSON-format.",
-				"read": "Fejl ved læsning af karakterfil.",
 				"validation": "Kunne ikke importere moduler. Filen er ugyldig.",
 				"version": "Kunne ikke importere moduler. Modulernes version er forældet."
 			},
@@ -188,24 +201,134 @@
 				"title": "Juridisk information og kreditering"
 			},
 			"license": "Licens",
-			"original-author": "Skaberne af Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Jeg har læst og accepterer privatlivspolitikken",
 				"acceptance-date": "Acceptdato: {value}",
 				"not-accepted": "Privatlivspolitikken er ikke accepteret. Gå til indstillinger, læs og accepter den. Ellers kan du ikke bruge appen.",
 				"title": "Privatlivspolitik",
-				"updated": "Privatlivspolitikken blev opdateret den {value}. Læs og accepter den. Ellers kan du ikke bruge appen."
+				"updated": "Velkommen tilbage! Vi har opdateret vores vilkår en smule, så vi beder dig bekræfte dem igen."
 			},
 			"source-code": "Kildekode",
 			"title": "Om appen",
 			"version": "Version"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Vis fejlfindingsoplysninger",
+				"toggleDescription": "Viser ekstra fejlfindingsværktøjer i appen — terningefysik-debuggeren og skjulte udviklersider."
+			},
+			"devMod": {
+				"connect": "Opret forbindelse",
+				"connected": "Forbundet til \"{id}\"",
+				"disconnect": "Afbryd",
+				"error": "Kunne ikke oprette forbindelse til udviklermod. {error}",
+				"title": "Tilslut udviklermod",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Du installerer \"{id}\" uden for det gennemgåede register. Det får fuld adgang til appen og dine karakterdata. Skriv \"{id}\" eller \"install\" for at bekræfte.",
+				"confirmPlaceholder": "Skriv for at bekræfte",
+				"confirmTitle": "Installer ekstern kode?",
+				"error": "Kunne ikke installere mod. {error}",
+				"install": "Installer",
+				"success": "\"{id}\" installeret",
+				"title": "Installer fra URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Peg Mod Store mod et staging-register i stedet for det rigtige. Lad stå tomt for at bruge standarden.",
+				"save": "Gem",
+				"title": "Tilsidesæt registrets basis-URL"
+			},
+			"title": "Udvikler",
+			"toggle": "Udviklertilstand",
+			"toggleDescription": "Tillader installation af mods fra en URL. Kun for forfattere og testere — mods har fuld adgang til appen."
+		},
 		"language": "Sprog",
+		"mods": {
+			"actions": {
+				"disable": "Deaktiver",
+				"enable": "Aktiver",
+				"remove": "Fjern",
+				"removeAnyway": "Fjern alligevel",
+				"retry": "Prøv igen",
+				"update": "Opdater"
+			},
+			"blocked": "\"{id}\" blev deaktiveret — denne version er markeret som usikker. Tjek Mod Store for en opdatering.",
+			"browse": {
+				"compatibleOnly": "Kun kompatible med denne app",
+				"empty": "Ingen mods fundet",
+				"incompatible": "Ikke kompatibel med denne appversion",
+				"loadError": "Kunne ikke indlæse Mod Store. {error}",
+				"offline": "Kunne ikke opdatere — viser cachelagrede resultater",
+				"searchPlaceholder": "Søg efter mods",
+				"stale": "Viser cachelagrede resultater — træk for at opdatere"
+			},
+			"detail": {
+				"author": "Af {name}",
+				"blocked": "Denne version er blokeret",
+				"config": "Konfigurationsindstillinger",
+				"downgrade": "Nedgrader",
+				"install": "Installer",
+				"installed": "Installeret",
+				"installing": "Installerer…",
+				"latest": "seneste",
+				"readme": "Om",
+				"remove": "Fjern",
+				"removing": "Fjerner…",
+				"update": "Opdater",
+				"updateAvailable": "Opdatering tilgængelig",
+				"updating": "Opdaterer…",
+				"versions": "Versioner"
+			},
+			"empty": "Ingen mods installeret",
+			"errors": {
+				"action": "Handlingen kunne ikke fuldføres. {error}",
+				"list": "Kunne ikke indlæse installerede mods. {error}",
+				"uninstallPartial": "Fjernet, men modden kunne ikke rydde sine data op hos: {characters}"
+			},
+			"installSuccess": "\"{id}\" installeret",
+			"reloadPrompt": {
+				"later": "Senere",
+				"message": "Ændringer af mods træder i kraft, når appen genstartes.",
+				"now": "Genstart nu",
+				"title": "Genstart påkrævet"
+			},
+			"removeConfirm": {
+				"inUse": "Stadig brugt af: {characters}",
+				"willUninstall": "Hvis du fjerner den, afinstalleres den fra de karakterer."
+			},
+			"restartToApply": "Genstart for at anvende ændringer",
+			"source": {
+				"dev": "Dev",
+				"registry": "Register",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Deaktiveret",
+				"errored": "Fejl",
+				"loaded": "Indlæst"
+			},
+			"tabs": {
+				"browse": "Gennemse",
+				"installed": "Installeret"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" opdateret"
+		},
 		"theme": {
 			"dark": "Mørk",
+			"defaultSkin": "Standard",
 			"light": "Lys",
 			"system": "System",
 			"title": "Tema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installer \"{module}\" fra Mod Store",
+			"notInstalled": "\"{module}\" er ikke installeret",
+			"openModStore": "Åbn Mod Store"
 		}
 	},
 	"tabs": {

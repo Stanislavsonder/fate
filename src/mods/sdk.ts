@@ -1,0 +1,142 @@
+import * as vue from 'vue'
+import type { Component } from 'vue'
+import * as vueI18n from 'vue-i18n'
+import * as ionicVue from '@ionic/vue'
+import type * as ionicons from 'ionicons/icons'
+import type * as three from 'three'
+import type * as cannonEs from 'cannon-es'
+import { deleteModData, getModData, setModData } from '@fate-app/mod-types'
+import { showErrorToast, showSuccessToast } from '@/utils/helpers/toast'
+
+/** ABI version. Bump per docs/MOD_API.md rules: minor for additions, major for anything removed/changed. */
+export const SDK_VERSION = '3.0.0'
+
+export interface FateSDK {
+	version: string
+	vue: typeof vue
+	vueI18n: typeof vueI18n
+	ionicVue: typeof ionicVue
+	/**
+	 * Empty until loadFullIconset() runs. The full ~1300-icon set (~800KB) is
+	 * only dynamically imported when there's actually an external mod to load
+	 * (see src/mods/loader.ts) — built-ins import icons normally and never
+	 * read this, so most boots never pay for it. Same "don't eagerly bundle
+	 * what nobody's using" reasoning as the built-in dice mods (see
+	 * src/dice/registerBuiltinDice.ts).
+	 */
+	ionicons: typeof ionicons | Record<string, never>
+	/**
+	 * Empty until loadDiceLibs() runs — only when there's an external
+	 * dice-capability mod to load (src/mods/loader.ts), same lazy pattern as
+	 * ionicons. `Dice`/`DiceMaterial` (the tiny, three/cannon-es-agnostic base
+	 * classes) are NOT here — authors get those as real imports from
+	 * @fate-app/mod-types, bundled directly into each mod (see
+	 * packages/mod-types/src/dice.ts for why that's safe/cheap). Experimental:
+	 * a three/cannon-es major bump is an SDK major (docs/MOD_API.md).
+	 */
+	dice: { three: typeof three; cannonEs: typeof cannonEs } | Record<string, never>
+	/**
+	 * Shared host UI components, exposed so a mod's sheet sections can look
+	 * identical to (and stay in sync with) the built-ins' — a redesign here
+	 * reaches every already-installed mod on the app's next release, with no
+	 * mod rebuild/republish needed, since mods read this live rather than
+	 * bundling their own copy. Access via `@fate-app/mod-types`'s `SheetSection`
+	 * export, not this global directly (see packages/mod-types/src/components.ts).
+	 *
+	 * Empty until loadSharedComponents() runs — only when there's an external
+	 * sheetComponents-capability mod to load (src/mods/loader.ts), same lazy
+	 * pattern as ionicons/dice. This keeps SheetSection.vue out of sdk.ts's own
+	 * eager import graph: sdk.ts is pulled in very early (before app mount), and
+	 * built-in modules already import SheetSection.vue directly — an eager
+	 * import here previously made Vite merge those normally-separate,
+	 * normally-lazy built-in-module chunks into one large shared chunk.
+	 */
+	components: { SheetSection: Component } | Record<string, never>
+	api: {
+		toast: {
+			error: typeof showErrorToast
+			success: typeof showSuccessToast
+		}
+		getModData: typeof getModData
+		setModData: typeof setModData
+		deleteModData: typeof deleteModData
+	}
+}
+
+declare global {
+	var FateSDK: FateSDK
+}
+
+/**
+ * The live SDK. The global is a non-configurable getter over this binding, so
+ * mods can read FateSDK but cannot swap it for a proxy that observes or
+ * rewrites what later-loaded mods do. The lazy loaders below replace this
+ * (frozen) object instead of the global.
+ */
+let currentSDK: FateSDK | undefined
+
+function publish(sdk: FateSDK): void {
+	currentSDK = Object.freeze(sdk)
+	if (!Object.getOwnPropertyDescriptor(globalThis, 'FateSDK')) {
+		Object.defineProperty(globalThis, 'FateSDK', {
+			get: () => currentSDK,
+			enumerable: true,
+			configurable: false
+		})
+	}
+}
+
+/** Installs the host API mod bundles are built against. Call before initMods(). */
+export function installFateSDK(): void {
+	publish({
+		version: SDK_VERSION,
+		vue,
+		vueI18n,
+		ionicVue,
+		ionicons: {},
+		dice: {},
+		components: {},
+		api: Object.freeze({
+			toast: Object.freeze({ error: showErrorToast, success: showSuccessToast }),
+			getModData,
+			setModData,
+			deleteModData
+		})
+	})
+}
+
+/**
+ * Upgrades FateSDK.ionicons from empty to the full icon set. The loader calls
+ * this once, only when there's at least one external mod row to load, so the
+ * dynamic import (and the chunk Vite splits it into) is skipped entirely for
+ * the common case of no external mods installed.
+ */
+export async function loadFullIconset(): Promise<void> {
+	const ionicons = await import('ionicons/icons')
+	publish({ ...globalThis.FateSDK, ionicons })
+}
+
+/**
+ * Upgrades FateSDK.dice from empty to { three, cannonEs }. The loader calls
+ * this once, only when there's at least one external dice-capability mod row
+ * to load, so three/cannon-es (large) stay out of the main bundle for the
+ * common case of no external dice mods. The built-in Fudge die already imports
+ * three/cannon-es directly and never reads this.
+ */
+export async function loadDiceLibs(): Promise<void> {
+	const [three, cannonEs] = await Promise.all([import('three'), import('cannon-es')])
+	publish({ ...globalThis.FateSDK, dice: Object.freeze({ three, cannonEs }) })
+}
+
+/**
+ * Upgrades FateSDK.components from empty to { SheetSection }. The loader calls
+ * this once, only when there's an external sheetComponents-capability mod row
+ * to load, so this stays a dynamic import — not a top-level one — keeping
+ * SheetSection.vue (and anything Vite would otherwise merge alongside it) out
+ * of sdk.ts's own eager bundle. Built-in modules import SheetSection.vue
+ * directly and never read this.
+ */
+export async function loadSharedComponents(): Promise<void> {
+	const { default: SheetSection } = await import('@/components/ui/SheetSection.vue')
+	publish({ ...globalThis.FateSDK, components: Object.freeze({ SheetSection }) })
+}

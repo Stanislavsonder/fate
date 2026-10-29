@@ -1,5 +1,8 @@
 {
 	"addNew": "Adicionar façanha",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Adicionar Manobras de Fate Core",
 		"short": "Adicionar Manobras de Fate Core."

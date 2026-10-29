@@ -1,0 +1,16 @@
+{
+	"config": {
+		"maxNoteLength": {
+			"name": "Max note length",
+			"tooltip": "Maximum number of characters allowed in the note field."
+		}
+	},
+	"description": {
+		"full": "Ships one sheet section with its own character-data field, a config option, and scoped CSS — the integration fixture for Modules 2.0 Phase 2.",
+		"short": "A worked example demonstrating the external mod bundle format."
+	},
+	"maxLengthNote": "Up to {value} characters",
+	"name": "Example Mod",
+	"noteLabel": "Note",
+	"title": "Example Section"
+}

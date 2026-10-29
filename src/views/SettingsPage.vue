@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { IonIcon, IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonLabel } from '@ionic/vue'
-import { informationCircle, language, moon } from 'ionicons/icons'
+import { informationCircle, language, moon, codeSlashOutline, extensionPuzzleOutline } from 'ionicons/icons'
 import { ROUTES } from '@/router'
 
 const SETTINGS = [
@@ -13,6 +13,16 @@ const SETTINGS = [
 		title: 'settings.language',
 		icon: language,
 		route: ROUTES.SETTINGS_LANGUAGE
+	},
+	{
+		title: 'settings.mods.title',
+		icon: extensionPuzzleOutline,
+		route: ROUTES.SETTINGS_MODS
+	},
+	{
+		title: 'settings.developer.title',
+		icon: codeSlashOutline,
+		route: ROUTES.SETTINGS_DEVELOPER
 	},
 	{
 		title: 'settings.about-app.title',

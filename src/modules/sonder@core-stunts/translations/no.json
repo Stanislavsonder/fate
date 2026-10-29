@@ -1,5 +1,8 @@
 {
 	"addNew": "Legg til stunt",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Legg til Fate Core Stunts",
 		"short": "Legg til Fate Core Stunts."

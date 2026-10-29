@@ -1,13 +1,19 @@
 {
-	"appVersion": "^1.1.0",
+	"appVersion": ">=2.0.0",
 	"author": {
 		"email": "stanislavsonder@gmail.com",
 		"name": "Stanislav Sonder"
+	},
+	"capabilities": ["sheetComponents"],
+	"config": {
+		"groups": [],
+		"options": []
 	},
 	"description": {
 		"full": "t.description.full",
 		"short": "t.description.short"
 	},
+	"entry": "bundle.mjs",
 	"id": "sonder@core-consequences",
 	"languages": [
 		"en",
@@ -43,6 +49,7 @@
 	],
 	"loadPriority": 1000,
 	"name": "t.name",
+	"sdk": "^3.0.0",
 	"tags": ["core", "character-sheet"],
 	"version": "1.0.0"
 }

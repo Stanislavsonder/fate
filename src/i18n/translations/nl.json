@@ -30,6 +30,21 @@
 		"remove-message": "Weet je zeker dat je dit personage wilt verwijderen?",
 		"save": "Personage opslaan",
 		"share": "Personage delen",
+		"sheet": {
+			"avatar": {
+				"actions": "Open avatar actions",
+				"errors": {
+					"fileSize": "Avatar file size exceeds {value} MB."
+				},
+				"label": "Avatar",
+				"section": "Character Avatar",
+				"upload": "Upload avatar"
+			},
+			"name": {
+				"label": "Name",
+				"placeholder": "Character name"
+			}
+		},
 		"update-message": "De versie van het personage is verouderd. Wil je deze bijwerken?",
 		"updated": "Personage succesvol bijgewerkt van v{from} naar v{to}!",
 		"your-characters": "Jouw personages"
@@ -69,8 +84,7 @@
 		}
 	},
 	"debug": {
-		"add-mock-character": "Testpersonage toevoegen",
-		"enabled": "Debugmodus ingeschakeld"
+		"add-mock-character": "Testpersonage toevoegen"
 	},
 	"errors": {
 		"boundary": {
@@ -130,11 +144,10 @@
 		},
 		"export": "Moduleconfiguratie exporteren",
 		"exportSuccess": "Modules succesvol geëxporteerd!",
+		"external": "Extern",
 		"import": {
 			"error": {
 				"extension": "Kan modules niet importeren. De bestandsextensie moet eindigen op .fmod",
-				"parse": "Kon karakterbestand niet parseren. Ongeldig JSON-formaat.",
-				"read": "Fout bij het lezen van het karakterbestand.",
 				"validation": "Kan modules niet importeren. Het bestand is ongeldig.",
 				"version": "Kan modules niet importeren. De versie van de modules is verouderd."
 			},
@@ -188,24 +201,134 @@
 				"title": "Juridisch en naamsvermelding"
 			},
 			"license": "Licentie",
-			"original-author": "Makers van Fate Core",
 			"privacy-policy": {
 				"accept-policy": "Ik heb het privacybeleid gelezen en accepteer het",
 				"acceptance-date": "Acceptatiedatum: {value}",
 				"not-accepted": "Privacybeleid niet geaccepteerd. Ga naar instellingen, lees en accepteer het. Anders kunt u de app niet gebruiken.",
 				"title": "Privacybeleid",
-				"updated": "Privacybeleid bijgewerkt op {value}. Lees en accepteer het alstublieft. Anders kunt u de app niet gebruiken."
+				"updated": "Welkom terug! We hebben onze voorwaarden een beetje bijgewerkt, dus we vragen je ze nogmaals te bevestigen."
 			},
 			"source-code": "Broncode",
 			"title": "Over de app",
 			"version": "Versie"
 		},
+		"developer": {
+			"debugInfo": {
+				"toggle": "Debuginformatie tonen",
+				"toggleDescription": "Toont extra debugtools in de app — de dobbelsteenfysica-debugger en verborgen ontwikkelaarspagina’s."
+			},
+			"devMod": {
+				"connect": "Verbinden",
+				"connected": "Verbonden met \"{id}\"",
+				"disconnect": "Verbreken",
+				"error": "Kon niet verbinden met de dev-mod. {error}",
+				"title": "Dev-mod verbinden",
+				"urlPlaceholder": "http://192.168.1.20:5199"
+			},
+			"installFromUrl": {
+				"confirmMessage": "Je installeert \"{id}\" buiten het gecontroleerde register. Het krijgt volledige toegang tot de app en je personagegegevens. Typ \"{id}\" of \"install\" om te bevestigen.",
+				"confirmPlaceholder": "Typ om te bevestigen",
+				"confirmTitle": "Externe code installeren?",
+				"error": "Kon de mod niet installeren. {error}",
+				"install": "Installeren",
+				"success": "\"{id}\" geïnstalleerd",
+				"title": "Installeren vanaf URL",
+				"urlPlaceholder": "https://example.com/mods/author-name"
+			},
+			"registryBase": {
+				"description": "Wijs de Mod Store naar een staging-register in plaats van het echte. Laat leeg voor de standaard.",
+				"save": "Opslaan",
+				"title": "Registerbasis-URL overschrijven"
+			},
+			"title": "Ontwikkelaar",
+			"toggle": "Ontwikkelaarsmodus",
+			"toggleDescription": "Maakt installatie van mods via een URL mogelijk. Alleen voor auteurs en testers — mods hebben volledige toegang tot de app."
+		},
 		"language": "Taal",
+		"mods": {
+			"actions": {
+				"disable": "Uitschakelen",
+				"enable": "Inschakelen",
+				"remove": "Verwijderen",
+				"removeAnyway": "Toch verwijderen",
+				"retry": "Opnieuw proberen",
+				"update": "Bijwerken"
+			},
+			"blocked": "\"{id}\" is uitgeschakeld — deze versie is als onveilig gemarkeerd. Controleer de Mod Store op een update.",
+			"browse": {
+				"compatibleOnly": "Alleen compatibel met deze app",
+				"empty": "Geen mods gevonden",
+				"incompatible": "Niet compatibel met deze appversie",
+				"loadError": "Kon de Mod Store niet laden. {error}",
+				"offline": "Vernieuwen mislukt — gecachte resultaten worden getoond",
+				"searchPlaceholder": "Mods zoeken",
+				"stale": "Gecachte resultaten — sleep om te vernieuwen"
+			},
+			"detail": {
+				"author": "Door {name}",
+				"blocked": "Deze versie is geblokkeerd",
+				"config": "Configuratieopties",
+				"downgrade": "Downgraden",
+				"install": "Installeren",
+				"installed": "Geïnstalleerd",
+				"installing": "Installeren…",
+				"latest": "nieuwste",
+				"readme": "Over",
+				"remove": "Verwijderen",
+				"removing": "Verwijderen…",
+				"update": "Bijwerken",
+				"updateAvailable": "Update beschikbaar",
+				"updating": "Bijwerken…",
+				"versions": "Versies"
+			},
+			"empty": "Geen mods geïnstalleerd",
+			"errors": {
+				"action": "Actie kon niet worden voltooid. {error}",
+				"list": "Kon geïnstalleerde mods niet laden. {error}",
+				"uninstallPartial": "Verwijderd, maar de mod kon zijn gegevens niet opruimen bij: {characters}"
+			},
+			"installSuccess": "\"{id}\" geïnstalleerd",
+			"reloadPrompt": {
+				"later": "Later",
+				"message": "Wijzigingen in mods worden actief nadat de app opnieuw is gestart.",
+				"now": "Nu opnieuw starten",
+				"title": "Herstart vereist"
+			},
+			"removeConfirm": {
+				"inUse": "Nog in gebruik door: {characters}",
+				"willUninstall": "Verwijderen deïnstalleert deze mod bij die personages."
+			},
+			"restartToApply": "Opnieuw starten om wijzigingen toe te passen",
+			"source": {
+				"dev": "Dev",
+				"registry": "Register",
+				"url": "URL"
+			},
+			"status": {
+				"disabled": "Uitgeschakeld",
+				"errored": "Fout",
+				"loaded": "Geladen"
+			},
+			"tabs": {
+				"browse": "Bladeren",
+				"installed": "Geïnstalleerd"
+			},
+			"title": "Mods",
+			"updateSuccess": "\"{id}\" bijgewerkt"
+		},
 		"theme": {
 			"dark": "Donker",
+			"defaultSkin": "Standaard",
 			"light": "Licht",
 			"system": "Systeem",
 			"title": "Thema"
+		}
+	},
+	"suggestions": {
+		"modules": {
+			"install": "Installeer \"{module}\" vanuit de Mod Store",
+			"notInstalled": "\"{module}\" is niet geïnstalleerd",
+			"openModStore": "Mod Store openen"
 		}
 	},
 	"tabs": {

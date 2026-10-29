@@ -1,5 +1,8 @@
 {
 	"addNew": "스턴트 추가",
+	"author": {
+		"name": "Unknown"
+	},
 	"description": {
 		"full": "Fate Core 스턴트 추가",
 		"short": "Fate Core 스턴트 추가."

@@ -1,0 +1,21 @@
+{
+	"name": "example-mod",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"dev": "node --experimental-transform-types ../mod-build/src/devCli.ts"
+	},
+	"dependencies": {
+		"@fate-app/mod-types": "workspace:*"
+	},
+	"devDependencies": {
+		"@fate-app/mod-build": "workspace:*",
+		"@ionic/vue": "8.8.15",
+		"@vitejs/plugin-vue": "6.0.8",
+		"ionicons": "8.0.13",
+		"vite": "8.1.6",
+		"vue": "3.5.44",
+		"vue-i18n": "11.4.14"
+	}
+}

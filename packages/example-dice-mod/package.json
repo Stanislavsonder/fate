@@ -1,0 +1,19 @@
+{
+	"name": "example-dice-mod",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"dev": "node --experimental-transform-types ../mod-build/src/devCli.ts"
+	},
+	"dependencies": {
+		"@fate-app/mod-types": "workspace:*"
+	},
+	"devDependencies": {
+		"@fate-app/mod-build": "workspace:*",
+		"@types/three": "0.185.1",
+		"cannon-es": "0.20.0",
+		"three": "0.185.1",
+		"vite": "8.1.6"
+	}
+}

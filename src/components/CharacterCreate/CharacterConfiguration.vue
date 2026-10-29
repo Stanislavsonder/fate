@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import { IonIcon, IonCheckbox, IonItem, IonList, IonLabel, IonNote, IonInput, IonBadge, IonButton } from '@ionic/vue'
 import { informationOutline, settings } from 'ionicons/icons'
 import type { Character, CharacterModules } from '@/types'
-import Modules from '@/modules'
+import { getSheetModules } from '@/mods/getSheetModules'
 import ModalWindow from '@/components/ui/ModalWindow.vue'
 import ModuleInfo from '@/components/CharacterCreate/ModuleInfo.vue'
 import useFate from '@/store/useFate'
@@ -28,7 +28,7 @@ const emit = defineEmits<{
 }>()
 
 const { context } = storeToRefs(useFate())
-const { selectedIds, modulesForDisplay, toggleModule, importConfiguration, getConfigs } = useModuleSelection(Modules, initialConfig)
+const { modulesForDisplay, toggleModule, importConfiguration, getConfigs } = useModuleSelection(getSheetModules(), initialConfig)
 
 const name = ref<string>(initialName || '')
 
@@ -152,7 +152,7 @@ async function update() {
 	<ion-button
 		data-testid="create-character-form-button"
 		class="mx-4 mb-8"
-		:disabled="!name || !selectedIds.size"
+		:disabled="!name"
 		expand="block"
 		color="primary"
 		@click="mode === 'update' ? update() : create()"

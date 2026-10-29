@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { IonBackButton, IonButtons, IonContent, IonHeader, IonItem, IonPage, IonTitle, IonToolbar, IonIcon, IonRadio, IonLabel, IonList } from '@ionic/vue'
+import { colorPaletteOutline } from 'ionicons/icons'
 import useTheme, { THEMES } from '@/composables/useTheme'
+import useSkins from '@/composables/useSkins'
 import { isIos } from '@/utils/helpers/platform'
 import { ROUTES } from '@/router'
 
 const { theme, setTheme } = useTheme()
+const { skinId, skins, setSkin } = useSkins()
 </script>
 
 <template>
@@ -39,6 +42,46 @@ const { theme, setTheme } = useTheme()
 						:icon="themeOption.icon"
 					/>
 					<ion-label>{{ $t(`settings.theme.${themeOption.name}`) }}</ion-label>
+				</ion-item>
+			</ion-list>
+
+			<ion-list
+				v-if="skins.length"
+				:inset="true"
+			>
+				<ion-item
+					button
+					:detail="false"
+					@click="setSkin(null)"
+				>
+					<ion-radio
+						slot="start"
+						:checked="skinId === null"
+						class="pointer-events-none"
+					/>
+					<ion-icon
+						slot="start"
+						:icon="colorPaletteOutline"
+					/>
+					<ion-label>{{ $t('settings.theme.defaultSkin') }}</ion-label>
+				</ion-item>
+				<ion-item
+					v-for="skin in skins"
+					:key="skin.id"
+					button
+					:detail="false"
+					@click="setSkin(skin.id)"
+				>
+					<ion-radio
+						slot="start"
+						:checked="skinId === skin.id"
+						class="pointer-events-none"
+					/>
+					<ion-icon
+						slot="start"
+						:icon="colorPaletteOutline"
+					/>
+					<ion-label>{{ $t(skin.name) }}</ion-label>
 				</ion-item>
 			</ion-list>
 		</ion-content>

@@ -34,7 +34,10 @@ function openConfigMenu() {
 					{{ $t('tabs.roll-dice.title') }}
 				</ion-title>
 				<ion-buttons slot="end">
-					<ion-button @click="openConfigMenu">
+					<ion-button
+						data-testid="roll-config-open"
+						@click="openConfigMenu"
+					>
 						<ion-icon
 							slot="icon-only"
 							:icon="options"
