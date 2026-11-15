@@ -151,7 +151,9 @@ export function useModuleSelection(allModules: Map<string, FateModuleManifest>, 
 		for (const m of modulesForDisplay.value) {
 			if (m.isSelected) {
 				finalModules[m.id] = {
-					version: m.version,
+					// Keep the version the character's data is actually in, so pending mod
+					// patches still run on save; only newly added modules start at the latest.
+					version: initialConfiguration?.[m.id]?.version ?? m.version,
 					config: m.configuration
 				}
 			}

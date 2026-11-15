@@ -5,9 +5,7 @@ import { Directory, Encoding, Filesystem } from '@capacitor/filesystem'
 import { Share } from '@capacitor/share'
 import { isWeb } from '@/utils/helpers/platform'
 import { clone } from '@/utils/helpers/clone'
-import { showSuccessToast, showErrorToast, showWarningToast } from '@/utils/helpers/toast'
-import { version as appVersion } from '../../package.json'
-import * as semver from 'semver'
+import { showSuccessToast, showErrorToast } from '@/utils/helpers/toast'
 
 class CharacterService {
 	CHARACTER_EXTENSION = '.fchar'
@@ -226,15 +224,6 @@ class CharacterService {
 			if (typeof typedChar._version !== 'string') {
 				console.error('Character version must be a string')
 				return false
-			}
-
-			// Check if character version is lower than app major version using semver
-			const appMajor = semver.major(appVersion)
-			const charMajor = semver.valid(typedChar._version) ? semver.major(typedChar._version) : 0
-
-			if (charMajor < appMajor) {
-				console.warn(`Character version (${typedChar._version}) is lower than app major version (${appVersion})`)
-				showWarningToast('character.import.warning.version')
 			}
 		}
 

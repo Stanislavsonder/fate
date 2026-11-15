@@ -154,6 +154,7 @@
 			"success": "Moduły zostały pomyślnie zaimportowane!",
 			"title": "Importuj moduły z pliku"
 		},
+		"incompatibleVersion": "Nie udało się zaktualizować modułu {module} do v{version}, więc został usunięty z tej postaci.",
 		"installed": "Zainstalowane moduły ({value}):",
 		"save": "Zapisz konfigurację modułów",
 		"selected": "Wybrane moduły",

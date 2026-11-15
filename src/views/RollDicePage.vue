@@ -7,11 +7,24 @@ import { ref, watch } from 'vue'
 import type { DiceSceneConfig } from '@/dice/composables/useDiceScene'
 import { DEFAULT_DICE_SCENE_CONFIG } from '@/dice/composables/useDiceScene'
 import { clone } from '@/utils/helpers/clone'
+import merge from 'lodash/merge'
 
 const isConfigModalOpen = ref<boolean>(false)
-const savedConfig: DiceSceneConfig = localStorage.getItem('dice-roll-config') && JSON.parse(localStorage.getItem('dice-roll-config')!)
+// A corrupt or outdated saved config must never take the page down: fall back to
+// defaults, and fill in fields added since the config was saved.
+function loadSavedConfig(): DiceSceneConfig {
+	try {
+		const parsed: unknown = JSON.parse(localStorage.getItem('dice-roll-config') ?? 'null')
+		if (parsed && typeof parsed === 'object') {
+			return merge(clone(DEFAULT_DICE_SCENE_CONFIG), parsed)
+		}
+	} catch (error) {
+		console.error('Failed to parse saved dice config', error)
+	}
+	return clone(DEFAULT_DICE_SCENE_CONFIG)
+}
 
-const config = ref<DiceSceneConfig>(savedConfig ?? clone(DEFAULT_DICE_SCENE_CONFIG))
+const config = ref<DiceSceneConfig>(loadSavedConfig())
 
 watch(
 	config,

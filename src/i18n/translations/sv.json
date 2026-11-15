@@ -154,6 +154,7 @@
 			"success": "Moduler importerade framgångsrikt!",
 			"title": "Importera moduler från fil"
 		},
+		"incompatibleVersion": "Modulen {module} kunde inte uppdateras till v{version} och har tagits bort från den här rollpersonen.",
 		"installed": "Installerade moduler ({value}):",
 		"save": "Spara modulkonfiguration",
 		"selected": "Valda moduler",

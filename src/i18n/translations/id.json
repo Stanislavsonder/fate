@@ -154,6 +154,7 @@
 			"success": "Modul berhasil diimpor!",
 			"title": "Impor modul dari file"
 		},
+		"incompatibleVersion": "Modul {module} tidak dapat diperbarui ke v{version} dan telah dihapus dari karakter ini.",
 		"installed": "Modul yang terpasang ({value}):",
 		"save": "Simpan konfigurasi modul",
 		"selected": "Modul yang Dipilih",

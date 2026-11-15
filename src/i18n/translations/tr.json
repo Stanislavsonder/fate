@@ -154,6 +154,7 @@
 			"success": "Modüller başarıyla içe aktarıldı!",
 			"title": "Dosyadan modüller içe aktar"
 		},
+		"incompatibleVersion": "{module} modülü v{version} sürümüne güncellenemedi ve bu karakterden kaldırıldı.",
 		"installed": "Yüklenen modüller ({value}):",
 		"save": "Modül yapılandırmasını kaydet",
 		"selected": "Seçilen modüller",

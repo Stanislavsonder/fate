@@ -154,6 +154,7 @@
 			"success": "Moduulit tuotu onnistuneesti!",
 			"title": "Tuo moduulit tiedostosta"
 		},
+		"incompatibleVersion": "Moduulia {module} ei voitu päivittää versioon v{version}, joten se poistettiin tältä hahmolta.",
 		"installed": "Asennetut moduulit ({value}):",
 		"save": "Tallenna moduulien määritys",
 		"selected": "Valitut moduulit",

@@ -1,8 +1,8 @@
 import { ModRegistry } from '@/mods/modRegistry'
 import type { FateContext, Character, CharacterModule } from '@/types'
 import semver from 'semver'
-import { getPatches } from '@/utils/helpers/getPatches'
-import { showErrorToast, showSuccessToast, showWarningToast } from '@/utils/helpers/toast'
+import { getPatches, getPatchNotes } from '@/utils/helpers/getPatches'
+import { showErrorToast, showSuccessToast, showToast, showWarningToast } from '@/utils/helpers/toast'
 import i18n from '@/i18n'
 
 const { t } = i18n.global
@@ -25,7 +25,9 @@ export async function updateModule(context: FateContext, character: Character, i
 	const latestVersion = moduleManifest.version
 	const installedVersion = module.version
 
-	if (installedVersion && semver.neq(installedVersion, latestVersion)) {
+	// After a downgrade the character's data is already in the newer shape: keep its
+	// recorded version so re-upgrading doesn't re-run patches on migrated data.
+	if (installedVersion && semver.gt(latestVersion, installedVersion)) {
 		const patches = getPatches(moduleManifest.patches || [], installedVersion)
 
 		if (patches.length > 0) {
@@ -36,13 +38,12 @@ export async function updateModule(context: FateContext, character: Character, i
 				return false
 			}
 
-			let notes = ''
 			for (const patch of patches) {
 				await patch.action?.(context, character)
-				notes += patch.note || ''
 			}
 
-			notes && showSuccessToast(notes)
+			const notes = getPatchNotes(patches)
+			notes && showToast(notes, 'success')
 		}
 
 		context.modules[id] = {
@@ -66,6 +67,10 @@ export async function updateModules(context: FateContext, character: Character):
 		const chracterModules = Object.entries(character._modules)
 
 		for (const [id, module] of chracterModules) {
+			// Mods missing from this device are already reported by installModules (with an "Open Mod Store" action).
+			if (!ModRegistry.get(id)) {
+				continue
+			}
 			await updateModule(context, character, id, module)
 		}
 	} catch (error) {

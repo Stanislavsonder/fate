@@ -154,6 +154,7 @@
 			"success": "¡Módulos importados con éxito!",
 			"title": "Importar módulos desde archivo"
 		},
+		"incompatibleVersion": "El módulo {module} no se pudo actualizar a la v{version} y se ha quitado de este personaje.",
 		"installed": "Módulos instalados ({value}):",
 		"save": "Guardar configuración de módulos",
 		"selected": "Módulos seleccionados",

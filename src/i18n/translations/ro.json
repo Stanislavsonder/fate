@@ -154,6 +154,7 @@
 			"success": "Module importate cu succes!",
 			"title": "Importă module din fișier"
 		},
+		"incompatibleVersion": "Modulul {module} nu a putut fi actualizat la v{version} și a fost eliminat de la acest personaj.",
 		"installed": "Module instalate ({value}):",
 		"save": "Salvează configurația modulelor",
 		"selected": "Module selectate",

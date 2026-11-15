@@ -154,6 +154,7 @@
 			"success": "Module erfolgreich importiert!",
 			"title": "Module aus Datei importieren"
 		},
+		"incompatibleVersion": "Das Modul {module} konnte nicht auf v{version} aktualisiert werden und wurde von diesem Charakter entfernt.",
 		"installed": "Installierte Module ({value}):",
 		"save": "Modulkonfiguration speichern",
 		"selected": "Ausgewählte Module",

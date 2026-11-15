@@ -154,6 +154,7 @@
 			"success": "모듈이 성공적으로 가져와졌습니다!",
 			"title": "파일에서 모듈 가져오기"
 		},
+		"incompatibleVersion": "모듈 {module}을(를) v{version}(으)로 업데이트할 수 없어 이 캐릭터에서 제거했습니다.",
 		"installed": "설치된 모듈 ({value}):",
 		"save": "모듈 구성 저장",
 		"selected": "선택된 모듈",
