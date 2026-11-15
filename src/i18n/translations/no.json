@@ -154,6 +154,7 @@
 			"success": "Moduler importert med suksess!",
 			"title": "Importer moduler fra fil"
 		},
+		"incompatibleVersion": "Modulen {module} kunne ikke oppdateres til v{version} og ble fjernet fra denne karakteren.",
 		"installed": "Installerte moduler ({value}):",
 		"save": "Lagre modulkonfigurasjon",
 		"selected": "Valgte moduler",

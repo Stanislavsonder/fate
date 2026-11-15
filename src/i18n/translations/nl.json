@@ -154,6 +154,7 @@
 			"success": "Modules succesvol geïmporteerd!",
 			"title": "Modules importeren uit bestand"
 		},
+		"incompatibleVersion": "Module {module} kon niet worden bijgewerkt naar v{version} en is van dit personage verwijderd.",
 		"installed": "Geïnstalleerde modules ({value}):",
 		"save": "Moduleconfiguratie opslaan",
 		"selected": "Geselecteerde modules",

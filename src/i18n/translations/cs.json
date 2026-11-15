@@ -154,6 +154,7 @@
 			"success": "Moduly úspěšně importovány!",
 			"title": "Importovat moduly ze souboru"
 		},
+		"incompatibleVersion": "Modul {module} se nepodařilo aktualizovat na v{version}, a proto byl z této postavy odebrán.",
 		"installed": "Nainstalované moduly ({value}):",
 		"save": "Uložit konfiguraci modulů",
 		"selected": "Vybrané moduly",

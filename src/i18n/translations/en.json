@@ -153,6 +153,7 @@
 			"success": "Modules imported successfully!",
 			"title": "Import modules from file"
 		},
+		"incompatibleVersion": "Module {module} could not be updated to v{version} and was removed from this character.",
 		"installed": "Installed modules ({value}):",
 		"save": "Save modules configuration",
 		"selected": "Selected modules",

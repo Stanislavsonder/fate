@@ -154,6 +154,7 @@
 			"success": "Moduli zimeingizwa kwa mafanikio!",
 			"title": "Ingiza moduli kutoka faili"
 		},
+		"incompatibleVersion": "Moduli {module} haikuweza kusasishwa hadi v{version} na imeondolewa kwenye mhusika huyu.",
 		"installed": "Moduli zilizosakinishwa ({value}):",
 		"save": "Hifadhi usanidi wa moduli",
 		"selected": "Moduli Zilizochaguliwa",

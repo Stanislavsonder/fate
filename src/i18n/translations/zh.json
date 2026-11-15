@@ -154,6 +154,7 @@
 			"success": "模块导入成功！",
 			"title": "从文件导入模块"
 		},
+		"incompatibleVersion": "模块 {module} 无法更新到 v{version}，已从此角色中移除。",
 		"installed": "已安装模块 ({value}):",
 		"save": "保存模块配置",
 		"selected": "已选择的模块",
