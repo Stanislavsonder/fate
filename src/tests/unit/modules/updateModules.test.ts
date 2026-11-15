@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({
 	patchAction: vi.fn(),
 	showErrorToast: vi.fn(),
 	showSuccessToast: vi.fn(),
+	showToast: vi.fn(),
 	showWarningToast: vi.fn()
 }))
 
@@ -75,6 +76,7 @@ vi.mock('@/mods/modRegistry', () => ({
 vi.mock('@/utils/helpers/toast', () => ({
 	showErrorToast: mocks.showErrorToast,
 	showSuccessToast: mocks.showSuccessToast,
+	showToast: mocks.showToast,
 	showWarningToast: mocks.showWarningToast
 }))
 
@@ -135,7 +137,8 @@ describe('updateModule', () => {
 		expect(mocks.patchAction).toHaveBeenCalledWith(context, character)
 		expect(character._modules['test@module'].version).toBe('2.0.0')
 		expect(context.modules['test@module'].version).toBe('2.0.0')
-		expect(mocks.showSuccessToast).toHaveBeenCalled()
+		expect(mocks.showToast).toHaveBeenCalledWith('Updated', 'success')
+		expect(mocks.showSuccessToast).toHaveBeenCalledWith('modules.updated', { module: 'Test Module', version: '2.0.0' })
 	})
 
 	it('skips all patch actions and removes the module when a patch is incompatible', async () => {
@@ -212,6 +215,7 @@ describe('updateModules', () => {
 		expect(result).toBe(true)
 		expect(character._modules['missing@module']).toEqual({ version: '1.0.0', config: { keep: true } })
 		expect(character._modules['test@module'].version).toBe('2.0.0')
-		expect(mocks.showErrorToast).toHaveBeenCalledWith('errors.module.notFound', { module: 'missing@module' })
+		// installModules already reports mods missing from this device; don't stack a second "not found" toast.
+		expect(mocks.showErrorToast).not.toHaveBeenCalled()
 	})
 })
