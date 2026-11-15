@@ -433,8 +433,15 @@ jobs:
         with:
           node-version-file: 'package.json'
 
+      - name: Download release notes
+        uses: actions/download-artifact@v7
+        with:
+          name: release-notes
+          path: release-artifacts
+
       - name: Submit to App Store
         env:
+          WHATS_NEW_PATH: release-artifacts/whatsnew/whatsnew-en-US
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
           ASC_PRIVATE_KEY: ${{ secrets.ASC_PRIVATE_KEY }}
