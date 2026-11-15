@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { createPrivateKey, sign } from 'node:crypto'
+import { readFileSync } from 'node:fs'
 
 const APP_ID = '6782209520'
 const BUNDLE_ID = 'com.sonder.fatecore'
@@ -9,6 +10,7 @@ const POLL_INTERVAL_MS = 60_000
 const POLL_TIMEOUT_MS = 60 * 60 * 1000
 const JWT_TTL_SECONDS = 19 * 60
 const JWT_REFRESH_SKEW_SECONDS = 2 * 60
+const WHATS_NEW_LIMIT = 4000
 
 const IN_REVIEW_STATES = new Set(['WAITING_FOR_REVIEW', 'IN_REVIEW', 'WAITING_FOR_EXPORT_COMPLIANCE'])
 const INFLIGHT_STATES = new Set([
@@ -37,6 +39,7 @@ type AppAttrs = { bundleId?: string; name?: string }
 type VersionAttrs = { versionString?: string; appStoreState?: string; platform?: string }
 type BuildAttrs = { version?: string; processingState?: string; expired?: boolean }
 type ReviewSubmissionAttrs = { state?: string; platform?: string }
+type LocalizationAttrs = { locale?: string; whatsNew?: string | null }
 
 type Jwt = { token: string; exp: number }
 
@@ -64,15 +67,21 @@ function formatAscErrors(body: unknown): string {
 	if (!body || typeof body !== 'object' || !('errors' in body) || !Array.isArray(body.errors)) {
 		return ''
 	}
-	return body.errors
-		.map((error: unknown) => {
-			if (!error || typeof error !== 'object') {
-				return String(error)
-			}
-			const record = error as { title?: string; detail?: string; code?: string }
-			return [record.code, record.title, record.detail].filter(Boolean).join(' — ')
-		})
-		.join('; ')
+	return body.errors.map(formatAscError).join('; ')
+}
+
+// ASC puts the actual reasons for STATE_ERROR responses (missing metadata, etc.) in meta.associatedErrors,
+// keyed by the resource path they belong to. Without them a 409 says nothing useful.
+function formatAscError(error: unknown): string {
+	if (!error || typeof error !== 'object') {
+		return String(error)
+	}
+	const record = error as { title?: string; detail?: string; code?: string; meta?: { associatedErrors?: Record<string, unknown[]> } }
+	const line = [record.code, record.title, record.detail].filter(Boolean).join(' — ')
+	const associated = Object.entries(record.meta?.associatedErrors ?? {}).flatMap(([resource, errors]) =>
+		(Array.isArray(errors) ? errors : []).map(inner => `\n    ${resource}: ${formatAscError(inner)}`)
+	)
+	return line + associated.join('')
 }
 
 function normalizePrivateKey(raw: string): string {
@@ -103,6 +112,16 @@ const issuerId = requireEnv('ASC_ISSUER_ID')
 const privateKey = normalizePrivateKey(requireEnv('ASC_PRIVATE_KEY'))
 const version = requireEnv('VERSION')
 const buildNumber = requireEnv('BUILD_NUMBER')
+const whatsNew = readWhatsNew(requireEnv('WHATS_NEW_PATH'))
+
+function readWhatsNew(filePath: string): string {
+	const text = readFileSync(filePath, 'utf-8').trim()
+	if (!text) {
+		console.error(`What's New text at ${filePath} is empty`)
+		process.exit(1)
+	}
+	return text.slice(0, WHATS_NEW_LIMIT)
+}
 
 let jwt: Jwt = { token: '', exp: 0 }
 
@@ -150,7 +169,8 @@ async function listIosVersions(): Promise<Resource<VersionAttrs>[]> {
 }
 
 function skip(message: string): never {
-	console.log(`Skipping App Store submit: ${message}`)
+	// Surface as a run annotation: a skipped submit leaves the release green but not in review.
+	console.log(`::warning title=App Store submit skipped::${message}`)
 	process.exit(0)
 }
 
@@ -241,7 +261,49 @@ async function attachBuild(versionId: string, buildId: string): Promise<void> {
 	})
 }
 
+// Updates require "What's New" in every locale of the version, or ASC rejects the review item with
+// STATE_ERROR.ENTITY_STATE_INVALID. One text is used for all locales (release notes are English-only).
+async function setWhatsNew(versionId: string): Promise<void> {
+	const result = await api<Collection<Resource<LocalizationAttrs>>>('GET', `/appStoreVersions/${versionId}/appStoreVersionLocalizations?limit=50`)
+	if (result.data.length === 0) {
+		throw new Error(`Version ${versionId} has no localizations to write What's New into`)
+	}
+	for (const localization of result.data) {
+		console.log(`Setting What's New for ${localization.attributes?.locale ?? localization.id}`)
+		await api('PATCH', `/appStoreVersionLocalizations/${localization.id}`, {
+			data: { type: 'appStoreVersionLocalizations', id: localization.id, attributes: { whatsNew } }
+		})
+	}
+}
+
+// A previous failed run leaves an unsubmitted submission behind, and ASC allows only one open per platform.
+async function findOpenSubmission(): Promise<Resource<ReviewSubmissionAttrs> | undefined> {
+	const result = await api<Collection<Resource<ReviewSubmissionAttrs>>>(
+		'GET',
+		`/reviewSubmissions?filter[app]=${APP_ID}&filter[platform]=IOS&filter[state]=READY_FOR_REVIEW&limit=5`
+	)
+	return result.data[0]
+}
+
+async function submissionHasVersion(submissionId: string, versionId: string): Promise<boolean> {
+	const result = await api<Collection<Resource & { relationships?: { appStoreVersion?: { data?: { id: string } | null } } }>>(
+		'GET',
+		`/reviewSubmissions/${submissionId}/items?include=appStoreVersion&limit=50`
+	)
+	return result.data.some(item => item.relationships?.appStoreVersion?.data?.id === versionId)
+}
+
 async function submitForReview(versionId: string): Promise<void> {
+	const open = await findOpenSubmission()
+	if (open) {
+		console.log(`Reusing open review submission ${open.id}`)
+		if (!(await submissionHasVersion(open.id, versionId))) {
+			await addSubmissionItem(open.id, versionId)
+		}
+		await confirmSubmission(open.id)
+		return
+	}
+
 	console.log('Creating review submission')
 	let submission: Resource<ReviewSubmissionAttrs>
 	try {
@@ -262,22 +324,29 @@ async function submitForReview(versionId: string): Promise<void> {
 		throw error
 	}
 
-	console.log(`Adding version ${versionId} to submission ${submission.id}`)
+	await addSubmissionItem(submission.id, versionId)
+	await confirmSubmission(submission.id)
+}
+
+async function addSubmissionItem(submissionId: string, versionId: string): Promise<void> {
+	console.log(`Adding version ${versionId} to submission ${submissionId}`)
 	await api('POST', '/reviewSubmissionItems', {
 		data: {
 			type: 'reviewSubmissionItems',
 			relationships: {
-				reviewSubmission: { data: { type: 'reviewSubmissions', id: submission.id } },
+				reviewSubmission: { data: { type: 'reviewSubmissions', id: submissionId } },
 				appStoreVersion: { data: { type: 'appStoreVersions', id: versionId } }
 			}
 		}
 	})
+}
 
-	console.log(`Submitting ${submission.id}`)
-	await api('PATCH', `/reviewSubmissions/${submission.id}`, {
+async function confirmSubmission(submissionId: string): Promise<void> {
+	console.log(`Submitting ${submissionId}`)
+	await api('PATCH', `/reviewSubmissions/${submissionId}`, {
 		data: {
 			type: 'reviewSubmissions',
-			id: submission.id,
+			id: submissionId,
 			attributes: { submitted: true }
 		}
 	})
@@ -291,6 +360,7 @@ async function main(): Promise<void> {
 	const build = await waitForBuild()
 	const storeVersion = await ensureVersion(existing)
 	await attachBuild(storeVersion.id, build.id)
+	await setWhatsNew(storeVersion.id)
 	await submitForReview(storeVersion.id)
 	console.log(`Submitted ${version} (build ${buildNumber}) for review`)
 }
