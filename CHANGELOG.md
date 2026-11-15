@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.1 (2026-11-15)
+
+### Fixes
+
+- Inventory: opening the "add item" form no longer crashes the app
+- Inventory: the item color picker shows its colors again, and item quantity is limited again
+
 ## 2.0.0 (2026-10-29)
 
 ### Features
