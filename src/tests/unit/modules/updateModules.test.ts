@@ -141,6 +141,21 @@ describe('updateModule', () => {
 		expect(mocks.showSuccessToast).toHaveBeenCalledWith('modules.updated', { module: 'Test Module', version: '2.0.0' })
 	})
 
+	// Regression: a downgrade used to lower the recorded version, so upgrading again re-ran patches on migrated data.
+	it('leaves a character on a newer module version untouched after a downgrade', async () => {
+		const context = createContext()
+		const character = createCharacter({
+			_modules: { 'test@module': { version: '3.0.0' } }
+		})
+
+		const result = await updateModule(context, character, 'test@module', character._modules['test@module'])
+
+		expect(result).toBe(true)
+		expect(mocks.patchAction).not.toHaveBeenCalled()
+		expect(character._modules['test@module'].version).toBe('3.0.0')
+		expect(mocks.showSuccessToast).not.toHaveBeenCalled()
+	})
+
 	it('skips all patch actions and removes the module when a patch is incompatible', async () => {
 		const context = createContext({
 			modules: {

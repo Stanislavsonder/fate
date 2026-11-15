@@ -25,7 +25,9 @@ export async function updateModule(context: FateContext, character: Character, i
 	const latestVersion = moduleManifest.version
 	const installedVersion = module.version
 
-	if (installedVersion && semver.neq(installedVersion, latestVersion)) {
+	// After a downgrade the character's data is already in the newer shape: keep its
+	// recorded version so re-upgrading doesn't re-run patches on migrated data.
+	if (installedVersion && semver.gt(latestVersion, installedVersion)) {
 		const patches = getPatches(moduleManifest.patches || [], installedVersion)
 
 		if (patches.length > 0) {
