@@ -84,7 +84,7 @@ export async function installModule(module: FateModuleManifest, context: FateCon
 		}
 	}
 
-	await module.onInstall(context, character)
+	await module.onInstall?.(context, character)
 }
 
 export async function installModules(context: FateContext, character: Character, modules?: FateModuleManifest[]) {

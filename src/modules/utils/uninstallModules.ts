@@ -9,7 +9,7 @@ function asRecord(value: object): Record<string, unknown> {
 }
 
 export async function uninstallModule(module: FateModuleManifest, context: FateContext, character: Character) {
-	await module.onUninstall(context, character)
+	await module.onUninstall?.(context, character)
 	// Whatever the hook left behind under the mod's own prefix goes too.
 	if (MOD_ID_PATTERN.test(module.id)) {
 		deleteModData(character, module.id)

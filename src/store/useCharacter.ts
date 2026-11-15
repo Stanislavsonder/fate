@@ -50,7 +50,7 @@ const useCharacter = defineStore('character', () => {
 			}
 
 			localStorage.setItem(ID_KEY, id.toString())
-			await installCharacterModules(character.value)
+			character.value = await installCharacterModules(character.value)
 		} catch (error: unknown) {
 			localStorage.removeItem(ID_KEY)
 			character.value = undefined

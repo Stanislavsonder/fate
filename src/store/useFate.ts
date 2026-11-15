@@ -33,7 +33,6 @@ const useFate = defineStore('fate', () => {
 
 	async function installCharacterModules(character: Character): Promise<Character> {
 		isReady.value = false
-		const contextBackup = getContextClone()
 		const characterBackup = clone(character)
 		let installedCharacter: Character | undefined
 
@@ -43,6 +42,7 @@ const useFate = defineStore('fate', () => {
 			const isAppUpdated = await updateApplication(ctx, character)
 
 			if (!isAppUpdated) {
+				context.value = clone(EMPTY_FATE_CONTEXT)
 				return characterBackup
 			}
 
@@ -54,7 +54,8 @@ const useFate = defineStore('fate', () => {
 		} catch (error: unknown) {
 			const errorMessage = getErrorMessage(error)
 			await showError(`Error installing character modules: ${errorMessage}. Reverting changes.`)
-			context.value = contextBackup
+			// The previous context belongs to whichever character was open before, so never restore it here.
+			context.value = clone(EMPTY_FATE_CONTEXT)
 			return characterBackup
 		} finally {
 			isReady.value = true
@@ -95,7 +96,7 @@ const useFate = defineStore('fate', () => {
 
 			// Apply config-only changes on top of the fresh context
 			for (const m of getModules(diff.reconfigure)) {
-				m.onReconfigure(ctx, char)
+				await m.onReconfigure?.(ctx, char)
 			}
 			context.value = ctx
 			return char
