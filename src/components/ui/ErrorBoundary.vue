@@ -13,6 +13,13 @@ onErrorCaptured(err => {
 })
 
 function reload() {
+	// If the crash came from the open character's data, reopening it would crash again on
+	// every launch. Start from the character list instead (key shared with useCharacter).
+	try {
+		localStorage.removeItem('currentCharacter')
+	} catch {
+		// Storage unavailable: nothing to clear.
+	}
 	window.location.reload()
 }
 </script>
