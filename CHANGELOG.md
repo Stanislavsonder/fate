@@ -13,6 +13,10 @@
 - Aspect validation messages now talk about aspects instead of stunts
 - A character that fails to load no longer shows the previously opened character's sections, and its half-applied changes are no longer saved
 - Mods that leave out the optional install, uninstall or reconfigure hooks no longer break the characters that use them
+- A corrupt or outdated saved dice setting no longer crashes the Roll Dice page
+- After the app hits an error, "Reload" opens the character list instead of reopening the character that may have caused it
+- Downgrading and then upgrading a mod no longer re-applies its data migrations to a character
+- Saving a character's module configuration no longer skips pending mod data migrations
 
 ## 2.0.0 (2026-10-29)
 
