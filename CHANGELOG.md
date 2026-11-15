@@ -6,6 +6,13 @@
 
 - Inventory: opening the "add item" form no longer crashes the app
 - Inventory: the item color picker shows its colors again, and item quantity is limited again
+- Updating the app no longer shows an empty green notification; it says which version the character was updated from and to
+- Importing a character exported from 1.x no longer shows a raw `character.import.warning.version` message
+- A character that uses a mod you don't have shows one "not installed" notice instead of an extra "Module not found" error
+- The notice shown when a mod update can't be applied to a character now has proper text in every language
+- Aspect validation messages now talk about aspects instead of stunts
+- A character that fails to load no longer shows the previously opened character's sections, and its half-applied changes are no longer saved
+- Mods that leave out the optional install, uninstall or reconfigure hooks no longer break the characters that use them
 
 ## 2.0.0 (2026-10-29)
 
